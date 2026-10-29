@@ -23,6 +23,7 @@ jobs:
           node battle-view.test.cjs
           node battle-data.test.cjs
           node combat-data.test.cjs
+          node tactical.test.cjs
           node large-map.test.cjs
           node battle-presets.test.cjs
           node rules.test.cjs

@@ -3,7 +3,7 @@
 Working source: this folder, based on the uploaded Prototype 13 archive. The owner clarified that the earlier game was files tested in Codex, not an existing deployed website. Continue local development and testing from this version.
 
 ## Changes
-- The approved title illustration is used as a first screen with a real Thai enter button and keyboard focus handling.
+- The approved title illustration has been cleaned of painted menu buttons; the original ID/password authentication form is now on the opening screen. No extra enter screen is required.
 - The grid workshop uses a local transparent illustrated atlas for oak, cherry blossom, pine, flowering shrub, mossy rock and cave crystal props.
 - Terrain lighting, grass details, cliff faces, biome palettes and workshop panels have been refined.
 - Geometry, camera picking, movement rules and save format are unchanged. If the atlas cannot load, the procedural objects remain available.
@@ -14,7 +14,7 @@ From this directory, run `node preview.cjs`. The server uses port 4173. The app 
 
 ## Validation
 Pure checks: `node battle-view.test.cjs` and `node battle-data.test.cjs`.
-Browser checks use Playwright and installed Chromium with mocked Supabase; no player saves are touched. The adapter handles the Windows-specific imports in the original handoff tests and enters through the new title screen before those tests continue.
+Browser checks use Playwright and installed Chromium with mocked Supabase; no player saves are touched. The adapter handles the Windows-specific imports in the original handoff tests and supports the original handoff tests.
 
 In this cloud machine:
 ```sh

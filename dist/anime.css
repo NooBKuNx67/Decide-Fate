@@ -1,10 +1,19 @@
 
 :root{--anime-ink:#162d42;--anime-gold:#ead399;--anime-light:#f6f0dc}
-.title-screen{position:fixed;inset:0;z-index:1000;background:#101e2b;display:flex;align-items:center;justify-content:center}
-.title-screen img{width:100%;height:100%;object-fit:contain}
-.title-enter{position:absolute;bottom:3%;left:50%;transform:translateX(-50%);padding:15px 32px;border:1px solid var(--anime-gold);border-radius:6px;background:#142b42f2;color:var(--anime-light);font-size:18px;box-shadow:0 6px 30px #0009;cursor:pointer}
-.title-enter:hover{background:#294b65}.title-enter:focus-visible{outline:3px solid white;outline-offset:5px}
-@media(max-width:600px){.title-enter{width:90%;bottom:12%;font-size:16px}.title-screen img{object-fit:contain}}
+/* The actual authentication form lives on the illustrated opening screen. */
+#loginScreen{box-sizing:border-box;position:relative;isolation:isolate;min-height:100svh;max-width:none;margin:0;padding:clamp(24px,5vw,80px);display:flex;align-items:center;background:#122338 url('assets/login-background.png') left center/cover no-repeat}
+#loginScreen::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#081b3299,transparent 65%)}
+#loginScreen .login-art{display:none}
+#loginScreen .login-card{box-sizing:border-box;width:min(100%,420px);margin-top:150px;padding:28px;background:#10243be8;border:1px solid #d6bb7f;border-radius:12px;box-shadow:0 20px 70px #06142688;backdrop-filter:blur(10px)}
+#loginScreen .login-card h2{font-size:24px;color:#fff0ce;margin:8px 0 20px}
+#loginScreen .login-card .eyebrow{color:#e7cc91;font-size:11px;letter-spacing:2px}
+#loginScreen .login-card label{color:#f4e8ce}
+#loginScreen .login-card input{box-sizing:border-box;width:100%;background:#fdf8eb!important;color:#16324a!important;border-radius:6px}
+#loginScreen .login-card button.primary{background:#e1c78b;color:#152a3e;border:1px solid #f4dea5;font-weight:700}
+#loginScreen .login-card button.subtle{background:#18354b;color:#f1dfb8;border:1px solid #69808c}
+#loginScreen .login-card small,#loginScreen #authStatus{color:#d5dfdf;line-height:1.7}
+@media(max-width:600px){#loginScreen{padding:24px 18px;align-items:center;background-position:60% center}#loginScreen::before{background:#071b3466}#loginScreen .login-card{margin:80px auto 0;padding:24px;max-width:380px}#loginScreen .login-card h2{font-size:22px}}
+@media(max-height:700px){#loginScreen .login-card{margin-top:20px}#loginScreen{padding-block:20px}}
 #battleCanvas{border-radius:12px;box-shadow:inset 0 0 60px #273b4822}
 
 /* Parchment tools surround a clean, illustrated diorama. */

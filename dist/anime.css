@@ -45,3 +45,11 @@
 @media(max-width:600px){#loginScreen .login-card{padding:30px 24px 22px;margin-top:35px;border-radius:22px 6px 22px 6px}#loginScreen .login-card h2{font-size:24px}}
 @media(max-height:700px){#loginScreen .login-card{margin-top:20px}}
 @media(prefers-reduced-motion:reduce){#loginScreen .login-card input,#loginScreen .login-card button.primary{transition:none}#loginScreen .login-card button.primary:hover:not(:disabled){transform:none}}
+
+.rotate-screen{position:fixed;inset:0;z-index:2000;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;color:#eee5cf;background:radial-gradient(ellipse at 50% 30%,#26465d,#0b1d30 75%);overflow:auto;outline:none}
+.rotate-screen .rotate-emblem{font-size:88px;line-height:1.2;color:#e8cc8a;text-shadow:0 0 28px #dab76d44}
+.rotate-screen .eyebrow{color:#e8cc8a;letter-spacing:4px;font-size:11px;margin:20px 0 12px}
+.rotate-screen h1{font-size:clamp(21px,6vw,30px);line-height:1.5;margin:0 0 14px;color:#fff0ce}
+.rotate-screen p{font-size:15px;line-height:1.9;margin:0 0 20px}
+.rotate-screen small{font-size:12px;line-height:1.8;color:#a9bdca;max-width:280px}
+html.portrait-blocked,html.portrait-blocked body{overflow:hidden}

@@ -24,6 +24,7 @@ jobs:
           node battle-data.test.cjs
           node combat-data.test.cjs
           node tactical.test.cjs
+          node adventure.test.cjs
           node large-map.test.cjs
           node battle-presets.test.cjs
           node rules.test.cjs

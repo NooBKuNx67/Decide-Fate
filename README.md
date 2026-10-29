@@ -10,11 +10,11 @@ Read `START-HERE.md`, `DESIGN-AGREEMENTS.md` and `VISUAL-UPDATE.md` for the orig
 - Display name: Decide Fate.
 - Approved illustrated opening screen and anime-style isometric grid props are implemented in `dist/`.
 - Browser checks passed for editor operations, movement/climbing, camera picking, 40×40 scene persistence, and mobile layout. Supabase transport was mocked during QA.
-- Owner clarification: the earlier version was a set of files tested in Codex, not an existing deployed website. The current workflow is local development and testing here.
+- Owner clarification: the earlier version was a set of files tested in Codex, not an existing deployed website. Development and mocked-save testing continue here; the owner subsequently enabled GitHub Pages.
 - Treat the uploaded archive plus this checkout's changes as the working source. References to Sites/URLs in the original handoff are historical metadata, not a prerequisite for current work.
 - Existing Supabase configuration is retained; keep account, table and save identifiers compatible.
-- No website deployment is requested as part of the clarified local-testing workflow. Sites access is not a blocker for development.
-- Files have not been committed or pushed to GitHub. The selected GitHub repository returned no refs at the last check.
+- Publish through `.github/workflows/pages.yml` on pushes to `main`: https://noobkunx67.github.io/Decide-Fate/. Sites access is not required.
+- Campaign combat now supports movement, class actions, enemy AI, props, win/loss, rewards and resumable encounters. Full inventory/equipment and catalog skill effects remain future work.
 
 ## Development
 

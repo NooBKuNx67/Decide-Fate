@@ -89,7 +89,7 @@ ctx.save();poly(diamond(x,y));ctx.clip();const light=ctx.createLinearGradient(x-
  if(pathCells.has(i)){poly(diamond(x,y),'#9ce9db55','#c8ffe5');ellipse(x,y,3,1.7,'#edfff6');}if(i===state.selected){ctx.lineWidth=2;poly(diamond(x,y),'#ffe1a22a','#ffe1a2');}
  if(c.climb&&c.height>0){ctx.strokeStyle='#dac49a';ctx.lineWidth=2;const xx=x+17,yy=y+7;for(const off of [-4,4]){ctx.beginPath();ctx.moveTo(xx+off,yy);ctx.lineTo(xx+off,yy+depth-2);ctx.stroke();}for(let z=5;z<depth;z+=7){ctx.beginPath();ctx.moveTo(xx-4,yy+z);ctx.lineTo(xx+4,yy+z);ctx.stroke();}}
  object(s,c,i,p,x,y,state.ghost||(i===state.selected&&c.object==='tree'));if(c.object==='tree'&&c.climb&&!state.testing){ctx.font='bold 13px sans-serif';ctx.fillStyle='#f9e4a4';ctx.fillText('↟',x-8,y+8);}
- if(!state.testing&&c.spawn)marker(x,y,c.spawn,c.spawn==='player'?'P':'M',false,false);for(const u of unitMap.get(i)||[])marker(x,y-(u.n%2?40:0),u.side,u.number,true,u.active);
+ if(!state.testing&&c.spawn)marker(x,y,c.spawn,c.spawn==='player'?'P':'M',false,false);for(const u of unitMap.get(i)||[]){const uy=y-(u.n%2?40:0);marker(x,uy,u.side,u.number,true,u.active);if(Number.isFinite(u.hp)&&u.maxHp>0){ctx.fillStyle='#102033';ctx.fillRect(x-18,uy-51,36,4);ctx.fillStyle=u.side==='player'?'#9aebaf':'#f19b91';ctx.fillRect(x-18,uy-51,36*u.hp/u.maxHp,4);}}
  }
  const q=project(s,state.selected);ctx.font='11px sans-serif';ctx.textAlign='center';ctx.fillStyle='#fff0cb';ctx.fillText('H'+s.cells[state.selected].height,q.x,q.y+29);ctx.restore();ctx.fillStyle=s.biome==='cave'?'#e7edf9':'#355968';ctx.font='11px sans-serif';ctx.textAlign='left';ctx.fillText('DECIDE FATE  /  '+s.w+' × '+s.h+'  /  '+({meadow:'MEADOW',forest:'WOODLAND',cave:'CAVERN'}[s.biome]),18,h-17);
  }

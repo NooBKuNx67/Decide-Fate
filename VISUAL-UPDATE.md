@@ -27,7 +27,7 @@ node tools/capture-visuals.cjs
 
 On another machine, make Playwright available to Node and set PLAYWRIGHT_CHROMIUM_EXECUTABLE to its Chromium binary. Screenshots from the visual capture script are written to artifacts/qa/. The original handoff tests also write screenshots one directory above the working directory.
 
-Online deployment is outside the clarified local-testing workflow. Historical Sites metadata is not required to run or edit the game.
+The owner subsequently authorized GitHub Pages publishing through pushes to main. Historical Sites metadata is not required.
 
 ## Camp props
 Six new placeable props: tent, treasure chest, campfire, crate, barrel and signpost. All are one-cell obstacles with illustrated sprites and procedural fallback. They persist in the existing battleScenes library section; no SQL migration is needed. Props are scene decoration/obstacles only; looting and resting interactions are not implemented. Existing scenes remain compatible. Browser coverage: `node tools/qa-runtime.cjs battle-props.test.cjs` with the same NODE_PATH as above.
@@ -37,3 +37,13 @@ Added stump, fallen log, fern, cave mushroom, stalagmite and mineral crystal bru
 
 ## Ten-prop palettes
 Each recommended meadow, forest and cavern palette now has exactly ten distinct object types, available through the workshop's prop-set filter. Shared props remain usable in every biome via All. Added painted wildflowers, forest mushrooms, thorn bushes, vine-covered arches, bird nests, ancient stones, gold/ruby ore, bones, braziers, minecarts, collapsed supports and altars. These are scene props, not harvesting/quest/interaction systems. Newly generated layouts use suitable props without modifying saved scenes. Flowers, mushrooms, ferns and bones add one movement point; solid props block traversal. Pure tests verify palette counts, validation and traversal. Browser tests verify all thirty palette entries, filtering, undo/redo and mocked-cloud cross-browser restore.
+
+## Campaign combat milestone — 2026-10-29
+
+The game map now offers Tactical Expedition, using the current character and a validated scene from the existing library (meadow, forest or cave). Explore opens a forest encounter when campaign safety checks allow it. Entry costs 2 hours and 15 energy; requires 20 HP, 15 energy and no pending event. Up to three enemies use catalog names and capped HP/STR for provisional balance. One hero, six movement points, one action per turn; enemy pathfinding and retaliation, range/elevation/line-of-sight, eight provisional class skills, guard and two encounter potions are implemented.
+
+Chests supply pending gold and a potion, herbs supply potions, ore supplies pending gold, camps restore HP/mana, once per object per encounter. Winning grants 15 gold and 20 XP per enemy plus collected gold; defeat returns at 15 HP, retreat preserves remaining HP, neither grants rewards. Results settle once and clear the saved encounter. Character HP/mana persist; entry time/energy are never charged again on resume. Encounter state travels in existing local/cloud/JSON snapshots. Other activities are blocked until it is resolved. QA uses mocked Supabase only; real accounts were not touched.
+
+The workshop remains an independent movement sandbox. Combat uses existing pawn visuals, not final animated character art. Equipment, persistent item inventory, all imported spell effects, passive/race bonuses and prepared activity buffs are not implemented in this combat ruleset. Existing activity buffs remain available for the next ordinary activity. Balancing is provisional.
+
+Verification: combat-data.test.cjs covers rules, class actions, AI, loot, result settlement and malformed saves. combat.test.cjs covers actual UI movement, retaliation, refresh/resume, single reward, defeat recovery, retreat and landscape layout. Run with the documented tools/qa-runtime.cjs runner.

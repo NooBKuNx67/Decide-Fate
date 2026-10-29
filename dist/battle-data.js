@@ -1,7 +1,7 @@
 /* Serializable scene rules, independent of canvas/UI and campaign progression. */
 (function(scope){
 'use strict';
-const KEY='battleScenes:main',biomes={meadow:'ทุ่งหญ้า',forest:'ป่า',cave:'ถ้ำ'},objects={none:'พื้นโล่ง',bush:'พุ่มหญ้า',tree:'ต้นไม้',rock:'ก้อนหิน',wall:'ผนัง'},terrains={ground:'พื้นดิน',grass:'หญ้า',water:'น้ำ'};
+const KEY='battleScenes:main',biomes={meadow:'ทุ่งหญ้า',forest:'ป่า',cave:'ถ้ำ'},objects={none:'พื้นโล่ง',bush:'พุ่มหญ้า',tree:'ต้นไม้',rock:'ก้อนหิน',wall:'ผนัง',tent:'เต็นท์',chest:'กล่องสมบัติ',campfire:'กองไฟ',crate:'ลังไม้',barrel:'ถังไม้',sign:'ป้ายทาง'},terrains={ground:'พื้นดิน',grass:'หญ้า',water:'น้ำ'};
 const clone=x=>JSON.parse(JSON.stringify(x)),tile=()=>({terrain:'grass',object:'none',height:0,climb:false,spawn:'',monster:''});
 function blank(id='scene-1',biome='meadow',w=12,h=10){return {id,name:biomes[biome]+' ใหม่',biome,w,h,seed:'',cells:Array.from({length:w*h},()=>({...tile(),terrain:biome==='cave'?'ground':'grass'}))};}
 function validate(input){
@@ -11,7 +11,7 @@ function validate(input){
  if(typeof s.name!=='string'||!s.name.trim()||s.name.length>80||!Object.hasOwn(biomes,s.biome)||!Number.isInteger(s.w)||!Number.isInteger(s.h)||s.w<6||s.h<6||s.w>40||s.h>40||!Array.isArray(s.cells)||s.cells.length!==s.w*s.h||typeof s.seed!=='string'||s.seed.length>80)throw Error('ชื่อ หมวด หรือขนาดฉากไม่ถูกต้อง (6–40 ช่อง)');
  return {id:s.id,name:s.name.trim(),biome:s.biome,w:s.w,h:s.h,seed:s.seed,cells:s.cells.map(c=>{if(!c||!Object.hasOwn(terrains,c.terrain)||!Object.hasOwn(objects,c.object)||!Number.isInteger(c.height)||c.height<0||c.height>4||typeof c.climb!=='boolean'||!['','player','enemy'].includes(c.spawn)||typeof c.monster!=='string'||c.monster.length>120)throw Error('ข้อมูลช่องกริดไม่ถูกต้อง');return {terrain:c.terrain,object:c.object,height:c.height,climb:c.climb,spawn:c.spawn,monster:c.spawn==='enemy'?c.monster:''};})};})};
 }
-const walkable=c=>!!c&&c.terrain!=='water'&&!['rock','wall'].includes(c.object);
+const walkable=c=>!!c&&c.terrain!=='water'&&!['rock','wall','tent','chest','campfire','crate','barrel','sign'].includes(c.object);
 const node=(i,top=false)=>i*2+(top?1:0),index=n=>Math.floor(n/2),height=(s,n)=>s.cells[index(n)].height+(n%2?2:0);
 function neighbors(s,n){const i=index(n),c=s.cells[i],out=[];if(!walkable(c))return out;
  if(c.object==='tree'&&c.climb)out.push({n:n%2?n-1:n+1,cost:3,action:n%2?'ลงต้นไม้':'ปีนต้นไม้'});

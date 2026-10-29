@@ -28,3 +28,6 @@ node tools/capture-visuals.cjs
 On another machine, make Playwright available to Node and set PLAYWRIGHT_CHROMIUM_EXECUTABLE to its Chromium binary. Screenshots from the visual capture script are written to artifacts/qa/. The original handoff tests also write screenshots one directory above the working directory.
 
 Online deployment is outside the clarified local-testing workflow. Historical Sites metadata is not required to run or edit the game.
+
+## Camp props
+Six new placeable props: tent, treasure chest, campfire, crate, barrel and signpost. All are one-cell obstacles with illustrated sprites and procedural fallback. They persist in the existing battleScenes library section; no SQL migration is needed. Props are scene decoration/obstacles only; looting and resting interactions are not implemented. Existing scenes remain compatible. Browser coverage: `node tools/qa-runtime.cjs battle-props.test.cjs` with the same NODE_PATH as above.

@@ -14,6 +14,7 @@ Read `START-HERE.md`, `DESIGN-AGREEMENTS.md` and `VISUAL-UPDATE.md` for the orig
 - Treat the uploaded archive plus this checkout's changes as the working source. References to Sites/URLs in the original handoff are historical metadata, not a prerequisite for current work.
 - Existing Supabase configuration is retained; keep account, table and save identifiers compatible.
 - Publish through `.github/workflows/pages.yml` on pushes to `main`: https://noobkunx67.github.io/Decide-Fate/. Sites access is not required.
+- Built-in atlas: 51 selectable meadow/forest/cave maps at 16, 32, 64 and 100 cells per side; playable directly or copied into the workshop for editing.
 - Campaign combat now supports movement, class actions, enemy AI, props, win/loss, rewards and resumable encounters. Full inventory/equipment and catalog skill effects remain future work.
 
 ## Development

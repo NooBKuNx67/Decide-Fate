@@ -1,0 +1,8 @@
+const assert=require('node:assert/strict'),crypto=require('node:crypto'),D=require('./dist/battle-data.js'),P=require('./dist/battle-presets.js'),C=require('./dist/combat-data.js'),R=require('./dist/rules.js');
+assert.equal(P.catalog.length,51);assert.equal(new Set(P.catalog.map(p=>p.id)).size,51);const hashes=new Set();
+for(const biome of Object.keys(D.biomes))for(const size of [16,32,64,100])assert.equal(P.catalog.filter(p=>p.biome===biome&&p.w===size).length,size===100?5:4);
+for(const p of P.catalog){const s=P.build(p.id);assert.deepEqual(D.validate({v:1,scenes:[s]}).scenes[0],s);assert.equal(s.w,p.w);assert.equal(s.cells.length,p.w*p.h);const report=D.inspect(s);assert.deepEqual(report.issues,[],p.id);assert.equal(report.players.length,1);assert.equal(report.enemies.length,3);assert(s.cells.some(c=>c.object==='chest'));assert(s.cells.some(c=>c.terrain==='path'||c.terrain==='road'));assert(JSON.stringify({[D.KEY]:{v:1,scenes:[s,...D.defaults().scenes]}}).length<2000000);assert.deepEqual(s,P.build(p.id));const hash=crypto.createHash('sha256').update(JSON.stringify(s.cells)).digest('hex');assert(!hashes.has(hash));hashes.add(hash);
+ const snapshot={...R.fresh(),character:{name:'Atlas QA',job:'warrior',level:1,stats:{STR:12},xp:0}};const e=C.create(s,snapshot,[],'qa',()=>.5);assert.equal(e.units.length,2);assert.equal(e.units[1].n,D.node(report.enemies[1]));assert.deepEqual(C.validate(JSON.parse(JSON.stringify(e))),e);
+ s.cells[0].object='chest';assert.notDeepEqual(s,P.build(p.id));
+}
+assert.throws(()=>P.build('unknown'));console.log('PASS 51 unique repeatable presets: exact biome/size counts, valid connected spawns, single enemy, saved encounters, library capacity, independent copies');

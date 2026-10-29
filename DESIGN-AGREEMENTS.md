@@ -80,3 +80,13 @@ Road, dirt path and wooden bridge brushes are walkable at normal ground cost; wa
 Enemy markers are candidate locations. Each new expedition or movement preview samples exactly one marker uniformly, using that marker's monster reference. Other markers do not create additional enemies. An active saved encounter retains its already chosen location through reload; older multi-enemy encounters are preserved until resolved.
 
 Weighted pathfinding now uses a binary heap and the renderer skips tiles outside the viewport for large-map navigation. Tests: large-map.test.cjs covers 45 biome/layout/size combinations through 100×100, shortest paths, candidate selection and saved encounters; large-map-ui.test.cjs verifies 10,000-cell generation, mocked cloud save/second-browser restore, repeat, brushes and landscape layout. Screenshots reviewed.
+
+## Built-in world atlas — 2026-10-29
+
+Added 51 bundled presets: meadow/forest/cave each have five 100×100 maps, and four maps each at 16×16, 32×32 and 64×64 (17 per biome). Named themes include flowers, caravan roads, river crossings, camps, mines and ancient shrines. Each uses deterministic terrain plus four arranged landmarks, supplies/treasure, connected approaches, one player spawn and three spatially separated enemy candidates. Existing illustrated props are reused; no new external art dependencies.
+
+The atlas lives in battle-presets.js as compact recipes expanded only on selection. It does not add 51 full scenes to every account or consume the custom library quota. In the workshop, biome/size filters select a preset; applying replaces the selected draft scene after confirmation, retains its custom ID, and supports undo/redo. Save explicitly to persist edits. The original atlas remains available. Custom libraries keep their existing 30-scene/2 MB limits.
+
+All presets are also directly selectable under Expedition without saving a custom copy. Only the chosen encounter scene is saved, so reload preserves both terrain and the randomly selected enemy. Old saves and active encounters remain unchanged.
+
+Tests: battle-presets.test.cjs validates exact counts, 51 distinct layouts, determinism, independent copies, schema, connectivity, single-enemy sampling, encounter serialization and per-map library size. battle-presets-ui.test.cjs verifies filters, biome visuals, undo/redo, mocked cloud restore, mobile landscape, direct expedition launch and reload. Screenshots reviewed for all three 100×100 biomes.

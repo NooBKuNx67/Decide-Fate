@@ -21,3 +21,8 @@ for(const biome of ['forest','cave'])for(const kind of ['stump','log','fern','mu
  if(['fern','mushroom'].includes(kind)){assert.equal(edge.cost,2);}else{assert.equal(edge,undefined);}
 }
 console.log('PASS forest/cave props: schema roundtrip, slow vegetation and blocked solid props');
+for(const [biome,kinds] of Object.entries(D.propSets)){
+ assert.equal(kinds.length,10);assert.equal(new Set(kinds).size,10);
+ for(const kind of kinds){const s=D.blank('palette',biome,6,6);s.cells[1].object=kind;assert.equal(D.validate({v:1,scenes:[s]}).scenes[0].cells[1].object,kind);const edge=D.neighbors(s,0).find(e=>e.n===2);const slow=['tree','bush','fern','mushroom','flowers','redMushroom','bones'].includes(kind);if(slow)assert.equal(edge.cost,2);else assert.equal(edge,undefined);}
+}
+console.log('PASS three palettes: 10 unique props each, valid saved cells and intended traversal');

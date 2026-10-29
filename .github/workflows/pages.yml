@@ -23,6 +23,7 @@ jobs:
           node battle-view.test.cjs
           node battle-data.test.cjs
           node combat-data.test.cjs
+          node large-map.test.cjs
           node rules.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

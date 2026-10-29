@@ -70,3 +70,13 @@ Chests supply pending gold and a potion, herbs supply potions, ore supplies pend
 The workshop remains an independent movement sandbox. Combat uses existing pawn visuals, not final animated character art. Equipment, persistent item inventory, all imported spell effects, passive/race bonuses and prepared activity buffs are not implemented in this combat ruleset. Existing activity buffs remain available for the next ordinary activity. Balancing is provisional.
 
 Verification: combat-data.test.cjs covers rules, class actions, AI, loot, result settlement and malformed saves. combat.test.cjs covers actual UI movement, retaliation, refresh/resume, single reward, defeat recovery, retreat and landscape layout. Run with the documented tools/qa-runtime.cjs runner.
+
+## Large maps, terrain routes and spawn candidates — 2026-10-29
+
+Scene dimensions now support 6–100 per axis (10,000 cells), with 64×64 and 100×100 presets. Existing scene/save formats remain compatible. The JSON array guard accepts 10,000 entries; the existing aggregate 2 MB content-library limit remains in force, so capacity depends on total scene sizes and other library content.
+
+Road, dirt path and wooden bridge brushes are walkable at normal ground cost; water/river tiles remain blocked. Painting a route clears objects; painting water also clears spawns. Seeded generation offers Nature, Crossroads, River with Bridges, Camp and Ruins. Layout is saved per scene and reused by Repeat; existing scenes default to Nature. Generation changes the selected scene and supports undo. River crossings and all spawn candidates have connected paths.
+
+Enemy markers are candidate locations. Each new expedition or movement preview samples exactly one marker uniformly, using that marker's monster reference. Other markers do not create additional enemies. An active saved encounter retains its already chosen location through reload; older multi-enemy encounters are preserved until resolved.
+
+Weighted pathfinding now uses a binary heap and the renderer skips tiles outside the viewport for large-map navigation. Tests: large-map.test.cjs covers 45 biome/layout/size combinations through 100×100, shortest paths, candidate selection and saved encounters; large-map-ui.test.cjs verifies 10,000-cell generation, mocked cloud save/second-browser restore, repeat, brushes and landscape layout. Screenshots reviewed.

@@ -31,3 +31,6 @@ Online deployment is outside the clarified local-testing workflow. Historical Si
 
 ## Camp props
 Six new placeable props: tent, treasure chest, campfire, crate, barrel and signpost. All are one-cell obstacles with illustrated sprites and procedural fallback. They persist in the existing battleScenes library section; no SQL migration is needed. Props are scene decoration/obstacles only; looting and resting interactions are not implemented. Existing scenes remain compatible. Browser coverage: `node tools/qa-runtime.cjs battle-props.test.cjs` with the same NODE_PATH as above.
+
+## Forest and cavern props
+Added stump, fallen log, fern, cave mushroom, stalagmite and mineral crystal brushes, usable across all biomes alongside camp props. Newly generated forests include ferns, stumps and logs; newly generated caves include mushrooms, stalagmites and crystals. Existing saved scene definitions are not rewritten. Ferns/mushrooms are traversable at +1 movement cost; the solid props block movement. All use the existing scene library and require no SQL migration. Browser coverage: battle-biome-props.test.cjs (forest/cave painting, undo/redo, mocked cloud persistence and second-browser restore).

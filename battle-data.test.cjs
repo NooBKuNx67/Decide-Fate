@@ -14,3 +14,10 @@ for(const kind of ['tent','chest','campfire','crate','barrel','sign']){
  scene.cells[1].spawn='player';assert(D.inspect(scene).issues.some(x=>x.includes('กีดขวาง')));
 }
 console.log('PASS camp props: save roundtrip, impassable cells, alternate routes and blocked spawn diagnosis');
+for(const biome of ['forest','cave'])for(const kind of ['stump','log','fern','mushroom','stalagmite','crystal']){
+ const scene=D.blank('biome-props',biome,6,6);scene.cells[1].object=kind;
+ assert.equal(D.validate(JSON.parse(JSON.stringify({v:1,scenes:[scene]}))).scenes[0].cells[1].object,kind);
+ const edge=D.neighbors(scene,D.node(0)).find(e=>e.n===D.node(1));
+ if(['fern','mushroom'].includes(kind)){assert.equal(edge.cost,2);}else{assert.equal(edge,undefined);}
+}
+console.log('PASS forest/cave props: schema roundtrip, slow vegetation and blocked solid props');

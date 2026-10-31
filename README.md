@@ -43,3 +43,7 @@ Skill/passive/Unique and proficiency labels use English with Thai explanations i
 ## Character Update 29 — racial budgets and gender
 
 New v3 drafts have racial base profiles (total 48 before existing racial bonuses) and shared budgets: Human 10, Dwarf 9, Elf/Cat 8, Vampire/Dragonborn 6. Stat buy remains 27 and cannot lower a stat below its racial baseline. Unique prices range 1–5; see the latest design table. Recommendations fit every race/class/Unique combination. Gender choices persist across draft reload and completed saves and do not alter stats. Completed v1/v2 characters retain their original prices, budgets and grants; only unconfirmed drafts migrate. Tests cover 462 combinations, old save validation, refunds, gender and desktop/landscape creation.
+
+## Character Update 30 — manual creation and proficiency spacing
+
+Removed the identity-randomization button and explanatory copy from character creation. Pending drafts previously rolled can now choose race/class manually; completed characters are unchanged. Proficiencies display English names, Thai explanations and rank selectors on separate spaced lines. Verified the existing browser creation/combat/reload/landscape flow and reviewed the proficiency screenshot.

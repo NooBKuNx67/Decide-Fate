@@ -25,18 +25,24 @@ if(type==='axe'){shape('M 0 -32 Q 19 -38 15 -19 L 0 -23 Z','#a9cbd7');return;}
 if(type==='mace'){shape('M -6 -22 L -6 -33 L 0 -38 L 6 -33 L 6 -22 Z','#b0c7d4');return;}
 const top=type==='spear'?-55:type==='dagger'?-24:-41;shape(`M -3 -8 L -3 ${top+9} L 0 ${top} L 3 ${top+9} L 3 -8 Z`,'#d4e9ee');shape(`M 0 -8 L 0 ${top} L 3 ${top+9} L 3 -8 Z`,'#88b2c6');shape('M -7 -9 Q 0 -12 7 -9 L 7 -6 L -7 -6 Z','#d1b36c');shape('M -2 7 L 0 10 L 2 7 L 0 5 Z','#82cede');c.strokeStyle='#f6fbff';c.lineWidth=.6;c.beginPath();c.moveTo(-1,-12);c.lineTo(-1,top+11);c.stroke();}
 // Separate arm joints keep the bow hand steady while the other hand draws the string.
-function armTo(sx,sy,hx,hy){const dx=hx-sx,dy=hy-sy;c.save();c.translate(sx,sy);c.rotate(-Math.atan2(dx,dy));image('arm',-5,0,10,Math.hypot(dx,dy)+3,skin);c.restore();}
+const flesh={light:'#f6d4b6',warm:'#e8b38d',deep:'#a66e50'}[a.skin];
+function segment(ax,ay,bx,by,width,color){c.lineCap='round';c.strokeStyle='#40313a';c.lineWidth=width+1.2;c.beginPath();c.moveTo(ax,ay);c.lineTo(bx,by);c.stroke();c.strokeStyle=color;c.lineWidth=width;c.stroke();c.strokeStyle='#fff1da45';c.lineWidth=width*.28;c.beginPath();c.moveTo(ax-1,ay);c.lineTo(bx-1,by);c.stroke();}
+function grip(x,y){c.save();c.translate(x,y);shape('M -3 -2 Q 0 -4 3 -2 L 3 2 Q 0 4 -3 2 Z',flesh);c.strokeStyle='#986a55';c.lineWidth=.4;for(const yy of [-1,1]){c.beginPath();c.moveTo(-2,yy);c.lineTo(2,yy);c.stroke();}c.restore();}
+function armTo(sx,sy,hx,hy,bend=1){const dx=hx-sx,dy=hy-sy,d=Math.max(.1,Math.hypot(dx,dy)),half=d/2,offset=Math.sqrt(Math.max(0,19*19-half*half)),ex=(sx+hx)/2-dy/d*offset*bend,ey=(sy+hy)/2+dx/d*offset*bend;
+segment(sx,sy,ex,ey,7,flesh);segment(ex,ey,hx,hy,5.5,flesh);
+segment(sx,sy,sx+(ex-sx)*.32,sy+(ey-sy)*.32,9,'#e8dcc2');
+segment(ex+(hx-ex)*.5,ey+(hy-ey)*.5,hx,hy,7,'#594539');
+segment(hx-(hx-ex)*.12,hy-(hy-ey)*.12,hx,hy,7,'#b79762');}
 if(motion.ranged){const bx=43,by=-66,drawX=pose==='attack'?28-motion.pull*33:24;
-armTo(17,-74,bx,by);armTo(-17,-74,drawX,by+2);
+armTo(12,-70,bx,by,1);armTo(-12,-70,drawX,by+2,1);
 c.save();c.translate(bx,by);c.strokeStyle='#e3c38a';c.lineWidth=2.4;c.beginPath();c.moveTo(0,-26);c.bezierCurveTo(13,-22,15,-7,3,0);c.bezierCurveTo(15,7,13,22,0,26);c.stroke();
 c.strokeStyle='#665138';c.lineWidth=1;c.beginPath();c.moveTo(1,-25);c.quadraticCurveTo(18,0,1,25);c.stroke();
 c.strokeStyle='#eee4ce';c.lineWidth=.65;c.beginPath();c.moveTo(0,-26);c.lineTo(drawX-bx,2);c.lineTo(0,26);c.stroke();shape('M -2 -5 L 5 -5 L 5 5 L -2 5 Z','#72523e');
+grip(1,0);
 if(e.main==='crossbow')shape('M -24 -3 L 8 -3 L 8 3 L -24 3 L -18 10 L -23 10 Z','#84603c');
-if(!motion.attacking||motion.p<.66){c.translate(drawX-bx,2);shape('M -2 -1 L 35 -1 L 35 -4 L 43 0 L 35 4 L 35 1 L -2 1 Z','#dcebf1');shape('M 0 0 L -7 -4 L -2 0 L -7 4 Z','#c0a779');}c.restore();
+if(!motion.attacking||motion.p<.66){c.translate(drawX-bx,2);shape('M -2 -1 L 35 -1 L 35 -4 L 43 0 L 35 4 L 35 1 L -2 1 Z','#dcebf1');shape('M 0 0 L -7 -4 L -2 0 L -7 4 Z','#c0a779');}c.restore();grip(drawX,by+2);
 if(motion.attacking&&motion.p>.62&&motion.p<.94){c.save();c.translate(bx+motion.release*42,by+2);c.globalAlpha=1-motion.release*.65;shape('M -17 -1 L 8 -1 L 8 -4 L 15 0 L 8 4 L 8 1 L -17 1 Z','#ecfaff');c.restore();}
-}else for(const side of [-1,1]){c.save();c.translate(side*17,-74);c.rotate(side===1?motion.right:motion.left);if(side<0)c.scale(-1,1);image('arm',-5,0,11,39,skin);c.translate(0,35);if(side===1)weapon(e.main||'sword');else if(e.off)weapon(e.off);c.restore();}
-// Brief blade arcs distinguish the first and second dual-wield strikes.
-for(const [show,side] of [[motion.trailRight,1],[motion.trailLeft,-1]])if(show){c.save();c.strokeStyle=side===1?'#d7f5ffb0':'#ffe5adb0';c.lineWidth=2;c.beginPath();c.ellipse(side*14,-54,35,19,side*.6,-1.4,.9);c.stroke();c.restore();}
+}else for(const side of [-1,1]){const angle=side===1?motion.right:motion.left,sx=side*12,sy=-70,hx=sx-Math.sin(angle)*29,hy=sy+Math.cos(angle)*29;armTo(sx,sy,hx,hy,-side);c.save();c.translate(hx,hy);c.rotate(angle);if(side<0)c.scale(-1,1);if(side===1)weapon(e.main||'sword');else if(e.off)weapon(e.off);if(e.off!=='shield'||side===1)grip(0,0);c.restore();}
 image(a.face,-13,-107,27,36,skin);
 if(race==='elf')shape('M -11 -89 L -23 -95 L -14 -83 Z','#e6b293');
 image(a.hair,-20,-111,40,a.hair==='ponytail'?46:37,hairTint);

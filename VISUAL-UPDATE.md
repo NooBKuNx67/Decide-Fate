@@ -111,3 +111,9 @@ Added render-only attack choreography for sword/shield, dual weapons and ranged 
 Character creation includes a clearly labeled preview-only weapon selector (equipped, sword/shield, dual daggers, bow). It never grants equipment or changes saved appearance. Preview attacks repeat with an idle pause. Weapons remain canvas illustrations attached to the painted anime rig, not frame-by-frame sprite animation.
 
 Verification: weapon-motion.test.cjs covers alternating strikes, bow draw/release and recovery; weapon-preview.test.cjs checks all preview options with mocked Supabase and captures the poses; creation rules and the creation/combat browser regression cover save and gameplay compatibility. Reviewed all three rendered poses.
+
+## Arm attachment correction — Update 35, 2026-10-31
+
+Replaced rotation of the disconnected atlas arm cutout with connected shoulder/elbow/wrist geometry. Both melee weapons and the bow now share explicit hand anchors; fingers render over the grip. Shoulder sleeves overlap the torso and forearm cuffs cover wrist joints. Removed detached blade arcs. Battle mechanics and equipment saves are unchanged.
+
+Reviewed a 12-pose contact sheet covering sword/shield, dual daggers and bow at windup, strike/draw, follow-through and recovery. Weapon preview browser checks, motion timing checks and isometric picking pass.

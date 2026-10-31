@@ -134,3 +134,7 @@ The new-character flow is implemented in creation-data.js/creation-ui.js, with c
 ## Character Update 28 — 2026-10-31
 
 Owner replaced random Unique offers with purchases using the SAME eight-point pool as proficiency. Stat buy remains 27. Initial three-point price and one-Unique limit are tuning defaults; all races currently share the same budget. English names with Thai creation descriptions replace localized labels without changing IDs. Existing completed v1 characters retain their grants and point allocations. See CHARACTER-CREATION-DESIGN.md's latest-agreement section; it supersedes the previous random-offer design.
+
+## Character Update 29 — 2026-10-31
+
+Owner requested distinct Unique prices, racial point budgets and racial base stats plus gender selection. Implemented as v3 creation rules with preserved v1/v2 character validation. Exact tuning is in CHARACTER-CREATION-DESIGN.md Update 29; it supersedes equal-budget/equal-price Update 28 assumptions. Stat points remain 27 separately; the racial budget applies to the shared Unique/proficiency pool.

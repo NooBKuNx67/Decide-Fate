@@ -14,7 +14,7 @@ function change(snapshot,action){ready(snapshot);const s=copy(snapshot),w=s.adve
  else if(action==='scout'){need(w.location==='forest'&&!w.forest&&w.accepted,'สำรวจเส้นทางนี้แล้ว');need(s.energy>=10,'ต้องมีพลังงาน 10');s.energy-=10;time(s,60);w.forest=true;w.route='scout';s.proficiency.Survival=(s.proficiency.Survival||0)+8;}
  else if(action==='learn'){need(w.location==='forest'&&w.forest&&!w.learned,'ต้องพบศาลาก่อน');w.learned=true;w.proficiency=1;s.known['spell:ember-light']=2;if(!s.learned.includes('spell:ember-light'))s.learned.push('spell:ember-light');s.proficiency['Ember Light']=1;}
  else if(action==='seal'){need(w.location==='cave'&&w.learned&&!w.seal,'ต้องเรียนประกายชำระก่อน');need(s.mp>=flame.cost,'มานาไม่พอ (12)');s.mp-=flame.cost;w.seal=true;w.proficiency++;s.proficiency['Ember Light']=w.proficiency;}
- else if(action==='rest'){need(w.location==='village','พักได้ที่หมู่บ้าน');time(s,480);s.hp=100;s.energy=100;s.mp=s.maxMp;if(w.companion){w.companion.hp=100;w.companion.mana=50;}}
+ else if(action==='rest'){need(w.location==='village','พักได้ที่หมู่บ้าน');time(s,480);s.hp=s.character?.design===1?60+4*s.character.stats.CON:100;s.energy=100;s.mp=s.maxMp;if(s.character?.design===1)s.character.inventory.reagents=3;if(w.companion){w.companion.hp=100;w.companion.mana=50;}}
  else if(['restore','sell'].includes(action)){need(w.location==='village'&&w.cave&&!w.claimed,'ยังรับผลภารกิจไม่ได้ หรือรับไปแล้ว');w.ending=action;w.claimed=true;s.gold+=action==='restore'?60:100;s.earned+=action==='restore'?60:100;}
  else throw Error('การกระทำไม่ถูกต้อง');return s;
 }

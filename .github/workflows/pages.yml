@@ -28,6 +28,7 @@ jobs:
           node large-map.test.cjs
           node battle-presets.test.cjs
           node rules.test.cjs
+          node creation-system.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

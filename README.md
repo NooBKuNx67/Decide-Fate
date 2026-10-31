@@ -18,8 +18,20 @@ Read `START-HERE.md`, `DESIGN-AGREEMENTS.md` and `VISUAL-UPDATE.md` for the orig
 - Chapter one connects village NPCs, forest choice, a discoverable spell, persistent companion Lin, cave combat and two saved endings. Start from the chapter panel on the character game screen.
 - Campaign combat now supports movement, class actions, enemy AI, props, win/loss, rewards and resumable encounters. Full inventory/equipment and catalog skill effects remain future work.
 
+## Character creation redesign
+
+The latest agreed design and implementation checklist are in [CHARACTER-CREATION-DESIGN.md](CHARACTER-CREATION-DESIGN.md). New characters now use the first implementation described below; existing characters retain their legacy rules.
+
 ## Development
 
 Run `node preview.cjs` from this directory. No application install or build is required. See `VISUAL-UPDATE.md` for browser QA commands and screenshots under `artifacts/qa/`.
 
 Keep the existing Supabase configuration and player-save compatibility. Do not rerun setup.sql against the existing database merely for local testing.
+
+## Character Update 27 — 2026-10-31
+
+New Game now offers six races, seven classes, 27 stat points, eight proficiency points (D/C), one-time local draft rolls and three Unique choices. New characters receive four active class skills, a passive definition, starter equipment and persistent supplies. The battle adapter supplies the 28 class commands, Unique commands, vampire feeding and dragon transformation, cooldowns, statuses, equipment damage and separate dual-weapon hits. The character panel includes basic spell tuition, training-grade gates, training-weapon purchases/equipment and a solo Dual Wield trial unlocked after discovering the forest shrine and reaching B in a one-handed weapon.
+
+Implementation limits: rolls are persisted per account in this browser until character confirmation; cross-device draft sync and server-enforced anti-reroll are not implemented. Completed characters and encounters use the existing cloud save transport. Rune/soul crafting, the full imported equipment catalog and replacement NPC/monster catalogs remain pending. Copy Eye currently copies a supported enemy basic attack for one use; it is not a general enemy-skill interpreter. Detection/appraisal currently inspect implemented battlefield objects and unit stats. Silent casting handles silence, but there are no multi-turn ritual spells yet. Magia has basic dark/fire/ice/earth/wind/lightning forms, not an exhaustive per-spell transformation catalog. Rank B–S checks are provisional training thresholds and victory milestones, not separate authored quests. Legacy records remain preserved and their editor overrides do not automatically change the new combat adapter's definitions.
+
+Validation: `node creation-system.test.cjs` plus existing rules, tactical, adventure, combat, map and cloud suites. Browser: `node tools/qa-runtime.cjs creation-ui.test.cjs` with the documented Playwright environment; covers persisted offers, character creation, battle/reload, Fire Burst, Magia and landscape screenshots. Character-art and full-schema browser regressions also pass with mock Supabase.

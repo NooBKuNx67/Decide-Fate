@@ -103,3 +103,11 @@ Character creation now offers Icon and Portrait upload only. Battle appearance i
 Replaced the normal modular character rendering with an original painted anime parts atlas: illustrated faces, layered hair, clothing, cape and limbs. Appearance choices and weapon/shield attachments remain connected to the character data. Preview and battle use the same renderer and foot anchor. Assets load locally; the vector rig is retained as a fallback if the atlas fails to load. Current art uses mirrored three-quarter views and one outfit with armor color variations, not a complete four-direction/class-outfit collection.
 
 Validation: creation rules, image save validation, isometric picking, and mocked creation/combat browser flow. Inspected assembled preview and battle screenshots. Supabase configuration and real player saves were not changed.
+
+## Weapon choreography — Update 34, 2026-10-31
+
+Added render-only attack choreography for sword/shield, dual weapons and ranged weapons. Shield users cover the torso during a sword swing; dual wielders alternate main/off-hand swings with separate blade arcs; bow users hold the bow forward, draw the string and release an arrow. The existing 650 ms battle animation window is shared with preview playback. Basic bow attacks no longer emit a melee slash effect at the target. Weapon eligibility, Dual Wield unlock requirements and damage calculations are unchanged.
+
+Character creation includes a clearly labeled preview-only weapon selector (equipped, sword/shield, dual daggers, bow). It never grants equipment or changes saved appearance. Preview attacks repeat with an idle pause. Weapons remain canvas illustrations attached to the painted anime rig, not frame-by-frame sprite animation.
+
+Verification: weapon-motion.test.cjs covers alternating strikes, bow draw/release and recovery; weapon-preview.test.cjs checks all preview options with mocked Supabase and captures the poses; creation rules and the creation/combat browser regression cover save and gameplay compatibility. Reviewed all three rendered poses.

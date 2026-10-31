@@ -95,3 +95,11 @@ The chapter uses location buttons, persistent dialogues and existing grid encoun
 Correction to the prior audit: rules.validate already restored the legacy eye event after initializing event to null. That behavior was preserved and explicitly regression-tested.
 
 Verification: adventure.test.cjs tests gates, both exploration routes' preparation, deterministic encounters, persistent companion damage, no quest completion on retreat, learned record integration, one-time settlement and reward, both endings, malformed-state rejection and eye-event preservation. adventure-ui.test.cjs plays accept/recruit/scout/learn/reload/seal/actual cave combat with spells/ending/reload through DOM controls and checks landscape overflow. Existing rules, tactical, cloud, browser and party UI tests pass using mocked Supabase.
+
+## Anime character art — Update 33, 2026-10-31
+
+Character creation now offers Icon and Portrait upload only. Battle appearance is assembled in the character customizer; the old saved combat-image field remains compatible with existing saves and the legacy image editor.
+
+Replaced the normal modular character rendering with an original painted anime parts atlas: illustrated faces, layered hair, clothing, cape and limbs. Appearance choices and weapon/shield attachments remain connected to the character data. Preview and battle use the same renderer and foot anchor. Assets load locally; the vector rig is retained as a fallback if the atlas fails to load. Current art uses mirrored three-quarter views and one outfit with armor color variations, not a complete four-direction/class-outfit collection.
+
+Validation: creation rules, image save validation, isometric picking, and mocked creation/combat browser flow. Inspected assembled preview and battle screenshots. Supabase configuration and real player saves were not changed.

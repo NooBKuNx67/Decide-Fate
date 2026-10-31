@@ -47,3 +47,7 @@ New v3 drafts have racial base profiles (total 48 before existing racial bonuses
 ## Character Update 30 — manual creation and proficiency spacing
 
 Removed the identity-randomization button and explanatory copy from character creation. Pending drafts previously rolled can now choose race/class manually; completed characters are unchanged. Proficiencies display English names, Thai explanations and rank selectors on separate spaced lines. Verified the existing browser creation/combat/reload/landscape flow and reviewed the proficiency screenshot.
+
+## Character Update 31 — modular battle characters
+
+Character creation now includes male/female body templates, three faces, three hairstyles, hair/skin palettes and live pose previews. A local vector rig draws clothing, limbs, head, hair and hand-attached weapons/shields; creation stores appearance with the character and encounter units preserve it. Players in battle use this rig, including temporary party members, instead of the old pawn. Idle/walk/attack/cast/guard/hit/down poses run in the canvas; dead player units remain visible. Equipment types select sword, dagger, axe, spear, bow, crossbow, staff or mace silhouettes. The vector artwork is simpler than the approved generated concept board; that board is not a production sprite atlas. Old saves use default appearance. Existing image uploads remain available. Camera picking and tactical regression suites plus browser creation, appearance persistence, combat and landscape checks pass with mocked cloud.

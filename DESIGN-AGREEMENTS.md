@@ -130,3 +130,7 @@ The owner approved writing the consolidated design. See [CHARACTER-CREATION-DESI
 ## Character Update 27 implementation — 2026-10-31
 
 The new-character flow is implemented in creation-data.js/creation-ui.js, with character-combat.js and progression.js providing the first playable adapters. The design document remains the target specification, not a claim that future crafting/catalog/world systems are finished. See README's Character Update 27 section for exact implementation limits and verification. New character stats are capped at 99 permanently; equipment and forms calculate temporary values separately. Old characters are not automatically respecialized. QA and documentation do not modify real Supabase saves.
+
+## Character Update 28 — 2026-10-31
+
+Owner replaced random Unique offers with purchases using the SAME eight-point pool as proficiency. Stat buy remains 27. Initial three-point price and one-Unique limit are tuning defaults; all races currently share the same budget. English names with Thai creation descriptions replace localized labels without changing IDs. Existing completed v1 characters retain their grants and point allocations. See CHARACTER-CREATION-DESIGN.md's latest-agreement section; it supersedes the previous random-offer design.

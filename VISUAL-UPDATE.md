@@ -121,3 +121,9 @@ Reviewed a 12-pose contact sheet covering sword/shield, dual daggers and bow at 
 ## Grid portrait tokens — Update 36, 2026-11-02
 
 Player units now use circular icon tokens instead of the modular anime body in combat. The hero uses the saved Icon image, center-cropped; missing icons and companions use numbered silhouette tokens. Active units have a gold border; guarding and defeated states remain visible. Tokens interpolate between cells and retain HP bars. Portrait selection, rules, equipment and saved character appearance remain compatible.
+
+## Look around — Update 37
+
+Added a one-action Look Around button. Scans 360 degrees at the existing sight distance, respects sight blockers, retains facing, logs targets, and prevents repeated scans in one round. Player normal sight now follows a stepped forward cone; walking updates facing. Scan visibility remains on screen until the next successful command, then returns to the normal cone. Scan state survives save/load and is validated. Uses the existing one-action/separate movement economy; 2-AP migration, Fog of War, hearing and d100 detection remain pending and are not represented as implemented.
+
+Passed look-around.test.cjs (AP consumption, behind-target scan, facing retention, repeat rejection and save validation), tactical.test.cjs, creation-system.test.cjs and mocked creation/combat browser regression.

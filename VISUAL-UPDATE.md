@@ -117,3 +117,7 @@ Verification: weapon-motion.test.cjs covers alternating strikes, bow draw/releas
 Replaced rotation of the disconnected atlas arm cutout with connected shoulder/elbow/wrist geometry. Both melee weapons and the bow now share explicit hand anchors; fingers render over the grip. Shoulder sleeves overlap the torso and forearm cuffs cover wrist joints. Removed detached blade arcs. Battle mechanics and equipment saves are unchanged.
 
 Reviewed a 12-pose contact sheet covering sword/shield, dual daggers and bow at windup, strike/draw, follow-through and recovery. Weapon preview browser checks, motion timing checks and isometric picking pass.
+
+## Grid portrait tokens — Update 36, 2026-11-02
+
+Player units now use circular icon tokens instead of the modular anime body in combat. The hero uses the saved Icon image, center-cropped; missing icons and companions use numbered silhouette tokens. Active units have a gold border; guarding and defeated states remain visible. Tokens interpolate between cells and retain HP bars. Portrait selection, rules, equipment and saved character appearance remain compatible.

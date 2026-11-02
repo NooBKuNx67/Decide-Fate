@@ -4,6 +4,7 @@ const C=g.DecideCombatRules||(typeof require==='function'?require('./combat-data
 const old={...C},copy=x=>JSON.parse(JSON.stringify(x)),live=e=>e.units.filter(u=>u.hp>0),index=u=>D.index(u.n);
 for(const w of Object.values(N.weapons))w.targeting={min:1,max:w.range,mode:'single',count:1,heights:w.range>1?[-2,-1,0,1,2]:[-1,0,1],side:'enemy'};
 for(const a of Object.values(N.skills)){a.castPoints=a.magic?(a.cost>=9?3:a.cost>=6?2:1):0;a.targeting={min:0,max:a.range,mode:'single',count:1,heights:a.magic?[-2,-1,0,1,2]:[-1,0,1],side:['heal','cure','barrier','aid','antidote','protect'].includes(a.id)?'ally':'enemy'};}
+N.skills.fire.targeting.side='both';
 const silent=N.uniques.find(u=>u.id==='silent');if(silent){silent.name='Uncast Magic';silent.description='ข้ามแต้มร่าย เวทออกทันที ใช้ 1 AP และ MP ตามเวท';}
 function init(e){if(e.systems===2)return;e.systems=2;e.detectSeed=(e.seed||1234567)>>>0;e.detectChecks={};e.discovered=[];e.profiles={};for(const u of e.units){u.action=u.side==='player'?Math.min(2,u.action*2):1;u.sightRange=u.side==='player'?(u.race==='elf'?9:8):5;u.hearingRange=1;u.altitude=0;u.moving=false;u.detected=[];delete u.scanActive;delete u.scanSeen;delete u.scanRound;}perceive(e);}
 function level(e,u){return e.scene.cells[index(u)].height+(u.n%2?1:0)+(u.altitude||0);}

@@ -8,3 +8,5 @@
 - QA must use mocked authentication/storage and must not modify real player saves. Existing browser tests need the compatibility runner documented in VISUAL-UPDATE.md.
 - Keep view/render changes separate from battle-data movement and saved schemas. Verify camera picking and desktop/mobile rendering after visual changes.
 - The current goal is local development and testing in this primary chat. Do not assume deployment is pending or ask the user to return to the old chat. Reassess hosting only if the user explicitly requests an online deployment.
+
+- Owner preference (2026-11-05): When the owner asks to upload/update/push the game to GitHub, treat that as authorization to complete delivery: validate the changes, commit and push to main without force-pushing, run the Publish Decide Fate workflow on main, wait for successful deployment, and verify the live GitHub Pages site serves the latest code. Report the commit, workflow result and live link. Do not stop after creating a checkpoint branch or merely pushing code. A newer explicit request to hold publication takes precedence.

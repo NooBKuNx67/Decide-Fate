@@ -1,7 +1,5 @@
 name: Publish Decide Fate
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -29,6 +27,14 @@ jobs:
           node battle-presets.test.cjs
           node rules.test.cjs
           node creation-system.test.cjs
+          node legacy-content-parity.test.cjs
+          node catalog-economy.test.cjs
+          node catalog-loot.test.cjs
+          node catalog-combat-items.test.cjs
+          node catalog-equipment.test.cjs
+          node elements.test.cjs
+          node status-immunity.test.cjs
+          node catalog-actions.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

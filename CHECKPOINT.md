@@ -1,6 +1,6 @@
 # Development checkpoint — 2026-11-05
 
-Owner requested pausing development and saving the work to GitHub. This checkpoint is on `checkpoint/legacy-systems-2026-11-05`. `main` has an automatic GitHub Pages deployment; this checkpoint branch preserves the previous instruction to hold publication.
+Owner requested pausing development and saving the work to GitHub. The original checkpoint is on `checkpoint/legacy-systems-2026-11-05`. The owner subsequently requested preparing `main` for Run workflow. The work is now also on `main`, with GitHub Pages deployment configured for manual `workflow_dispatch` only. Pushing changes does not publish them; the owner can run Publish Decide Fate on `main`.
 
 ## Completed since the last published commit
 

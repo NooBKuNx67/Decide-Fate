@@ -1,0 +1,7 @@
+/* Additive presentation fields and starter gear; original catalog records stay intact. */
+(function(g){'use strict';
+const extras={armor:[{id:'decide-cloak-traveler',name:"Traveler's Cape",rarity:'Common',defense:1,passive:'',equipSlot:'cloak',buyPrice:35,sellPrice:12,enabled:true},{id:'decide-shield-wood',name:'Wooden Shield',rarity:'Common',defense:2,passive:'',equipSlot:'leftHand',buyPrice:45,sellPrice:15,enabled:true}]};
+const gear=['weapon','armor','helmet','boots','accessory'];function extend(db){const out={...db};out.armor=[...(db.armor||[]),...extras.armor];const stock=gear.flatMap(k=>(out[k]||[]).filter(x=>x.rarity==='Common'&&x.enabled!==false&&x.buyPrice>0).map(x=>x.name));out.npc=[...(db.npc||[]),{id:'decide-equipment-merchant',name:'ช่างอุปกรณ์',description:'จำหน่ายอุปกรณ์พื้นฐาน',items:stock,enabled:true}];for(const kind of [...gear,'item','dropItem'])out[kind]=(out[kind]||[]).map(r=>({...r,icon:r.icon||'assets/items/'+kind+'-'+r.id+'.svg'}));return out;}
+if(g.EvervaleContentSchema){for(const kind of [...gear,'item','dropItem'])g.EvervaleContentSchema.schemas[kind].fields.push({key:'icon',label:'ไอคอนของชิ้นนี้',type:'image',group:'basic'});g.EvervaleContentSchema.schemas.armor.fields.push({key:'equipSlot',label:'ช่องสวม',type:'select',options:['armor','cloak','leftHand'],group:'equipment'});}
+const api={extend,extras};g.DecideEquipmentData=api;if(typeof module!=='undefined')module.exports=api;
+})(typeof window==='undefined'?globalThis:window);

@@ -1,0 +1,1576 @@
+{
+  "description": "Top-level non-JSX functions found in the supplied source. Parsing alone does not establish purity or runtime integration.",
+  "sourceSha256": "64f8707980b464fa73842e6aa999013fdb1156280c8cb8089410bf2ae127342f",
+  "functions": [
+    {
+      "name": "getStartingLocation",
+      "sourceLine": 72,
+      "imported": false
+    },
+    {
+      "name": "emptySlotItem",
+      "sourceLine": 93,
+      "imported": true
+    },
+    {
+      "name": "emptyEquipment",
+      "sourceLine": 94,
+      "imported": true
+    },
+    {
+      "name": "normalizeEquipmentSlot",
+      "sourceLine": 96,
+      "imported": false
+    },
+    {
+      "name": "normalizeEquipment",
+      "sourceLine": 126,
+      "imported": false
+    },
+    {
+      "name": "getCharacterEnabledSkillDbEntries",
+      "sourceLine": 154,
+      "imported": false
+    },
+    {
+      "name": "getWeaponAccuracyPenalty",
+      "sourceLine": 170,
+      "imported": false
+    },
+    {
+      "name": "getDamageCapPercentOfMaxHp",
+      "sourceLine": 185,
+      "imported": false
+    },
+    {
+      "name": "getDamageCap",
+      "sourceLine": 200,
+      "imported": false
+    },
+    {
+      "name": "hasOnHitDefenseStackPassive",
+      "sourceLine": 225,
+      "imported": false
+    },
+    {
+      "name": "getOnHitStackDefenseBonus",
+      "sourceLine": 229,
+      "imported": false
+    },
+    {
+      "name": "applyOnHitStackTrigger",
+      "sourceLine": 236,
+      "imported": false
+    },
+    {
+      "name": "getMaxMpMultiplier",
+      "sourceLine": 254,
+      "imported": false
+    },
+    {
+      "name": "getAppliedMaxMpMultiplier",
+      "sourceLine": 262,
+      "imported": false
+    },
+    {
+      "name": "reconcileMaxMpMultiplier",
+      "sourceLine": 269,
+      "imported": false
+    },
+    {
+      "name": "hasInstantCastSpells",
+      "sourceLine": 283,
+      "imported": false
+    },
+    {
+      "name": "getEffectiveCastTime",
+      "sourceLine": 286,
+      "imported": false
+    },
+    {
+      "name": "getDodgeChancePercent",
+      "sourceLine": 299,
+      "imported": false
+    },
+    {
+      "name": "canCharacterDodge",
+      "sourceLine": 309,
+      "imported": false
+    },
+    {
+      "name": "resolveMonsterAttackDodge",
+      "sourceLine": 318,
+      "imported": false
+    },
+    {
+      "name": "getElementalDamageBonusPercent",
+      "sourceLine": 337,
+      "imported": false
+    },
+    {
+      "name": "applyElementalDamageBonus",
+      "sourceLine": 349,
+      "imported": false
+    },
+    {
+      "name": "getHealBonusPercent",
+      "sourceLine": 359,
+      "imported": false
+    },
+    {
+      "name": "getSpellMpCostReductionPercent",
+      "sourceLine": 376,
+      "imported": false
+    },
+    {
+      "name": "getEffectiveSpellMpCost",
+      "sourceLine": 389,
+      "imported": false
+    },
+    {
+      "name": "getWeaponDamageBonusPercent",
+      "sourceLine": 406,
+      "imported": false
+    },
+    {
+      "name": "applyWeaponDamageBonus",
+      "sourceLine": 419,
+      "imported": false
+    },
+    {
+      "name": "getMpBarrierRatio",
+      "sourceLine": 435,
+      "imported": false
+    },
+    {
+      "name": "absorbDamageWithMpBarrier",
+      "sourceLine": 450,
+      "imported": false
+    },
+    {
+      "name": "absorbDamageWithAllShields",
+      "sourceLine": 464,
+      "imported": false
+    },
+    {
+      "name": "getCastTimeReduction",
+      "sourceLine": 480,
+      "imported": false
+    },
+    {
+      "name": "getCharacterAvailableRecipes",
+      "sourceLine": 500,
+      "imported": false
+    },
+    {
+      "name": "totalAC",
+      "sourceLine": 519,
+      "imported": false
+    },
+    {
+      "name": "rollDiceNotation",
+      "sourceLine": 528,
+      "imported": false
+    },
+    {
+      "name": "normalizeGrade",
+      "sourceLine": 539,
+      "imported": false
+    },
+    {
+      "name": "parseProficienciesText",
+      "sourceLine": 543,
+      "imported": false
+    },
+    {
+      "name": "eq",
+      "sourceLine": 553,
+      "imported": false
+    },
+    {
+      "name": "statMod",
+      "sourceLine": 565,
+      "imported": false
+    },
+    {
+      "name": "fmtMod",
+      "sourceLine": 566,
+      "imported": false
+    },
+    {
+      "name": "genId",
+      "sourceLine": 567,
+      "imported": false
+    },
+    {
+      "name": "pointsUsed",
+      "sourceLine": 568,
+      "imported": false
+    },
+    {
+      "name": "emptyDraft",
+      "sourceLine": 570,
+      "imported": false
+    },
+    {
+      "name": "clamp",
+      "sourceLine": 573,
+      "imported": false
+    },
+    {
+      "name": "rollD20",
+      "sourceLine": 578,
+      "imported": false
+    },
+    {
+      "name": "getAbilityModifier",
+      "sourceLine": 579,
+      "imported": false
+    },
+    {
+      "name": "statPointCost",
+      "sourceLine": 591,
+      "imported": false
+    },
+    {
+      "name": "statPointsGrantedAtLevel",
+      "sourceLine": 600,
+      "imported": false
+    },
+    {
+      "name": "autoSpendStatPoints",
+      "sourceLine": 628,
+      "imported": false
+    },
+    {
+      "name": "spendOneStatPoint",
+      "sourceLine": 648,
+      "imported": false
+    },
+    {
+      "name": "getWeaponAbility",
+      "sourceLine": 663,
+      "imported": false
+    },
+    {
+      "name": "getWeaponAbilityModifier",
+      "sourceLine": 669,
+      "imported": false
+    },
+    {
+      "name": "getProficiencyBonus",
+      "sourceLine": 674,
+      "imported": false
+    },
+    {
+      "name": "resolveStealthCheck",
+      "sourceLine": 705,
+      "imported": false
+    },
+    {
+      "name": "hasEnemyDetection",
+      "sourceLine": 741,
+      "imported": false
+    },
+    {
+      "name": "resolveDetectionCheck",
+      "sourceLine": 755,
+      "imported": false
+    },
+    {
+      "name": "triggerPartyPassiveDetection",
+      "sourceLine": 779,
+      "imported": false
+    },
+    {
+      "name": "buildStoryPassiveDetectionResult",
+      "sourceLine": 809,
+      "imported": false
+    },
+    {
+      "name": "hasAuraSense",
+      "sourceLine": 842,
+      "imported": false
+    },
+    {
+      "name": "auraSensePowerTier",
+      "sourceLine": 850,
+      "imported": false
+    },
+    {
+      "name": "resolveAuraSenseCheck",
+      "sourceLine": 862,
+      "imported": false
+    },
+    {
+      "name": "triggerPartyAuraSense",
+      "sourceLine": 872,
+      "imported": false
+    },
+    {
+      "name": "buildStoryAuraSenseResult",
+      "sourceLine": 888,
+      "imported": false
+    },
+    {
+      "name": "buildStoryKishirikaEyeResult",
+      "sourceLine": 917,
+      "imported": false
+    },
+    {
+      "name": "resolveStealthArenaEntry",
+      "sourceLine": 952,
+      "imported": false
+    },
+    {
+      "name": "getMonsterStealthDC",
+      "sourceLine": 976,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaSurprise",
+      "sourceLine": 992,
+      "imported": false
+    },
+    {
+      "name": "resolveSurpriseCritical",
+      "sourceLine": 1000,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaStealthOutcome",
+      "sourceLine": 1008,
+      "imported": false
+    },
+    {
+      "name": "selectArenaSurpriseAttacker",
+      "sourceLine": 1027,
+      "imported": false
+    },
+    {
+      "name": "selectArenaStealthRoller",
+      "sourceLine": 1044,
+      "imported": false
+    },
+    {
+      "name": "buildArenaWeaponAttackContext",
+      "sourceLine": 1064,
+      "imported": false
+    },
+    {
+      "name": "parseBonusDamageNumber",
+      "sourceLine": 1072,
+      "imported": false
+    },
+    {
+      "name": "isWeaponEquipmentItem",
+      "sourceLine": 1077,
+      "imported": false
+    },
+    {
+      "name": "getEquippedWeapons",
+      "sourceLine": 1084,
+      "imported": false
+    },
+    {
+      "name": "equipWeaponToHand",
+      "sourceLine": 1140,
+      "imported": false
+    },
+    {
+      "name": "getEquipmentHandState",
+      "sourceLine": 1157,
+      "imported": false
+    },
+    {
+      "name": "hasDualWieldMastery",
+      "sourceLine": 1177,
+      "imported": false
+    },
+    {
+      "name": "validateWeaponHandUse",
+      "sourceLine": 1183,
+      "imported": false
+    },
+    {
+      "name": "getEquippedWeapon",
+      "sourceLine": 1199,
+      "imported": false
+    },
+    {
+      "name": "resolveWeaponProficiencyName",
+      "sourceLine": 1208,
+      "imported": false
+    },
+    {
+      "name": "getStatusMechanic",
+      "sourceLine": 1295,
+      "imported": false
+    },
+    {
+      "name": "isStatusActive",
+      "sourceLine": 1300,
+      "imported": false
+    },
+    {
+      "name": "isStunned",
+      "sourceLine": 1305,
+      "imported": false
+    },
+    {
+      "name": "isSilenced",
+      "sourceLine": 1306,
+      "imported": false
+    },
+    {
+      "name": "isAsleep",
+      "sourceLine": 1307,
+      "imported": false
+    },
+    {
+      "name": "isExhausted",
+      "sourceLine": 1310,
+      "imported": false
+    },
+    {
+      "name": "isFrozen",
+      "sourceLine": 1314,
+      "imported": false
+    },
+    {
+      "name": "getBlockingControlStatus",
+      "sourceLine": 1323,
+      "imported": false
+    },
+    {
+      "name": "getActiveTransformMechanic",
+      "sourceLine": 1338,
+      "imported": false
+    },
+    {
+      "name": "scaleStatCeil",
+      "sourceLine": 1355,
+      "imported": false
+    },
+    {
+      "name": "getPowerCapacityPercent",
+      "sourceLine": 1373,
+      "imported": false
+    },
+    {
+      "name": "withPowerCapacityStats",
+      "sourceLine": 1402,
+      "imported": false
+    },
+    {
+      "name": "getEffectiveStats",
+      "sourceLine": 1417,
+      "imported": false
+    },
+    {
+      "name": "withEffectiveStats",
+      "sourceLine": 1431,
+      "imported": false
+    },
+    {
+      "name": "withEffectiveStatsAtActionTick",
+      "sourceLine": 1451,
+      "imported": false
+    },
+    {
+      "name": "getActionsPerTurn",
+      "sourceLine": 1463,
+      "imported": false
+    },
+    {
+      "name": "computeOwnTurnsDurationTicks",
+      "sourceLine": 1478,
+      "imported": false
+    },
+    {
+      "name": "stripEncounterScopedStatuses",
+      "sourceLine": 1496,
+      "imported": false
+    },
+    {
+      "name": "resetEncounterScopedCooldowns",
+      "sourceLine": 1511,
+      "imported": false
+    },
+    {
+      "name": "restoreStoryCooldowns",
+      "sourceLine": 1522,
+      "imported": false
+    },
+    {
+      "name": "normalizeCooldownMap",
+      "sourceLine": 1533,
+      "imported": false
+    },
+    {
+      "name": "isSelfStatusSkillEntry",
+      "sourceLine": 1545,
+      "imported": false
+    },
+    {
+      "name": "isCasting",
+      "sourceLine": 1557,
+      "imported": false
+    },
+    {
+      "name": "resolveCastingInterrupt",
+      "sourceLine": 1570,
+      "imported": false
+    },
+    {
+      "name": "getPhysicalDamageStatusMultiplier",
+      "sourceLine": 1579,
+      "imported": false
+    },
+    {
+      "name": "applyPhysicalDamageStatusMultiplier",
+      "sourceLine": 1588,
+      "imported": false
+    },
+    {
+      "name": "getMonsterStatusDefenseModifier",
+      "sourceLine": 1600,
+      "imported": false
+    },
+    {
+      "name": "getMonsterCalledShotStatus",
+      "sourceLine": 1608,
+      "imported": false
+    },
+    {
+      "name": "assassinationDamageMultiplier",
+      "sourceLine": 1616,
+      "imported": false
+    },
+    {
+      "name": "assassinationInstantKillThresholdPct",
+      "sourceLine": 1622,
+      "imported": false
+    },
+    {
+      "name": "getMonsterStatusMagicModifier",
+      "sourceLine": 1628,
+      "imported": false
+    },
+    {
+      "name": "applyMonsterStatusUpdates",
+      "sourceLine": 1634,
+      "imported": false
+    },
+    {
+      "name": "getMonsterDefense",
+      "sourceLine": 1674,
+      "imported": false
+    },
+    {
+      "name": "getMonsterDamageReduction",
+      "sourceLine": 1685,
+      "imported": false
+    },
+    {
+      "name": "getMonsterMagicReduction",
+      "sourceLine": 1688,
+      "imported": false
+    },
+    {
+      "name": "calculateDefense",
+      "sourceLine": 1689,
+      "imported": false
+    },
+    {
+      "name": "getActionElement",
+      "sourceLine": 1701,
+      "imported": false
+    },
+    {
+      "name": "normalizeElementTag",
+      "sourceLine": 1707,
+      "imported": false
+    },
+    {
+      "name": "getElementInteraction",
+      "sourceLine": 1718,
+      "imported": false
+    },
+    {
+      "name": "applyElementModifier",
+      "sourceLine": 1734,
+      "imported": false
+    },
+    {
+      "name": "resolveCritical",
+      "sourceLine": 1770,
+      "imported": false
+    },
+    {
+      "name": "resolveWeaponAttackCriticalWithContext",
+      "sourceLine": 1809,
+      "imported": false
+    },
+    {
+      "name": "playerAccuracy",
+      "sourceLine": 1837,
+      "imported": false
+    },
+    {
+      "name": "calculateAttackRoll",
+      "sourceLine": 1851,
+      "imported": false
+    },
+    {
+      "name": "calculateDamage",
+      "sourceLine": 1863,
+      "imported": false
+    },
+    {
+      "name": "calculateSpellDamage",
+      "sourceLine": 1870,
+      "imported": false
+    },
+    {
+      "name": "resolveSavingThrow",
+      "sourceLine": 1913,
+      "imported": false
+    },
+    {
+      "name": "calculateAbilityDamage",
+      "sourceLine": 1932,
+      "imported": false
+    },
+    {
+      "name": "calculateSkillDamage",
+      "sourceLine": 2010,
+      "imported": false
+    },
+    {
+      "name": "calculateSpellDamageFromEntry",
+      "sourceLine": 2060,
+      "imported": false
+    },
+    {
+      "name": "scaleDiceNotationByMp",
+      "sourceLine": 2077,
+      "imported": false
+    },
+    {
+      "name": "calculateAbilityHeal",
+      "sourceLine": 2097,
+      "imported": false
+    },
+    {
+      "name": "calculateAbilityBarrier",
+      "sourceLine": 2118,
+      "imported": false
+    },
+    {
+      "name": "absorbDamageWithBarrier",
+      "sourceLine": 2129,
+      "imported": false
+    },
+    {
+      "name": "resolveAttack",
+      "sourceLine": 2152,
+      "imported": false
+    },
+    {
+      "name": "isHealerCandidate",
+      "sourceLine": 2289,
+      "imported": false
+    },
+    {
+      "name": "isLegalMonsterTarget",
+      "sourceLine": 2304,
+      "imported": false
+    },
+    {
+      "name": "selectMonsterTarget",
+      "sourceLine": 2307,
+      "imported": false
+    },
+    {
+      "name": "resolveMonsterAttack",
+      "sourceLine": 2356,
+      "imported": false
+    },
+    {
+      "name": "playerInitiative",
+      "sourceLine": 2448,
+      "imported": false
+    },
+    {
+      "name": "combatantFromPartyMember",
+      "sourceLine": 2451,
+      "imported": false
+    },
+    {
+      "name": "combatantFromMonster",
+      "sourceLine": 2487,
+      "imported": false
+    },
+    {
+      "name": "spawnArenaMonsterGroup",
+      "sourceLine": 2525,
+      "imported": false
+    },
+    {
+      "name": "updateArenaMonsterInstanceHp",
+      "sourceLine": 2541,
+      "imported": false
+    },
+    {
+      "name": "patchArenaMonsterInstance",
+      "sourceLine": 2546,
+      "imported": false
+    },
+    {
+      "name": "getAliveArenaMonsterInstances",
+      "sourceLine": 2549,
+      "imported": false
+    },
+    {
+      "name": "isArenaMonsterGroupDefeated",
+      "sourceLine": 2554,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaTargetInstance",
+      "sourceLine": 2561,
+      "imported": false
+    },
+    {
+      "name": "buildArenaCombatants",
+      "sourceLine": 2572,
+      "imported": false
+    },
+    {
+      "name": "getSortedCombatants",
+      "sourceLine": 2582,
+      "imported": false
+    },
+    {
+      "name": "isResolverEligible",
+      "sourceLine": 2651,
+      "imported": false
+    },
+    {
+      "name": "getResolverPool",
+      "sourceLine": 2656,
+      "imported": false
+    },
+    {
+      "name": "pickResolverRandom",
+      "sourceLine": 2666,
+      "imported": false
+    },
+    {
+      "name": "resolveCombatTargets",
+      "sourceLine": 2692,
+      "imported": false
+    },
+    {
+      "name": "validateResolverTarget",
+      "sourceLine": 2777,
+      "imported": false
+    },
+    {
+      "name": "buildArenaTurnOrder",
+      "sourceLine": 2795,
+      "imported": false
+    },
+    {
+      "name": "getNextArenaCombatant",
+      "sourceLine": 2820,
+      "imported": false
+    },
+    {
+      "name": "canCombatantContinueTurn",
+      "sourceLine": 2846,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaTurnHandoff",
+      "sourceLine": 2858,
+      "imported": false
+    },
+    {
+      "name": "buildAttackCommand",
+      "sourceLine": 2883,
+      "imported": false
+    },
+    {
+      "name": "validateArenaCommand",
+      "sourceLine": 2890,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaCommand",
+      "sourceLine": 2916,
+      "imported": false
+    },
+    {
+      "name": "buildDualWieldAttackCommand",
+      "sourceLine": 2960,
+      "imported": false
+    },
+    {
+      "name": "validateDualWieldAttackCommand",
+      "sourceLine": 2970,
+      "imported": false
+    },
+    {
+      "name": "resolveDualWieldAttackCommand",
+      "sourceLine": 3010,
+      "imported": false
+    },
+    {
+      "name": "getArenaAvailableSkills",
+      "sourceLine": 3078,
+      "imported": false
+    },
+    {
+      "name": "buildArenaSkillCommand",
+      "sourceLine": 3098,
+      "imported": false
+    },
+    {
+      "name": "validateArenaSkillCommand",
+      "sourceLine": 3113,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaSkillCommand",
+      "sourceLine": 3193,
+      "imported": false
+    },
+    {
+      "name": "getArenaSkillEngineOutcome",
+      "sourceLine": 3252,
+      "imported": false
+    },
+    {
+      "name": "getArenaSkillEngineOutcomeAoE",
+      "sourceLine": 3264,
+      "imported": false
+    },
+    {
+      "name": "hasPassiveSkill",
+      "sourceLine": 3314,
+      "imported": false
+    },
+    {
+      "name": "hasKazumaLuck",
+      "sourceLine": 3320,
+      "imported": false
+    },
+    {
+      "name": "getLuckModifier",
+      "sourceLine": 3327,
+      "imported": false
+    },
+    {
+      "name": "resolveLuckOutcome",
+      "sourceLine": 3335,
+      "imported": false
+    },
+    {
+      "name": "resolveStealCheck",
+      "sourceLine": 3350,
+      "imported": false
+    },
+    {
+      "name": "getMonsterLootEntries",
+      "sourceLine": 3373,
+      "imported": false
+    },
+    {
+      "name": "pickWeightedLootItem",
+      "sourceLine": 3391,
+      "imported": false
+    },
+    {
+      "name": "removeOneLootItem",
+      "sourceLine": 3407,
+      "imported": false
+    },
+    {
+      "name": "withMonsterEffectiveStats",
+      "sourceLine": 3424,
+      "imported": false
+    },
+    {
+      "name": "resolveMonsterSkillAttack",
+      "sourceLine": 3464,
+      "imported": false
+    },
+    {
+      "name": "chooseMonsterAction",
+      "sourceLine": 3493,
+      "imported": false
+    },
+    {
+      "name": "rollMonsterLootDrop",
+      "sourceLine": 3510,
+      "imported": false
+    },
+    {
+      "name": "getMonsterExpReward",
+      "sourceLine": 3534,
+      "imported": false
+    },
+    {
+      "name": "applyVictoryExpToParty",
+      "sourceLine": 3544,
+      "imported": false
+    },
+    {
+      "name": "getLootGearRefType",
+      "sourceLine": 3564,
+      "imported": false
+    },
+    {
+      "name": "applyMonsterLootToParty",
+      "sourceLine": 3576,
+      "imported": false
+    },
+    {
+      "name": "computeArenaVictoryRewards",
+      "sourceLine": 3605,
+      "imported": false
+    },
+    {
+      "name": "buildArenaStealCommand",
+      "sourceLine": 3623,
+      "imported": false
+    },
+    {
+      "name": "validateArenaStealCommand",
+      "sourceLine": 3632,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaStealCommand",
+      "sourceLine": 3671,
+      "imported": false
+    },
+    {
+      "name": "getArenaAvailableSpells",
+      "sourceLine": 3767,
+      "imported": false
+    },
+    {
+      "name": "buildArenaMagicCommand",
+      "sourceLine": 3784,
+      "imported": false
+    },
+    {
+      "name": "validateArenaMagicCommand",
+      "sourceLine": 3799,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaMagicCommand",
+      "sourceLine": 3876,
+      "imported": false
+    },
+    {
+      "name": "getArenaMagicEngineOutcome",
+      "sourceLine": 3929,
+      "imported": false
+    },
+    {
+      "name": "getArenaMagicEngineOutcomeAoE",
+      "sourceLine": 3950,
+      "imported": false
+    },
+    {
+      "name": "buildArenaContinueCastCommand",
+      "sourceLine": 3969,
+      "imported": false
+    },
+    {
+      "name": "validateArenaContinueCastCommand",
+      "sourceLine": 3980,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaContinueCastCommand",
+      "sourceLine": 3997,
+      "imported": false
+    },
+    {
+      "name": "getArenaPartyInventory",
+      "sourceLine": 4059,
+      "imported": true
+    },
+    {
+      "name": "removeOneSharedItem",
+      "sourceLine": 4085,
+      "imported": true
+    },
+    {
+      "name": "getBuyReferenceRange",
+      "sourceLine": 4137,
+      "imported": true
+    },
+    {
+      "name": "getSellReferenceRange",
+      "sourceLine": 4143,
+      "imported": true
+    },
+    {
+      "name": "clampNegotiatedPrice",
+      "sourceLine": 4153,
+      "imported": true
+    },
+    {
+      "name": "checkShopPurchase",
+      "sourceLine": 4168,
+      "imported": true
+    },
+    {
+      "name": "resolvePurchaseItem",
+      "sourceLine": 4198,
+      "imported": true
+    },
+    {
+      "name": "checkSellOffer",
+      "sourceLine": 4227,
+      "imported": true
+    },
+    {
+      "name": "resolveSellOffer",
+      "sourceLine": 4252,
+      "imported": true
+    },
+    {
+      "name": "getKishirikaEligibleEyes",
+      "sourceLine": 4286,
+      "imported": false
+    },
+    {
+      "name": "getKishirikaEncounterGate",
+      "sourceLine": 4301,
+      "imported": false
+    },
+    {
+      "name": "resolveKishirikaReward",
+      "sourceLine": 4317,
+      "imported": false
+    },
+    {
+      "name": "getIngredientRequirementStatus",
+      "sourceLine": 4338,
+      "imported": true
+    },
+    {
+      "name": "checkCraftRequirements",
+      "sourceLine": 4357,
+      "imported": true
+    },
+    {
+      "name": "resolveCraftRecipe",
+      "sourceLine": 4382,
+      "imported": true
+    },
+    {
+      "name": "buildArenaItemCommand",
+      "sourceLine": 4403,
+      "imported": false
+    },
+    {
+      "name": "validateArenaItemCommand",
+      "sourceLine": 4424,
+      "imported": false
+    },
+    {
+      "name": "findArenaItemDefinition",
+      "sourceLine": 4478,
+      "imported": false
+    },
+    {
+      "name": "resolveItemEffect",
+      "sourceLine": 4495,
+      "imported": true
+    },
+    {
+      "name": "resolveArenaItemCommand",
+      "sourceLine": 4534,
+      "imported": false
+    },
+    {
+      "name": "isDefending",
+      "sourceLine": 4573,
+      "imported": false
+    },
+    {
+      "name": "computeArenaDefendDuration",
+      "sourceLine": 4588,
+      "imported": false
+    },
+    {
+      "name": "applyArenaDefendState",
+      "sourceLine": 4604,
+      "imported": false
+    },
+    {
+      "name": "buildArenaDefendCommand",
+      "sourceLine": 4614,
+      "imported": false
+    },
+    {
+      "name": "validateArenaDefendCommand",
+      "sourceLine": 4621,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaDefendCommand",
+      "sourceLine": 4643,
+      "imported": false
+    },
+    {
+      "name": "buildArenaEscapeCommand",
+      "sourceLine": 4674,
+      "imported": false
+    },
+    {
+      "name": "validateArenaEscapeCommand",
+      "sourceLine": 4682,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaEscapeCommand",
+      "sourceLine": 4709,
+      "imported": false
+    },
+    {
+      "name": "buildArenaReviveCommand",
+      "sourceLine": 4729,
+      "imported": false
+    },
+    {
+      "name": "validateArenaReviveCommand",
+      "sourceLine": 4741,
+      "imported": false
+    },
+    {
+      "name": "resolveArenaReviveCommand",
+      "sourceLine": 4775,
+      "imported": false
+    },
+    {
+      "name": "emptyImportSlot",
+      "sourceLine": 4788,
+      "imported": false
+    },
+    {
+      "name": "emptyImportDraft",
+      "sourceLine": 4797,
+      "imported": false
+    },
+    {
+      "name": "buildImportedCharacter",
+      "sourceLine": 4803,
+      "imported": false
+    },
+    {
+      "name": "buildCharacterFromDraft",
+      "sourceLine": 4826,
+      "imported": false
+    },
+    {
+      "name": "buildRecruitCharacter",
+      "sourceLine": 4846,
+      "imported": false
+    },
+    {
+      "name": "devApplyExpGain",
+      "sourceLine": 4896,
+      "imported": false
+    },
+    {
+      "name": "devSetExp",
+      "sourceLine": 4922,
+      "imported": false
+    },
+    {
+      "name": "devApplyLevelUps",
+      "sourceLine": 4932,
+      "imported": false
+    },
+    {
+      "name": "devSetLevel",
+      "sourceLine": 4955,
+      "imported": false
+    },
+    {
+      "name": "devSetProficiencyGrade",
+      "sourceLine": 4964,
+      "imported": false
+    },
+    {
+      "name": "devStepProficiencyGrade",
+      "sourceLine": 4979,
+      "imported": false
+    },
+    {
+      "name": "extractJson",
+      "sourceLine": 4993,
+      "imported": false
+    },
+    {
+      "name": "getGeminiKeys",
+      "sourceLine": 5016,
+      "imported": false
+    },
+    {
+      "name": "getKeyState",
+      "sourceLine": 5025,
+      "imported": false
+    },
+    {
+      "name": "pickGeminiKey",
+      "sourceLine": 5030,
+      "imported": false
+    },
+    {
+      "name": "getGeminiStandbyStatus",
+      "sourceLine": 5043,
+      "imported": false
+    },
+    {
+      "name": "parseSkillResourceCost",
+      "sourceLine": 5215,
+      "imported": false
+    },
+    {
+      "name": "checkAbilityUsable",
+      "sourceLine": 5234,
+      "imported": false
+    },
+    {
+      "name": "checkSkillRequirements",
+      "sourceLine": 5255,
+      "imported": false
+    },
+    {
+      "name": "parseStatusEffectTag",
+      "sourceLine": 5278,
+      "imported": false
+    },
+    {
+      "name": "findStatusEffectDefinition",
+      "sourceLine": 5295,
+      "imported": false
+    },
+    {
+      "name": "activeStatusEffectsTextForPrompt",
+      "sourceLine": 5317,
+      "imported": false
+    },
+    {
+      "name": "skillsTextForPrompt",
+      "sourceLine": 5328,
+      "imported": false
+    },
+    {
+      "name": "spellsTextForPrompt",
+      "sourceLine": 5349,
+      "imported": false
+    },
+    {
+      "name": "buildPartyText",
+      "sourceLine": 5368,
+      "imported": false
+    },
+    {
+      "name": "buildDemonEyeRulesText",
+      "sourceLine": 5383,
+      "imported": false
+    },
+    {
+      "name": "getNarrativePassiveCapabilityText",
+      "sourceLine": 5393,
+      "imported": false
+    },
+    {
+      "name": "buildSystemPrompt",
+      "sourceLine": 5406,
+      "imported": false
+    },
+    {
+      "name": "buildSummaryPrompt",
+      "sourceLine": 5526,
+      "imported": false
+    },
+    {
+      "name": "serializeMonsterForPrompt",
+      "sourceLine": 5565,
+      "imported": false
+    },
+    {
+      "name": "buildArenaPrompt",
+      "sourceLine": 5587,
+      "imported": false
+    },
+    {
+      "name": "isInstantDeathHit",
+      "sourceLine": 5682,
+      "imported": false
+    },
+    {
+      "name": "applyDownedTransition",
+      "sourceLine": 5688,
+      "imported": false
+    },
+    {
+      "name": "rollDeathSave",
+      "sourceLine": 5709,
+      "imported": false
+    },
+    {
+      "name": "hasReturnByDeath",
+      "sourceLine": 5732,
+      "imported": false
+    },
+    {
+      "name": "findReturnByDeathHolder",
+      "sourceLine": 5738,
+      "imported": false
+    },
+    {
+      "name": "buildReturnByDeathCheckpoint",
+      "sourceLine": 5752,
+      "imported": false
+    },
+    {
+      "name": "shouldTriggerReturnByDeath",
+      "sourceLine": 5767,
+      "imported": false
+    },
+    {
+      "name": "summarizeReturnByDeathMemory",
+      "sourceLine": 5777,
+      "imported": false
+    },
+    {
+      "name": "applyUpdates",
+      "sourceLine": 5794,
+      "imported": false
+    },
+    {
+      "name": "resolveNonWeaponMonsterDelta",
+      "sourceLine": 6383,
+      "imported": false
+    },
+    {
+      "name": "sanitizeArenaUpdatesForCombatHp",
+      "sourceLine": 6398,
+      "imported": false
+    },
+    {
+      "name": "resolveWeaponMonsterDelta",
+      "sourceLine": 6414,
+      "imported": false
+    },
+    {
+      "name": "rebaseStatusEffectsForArena",
+      "sourceLine": 6427,
+      "imported": false
+    },
+    {
+      "name": "emptyPassiveBonuses",
+      "sourceLine": 6464,
+      "imported": false
+    },
+    {
+      "name": "parseEquipmentPassiveEffects",
+      "sourceLine": 6465,
+      "imported": false
+    },
+    {
+      "name": "combineEquipmentPassiveText",
+      "sourceLine": 6483,
+      "imported": false
+    },
+    {
+      "name": "totalPassiveBonuses",
+      "sourceLine": 6487,
+      "imported": false
+    },
+    {
+      "name": "reconcileEquipmentStatBonus",
+      "sourceLine": 6501,
+      "imported": false
+    },
+    {
+      "name": "passiveBonusesTextForPrompt",
+      "sourceLine": 6524,
+      "imported": false
+    },
+    {
+      "name": "dbWeaponToSlotItem",
+      "sourceLine": 6536,
+      "imported": false
+    },
+    {
+      "name": "dbNonWeaponToSlotItem",
+      "sourceLine": 6561,
+      "imported": false
+    },
+    {
+      "name": "npcDbEntryToEquipment",
+      "sourceLine": 6571,
+      "imported": false
+    },
+    {
+      "name": "getArenaPartyGearStash",
+      "sourceLine": 6637,
+      "imported": true
+    },
+    {
+      "name": "addGearToStash",
+      "sourceLine": 6652,
+      "imported": true
+    },
+    {
+      "name": "removeOneGearFromStash",
+      "sourceLine": 6664,
+      "imported": true
+    },
+    {
+      "name": "refTypeForSlotKey",
+      "sourceLine": 6678,
+      "imported": true
+    },
+    {
+      "name": "dbEntryToSlotItem",
+      "sourceLine": 6684,
+      "imported": false
+    },
+    {
+      "name": "equipGearFromStash",
+      "sourceLine": 6694,
+      "imported": false
+    },
+    {
+      "name": "unequipGearToStash",
+      "sourceLine": 6732,
+      "imported": false
+    },
+    {
+      "name": "removeEquippedGearForSale",
+      "sourceLine": 6752,
+      "imported": true
+    },
+    {
+      "name": "armorLikeFields",
+      "sourceLine": 7195,
+      "imported": false
+    },
+    {
+      "name": "filterProposalFields",
+      "sourceLine": 7677,
+      "imported": false
+    },
+    {
+      "name": "emptyContentEntry",
+      "sourceLine": 7853,
+      "imported": false
+    },
+    {
+      "name": "genContentId",
+      "sourceLine": 7867,
+      "imported": false
+    },
+    {
+      "name": "parseKeyValueText",
+      "sourceLine": 7868,
+      "imported": false
+    },
+    {
+      "name": "keyValueToText",
+      "sourceLine": 7877,
+      "imported": false
+    },
+    {
+      "name": "tagsToText",
+      "sourceLine": 7878,
+      "imported": false
+    },
+    {
+      "name": "textToTags",
+      "sourceLine": 7879,
+      "imported": false
+    },
+    {
+      "name": "suggestMonsterCombatStats",
+      "sourceLine": 7886,
+      "imported": false
+    },
+    {
+      "name": "suggestNpcCombatStats",
+      "sourceLine": 7915,
+      "imported": false
+    },
+    {
+      "name": "clonePresetEntries",
+      "sourceLine": 8728,
+      "imported": false
+    },
+    {
+      "name": "emptyContentDB",
+      "sourceLine": 9467,
+      "imported": false
+    },
+    {
+      "name": "reconcileDefaultPresets",
+      "sourceLine": 9533,
+      "imported": false
+    },
+    {
+      "name": "validateEntry",
+      "sourceLine": 9660,
+      "imported": false
+    },
+    {
+      "name": "summarizeEntry",
+      "sourceLine": 9682,
+      "imported": false
+    },
+    {
+      "name": "isNpcAlreadyRecruited",
+      "sourceLine": 9733,
+      "imported": false
+    },
+    {
+      "name": "sampleRandomUnique",
+      "sourceLine": 9739,
+      "imported": false
+    },
+    {
+      "name": "pickNpcEntriesForPrompt",
+      "sourceLine": 9749,
+      "imported": false
+    },
+    {
+      "name": "summarizeDbForPrompt",
+      "sourceLine": 9789,
+      "imported": false
+    },
+    {
+      "name": "unlockXpFor",
+      "sourceLine": 10404,
+      "imported": false
+    },
+    {
+      "name": "sortSpellSchoolRows",
+      "sourceLine": 10416,
+      "imported": false
+    }
+  ]
+}

@@ -57,3 +57,19 @@ Character creation now includes male/female body templates, three faces, three h
 Integrated six local transparent sprite sheets from https://github.com/patch-gg/pixelfx (MIT): sword slash, fireball, frost nova, heal, divine shield and lightning strike. Successful combat actions trigger transient effects at their targets; guard and potion effects attach to the acting character. Failed actions do not trigger effects. Sheets are rendered with `--sheet --no-actor`; no upstream actor or proprietary gallery font is shipped. Asset provenance, pinned source commit, LICENSE and NOTICE are under `dist/assets/fx/`. The effects add about 2.6 MB and use the existing canvas camera, with a bounded transient queue. They do not change combat damage or save data. Browser QA exercises a real Fire Burst and captures its effect, alongside camera picking and existing creation/combat checks.
 
 AutoSprite and GameSlash tools pages returned HTTP 403 from this environment. Their functionality, pricing, export rights and integration were not verified; no accounts were created, payments made or game data uploaded to either service.
+
+## Grid player appearance — 2026-11-05
+
+Upload an icon in character creation to use it as the player's grid token. The token moves with the player and is stored with the existing character save. The animated character assembly preview has been removed. Existing characters can change their icon through “แก้ไข / ดูรูปตัวละคร”; a missing or failed image falls back to the default pawn.
+
+## Legacy database and engine audit — 2026-11-05
+
+The supplied v20.3 JSX matches all 504 imported records, 13 categories and 205 schema fields. See [LEGACY-MIGRATION.md](LEGACY-MIGRATION.md) for the record-level evidence and engine migration plan. Original shop, sell, shared inventory, recipe and HP/MP item-effect functions now power “ร้านค้า คลังไอเท็ม และปรุงยา” on the character game screen. Grid/2 AP combat is retained. Legacy gear is stored separately until its equipment/combat adapter is implemented.
+
+## Catalog items in combat — 2026-11-05
+
+Choose a healing/mana item under the combat supplies controls, then use it on the currently commanded living member for 1 AP and one catalog item. Pocket potions remain a separate supply. Item quantity, effects and AP persist together on save/reload. Full resources or rejected actions consume neither the item nor AP.
+
+## Equipment slots — 2026-11-05
+
+“อุปกรณ์สวมใส่” provides ten slots around the player icon: helmet, armor, cape, boots, right/left hand and four accessories. Equip real inventory copies, swap/unequip to stash, reserve both hands for two-handed weapons and retain class/Dual Wield rules. Item icons have individual default files and editable image fields in the database. See [EQUIPMENT-SYSTEM.md](EQUIPMENT-SYSTEM.md) for supported combat effects, icon editing and save compatibility.

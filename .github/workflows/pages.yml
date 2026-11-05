@@ -35,6 +35,10 @@ jobs:
           node elements.test.cjs
           node status-immunity.test.cjs
           node catalog-actions.test.cjs
+          node monster-ai.test.cjs
+          node monster-passives.test.cjs
+          node monster-stats.test.cjs
+          node monster-grid.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

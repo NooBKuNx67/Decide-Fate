@@ -45,6 +45,6 @@ C.spell=(e,id)=>e.design===1&&!e.chapter?C.cast(e,C.hero(e).skills.find(k=>N.ski
 C.endTurn=function(e){init(e);return atomic(e,()=>{for(const u of e.units){u.moving=false;u.detected=[];delete u.suspicion;}e.detectChecks={};e.detectPhase='enemy';old.endTurn(e);e.detectPhase='player';if(e.status==='active')for(const p of live(e).filter(u=>u.side==='player')){p.action=2;p.moving=false;if(!['dragon','wind'].includes(p.form?.type))p.altitude=0;}perceive(e);});};
 C.fly=(e,h)=>use(e,p=>{if(!Number.isInteger(h)||h<0||h>2)throw Error('ระดับบิน 0–2');if(h&&p.form?.type!=='dragon'&&p.form?.type!=='wind')throw Error('ต้องมีร่างมังกรหรือร่างลมจึงบินได้');p.altitude=h;},{move:true});
 C.setProfile=function(e,key,p){checkProfile(p);if(p.castPoints!==undefined&&(!Number.isInteger(p.castPoints)||p.castPoints<1||p.castPoints>20))throw Error('แต้มร่าย 1–20');e.profiles[key]=copy(p);};
-C.tactical={init,fog,level,profile,targets,inSight,perceive,chance,damageAllowed(e,a,b){const r=e.currentTargeting;if(!r)return true;const d=old.distance(e.scene,a.n,b.n);return d>=r.min&&d<=r.max&&r.heights.includes(level(e,b)-level(e,a))&&(r.side==='both'||(r.side==='ally')===(a.side===b.side));}};
+C.tactical={init,fog,level,profile,targets,inSight,perceive,chance,canTarget(e,a,b,rule){checkProfile(rule);return reachable(e,a,b,rule);},damageAllowed(e,a,b){const r=e.currentTargeting;return !r||reachable(e,a,b,r);}};
 if(typeof module!=='undefined')module.exports=C;
 })(typeof window==='undefined'?globalThis:window);

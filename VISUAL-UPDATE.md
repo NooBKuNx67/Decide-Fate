@@ -185,3 +185,19 @@ Centralized implemented debuff applications behind explicit saved immunity tags.
 ## Catalog combat actions, phase 1 — 2026-11-05
 
 Enabled 26 explicitly supported legacy skill/spell records for learned design-1 heroes, preserving original records and current grid/2 AP. Added saved action snapshots, one-AP catalog casting with original MP/cooldown/dice values, ally healing/cleansing, Empower/Iron Wall, weapon conditions and visible-in-range area targeting. Formerly descriptive healing/buff records now have explicit provisional formulas shown in the journal and battle guide. The character panel separates learned catalog abilities from starter skills; unsupported combat records are labeled. No automatic grants, monster-skill AI or arbitrary text interpretation. See CATALOG-COMBAT-ACTIONS.md for exact rules and limitations. Pure and mocked UI tests cover learning through real controls, casts, resources, invalid actions, snapshots/reload and desktop/landscape screenshots.
+
+## Monster active-skill AI — 2026-11-05
+
+Connected nine explicitly supported monster actions referenced across all 35 source monsters. Identified enemies snapshot owned actions and source ability stats, initialize MP on new encounters, enforce edited MP/cooldown values and select legal targets using detection, range and LOS. Added ranged spacing, melee approach, stun/silence behavior and one-action fallback attacks; movement respects terrain, traps and slow/quagmire. Visible enemies show MP and logs name skills. Old unidentified/chapter enemies retain their prior AI. Monster passives remain unsupported; Poison Fang still deals damage only, consistent with its descriptive-only source status. See MONSTER-AI.md for rules and limits. Pure and mocked UI tests cover linking, decisions, resources, movement, saved replay and actual End Turn controls; no real player saves are used.
+
+## Monster passives — 2026-11-05
+
+Connected all six original monster passive records using typed numeric fields and the extracted original aggregation helper. Thick Hide affects physical hit chance, Undying Resilience reduces physical damage, Arcane Ward reduces magic damage, Swarm Tactics improves accuracy, and Predator's Instinct/Ancient Might add attack percentages. Bonuses are derived from optional validated snapshots without mutating base attack/armor or refilling resources; repeated loads cannot restack them. Visible enemies display their active effects and the journal distinguishes supported passives. Source data and player grid/2 AP remain unchanged. Full grid conversion, boundaries and tests are in MONSTER-PASSIVES.md.
+
+## Monster source stats — 2026-11-05
+
+New free-field encounters now use exact source HP/MP/normal ATK and separate Defense/Evasion/Accuracy from physical/magic damage reduction. Removed the 12–70 HP clamp for this path. Added validated source snapshots, provisional grid hit conversion with consistent base/passive units, source stat details for visible enemies and atomic rejection of invalid source data. Existing saved fights keep their stats and old formula; source edits are applied only to new fields. Player grid/2 AP, active-skill dice and source records remain intact. See MONSTER-STATS.md for calibration, bounds, compatibility and tests.
+
+## Monster attacks through shared grid guards — 2026-11-05
+
+Made monster action geometry explicit and reused the tactical grid target predicate for AI planning and legal casts. Skills and normal melee fallback scope their own targeting profile during shared damage resolution; the low-level grid guard now includes LOS. Physical attacks permit one relative grid level, magical attacks two. Preserved detection/smoke requirements and resource rollback for invalid casts. Added pure boundary/guard tests and a mocked End Turn test proving a full wall prevents casting and opening the grid permits it. No animations or UI layout changes.

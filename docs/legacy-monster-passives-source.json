@@ -1,0 +1,15 @@
+{
+  "sourceFile": "dnd-dm-game-v20.3-login-white-fields.jsx",
+  "sourceSha256": "64f8707980b464fa73842e6aa999013fdb1156280c8cb8089410bf2ae127342f",
+  "functions": [
+    {
+      "name": "getCharacterEnabledSkillDbEntries",
+      "sha256": "4d7fe0f0f385fb495bdaeebe2856fe7209daede9c73b8a0a8fc035b8166541ba"
+    },
+    {
+      "name": "withMonsterEffectiveStats",
+      "sha256": "26b74de25440d6304a7929507d40be0fdc9b74ea2370d7b248677f9ac5536a52"
+    }
+  ],
+  "importedEngineSha256": "d3dd9962ddd18844aaceebc54c26adaeeacfdbd01d461934ef53623c93244738"
+}

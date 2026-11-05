@@ -22,3 +22,11 @@ Run `node preview.cjs` for local preview. Browser compatibility runner: `NODE_PA
 ## Next work, when requested
 
 Continue the remaining legacy combat actions and then monster skill/AI integration. UI visual redesign is deferred at the owner's request. Do not restart animation work. Do not publish or develop further merely because this checkpoint exists.
+
+## Monster systems release — 2026-11-05
+
+Owner requested uploading through completed publication. This release adds nine monster active skills across all 35 source monsters, six typed passive effects, actual source base stats for new free fields, and shared grid targeting/damage guards. Existing battles keep their prior stats/formulas; new fields use source HP/MP/ATK and the documented grid hit conversion. No character-animation work was resumed.
+
+References: MONSTER-AI.md, MONSTER-PASSIVES.md, MONSTER-STATS.md. Current verification: 28 pure test files passed, plus focused mocked browser tests for monster AI, passives, source-stat initialization/reload, wall-blocked casting, character creation/combat, and isometric camera picking/landscape rendering. Source database parity remains intact. The publish workflow now runs the four new monster rule suites as part of deployment.
+
+Next possible work when requested: balance playtests, reward/XP scaling and additional supported combat effects. Publishing remains manual via the workflow; an owner request to upload to GitHub includes dispatching that workflow and verifying the live site, per AGENTS.md.

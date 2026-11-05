@@ -73,3 +73,7 @@ Choose a healing/mana item under the combat supplies controls, then use it on th
 ## Equipment slots — 2026-11-05
 
 “อุปกรณ์สวมใส่” provides ten slots around the player icon: helmet, armor, cape, boots, right/left hand and four accessories. Equip real inventory copies, swap/unequip to stash, reserve both hands for two-handed weapons and retain class/Dual Wield rules. Item icons have individual default files and editable image fields in the database. See [EQUIPMENT-SYSTEM.md](EQUIPMENT-SYSTEM.md) for supported combat effects, icon editing and save compatibility.
+
+## Monster combat integration — 2026-11-05
+
+Catalog enemies now use nine supported active actions and six typed passive effects through grid targeting. New free fields use source HP/MP/normal ATK plus explicit grid conversions for defense/accuracy/evasion; saved battles retain their existing balance. See MONSTER-AI.md, MONSTER-PASSIVES.md and MONSTER-STATS.md for supported mechanics and limits. Monster attacks check range, height, detection and line of sight before shared damage resolution. Verification includes 28 pure test files and focused mocked browser checks.

@@ -100,3 +100,15 @@ node tools/audit-legacy-source.cjs /path/to/original.jsx
 ## Catalog action migration, phase 1
 
 26 legacy skill/spell records now have explicit current-combat adapters; see [CATALOG-COMBAT-ACTIONS.md](CATALOG-COMBAT-ACTIONS.md). Learned canonical keys are snapshotted into the encounter without replacing class skills. Damage dice, MP, cooldown and elements reuse source data; formerly descriptive healing/buff records use clearly identified new grid formulas. Remaining actions, spell progression and monster-skill AI are not counted as migrated.
+
+## Monster action migration, phase 1
+
+Nine active monster skill adapters now cover references on all 35 source monster records, with saved source stats/actions, MP/cooldown enforcement, deterministic target/movement decisions and old-encounter compatibility. See [MONSTER-AI.md](MONSTER-AI.md). This does not count the six monster passives or the old d20 defense/accuracy/evasion model as migrated.
+
+## Monster passive migration
+
+The six original monster passive records now have typed, snapshotted adapters backed by the original aggregation helpers. See [MONSTER-PASSIVES.md](MONSTER-PASSIVES.md) for the explicit conversion of hit-roll bonuses to current grid accuracy, physical/magic mitigation and additive attack percentages. Base monster d20 defense/accuracy/evasion and HP balance are still separate work.
+
+## Monster base stats migration
+
+New design-1 free fields snapshot actual source HP/MP/normal ATK and explicit Defense/Accuracy/Evasion/physical/magic reduction inputs for all 35 original monsters. Existing fights are preserved. See [MONSTER-STATS.md](MONSTER-STATS.md); hit conversion is a new grid rule, not the old d20 engine. Rewards, initiative and detection base stats are not migrated by this phase.

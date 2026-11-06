@@ -39,6 +39,10 @@ jobs:
           node monster-passives.test.cjs
           node monster-stats.test.cjs
           node monster-grid.test.cjs
+          node combat-lab.test.cjs
+          node grid-patterns.test.cjs
+          node status-effects.test.cjs
+          node displacement.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -77,3 +77,15 @@ Choose a healing/mana item under the combat supplies controls, then use it on th
 ## Monster combat integration — 2026-11-05
 
 Catalog enemies now use nine supported active actions and six typed passive effects through grid targeting. New free fields use source HP/MP/normal ATK plus explicit grid conversions for defense/accuracy/evasion; saved battles retain their existing balance. See MONSTER-AI.md, MONSTER-PASSIVES.md and MONSTER-STATS.md for supported mechanics and limits. Monster attacks check range, height, detection and line of sight before shared damage resolution. Verification includes 28 pure test files and focused mocked browser checks.
+
+## Update test field
+
+Use “สนามทดสอบอัปเดต” on the main menu to arrange source monsters and test supported actions with a simulated character. Includes a sandbox-only 3×3 footprint template and HP reports, without altering real saves or granting rewards. See COMBAT-LAB.md.
+
+## Shared status effects — 2026-11-06
+
+Skills/spells can configure after-hit statuses, chance, duration, DOT and saving throws. Players and monsters share resolution and duration rules, with visible status icons and direct Update Test Field scenarios. Ice Bind, Poison Blade and Shield Bash now work through the source catalog adapter. See [STATUS-EFFECTS.md](STATUS-EFFECTS.md).
+
+## Skill/spell push and pull — 2026-11-06
+
+Configure push/pull distances in the database for supported damage actions. Players and monsters use shared safe grid movement with conditional endpoint previews. Seven direct Update Test Field scenarios cover clear paths, obstacles and enemy actions. See [DISPLACEMENT.md](DISPLACEMENT.md).

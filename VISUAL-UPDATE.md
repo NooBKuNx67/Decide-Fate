@@ -201,3 +201,19 @@ New free-field encounters now use exact source HP/MP/normal ATK and separate Def
 ## Monster attacks through shared grid guards — 2026-11-05
 
 Made monster action geometry explicit and reused the tactical grid target predicate for AI planning and legal casts. Skills and normal melee fallback scope their own targeting profile during shared damage resolution; the low-level grid guard now includes LOS. Physical attacks permit one relative grid level, magical attacks two. Preserved detection/smoke requirements and resource rollback for invalid casts. Added pure boundary/guard tests and a mocked End Turn test proving a full wall prevents casting and opening the grid permits it. No animations or UI layout changes.
+
+## Main-menu combat lab — 2026-11-05
+
+Added a disposable main-menu sandbox with simulated characters, source monster placement, five preset scenarios and supported real action selection. Includes a clearly distinguished 3×3 test template, footprint preview, per-unit HP reports, real enemy turns, class/weapon selection, multi-AP cast progress/cancel, reset/refill and grid terrain tools. The lab reuses core combat and isometric rendering, runs independently of the real save, and never settles rewards or dispatches save events. Main UI preserves the existing visual theme; controls support desktop/landscape, canvas picking and coordinate input. See COMBAT-LAB.md for exact scope and test coverage.
+
+## Database-defined grid patterns — 2026-11-05
+
+Added seven typed fields each to skill/spell forms for footprint, width/depth, fixed/hearing/sight range reference, and one/up-to-N/all target selection. Added shared four-direction strip/cone, around-caster and aimed rectangle/cell geometry, normal-game and sandbox previews/target controls, real catalog/authored/monster dispatch and source snapshot validation. Legacy defaults retain previous behavior. Added direct lab scenarios for line 2×7/select-three, hearing radius, sight cone and actual Fire 3×3. Original 504 records and 205 schema fields remain intact; runtime schemas are 227 with additive equipment/pattern fields. See GRID-PATTERNS.md for exact geometry, supported mechanics and tests.
+
+## Shared grid statuses — 2026-11-06
+
+Added typed source status resolution, five status fields per skill/spell (237 runtime fields total), target-stat d20 saves, configurable chance/duration/DOT, Frozen, full action locks, held-cast interruption and fair enemy-to-player expiry. Connected Ice Bind, Poison Blade and Shield Bash (29 supported catalog actions). Both combat panels show icons and durations; Cure clears supported harmful effects. Eight isolated Update Test Field scenarios and status/HP reports exercise the real shared engine without save mutations. See STATUS-EFFECTS.md and the new pure/browser tests.
+
+## Push/pull fields and grid resolution — 2026-11-06
+
+Added push/pull numeric fields to skill/spell schemas (241 runtime fields), validated mutual exclusivity, frozen encounter metadata and shared after-hit displacement for class/catalog/monster damage actions. Stops before bodies, solid objects, elevation changes and edges; no falling/collision damage. Conditional coordinates and orange endpoints appear in normal combat and the lab, with seven direct presets and movement result reports. Camera picking and desktop/landscape rendering verified with mock saves; see DISPLACEMENT.md.

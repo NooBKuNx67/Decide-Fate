@@ -16,7 +16,7 @@ function use(s,rows,itemId){ready(s);const item=find(rows,'item',itemId),p=party
 function useInCombat(s,rows,itemId){
  need(s.character&&!s.dead&&s.expedition?.status==='active','ไม่มีสนามที่กำลังต่อสู้');
  const next=copy(s),e=next.expedition;let C=g.DecideCombatRules||(typeof require==='function'?require('./combat-data.js'):null);if(!C.tactical&&typeof require==='function')C=require('./tactical-systems.js');C.tactical.init(e);
- const p=C.hero(e);need(p&&p.side==='player'&&p.hp>0,'สมาชิกที่สั่งการต้องยังต่อสู้ได้');need(p.action>=1,'ต้องมีอย่างน้อย 1 AP');need(!p.casting,'กำลังร่ายเวท ต้องปล่อยหรือยกเลิกก่อน');need(!p.effects?.stun,'ติดสตัน ใช้ไอเท็มไม่ได้');
+ const p=C.hero(e);need(p&&p.side==='player'&&p.hp>0,'สมาชิกที่สั่งการต้องยังต่อสู้ได้');need(p.action>=1,'ต้องมีอย่างน้อย 1 AP');need(!p.casting,'กำลังร่ายเวท ต้องปล่อยหรือยกเลิกก่อน');need(!p.effects?.stun&&!p.effects?.frozen,'ติดสตันหรือแช่แข็ง ใช้ไอเท็มไม่ได้');
  const item=find(rows,'item',itemId),inv=validate(next.catalogInventory);need(inv.items.includes(item.name),'ไม่มีไอเท็มนี้ในคลัง');need(Number.isFinite(Number(item.value))&&Number(item.value)>=0,'ค่าไอเท็มไม่ถูกต้อง');
  const target={id:p.id,hp:p.hp,maxHp:p.maxHp,mp:p.mana,maxMp:p.maxMana},result=E.resolveItemEffect(item,target,target,{});need(result.ok,result.reason);need(result.effects.some(x=>x.delta>0),'ค่าพลังเต็มแล้ว ไม่ใช้ไอเท็ม');
  for(const effect of result.effects)p[effect.type==='hp'?'hp':'mana']=effect.next;

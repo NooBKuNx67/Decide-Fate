@@ -23,7 +23,7 @@ Design-1 tactical encounters now snapshot and use **9 active monster skills**, c
 - Empty `resourceCost` means **0 MP**, and cooldown 0 remains 0. All nine original monster action records currently have these defaults. Edited numeric MP costs/cooldowns work and are enforced; no undocumented costs are invented.
 - Range 1 physical / range 4 magic are explicit new grid adapter rules. These records did not have grid range fields. Each monster retains one attack opportunity per enemy turn and up to four movement points (two when slowed). Players retain two AP.
 - Poison Fang's original record expressly has descriptive poison and no structured status effect. It therefore deals damage without poisoning. No Burn/Slow/Stun effects are inferred from action names.
-- Nonzero save DC, lifesteal, unsupported resource formats or status-effect edits are rejected by the compiler instead of being partially executed.
+- Lifesteal, unsupported resource formats or unsupported status-effect edits are rejected by the compiler instead of being partially executed.
 
 ## Decision and movement rules
 
@@ -58,3 +58,15 @@ The nine supported actions remain single-target, as in their source data. Physic
 The shared low-level grid damage guard now also checks line of sight, so a stale or bypassed target selection cannot deal damage through a grid blocker. Invalid monster actions leave HP, MP, AP, cooldown and damage RNG unchanged.
 
 `monster-grid.test.cjs` covers walls, trees, smoke, undetected targets, distance, physical/magic height boundaries, self/friendly targeting, scope restoration and direct damage-guard rejection. `monster-grid-ui.test.cjs` presses the actual End Turn button with a full wall between the units, verifies no damage/resource use, opens the route and verifies a legal cast. Mock authentication/storage only. Screenshots: `artifacts/qa/monster-grid-wall.png`, `monster-grid-open.png`.
+
+## Data-defined pattern extension
+
+The nine supported active skill records can optionally carry the same database-defined footprint and one/up-to-N/all target count as player skills. The AI faces a detected target automatically and uses the shared geometry, visibility checks and per-recipient damage resolver, spending one action/MP/cooldown total. Unconfigured records keep the phase-1 single-target behavior. See GRID-PATTERNS.md; pure party coverage verifies multiple recipients, while the current lab player side is solo.
+
+## Shared status effects
+
+All nine active attacks can apply explicit supported structured statuses with per-target chance and saving throws through the shared resolver. No status is inferred from prose. Frozen/Stun skip the entire monster turn; Silence prevents magic while still allowing a legal basic attack. See STATUS-EFFECTS.md.
+
+## Push/pull
+
+Structured push/pull distances on the nine supported active attacks execute through shared displacement after a damaging hit. No displacement is inferred from names/descriptions. The Update Test Field includes an enemy-push scenario; see DISPLACEMENT.md.

@@ -1,7 +1,7 @@
 
 :root{--anime-ink:#162d42;--anime-gold:#ead399;--anime-light:#f6f0dc}
 /* The actual authentication form lives on the illustrated opening screen. */
-#loginScreen{box-sizing:border-box;position:relative;isolation:isolate;min-height:100svh;max-width:none;margin:0;padding:clamp(24px,5vw,80px);display:flex;align-items:center;background:#122338 url('assets/login-background.png') left center/cover no-repeat}
+#loginScreen{box-sizing:border-box;position:relative;isolation:isolate;min-height:100svh;max-width:none;margin:0;padding:clamp(24px,5vw,80px);display:flex;align-items:center;background:#122338 url('assets/login-background.webp') left center/cover no-repeat}
 #loginScreen::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#081b3299,transparent 65%)}
 #loginScreen .login-art{display:none}
 #loginScreen .login-card{box-sizing:border-box;width:min(100%,420px);margin-top:150px;padding:28px;background:#10243be8;border:1px solid #d6bb7f;border-radius:12px;box-shadow:0 20px 70px #06142688;backdrop-filter:blur(10px)}

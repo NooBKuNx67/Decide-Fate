@@ -73,3 +73,9 @@ Recommendation: keep browsers outside Pages CI for now. A separate mocked browse
 Audited 40 innerHTML assignments across 15 dist scripts, plus the related insertAdjacentHTML paths. Fixed two actual editable-data paths: imported extra character.stats keys/values and authored equipped-weapon names. No other behavior/schema/auth configuration changed. Full inventory and rationale: [FRONTEND-SECURITY-AUDIT.md](FRONTEND-SECURITY-AUDIT.md), [JSON inventory](reports/frontend-html-sinks.json).
 
 Verification: **44 pure files + 9 browser files passed, 0 failed**. Browser files: frontend-security-ui, creation-ui, equipment-ui, full-schema, content-authoring-ui, combat-polish, grid-closeout-ui, event-story-ui, world-links-ui. The new XSS test reproduced execution before the fix and passes without CSP afterward. A separate temporary CSP smoke script passed mocked login/logout and grid startup; real remote SDK/auth was not tested, so the proposed CSP is documentation only, not an active meta tag.
+
+## Phase 4 — lossless WebP assets
+
+Converted eight requested PNGs to lossless WebP, preserved exact original bytes outside dist and updated runtime/tool/provenance references. No geometry or save changes. [ASSET-OPTIMIZATION.md](ASSET-OPTIMIZATION.md) records per-image sizes, original hashes, capture locations and the measured screenshot differences.
+
+Before: 2/2 camera/grid browser files and the visual capture script passed. After: **44 pure + 9 browser files passed, 0 failed**; both visual/fallback scripts passed too. Desktop and emulated touch mobile were checked. Exact dist sizes and percentage are in reports/asset-webp-phase4.json. Windows/Edge and physical mobile remain unverified.

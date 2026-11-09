@@ -1,0 +1,130 @@
+[
+  {
+    "image": "desktop-cave.png",
+    "dimensions": [
+      914,
+      661
+    ],
+    "differentPixels": 77341,
+    "maxChannelDifference": 2,
+    "meanChannelDifference": [
+      0.09034120439490594,
+      0.07525068111772826,
+      0.047549134823240434,
+      0.0
+    ],
+    "pixelsOver2": 0
+  },
+  {
+    "image": "desktop-forest.png",
+    "dimensions": [
+      914,
+      661
+    ],
+    "differentPixels": 86311,
+    "maxChannelDifference": 3,
+    "meanChannelDifference": [
+      0.08212806668498429,
+      0.0863587760736501,
+      0.08833509337023342,
+      0.0
+    ],
+    "pixelsOver2": 2
+  },
+  {
+    "image": "desktop-login.png",
+    "dimensions": [
+      1440,
+      1000
+    ],
+    "differentPixels": 0,
+    "maxChannelDifference": 0,
+    "meanChannelDifference": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pixelsOver2": 0
+  },
+  {
+    "image": "desktop-meadow.png",
+    "dimensions": [
+      914,
+      661
+    ],
+    "differentPixels": 82536,
+    "maxChannelDifference": 3,
+    "meanChannelDifference": [
+      0.07099183320808933,
+      0.07296484009044052,
+      0.10646954253385726,
+      0.0
+    ],
+    "pixelsOver2": 3
+  },
+  {
+    "image": "mobile-cave.png",
+    "dimensions": [
+      764,
+      521
+    ],
+    "differentPixels": 52883,
+    "maxChannelDifference": 2,
+    "meanChannelDifference": [
+      0.090429701239059,
+      0.07708946749605572,
+      0.051323471776989475,
+      0.0
+    ],
+    "pixelsOver2": 0
+  },
+  {
+    "image": "mobile-forest.png",
+    "dimensions": [
+      764,
+      521
+    ],
+    "differentPixels": 59633,
+    "maxChannelDifference": 3,
+    "meanChannelDifference": [
+      0.0858975389655415,
+      0.0905754137733517,
+      0.09305252685632744,
+      0.0
+    ],
+    "pixelsOver2": 3
+  },
+  {
+    "image": "mobile-login.png",
+    "dimensions": [
+      844,
+      390
+    ],
+    "differentPixels": 8,
+    "maxChannelDifference": 33,
+    "meanChannelDifference": [
+      0.0003919066715275246,
+      0.0002764612954186414,
+      0.00011544537610888322,
+      0.0
+    ],
+    "pixelsOver2": 8
+  },
+  {
+    "image": "mobile-meadow.png",
+    "dimensions": [
+      764,
+      521
+    ],
+    "differentPixels": 56876,
+    "maxChannelDifference": 2,
+    "meanChannelDifference": [
+      0.07464501411904212,
+      0.07646642079770076,
+      0.1105606415371165,
+      0.0
+    ],
+    "pixelsOver2": 0
+  }
+]

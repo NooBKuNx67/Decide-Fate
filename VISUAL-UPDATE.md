@@ -257,3 +257,7 @@ Added opt-in placement enforcement, local saved VN interactions, scoped shop/cra
 ## Release 68 delivery package
 
 Packages catalog weapon reach/footprints and the world/NPC/quest integration with cache revision 68. During delivery review, filled the in-game maintenance guide with the new world, event, weapon and quest instructions and versioned its entry link. Engine/data 44 and grid browser 20/20 pass; actual-account/two-device acceptance stays in OWNER-ACCEPTANCE.md.
+
+## Lossless WebP maintenance — 9 Nov 2026
+
+The eight large opening/terrain/prop/anime PNGs are now lossless WebP with identical decoded RGBA and dimensions. Original PNGs live under source-assets/png/ outside the download. See ASSET-OPTIMIZATION.md for file totals, screenshot comparisons and camera/mobile coverage. To capture a comparable private mocked scenario, use `node tools/qa-runtime.cjs tools/asset-visual-check.cjs before` and repeat with `after` after a change; these labels select output directories, not asset versions. The existing `node tools/capture-visuals.cjs` includes atlas load-error fallback coverage and now references WebP.

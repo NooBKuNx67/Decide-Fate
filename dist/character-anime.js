@@ -1,6 +1,6 @@
 /* Painted modular anime parts; feet stay at the same world-space anchor. */
 (function(g){'use strict';
-const atlas=new Image();atlas.src='assets/characters/anime-parts.png';
+const atlas=new Image();atlas.src='assets/characters/anime-parts.webp';
 const parts={gentle:[74,9,213,290],sharp:[407,6,213,295],bright:[744,7,220,293],tousled:[8,304,329,305],bob:[349,311,319,300],ponytail:[682,302,341,382],male:[42,615,307,407],female:[396,620,302,406],arm:[835,654,128,395],maleLegs:[35,1090,259,433],femaleLegs:[431,1142,179,376],cape:[660,1031,361,480]};
 const cache=new Map();
 function part(name,tint){const key=name+':'+(tint||'');if(cache.has(key))return cache.get(key);const r=parts[name],c=document.createElement('canvas');c.width=r[2];c.height=r[3];const q=c.getContext('2d');q.drawImage(atlas,...r,0,0,c.width,c.height);if(tint){q.globalCompositeOperation='source-atop';q.fillStyle=tint;q.fillRect(0,0,c.width,c.height);}cache.set(key,c);return c;}

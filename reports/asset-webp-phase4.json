@@ -1,0 +1,96 @@
+{
+  "beforeDistBytes": 24726004,
+  "afterDistBytes": 18450303,
+  "savedBytes": 6275701,
+  "assets": [
+    {
+      "asset": "title-screen",
+      "pngBytes": 2859823,
+      "webpBytes": 2081894,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "rgbaIdentical": true,
+      "originalSha256": "adddc2b9cf67a60ca2e5713393fc44b70dd1dd8bbf6c57926c49bb818bf4065c"
+    },
+    {
+      "asset": "login-background",
+      "pngBytes": 2724911,
+      "webpBytes": 1982396,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "rgbaIdentical": true,
+      "originalSha256": "3a5c83ab8ed34875fd9a89c73b7d13da788c1c6550761bbc0e1851647ec9b935"
+    },
+    {
+      "asset": "terrain-atlas",
+      "pngBytes": 2854289,
+      "webpBytes": 2073748,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "rgbaIdentical": true,
+      "originalSha256": "f3dc70549dc7d1db6739ff5bc8aaac29cf08faf01e33d52738d01422a423407a"
+    },
+    {
+      "asset": "biome-atlas",
+      "pngBytes": 2479695,
+      "webpBytes": 1669392,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "rgbaIdentical": true,
+      "originalSha256": "a2fc0a0645af8a7192a3e00605897c93bb6b32c5dae4be1ed3ec4501f0c51a3b"
+    },
+    {
+      "asset": "camp-atlas",
+      "pngBytes": 2334195,
+      "webpBytes": 1490740,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "rgbaIdentical": true,
+      "originalSha256": "68a76590313700915b8a3bc3ffe682875dc3f870e90058f1fad8a2de948c703d"
+    },
+    {
+      "asset": "forest-extras",
+      "pngBytes": 2653870,
+      "webpBytes": 1821676,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "rgbaIdentical": true,
+      "originalSha256": "64375b482f5b119f2e651b9cc393c5eb51a57be488cf7bf24f2cb73f4cef8297"
+    },
+    {
+      "asset": "cave-extras",
+      "pngBytes": 2163553,
+      "webpBytes": 1502268,
+      "dimensions": [
+        1774,
+        887
+      ],
+      "rgbaIdentical": true,
+      "originalSha256": "0c992cbc7466b34d19e28a83954ae845c9d763f3a2b23ac52a76a6bd0be4a2e6"
+    },
+    {
+      "asset": "characters/anime-parts",
+      "pngBytes": 2353833,
+      "webpBytes": 1526204,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgbaIdentical": true,
+      "originalSha256": "2e7096e3706f35810fbd97da94d1b3000515573c87177ad08c5acc4b91a342b1"
+    }
+  ],
+  "savedPercent": 25.380975429754034
+}

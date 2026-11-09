@@ -13,12 +13,12 @@ function create(canvas){let frameTimer=0;const visualUnits=new Map(),iconImages=
  const art=new Image();let artReady=false;canvas.dataset.art='loading';
  art.onload=()=>{artReady=true;canvas.dataset.art='ready';redraw();};
  art.onerror=()=>{canvas.dataset.art='fallback';};
- art.src='assets/terrain-atlas.png';
+ art.src='assets/terrain-atlas.webp';
  const frames=[[0,0,533,577],[533,0,533,577],[1066,0,470,577],[0,590,520,434],[530,590,540,434],[1080,590,456,434]];
  function sprite(frame,x,y,w,h,ghost=false){if(!artReady)return false;const [sx,sy,sw,sh]=frames[frame];ctx.save();if(ghost)ctx.globalAlpha=.3;ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(art,sx,sy,sw,sh,x-w/2,y-h*.965,w,h);ctx.restore();return true;}
 
  const campArt=new Image();let campReady=false;canvas.dataset.props='loading';
- campArt.onload=()=>{campReady=true;canvas.dataset.props='ready';redraw();};campArt.onerror=()=>{canvas.dataset.props='fallback';};campArt.src='assets/camp-atlas.png';
+ campArt.onload=()=>{campReady=true;canvas.dataset.props='ready';redraw();};campArt.onerror=()=>{canvas.dataset.props='fallback';};campArt.src='assets/camp-atlas.webp';
  const campFrames={tent:0,chest:1,campfire:2,crate:3,barrel:4,sign:5};
  function campProp(kind,x,y){
  if(!Object.hasOwn(campFrames,kind))return false;
@@ -32,7 +32,7 @@ function create(canvas){let frameTimer=0;const visualUnits=new Map(),iconImages=
  return true;
  }
  const biomeArt=new Image();let biomeReady=false;canvas.dataset.biomeProps='loading';
- biomeArt.onload=()=>{biomeReady=true;canvas.dataset.biomeProps='ready';redraw();};biomeArt.onerror=()=>{canvas.dataset.biomeProps='fallback';};biomeArt.src='assets/biome-atlas.png';
+ biomeArt.onload=()=>{biomeReady=true;canvas.dataset.biomeProps='ready';redraw();};biomeArt.onerror=()=>{canvas.dataset.biomeProps='fallback';};biomeArt.src='assets/biome-atlas.webp';
  const biomeFrames={stump:0,log:1,fern:2,mushroom:3,stalagmite:4,crystal:5};
  function biomeProp(kind,x,y){
  if(!Object.hasOwn(biomeFrames,kind))return false;
@@ -46,7 +46,7 @@ function create(canvas){let frameTimer=0;const visualUnits=new Map(),iconImages=
  }
  const extraSheets=[new Image(),new Image()],extraReady=[false,false];
  const extraFrames={flowers:[0,0],redMushroom:[0,1],thornBush:[0,2],vines:[0,3],nest:[0,4],standingStone:[0,5],goldOre:[1,0],rubyOre:[1,1],bones:[1,2],torch:[1,3],minecart:[1,4],beams:[1,5],altar:[1,6]};
- canvas.dataset.extraProps='loading';extraSheets.forEach((img,k)=>{img.onload=()=>{extraReady[k]=true;if(extraReady.every(Boolean))canvas.dataset.extraProps='ready';redraw();};img.onerror=()=>{canvas.dataset.extraProps='fallback';};img.src='assets/'+(k?'cave':'forest')+'-extras.png';});
+ canvas.dataset.extraProps='loading';extraSheets.forEach((img,k)=>{img.onload=()=>{extraReady[k]=true;if(extraReady.every(Boolean))canvas.dataset.extraProps='ready';redraw();};img.onerror=()=>{canvas.dataset.extraProps='fallback';};img.src='assets/'+(k?'cave':'forest')+'-extras.webp';});
  function extraProp(kind,x,y){
  if(!Object.hasOwn(extraFrames,kind))return false;
  const [sheet,i]=extraFrames[kind],img=extraSheets[sheet];ellipse(x+2,y+2,20,6,'#122b3926');

@@ -1,0 +1,38 @@
+[
+  {
+    "file": "battle-props.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "battle-isometric.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "grid-closeout-ui.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "battle-biome-props.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "grid-icon.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "orientation.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "creation-ui.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "frontend-security-ui.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "battle-presets-ui.test.cjs",
+    "pass": true
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "file": "frontend-security-ui.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "equipment-ui.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "creation-ui.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "content-authoring-ui.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "full-schema.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "combat-polish.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "grid-closeout-ui.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "event-story-ui.test.cjs",
+    "pass": true
+  },
+  {
+    "file": "world-links-ui.test.cjs",
+    "pass": true
+  }
+]

@@ -67,3 +67,9 @@ Recommendation: keep browsers outside Pages CI for now. A separate mocked browse
 | `weapon-preview.test.cjs` | PASS |
 | `world-links-ui.test.cjs` | PASS |
 | `world-travel-ui.test.cjs` | PASS |
+
+## Phase 3 — front-end security
+
+Audited 40 innerHTML assignments across 15 dist scripts, plus the related insertAdjacentHTML paths. Fixed two actual editable-data paths: imported extra character.stats keys/values and authored equipped-weapon names. No other behavior/schema/auth configuration changed. Full inventory and rationale: [FRONTEND-SECURITY-AUDIT.md](FRONTEND-SECURITY-AUDIT.md), [JSON inventory](reports/frontend-html-sinks.json).
+
+Verification: **44 pure files + 9 browser files passed, 0 failed**. Browser files: frontend-security-ui, creation-ui, equipment-ui, full-schema, content-authoring-ui, combat-polish, grid-closeout-ui, event-story-ui, world-links-ui. The new XSS test reproduced execution before the fix and passes without CSP afterward. A separate temporary CSP smoke script passed mocked login/logout and grid startup; real remote SDK/auth was not tested, so the proposed CSP is documentation only, not an active meta tag.

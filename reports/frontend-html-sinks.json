@@ -1,0 +1,242 @@
+[
+  {
+    "file": "dist/battle-editor.js",
+    "line": 6,
+    "target": "section",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/catalog-party-ui.js",
+    "line": 1,
+    "target": "panel",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/catalog-party-ui.js",
+    "line": 1,
+    "target": "box",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/character-customizer.js",
+    "line": 1,
+    "target": "box",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/combat-lab.js",
+    "line": 3,
+    "target": "button",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/combat-lab.js",
+    "line": 4,
+    "target": "section",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/combat-lab.js",
+    "line": 26,
+    "target": "el('labLog')",
+    "assessment": "Editable unit/action names, logs and status strings pass through escapeHTML; geometry/HP deltas come from validated engine state."
+  },
+  {
+    "file": "dist/combat-lab.js",
+    "line": 26,
+    "target": "el('labLast')",
+    "assessment": "Editable unit/action names, logs and status strings pass through escapeHTML; geometry/HP deltas come from validated engine state."
+  },
+  {
+    "file": "dist/combat.js",
+    "line": 5,
+    "target": "panel",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/combat.js",
+    "line": 13,
+    "target": "section",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/combat.js",
+    "line": 28,
+    "target": "$('combatHelp')",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/combat.js",
+    "line": 58,
+    "target": "rulesDialog",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/content-authoring-ui.js",
+    "line": 2,
+    "target": "panel",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/content-editor.js",
+    "line": 16,
+    "target": "$('dbList')",
+    "assessment": "Escaped editable names, descriptions, field summaries, support/review messages and reference keys. Pagination numbers and category keys are trusted numeric/static values."
+  },
+  {
+    "file": "dist/content-editor.js",
+    "line": 17,
+    "target": "$('dbPagination')",
+    "assessment": "Escaped editable names, descriptions, field summaries, support/review messages and reference keys. Pagination numbers and category keys are trusted numeric/static values."
+  },
+  {
+    "file": "dist/content-editor.js",
+    "line": 30,
+    "target": "$('dbKind')",
+    "assessment": "Escaped editable names, descriptions, field summaries, support/review messages and reference keys. Pagination numbers and category keys are trusted numeric/static values."
+  },
+  {
+    "file": "dist/creation-ui.js",
+    "line": 4,
+    "target": "mode",
+    "assessment": "Shipped creation definitions plus validated enum/numeric draft or character fields."
+  },
+  {
+    "file": "dist/creation-ui.js",
+    "line": 8,
+    "target": "$('genderChoices')",
+    "assessment": "Shipped creation definitions plus validated enum/numeric draft or character fields."
+  },
+  {
+    "file": "dist/creation-ui.js",
+    "line": 8,
+    "target": "$('raceChoices')",
+    "assessment": "Shipped creation definitions plus validated enum/numeric draft or character fields."
+  },
+  {
+    "file": "dist/creation-ui.js",
+    "line": 8,
+    "target": "$('classChoices')",
+    "assessment": "Shipped creation definitions plus validated enum/numeric draft or character fields."
+  },
+  {
+    "file": "dist/creation-ui.js",
+    "line": 9,
+    "target": "$('uniqueChoices')",
+    "assessment": "Shipped creation definitions plus validated enum/numeric draft or character fields."
+  },
+  {
+    "file": "dist/creation-ui.js",
+    "line": 10,
+    "target": "host",
+    "assessment": "Shipped creation definitions plus validated enum/numeric draft or character fields."
+  },
+  {
+    "file": "dist/creation-ui.js",
+    "line": 12,
+    "target": "$('creationSummary')",
+    "assessment": "Shipped creation definitions plus validated enum/numeric draft or character fields."
+  },
+  {
+    "file": "dist/creation-ui.js",
+    "line": 17,
+    "target": "side",
+    "assessment": "FIXED: authored weapon canonical name can contain markup; escaped at render. Remaining labels are shipped definitions and validated enums."
+  },
+  {
+    "file": "dist/creation-ui.js",
+    "line": 21,
+    "target": "box",
+    "assessment": "Shipped creation definitions plus validated enum/numeric draft or character fields."
+  },
+  {
+    "file": "dist/data-review-ui.js",
+    "line": 1,
+    "target": "label",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/event-editor.js",
+    "line": 3,
+    "target": "screenNode",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/game.js",
+    "line": 12,
+    "target": "$('creationSummary')",
+    "assessment": "Shipped race/class/activity/achievement labels and validated numeric/enum state; editable character/learned/buff labels are escaped."
+  },
+  {
+    "file": "dist/game.js",
+    "line": 13,
+    "target": "$('raceChoices')",
+    "assessment": "Shipped race/class/activity/achievement labels and validated numeric/enum state; editable character/learned/buff labels are escaped."
+  },
+  {
+    "file": "dist/game.js",
+    "line": 14,
+    "target": "$('classChoices')",
+    "assessment": "Shipped race/class/activity/achievement labels and validated numeric/enum state; editable character/learned/buff labels are escaped."
+  },
+  {
+    "file": "dist/game.js",
+    "line": 28,
+    "target": "$('characterPanel')",
+    "assessment": "FIXED: imported character.stats retains extra arbitrary keys/values. Escape both before interpolation; character name/learned names/buff already escaped."
+  },
+  {
+    "file": "dist/game.js",
+    "line": 30,
+    "target": "$('stats')",
+    "assessment": "Shipped race/class/activity/achievement labels and validated numeric/enum state; editable character/learned/buff labels are escaped."
+  },
+  {
+    "file": "dist/game.js",
+    "line": 30,
+    "target": "$('location')",
+    "assessment": "Shipped race/class/activity/achievement labels and validated numeric/enum state; editable character/learned/buff labels are escaped."
+  },
+  {
+    "file": "dist/game.js",
+    "line": 31,
+    "target": "$('achievements')",
+    "assessment": "Shipped race/class/activity/achievement labels and validated numeric/enum state; editable character/learned/buff labels are escaped."
+  },
+  {
+    "file": "dist/game.js",
+    "line": 31,
+    "target": "$('event')",
+    "assessment": "Shipped race/class/activity/achievement labels and validated numeric/enum state; editable character/learned/buff labels are escaped."
+  },
+  {
+    "file": "dist/save-recovery.js",
+    "line": 2,
+    "target": "panel",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/world-links-editor.js",
+    "line": 8,
+    "target": "article",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/world-travel-sandbox.js",
+    "line": 2,
+    "target": "dialog",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/world-travel-ui.js",
+    "line": 2,
+    "target": "editor",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  },
+  {
+    "file": "dist/world-travel-ui.js",
+    "line": 3,
+    "target": "panel",
+    "assessment": "Static shipped HTML; no editable data interpolated."
+  }
+]

@@ -84,10 +84,14 @@ See DATABASE-LIVE-LINKS.md: 95 actual catalog commands, 30 class definition snap
 
 ข้อ A ปิดในขอบเขต mock แล้ว: closeout-resume.test.cjs (pure, เข้า check.cjs อัตโนมัติและ Pages Validate), closeout-resume-ui.test.cjs, adventure-ui.test.cjs, world-links-ui.test.cjs ผ่าน; pure 45/45 และ browser 3/3 ครอบคลุม frozen encounter, AP/MP/held cast/cooldown/hazard, เซฟก่อน–หลังรับเงิน/EXP/ของ/เควสและจบบท ไม่จ่ายซ้ำ ข้อมูลทดสอบสร้างผ่าน production adapters ไม่แก้ระบบเกม เซฟก่อนรับรางวัลที่โหลดซ้ำเป็นการย้อนเวลา: ได้ยอดปลายทางเท่าเดิม ไม่ใช่เพิ่มสะสมจากเซฟหลังรับรางวัล คลาวด์จริงยังรอเจ้าของตรวจ
 
-สถานะถัดไป: D, E, F ยังไม่ปิดในรอบนี้จนกว่าจะมีหลักฐานแยก
+สถานะถัดไป: E, F ยังไม่ปิดในรอบนี้จนกว่าจะมีหลักฐานแยก
 
 ข้อ B ปิดในขอบเขต mock: closeout-custom-services.test.cjs + closeout-custom-services-ui.test.cjs ตรวจร้าน/ยา/วัตถุดิบ/สูตร/อาวุธ custom-* ที่สร้างด้วย ContentAuthoring.create/validateRegistry จริง แล้วซื้อ/ขาย/ใช้/ปรุง/สวมมือหลัก–รอง/สองมือ/โหลดครบทุกขั้น รวม atomic rejection; catalog-services-ui.test.cjs และ equipment-ui.test.cjs ผ่านเดิม Pure 46/46, browser 3/3 ไม่มีการแก้เกมหรือ assertion เดิม ข้อสังเกตตามพฤติกรรมเดิม: เปลี่ยนไปสวมอาวุธมือรองหนึ่งมือขณะถือสองมือจะถอดอาวุธสองมือกลับคลังอัตโนมัติ ไม่ถือว่าเป็นการสวมที่ผิดเงื่อนไข; อาวุธสองมือใส่ในมือรองไม่ได้
 
 ข้อ C ปิดด้วย pure 47/47 และ browser 4/4: closeout-authoring.test.cjs, closeout-authoring-ui.test.cjs, content-authoring-ui.test.cjs, full-schema.test.cjs, frontend-security-ui.test.cjs ใช้ไฟล์ TXT ที่ดาวน์โหลดจริง สร้าง AI pack ดู diff/ยืนยัน ร่ายเวท custom ผ่านสนามจริง ส่งออก/นำเข้าบัญชีใหม่ แล้วย้อนคืน ID ใหม่เป็น disabled เกมยังเล่นได้ คำตอบ AI ผิดทั้งหมดไม่ทำลายข้อมูลเดิม HTML แสดงเตือนว่าเป็นข้อความ ไม่รันโค้ด
 
 แก้ช่องโหว่การกู้ข้อมูล: **นำเข้าไฟล์ฐานข้อมูลเต็มชุดจะสำรองผ่าน IndexedDB ก่อนเปลี่ยนข้อมูลแล้ว** เช่นเดียวกับ AI merge; หากสำรองไม่สำเร็จจะไม่นำเข้า ทำตามปุ่มสำรอง/ย้อนคืนในฐานข้อมูล ข้อมูลใหม่ที่ไม่อยู่ใน backup จะยังอยู่เป็น disabled เพื่อรักษาอ้างอิง การแก้นี้เป็น authoring/account flow นอก combat field; ตัวอย่างสกิลที่สร้างถูกทดสอบผ่าน Update Test Field จริงใน closeout-authoring-ui ไม่เพิ่มกลไกหรือเซฟใหม่ Cache สำหรับ script เปลี่ยนเป็น 70 แต่ยังไม่เผยแพร่
+
+ข้อ D ปิดในขอบเขต mock ด้วย pure 48/48 และ browser 3/3: closeout-sync.test.cjs, closeout-accounts-ui.test.cjs, image-cloud.test.cjs, save-recovery-ui.test.cjs การ login สลับ A/B ใน browser เดียวไม่ปนเซฟ/คลัง Failed writes แสดง “ยังไม่ซิงก์” เก็บสำเนาล่าสุดในเครื่อง ส่งออกเซฟ/ฐานข้อมูลได้ โหลด remote เก่ามีการยืนยันและยกเลิกได้ แล้ว retry สำเร็จ CAS ยังกันทับ remote ใหม่ ไม่มี config/schema/identifier เปลี่ยน; cloud.test.cjs เพิ่มเพียง export/พารามิเตอร์ของ harness เพื่อ reuse ไม่เปลี่ยน assertion เดิม Cache 71 ยังระงับเผยแพร่
+
+ข้อ D เป็น account/recovery flow นอกสนามต่อสู้ จึงใช้หน้า login/load/database กับ backend จำลองแยกแทนการทำปุ่มสนามที่แตะบัญชีผู้เล่น ไม่เพิ่มกลไกเกม ตัวอย่างการแสดงสถานะ/กู้ข้อมูลทำซ้ำได้ด้วย closeout-accounts-ui และ save-recovery-ui ยังไม่ได้ทดสอบ Supabase หรืออุปกรณ์จริง

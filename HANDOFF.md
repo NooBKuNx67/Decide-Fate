@@ -77,3 +77,11 @@ See DATABASE-LIVE-LINKS.md: 95 actual catalog commands, 30 class definition snap
 ผลประเมินความพร้อมปัจจุบัน: [GAME-READINESS.md](GAME-READINESS.md) — กลไกเล่นทดสอบได้ งานค้างหลักคือโลก/NPC/บริการ เงื่อนไขเควส และตรวจรับเซฟ/คลาวด์จริง; แยกโค้ด workspace ออกจากเวอร์ชันที่เผยแพร่แล้ว
 
 วงจรโลก/NPC/เควสเชื่อมแล้ว: [WORLD-QUEST-LOOP.md](WORLD-QUEST-LOOP.md) มี placement, บริการใน VN, conditions, เป้าหมาย kill/item, ส่งของ/กันรางวัลซ้ำ และ chapter bridge; ตรวจรับบัญชีจริงตาม [OWNER-ACCEPTANCE.md](OWNER-ACCEPTANCE.md)
+
+## รอบปิดงาน A–F — ระงับการเผยแพร่
+
+คำสั่งเจ้าของรอบนี้: push main ได้ แต่ **ห้ามรัน Publish Decide Fate และห้ามเผยแพร่เว็บ** จนกว่าเจ้าของสั่งหลังตรวจรับ ไม่ทำ Prettier/CSP/กลไกใหม่ และไม่เปลี่ยน schema/config/identifiers
+
+ข้อ A ปิดในขอบเขต mock แล้ว: closeout-resume.test.cjs (pure, เข้า check.cjs อัตโนมัติและ Pages Validate), closeout-resume-ui.test.cjs, adventure-ui.test.cjs, world-links-ui.test.cjs ผ่าน; pure 45/45 และ browser 3/3 ครอบคลุม frozen encounter, AP/MP/held cast/cooldown/hazard, เซฟก่อน–หลังรับเงิน/EXP/ของ/เควสและจบบท ไม่จ่ายซ้ำ ข้อมูลทดสอบสร้างผ่าน production adapters ไม่แก้ระบบเกม เซฟก่อนรับรางวัลที่โหลดซ้ำเป็นการย้อนเวลา: ได้ยอดปลายทางเท่าเดิม ไม่ใช่เพิ่มสะสมจากเซฟหลังรับรางวัล คลาวด์จริงยังรอเจ้าของตรวจ
+
+สถานะถัดไป: B, C, D, E, F ยังไม่ปิดในรอบนี้จนกว่าจะมีหลักฐานแยก

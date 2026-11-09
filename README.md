@@ -124,4 +124,10 @@ See [DATABASE-LIVE-LINKS.md](DATABASE-LIVE-LINKS.md) for the current implementat
 
 ฐานข้อมูลมีหมวดอีเวนต์/บทสนทนาแล้ว: [EVENT-AUTHORING.md](EVENT-AUTHORING.md) อธิบาย % แยกต่อเส้นทาง คิวหลายเหตุการณ์ NPC ครึ่งตัว และผลไอเท็ม/เควส/บทหลังสู้จริง ช่อง BGM เตรียมไว้ ยังไม่เล่นเสียง
 
-ตรวจฟิลด์หลังเพิ่มระบบโลก/อีเวนต์: [WORLD-DATABASE-AUDIT.md](WORLD-DATABASE-AUDIT.md) และตารางครบ 262 ช่อง [WORLD-DATABASE-FIELDS.md](WORLD-DATABASE-FIELDS.md); รัน `node tools/audit-world-links.cjs` เพื่อตรวจซ้ำจากข้อมูลในโปรเจค (ไม่ใช่บัญชี Supabase จริง)
+ตรวจฟิลด์หลังเพิ่มระบบโลก/อีเวนต์: [WORLD-DATABASE-AUDIT.md](WORLD-DATABASE-AUDIT.md) และตารางครบ 271 ช่อง [WORLD-DATABASE-FIELDS.md](WORLD-DATABASE-FIELDS.md); รัน `node tools/audit-world-links.cjs` เพื่อตรวจซ้ำจากข้อมูลในโปรเจค (ไม่ใช่บัญชี Supabase จริง)
+
+ระยะ/พื้นที่อาวุธกรอกในฐานข้อมูลได้แล้ว: [WEAPON-GRID.md](WEAPON-GRID.md) มีขั้นต่ำ–สูงสุด รูปพื้นที่/ระยะอ้างอิง/จำนวนเป้า ใช้กับมือหลัก มือรอง และ NPC พร้อม preset ทดสอบและเลือกอาวุธ catalog จริงในสนาม
+
+ผลประเมินความพร้อมปัจจุบัน: [GAME-READINESS.md](GAME-READINESS.md) — กลไกเล่นทดสอบได้ งานค้างหลักคือโลก/NPC/บริการ เงื่อนไขเควส และตรวจรับเซฟ/คลาวด์จริง; แยกโค้ด workspace ออกจากเวอร์ชันที่เผยแพร่แล้ว
+
+วงจรโลก/NPC/เควสเชื่อมแล้ว: [WORLD-QUEST-LOOP.md](WORLD-QUEST-LOOP.md) มี placement, บริการใน VN, conditions, เป้าหมาย kill/item, ส่งของ/กันรางวัลซ้ำ และ chapter bridge; ตรวจรับบัญชีจริงตาม [OWNER-ACCEPTANCE.md](OWNER-ACCEPTANCE.md)

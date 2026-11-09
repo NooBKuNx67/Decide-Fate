@@ -1,58 +1,51 @@
-# ผลตรวจฐานข้อมูลหลังเพิ่มแผนที่และ Visual Novel — 9 พ.ย. 2026
+# ฐานข้อมูลกับระบบโลก/อีเวนต์ — ผลล่าสุด 9 พ.ย. 2026
 
-ตรวจจากโค้ด workspace และ catalog ที่มากับโปรเจค ไม่ได้อ่านฐานข้อมูล Supabase เฉพาะบัญชีเจ้าของ ตัวเกมเก็บ routes/events ที่ผู้ใช้สร้างใน worldMap:main overrides ไม่ใช่ในไฟล์ catalog ต้นฉบับ ดังนั้นรอบนี้ยืนยันกลไกและข้อมูลในโปรเจคได้ แต่ยืนยันไม่ได้ว่าในบัญชีจริงมีเส้นทาง/อีเวนต์กี่ตัวหรือมี ID ที่เจ้าของกรอกผิดหรือไม่ สามารถใช้ไฟล์ «ส่งออกข้อมูลที่แก้ไข» ตรวจรายบัญชีโดยไม่เชื่อมบริการจริงได้
+ขอบเขต: โค้ดและ catalog ใน workspace ไม่ใช่บัญชี Supabase จริง มี 271 ช่อง catalog / 550 effective records (raw 504), และรายงานเพิ่ม 117 ฟิลด์โลก/อีเวนต์/สถานะที่เกี่ยวข้อง สถานะรายช่อง: กลไกอ่านจริง 63, ใช้บาง adapter 133, แสดงผล 13, ยังไม่เกิดกลไกตามความหมายเดิม 62
 
-ตรวจครบ **262 ช่อง schema ใน 13 หมวด**, **550 records** ที่ R.records รวม record ที่ระบบเพิ่มแล้ว (raw ต้นฉบับ 504) และ **82 ฟิลด์แผนที่/อีเวนต์เพิ่มเติม** แยกต่างหาก ผลรายช่อง catalog: กลไกอ่านจริง 63, ใช้บาง adapter/เงื่อนไข 124, แสดงผล 13, ยังไม่เชื่อมกลไก 62 ไม่ใช่ว่า 200 ช่องแรกทำงานครบกับทุก record และไม่ใช่ 62 record ต้องลบ ฟิลด์ที่อ่าน/แก้ได้ในฐานข้อมูลหรือมี validator อย่างเดียวไม่นับว่าเกิดผลในเกมแล้ว
+ตัวเลขนับฟิลด์ต่อหมวด ไม่ใช่จำนวน records ที่ใช้งานได้ครบ 62 ช่องสุดท้ายมีทั้งคำบรรยายที่ตั้งใจเก็บและกติกาพิเศษเก่าที่แยกไว้ให้เจ้าของตรวจ ไม่ควรลบทิ้งหรือประกาศว่าทั้ง record ใช้ไม่ได้เพราะบางช่องไม่เชื่อม
 
-## เชื่อมแล้ว ใช้ได้จากสองระบบใหม่
+## งานที่เชื่อมเพิ่มแล้ว
 
-| ข้อมูล | ผูกกับอะไรอยู่ | ขอบเขตจริง |
-|---|---|---|
-| NPC.id/name/avatar/portrait | novel.npcId หรือ node.npcId → หน้าคุย | ชื่อ + รูปครึ่งตัวก่อน/รูปโปรไฟล์สำรอง ไม่ดึงบุคลิกมาแต่งบทเอง |
-| NPC.recruitable, stats, HP/MP, equipment, skills/spells, proficiencies | roster → catalogParty → grid ของอีเวนต์ | ต้องรับเข้าทีมจากหน้าจัดเพื่อนก่อน VN ยังชวนเองไม่ได้ ท่าต้องมี adapter |
-| monster.id + stats + skills + weaknesses/immunities | event.monsterId หรือจุดเกิดใน sceneId → grid | ใช้มอนสเตอร์ที่เลือกจริง ไม่เลือกตาม habitat/location อัตโนมัติ |
-| monster.loot + item/gear rarity | ชนะไฟต์อีเวนต์ → ระบบดรอปเดิม → กระเป๋า/คลัง | rarity ของของดรอปมีผลกับน้ำหนักใน pool; rarity ของ monster ไม่ใช่ % encounter |
-| item/dropItem/gear ID | choice.items → catalogInventory | ของใช้/วัตถุดิบเข้ากระเป๋า อุปกรณ์เข้าคลัง ต้องกดใช้/ใส่ภายหลัง ของพิเศษยังขึ้นกับตัวประมวลผลเดิม |
-| สกิล/เวท MP/CD/dice/ธาตุ/grid/status/ผลักดึง/hazard | grid เดิมที่ event เรียก | เฉพาะ record/ค่าที่รองรับ รายการรอเจ้าของตรวจยังไม่กลายเป็นท่าใช้ได้เพราะมี VN |
-| route ID/from/to/km/terrain/settings | เดินทางจริงและคำนวณเวลา | พิกัดหมุด/ภาพไม่กำหนด กม. และ STR/CON/ชุด/ไอเท็มรถม้าไม่เปลี่ยนความเร็วปัจจุบัน |
-| event.routeChances + once + enabled | สุ่มแยกแต่ละอีเวนต์ → คิว → เซฟ | ไม่มี quest/stat/time/reputation condition; event.weight ไม่ใช้แล้ว |
-| choice.quest + nextNode/nextEventId + combat.*Node | สมุดเควส/บันทึกเรื่องราว/บทตามผลสู้ | เควสเปลี่ยนสถานะจากตัวเลือกโดยตรง ไม่มีเงื่อนไขฆ่า/เก็บของ/ส่งของอัตโนมัติ |
+| ข้อมูล | จุดที่ใช้งานจริง |
+|---|---|
+| NPC.id/name/avatar/portrait | ผู้พูดใน VN และรูปครึ่งตัว/รูปสำรอง |
+| npcPlacements + mapId/placeId/eventId | ตำแหน่ง NPC/อีเวนต์ประจำสถานที่ เมื่อเปิด enforceLocations ตรวจร้าน/รับเพื่อน/กิจกรรมใน engine |
+| NPC.items + ราคาไอเท็ม/อุปกรณ์ | เปิดร้านจาก npcAction shop ใน VN ซื้อ/ขายด้วยคลังและเงินจริง |
+| recipe.providerNpcIds/ingredients/goldCost/result* | เปิดปรุงจาก npcAction craft กลับมาคุยต่อได้ |
+| NPC.recruitable/stats/equipment/skills/spells/proficiencies | npcAction recruit/dismiss และ roster/ปาร์ตี้ grid พร้อม HP/MP คงอยู่ ไม่แจกเงิน/ของ NPC |
+| conditions ของ event/choice | quest absent/active/ready/completed/failed, item, learned skill/spell, stat, proficiency |
+| quest.objectives + monsterId/item ID | นับ kill เมื่อชนะและรับผลครั้งเดียว ตรวจจำนวนของในคลังจริง พร้อมส่งเมื่อครบ |
+| consumeItems + quest.status + onceKey | ส่งของ/อัปเดตเควส/ให้รางวัลแบบ atomic กันรับซ้ำข้ามการโหลดและเปิดบทใหม่ |
+| chapterPlaces | ผูกหมู่บ้าน/ป่า/ถ้ำเดิมกับตำแหน่งโลก ปุ่มบทเริ่ม route จริง ถึงแล้ว sync location และตรวจพื้นที่ก่อนทำกิจกรรม |
+| weaponRangeMin/Max และ grid* ของ weapon | โจมตีปกติทั้งมือหลัก/มือรอง/NPC แยกพื้นที่ ใช้ 1 AP พร้อม snapshot เก่าและ preset ทดสอบ |
+| สกิล/เวท MP/CD/dice/ธาตุ/status/displacement/hazard/grid | ใช้กับท่าและแม่แบบที่ adapter รองรับใน grid ที่อีเวนต์เรียก ไม่รวมท่าพิเศษที่ถูกแยกรอตรวจ |
 
-## ควรผูกต่อ เรียงตามประโยชน์ต่อการปิดระบบ
+รายละเอียดตั้งค่า: WORLD-QUEST-LOOP.md, WEAPON-GRID.md, EVENT-AUTHORING.md เซฟ/คลังเก่าไม่ถูกบังคับเปิดตำแหน่งจริงอัตโนมัติ NPC.location เดิมเป็นข้อความ ต้องวางด้วย ID ที่เลือกจากฟอร์ม
 
-| ลำดับ | ช่องที่มี / ข้อมูลที่จะใช้ | ควรผูกกับ | สิ่งที่ยังขาด |
-|---|---|---|---|
-| 1 | NPC.location (มีข้อความ 29 ตัว), NPC.id | placement {npcId,mapId,placeId} → NPC ณ สถานที่จริง | ปัจจุบันเลือกร้าน/รับเพื่อนได้ข้ามสถานที่ ห้ามเดาจับชื่อ location กับชื่อหมุด ควรเลือก ID จากรายการและคงข้อความเดิมไว้ |
-| 1 | NPC.items + item/gear prices + recipe.providerNpcIds | outcome เปิดร้าน/ปรุงยาใน VN โดย npcId | เอนจินร้าน/ปรุงใช้งานอยู่ แต่หน้าคุยยังไม่เรียกบริการนั้น NPC ที่ปรากฏในบทไม่ใช่ร้านอัตโนมัติ |
-| 1 | NPC.recruitable + ID | outcome ชวน/ให้ NPC ออกจากทีม | ใช้ recruit/dismiss adapter เดิม ตรวจเพดานทีมและเก็บ HP/MP ไม่แจกของหรือเงิน NPC เมื่อรับเข้าทีม |
-| 1 | eventJournal.quest.status, learned, inventory, proficiencies, stats | conditions ของ event/node/choice | เปิดเรื่องตามเควส จ่าย/ส่งไอเท็ม เช็กสกิล/เจรจาได้จริง ต้องมี failure route และผลหักของแบบ atomic; ระบบปัจจุบันมอบของได้แต่ยังไม่รับส่งของเป็นเงื่อนไข |
-| 2 | monster.habitat (35 ตัว), locations (ว่างทั้งหมด) | spawn table อ้าง routeId/mapId/placeId | ให้คนเลือก ID ชัดเจนและตรวจ reference ไม่แปลข้อความ «ป่า/ถ้ำ» เป็นการเกิดอัตโนมัติ |
-| 2 | skill.narrativeMindReadingVisible (1 ตัว), skill ID | condition learned skill → เปิดบทความคิด/ตัวเลือกลับใน VN | อ่านใจยังไม่ทำงานกับบทสนทนา แม้มีช่อง true; ต้องตรวจท่ารายการนั้นและให้เจ้าของยืนยันขอบเขตก่อนเปิดกลไก |
-| 2 | skill.craftRecipeIds (1 ตัว), recipe ID | เรียนสกิล/รับสูตร → unlockedRecipeIds → ร้านปรุง | ปัจจุบันใช้แค่ผู้ให้บริการ/ของ/เงินครบ ยังไม่บังคับเรียนสกิลปลดสูตร |
-| 2 | NPC.attitude/relationships/personality/lore | เขียนบท + reputation แบบมีชนิด → เงื่อนไขตัวเลือก | เนื้อหามีค่าเป็นต้นฉบับเรื่อง แต่ข้อความไม่ควรถูกตีความเป็นคะแนนหรือเงื่อนไขเอง |
-| ภายหลัง | NPC.gold | เงินร้านที่คงอยู่ในเซฟ/วงเงินรับซื้อ | ปัจจุบันร้านไม่ใช้ NPC.gold; อย่านำเงินตั้งต้นไปจ่ายซ้ำทุกครั้งที่คุย |
-| ภายหลัง | spell.xpPerCast/xpUnlocks + proficiency.maxLevel/milestones | progression/ปลดท่า | กติกาฝึกปัจจุบันใช้ตารางอีกชุด ต้องย้ายโดยรักษาเซฟ ไม่ใช่แค่เปิดช่องเหล่านี้ |
+## ข้อมูลที่ยังไม่สร้างกลไกตามความหมายเดิม
 
-แนะนำทำลำดับ 1 ก่อน เพราะจะให้สถานที่ → NPC → คุย → ร้าน/เควส/ชวนเพื่อน → ต่อสู้ เป็นวงจรเดียวที่เล่นได้จริง ไม่จำเป็นต้องเพิ่มกลไกเดินทางหรือระบบความสัมพันธ์ใหญ่เพื่อปิดงาน
+- NPC.location เป็นข้อความ (29 records), attitude/personality/lore (40 แต่ละช่อง), relationships (21), occupation/category/description ใช้อ้างอิงเขียนบท ไม่สร้างท่าที/คะแนนสัมพันธ์/ตำแหน่งเอง ตำแหน่งจริงใช้ npcPlacements แทน
+- NPC.gold ไม่ใช่เงินหมุนเวียนร้านหรือเงินที่แจกเมื่อรับเพื่อน มีค่าที่ไม่เป็นศูนย์ 19 ตัว
+- monster.habitat (35), locations (ว่าง), aiBehavior/combatTactics/initiative/stealthDC/attackType และ monster.element ไม่กำกับ AI กลางหรือธาตุโจมตีปกติ ธาตุสกิลใช้ skill.element; การเลือกมอนสเตอร์เกิดใช้อีเวนต์/ฉาก monsterId ที่กำหนดเอง
+- spell.xpPerCast มีกรอก 58 ตัวแต่ยังไม่ใช้ค่านี้เป็น XP ต่อร่าย; xpUnlocks ว่าง; school/upgradeNotes เป็นข้อมูลอ่าน สูตรพิเศษ consumeAllMp/mpScalingPerDice/exhaustAfterCast/interruptOnDamage ยังไม่รองรับครบและถูกกันไว้รอเจ้าของตรวจเมื่อเปิดใช้ค่าพิเศษ
+- skill.narrativeMindReadingVisible/craftRecipeIds/powerCapacity*/maxMpMultiplier/dodgeChancePercent/instantCastSpells/castTimeReduction/weaponAccuracyPenalty*/onHitStack* และโบนัสพิเศษอื่นยังไม่ถูกแปลเป็นกลไกอัตโนมัติ มี learned-skill condition ใช้เขียนทางเลือกได้ แต่ไม่ปลดความสามารถเก่าที่ไม่มี adapter
+- proficiency.maxLevel/milestones มีข้อมูล 36 records แต่เกณฑ์ rank/การฝึกปัจจุบันยังใช้ creation/progression
+- item.targetType ไม่ได้เปลี่ยนเป้าหมายคำสั่งใช้ของอย่างอิสระ; outcome ให้ item ยังไม่ใช้ไอเท็มนั้นทันที
+- event.weight เก็บเพื่ออ่านไฟล์เก่า ไม่ใช้สุ่มแล้ว; bgmId เตรียมไว้ ยังไม่เล่นเสียง
 
-## กรอกไว้ แต่ยังไม่เกิดกลไกตามช่องนั้น
+weapon.specialEffectsText/armor.passive/accessory.passiveEffects ใช้ได้บางส่วนผ่าน parser โบนัสตัวเลข ไม่ใช่ความสามารถภาษาอิสระทั้งหมด 77 records พิเศษ/ของสะสมที่เจ้าของขอแยกไว้ยังคงอยู่ในกลุ่มรอตรวจ
 
-- **NPC:** location, attitude (40 ตัว), personality (40), relationships (21), lore (40), occupation/category และ description เป็นข้อมูลอ่าน/เขียนในฐานข้อมูล ไม่สร้างบท/ท่าที/ตำแหน่งในโลก gold มีค่าที่ไม่เป็นศูนย์ 19 ตัว แต่ไม่ใช่เงินหมุนเวียนร้าน
-- **มอนสเตอร์:** habitat, locations, aiBehavior, combatTactics, initiative, stealthDC, attackType และ monster.element ไม่กำกับ grid ปัจจุบัน AI กลางทำงานจริงจากกติกา/สกิล ไม่อ่านคำสั่งภาษาอิสระใน combatTactics ธาตุโจมตีของสกิลใช้ skill.element แยกจาก monster.element
-- **เวท:** xpPerCast มีกรอก 58 ตัวแต่ยังไม่ใช้จ่าย XP ตามช่องนี้ xpUnlocks ว่าง; school/upgradeNotes เป็นคำอธิบาย consumeAllMp/mpScalingPerDice/exhaustAfterCast/interruptOnDamage และสูตรพิเศษยังไม่รองรับครบ บางค่าเปิดแล้วทำให้ทั้งท่าถูกกันไว้รอเจ้าของตรวจ
-- **สกิลพิเศษ:** narrativeMindReadingVisible, craftRecipeIds, กลุ่ม powerCapacity*, maxMpMultiplier, dodgeChancePercent, instantCastSpells, castTimeReduction, weaponAccuracyPenalty*, onHitStack* และโบนัสพิเศษอื่นตามตารางรายช่อง ไม่ได้กลายเป็นกลไกจริงจากการเพิ่มสองระบบนี้ ข้อความ buff/debuff/passiveEffects ของ skill ก็ไม่ใช่ effect interpreter ทั่วไป
-- **ความชำนาญ:** maxLevel/milestones มีกรอกครบ 36 records แต่ rank/เกณฑ์ฝึกที่เล่นจริงยังมาจาก creation/progression
-- **ของใช้:** targetType ไม่ได้กำหนดเป้าอิสระในคำสั่งไอเท็ม ตัวประมวลผล/สมาชิกที่สั่งการเป็นตัวเลือกเป้า
-- **อีเวนต์:** weight เก็บเพื่ออ่านไฟล์เก่าแต่ไม่ใช้สุ่มแล้ว; bgmId เตรียมไว้เฉย ๆ ตามที่ตกลง ยังไม่เล่นเสียง
+## งานต่อที่ไม่ขวางวงจรหลัก
 
-ไม่ควรลบของบรรยาย/ของสะสมเพื่อให้จำนวน unused เป็นศูนย์ และอย่าจัดทั้ง record ว่าใช้ไม่ได้เพียงเพราะมีบางช่องที่ไม่เชื่อม ตัวอย่าง weapon.specialEffectsText/armor.passive/accessory.passiveEffects **ใช้ได้บางส่วน** ผ่านตัวอ่านโบนัสตัวเลข แต่ไม่รองรับความสามารถภาษาอิสระทั้งหมด
+world placement/บริการ/เงื่อนไข/ส่งของ/เป้าหมายและ chapter bridge ที่เคยเป็นข้อขวางถูกดำเนินการแล้ว งานเสริมเช่น spawn table จาก habitat, reputation, ปลดสูตรจาก craftRecipeIds, เวท progression และ BGM เป็นกลไกเพิ่มเติม ต้องมีขอบเขตแยก ไม่ควรรวมว่าเพียงกรอกข้อความแล้วเกิดผล
 
-## หลักฐานและวิธีตรวจซ้ำ
+งานตรวจรับที่ยังขาดคือข้อมูลเจ้าของจริงและ Supabase/สองอุปกรณ์จริง ตาม OWNER-ACCEPTANCE.md
 
-- [ตารางรายช่องทั้งหมด](WORLD-DATABASE-FIELDS.md): label, สถานะ, ฟิลด์ที่สัมพันธ์กับระบบใหม่, จำนวน records ที่กรอกจริง และจุดโค้ดที่เกี่ยวข้อง
-- [ข้อมูล JSON ของรายงาน](reports/world-database-links.json): มี ID และตัวอย่างค่าที่กรอกไว้จริงจาก source/effective catalog
-- `node tools/audit-world-links.cjs` สร้างสองไฟล์ข้างบน และตรวจ engine จริง 7 กรณี: ความเร็วไม่ผูก stats, รับ NPC ไม่ผูกสถานที่, เควสไม่ใช่ event condition, metadata มอนสเตอร์ไม่เปลี่ยนสนาม, เงิน/ท่าที/สถานที่ NPC ไม่เปลี่ยนการซื้อ, สูตรไม่ต้องปลดด้วยสกิล, และ quest outcome เก็บเซฟได้
-- `node tools/audit-world-links.cjs --export /path/to/evertale-content-edits.json` ตรวจ counts/ค่าของฉบับที่ส่งออกจากเกม ต้องแยกสำรองรายงานเก่าก่อนหากต้องการเก็บเทียบกัน การเรียกนี้ไม่เชื่อมบัญชีหรือแก้ฐานข้อมูล
-- world-travel.test.cjs, event-story.test.cjs และ content-integration-audit.test.cjs ผ่านซ้ำรอบนี้
+## หลักฐาน
 
-รอบนี้เพิ่มรายงาน/เครื่องมือตรวจเท่านั้น ไม่เปลี่ยนกติกาเกม ไม่ลบข้อมูล ไม่แก้บัญชีจริง และไม่เผยแพร่ GitHub
+- WORLD-DATABASE-FIELDS.md: ตารางทุกช่อง สถานะ consumer จำนวนที่กรอก และข้อจำกัด
+- reports/world-database-links.json: ID/ตัวอย่างค่าของ source/effective catalog และหลักฐานโค้ด
+- `node tools/audit-world-links.cjs` สร้างรายงานพร้อม engine probes รวม gate เควสและ placement จริง; `--export /path/to/evertale-content-edits.json` ตรวจฉบับที่เจ้าของส่งออกได้โดยไม่เชื่อมบัญชี
+- world-links.test.cjs และ world-links-ui.test.cjs ตรวจวงจรโลกใหม่; engine 44 และ browser grid 20/20 ผ่านด้วย mock auth/storage
+
+รายงานนี้ตรวจโค้ด/ข้อมูล workspace และไม่ได้แก้ฐานข้อมูลเฉพาะบัญชีเจ้าของ สถานะเผยแพร่ให้ดู GitHub Actions ล่าสุดและรายงานส่งมอบ

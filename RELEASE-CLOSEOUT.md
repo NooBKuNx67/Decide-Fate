@@ -52,3 +52,11 @@ Engine grid acceptance remains a mechanical test result, not proof of full impor
 ## 9 Nov 2026 — implemented database links
 
 95 catalog actions are exercised through actual casts; 30 class snapshots read editable values; 29 recruitable NPC source profiles support ownership/AP/healing/roster/settlement/reload in free and chapter encounters. Consumable cures/smoke and firearm/whip are connected. 77 legacy/special/cosmetic records remain explicitly in owner review, per instruction. Every new mechanic has a direct test-field entry. See DATABASE-LIVE-LINKS.md for limits and source-preservation details.
+
+## ประเมินปัจจุบัน — 9 พ.ย. 2026
+
+ดู [GAME-READINESS.md](GAME-READINESS.md) สำหรับสถานะล่าสุดแทนการตีความกล่อง checklist เก่าที่เป็นประวัติหลักฐาน บทตัวอย่าง/authoring/recovery/services และ cloud/economy mock ผ่านตรวจเพิ่มรอบนี้ งานที่ยังขวางการปิดงานแบบเหลือเพียงกรอกข้อมูลคือ placement/บริการ NPC เชื่อมโลก, quest/event conditions/ส่งของ และตรวจรับคลาวด์/เปลี่ยนเครื่องจริง งานระยะอาวุธใหม่ยังอยู่ใน workspace ไม่ได้เผยแพร่พร้อม eaa776d
+
+## วงจรโลกเชื่อมแล้ว
+
+placement/บริการ NPC ใน VN, conditions, เป้าหมาย kill/item, การส่งของ/กันรับรางวัลซ้ำ และ chapter bridge ดำเนินการแล้ว: WORLD-QUEST-LOOP.md ผล engine 44 และ browser grid 20/20 ผ่าน พร้อม authoring/recovery/services/adventure และ cloud mock เหลือ owner acceptance/ข้อมูลจริง/คลาวด์สองเครื่องตาม OWNER-ACCEPTANCE.md งานรอบนี้ยังไม่ได้เผยแพร่

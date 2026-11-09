@@ -54,6 +54,8 @@ jobs:
           node content-integration-audit.test.cjs
           node world-travel.test.cjs
           node event-story.test.cjs
+          node weapon-patterns.test.cjs
+          node world-links.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

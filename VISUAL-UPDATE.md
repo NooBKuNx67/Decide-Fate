@@ -245,3 +245,15 @@ Source-backed catalog coverage is now 95 working commands, plus 30 class snapsho
 ## Database event authoring and Visual Novel — 2026-11-09
 
 Added database event category/editor, independent per-event/per-route percentages and saved sequential checkpoint queues. NPC half-body art is a separate optional schema image field. Dialogue graphs provide real inventory and quest-journal effects, linked side stories and actual grid combat with win/loss/retreat continuations. BGM is reserved metadata only. Added an isolated VN/queue/quest/grid test-field preset. See EVENT-AUTHORING.md. Verified 42 engine/data suites, event-story-ui, world-travel-ui and full-schema (262 catalog fields); reviewed desktop and landscape screenshots with mocked accounts. Save import cap is 12 MB for frozen journey/event images. No publication in this turn.
+
+## Catalog weapon grid authoring — 2026-11-09
+
+Added nine weapon fields for minimum/legacy maximum reach and the shared grid footprint/range-source/selection schema. Main/offhand plans resolve independently through one AP command, with frozen weapon snapshots, NPC party support, production preview/target controls and six reach-* lab presets. The lab can also select actual catalog weapons per hand for reach testing. Type defaults and encounters without weaponPattern remain compatible; skills retain their own definitions. Schema now has 271 fields. Verified 43 engine/data files and eight relevant browser suites; see WEAPON-GRID.md. New work is local and has not been published.
+
+## World/NPC/quest closeout integration — 2026-11-09
+
+Added opt-in placement enforcement, local saved VN interactions, scoped shop/crafting/recruit/dismiss outcomes, event/choice conditions, atomic inventory turn-ins, one-time reward ledgers, kill/item quest objectives and a real-route chapter bridge. Legacy libraries keep prior behavior unless enforcement is enabled. Private worldLoop/worldCombatQuest presets exercise production adapters including NPC services and grid settlement. Verified 44 engine/data files and 20/20 grid browser suites plus authoring/recovery/services/adventure/cloud mock checks. Actual Supabase/two-device owner acceptance remains unverified; see OWNER-ACCEPTANCE.md. Current local work has not been published.
+
+## Release 68 delivery package
+
+Packages catalog weapon reach/footprints and the world/NPC/quest integration with cache revision 68. During delivery review, filled the in-game maintenance guide with the new world, event, weapon and quest instructions and versioned its entry link. Engine/data 44 and grid browser 20/20 pass; actual-account/two-device acceptance stays in OWNER-ACCEPTANCE.md.

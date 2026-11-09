@@ -60,3 +60,5 @@ Validation: `status-immunity.test.cjs` exercises real catalog poison immunity, d
 ## Explicit player-side elemental metadata — 2026-11-07
 
 Encounter units on either side now use the same original elemental interaction helper when explicit weakness/immunity tags exist. Player units without tags remain neutral. This does not derive new defenses from equipment descriptions or grant new equipment effects. The isolated AI/party scenarios demonstrate the behavior; see MONSTER-TACTICS.md.
+
+ระยะ/พื้นที่อาวุธกรอกในฐานข้อมูลได้แล้ว: [WEAPON-GRID.md](WEAPON-GRID.md) มีขั้นต่ำ–สูงสุด รูปพื้นที่/ระยะอ้างอิง/จำนวนเป้า ใช้กับมือหลัก มือรอง และ NPC พร้อม preset ทดสอบและเลือกอาวุธ catalog จริงในสนาม

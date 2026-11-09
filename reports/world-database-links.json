@@ -2,7 +2,7 @@
   "date": "2026-11-09",
   "scope": "bundled source catalog + current workspace code; not live Supabase/account data",
   "catalogRecords": 550,
-  "catalogFieldCount": 262,
+  "catalogFieldCount": 271,
   "statuses": {
     "runtime": "มีกลไกอ่านค่า",
     "partial": "อ่านเฉพาะ adapter/ค่า/เงื่อนไขที่รองรับ",
@@ -16,7 +16,7 @@
   },
   "counts": {
     "runtime": 63,
-    "partial": 124,
+    "partial": 133,
     "display": 13,
     "unlinked": 62
   },
@@ -150,7 +150,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -231,7 +231,7 @@
       "next": "ผูกตัวเลือก NPC/recruit และเพิ่มเงื่อนไข stat check หากต้องการเจรจา",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -258,7 +258,7 @@
       "next": "ผูกตัวเลือก NPC/recruit และเพิ่มเงื่อนไข stat check หากต้องการเจรจา",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -285,7 +285,7 @@
       "next": "ผูกตัวเลือก NPC/recruit และเพิ่มเงื่อนไข stat check หากต้องการเจรจา",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -312,7 +312,7 @@
       "next": "ผูกตัวเลือก NPC/recruit และเพิ่มเงื่อนไข stat check หากต้องการเจรจา",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -339,7 +339,7 @@
       "next": "ผูกตัวเลือก NPC/recruit และเพิ่มเงื่อนไข stat check หากต้องการเจรจา",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -366,7 +366,7 @@
       "next": "ผูกตัวเลือก NPC/recruit และเพิ่มเงื่อนไข stat check หากต้องการเจรจา",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -393,7 +393,7 @@
       "next": "ผูกตัวเลือก NPC/recruit และเพิ่มเงื่อนไข stat check หากต้องการเจรจา",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -420,7 +420,7 @@
       "next": "ผูกตัวเลือก NPC/recruit และเพิ่มเงื่อนไข stat check หากต้องการเจรจา",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -447,7 +447,7 @@
       "next": "ผูกตัวเลือก NPC/recruit และเพิ่มเงื่อนไข stat check หากต้องการเจรจา",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -474,7 +474,7 @@
       "next": "ผูกตัวเลือก NPC/recruit และเพิ่มเงื่อนไข stat check หากต้องการเจรจา",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -528,7 +528,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -559,7 +559,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -590,7 +590,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -621,7 +621,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -652,7 +652,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -683,7 +683,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -716,7 +716,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -743,13 +743,13 @@
       "key": "items",
       "label": "ไอเทมที่พกอยู่",
       "status": "runtime",
-      "relation": "unlinked",
+      "relation": "direct",
       "consumer": "dist/catalog-economy.js#buy",
-      "note": "ใช้เป็นรายการสินค้าโดยชื่อในร้านค้าเดิม ไม่ใช่ของที่ผู้เล่นจะได้รับเพียงเพราะคุยหรือรับ NPC",
-      "next": "ผูก outcome เปิดร้าน npcId กับหน้าร้านเดิม; อย่าตีความเป็นรางวัลอัตโนมัติ",
+      "note": "ใช้เป็นรายการสินค้าในร้านเดิมและบริการที่เปิดจาก VN ไม่แจกของเมื่อคุยหรือรับเพื่อน",
+      "next": "เชื่อม npcAction shop แล้ว จำกัดบริการตามผู้พูด/placement เมื่อเปิดโหมดตำแหน่งจริง",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 41,
@@ -780,7 +780,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 41,
@@ -813,8 +813,8 @@
       "status": "unlinked",
       "relation": "unlinked",
       "consumer": "dist/content-editor.js#renderEditorFields",
-      "note": "29 NPC มีข้อความสถานที่ แต่ไม่จับคู่ mapId/placeId และไม่จำกัดร้าน/รับเพื่อนตามตำแหน่ง",
-      "next": "เพิ่ม NPC placement {npcId,mapId,placeId} โดยเก็บ location เดิมเป็นคำบรรยาย",
+      "note": "location เดิมยังเป็นคำบรรยาย; ตำแหน่งจริงใช้ npcPlacements {npcId,mapId,placeId} แยกกัน",
+      "next": "วางผ่านหน้าแผนที่และเปิด enforceLocations; เซฟเก่าที่ปิดโหมดยังใช้กติกาเดิม",
       "evidence": {
         "file": "dist/content-editor.js",
         "line": 22,
@@ -919,13 +919,13 @@
       "key": "recruitable",
       "label": "ชวนเข้าปาร์ตี้ได้",
       "status": "runtime",
-      "relation": "indirect",
+      "relation": "direct",
       "consumer": "dist/catalog-party.js#recruit",
-      "note": "มีปุ่มรับเข้าทีมจาก roster แต่ยังไม่มีผล recruit ในตัวเลือก VN",
-      "next": "เพิ่ม outcome recruitNpcId/dismissNpcId โดยเรียก adapter เดิม",
+      "note": "รับจาก roster หรือ outcome recruit/dismiss ใน VN ได้ โหมดตำแหน่งจริงตรวจ placement/ผู้พูด/เพดานทีม",
+      "next": "ใช้งานผ่าน npcAction.type/npcId ในฟอร์มอีเวนต์",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 10,
+        "line": 11,
         "symbol": "recruit"
       },
       "records": 41,
@@ -1833,7 +1833,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-equipment.js",
-        "line": 10,
+        "line": 11,
         "symbol": "weapon"
       },
       "records": 31,
@@ -1860,7 +1860,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-equipment.js",
-        "line": 10,
+        "line": 11,
         "symbol": "weapon"
       },
       "records": 31,
@@ -1887,7 +1887,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-equipment.js",
-        "line": 10,
+        "line": 11,
         "symbol": "weapon"
       },
       "records": 31,
@@ -1914,7 +1914,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-equipment.js",
-        "line": 10,
+        "line": 11,
         "symbol": "weapon"
       },
       "records": 31,
@@ -1941,7 +1941,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-equipment.js",
-        "line": 10,
+        "line": 11,
         "symbol": "weapon"
       },
       "records": 31,
@@ -2013,7 +2013,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-equipment.js",
-        "line": 10,
+        "line": 11,
         "symbol": "weapon"
       },
       "records": 31,
@@ -2071,7 +2071,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 31,
@@ -2098,7 +2098,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 31,
@@ -2140,6 +2140,168 @@
           "value": "assets/items/weapon-preset-weapon-iron-axe.svg"
         }
       ]
+    },
+    {
+      "kind": "weapon",
+      "key": "weaponRangeMin",
+      "label": "ระยะใกล้สุดของอาวุธ (ช่อง)",
+      "status": "partial",
+      "relation": "indirect",
+      "consumer": "dist/weapon-patterns.js#fromRecord",
+      "note": "ระยะขั้นต่ำ/สูงสุดและรูปพื้นที่โจมตีปกติของอาวุธ เชื่อมมือหลัก มือรอง และ NPC ใน grid; legacy ใช้ระยะประเภทเดิม",
+      "next": "",
+      "evidence": {
+        "file": "dist/weapon-patterns.js",
+        "line": 6,
+        "symbol": "fromRecord"
+      },
+      "records": 31,
+      "populated": 0,
+      "examples": []
+    },
+    {
+      "kind": "weapon",
+      "key": "weaponRangeMax",
+      "label": "ระยะไกลสุดของอาวุธแบบเดิม (ช่อง)",
+      "status": "partial",
+      "relation": "indirect",
+      "consumer": "dist/weapon-patterns.js#fromRecord",
+      "note": "ระยะขั้นต่ำ/สูงสุดและรูปพื้นที่โจมตีปกติของอาวุธ เชื่อมมือหลัก มือรอง และ NPC ใน grid; legacy ใช้ระยะประเภทเดิม",
+      "next": "",
+      "evidence": {
+        "file": "dist/weapon-patterns.js",
+        "line": 6,
+        "symbol": "fromRecord"
+      },
+      "records": 31,
+      "populated": 0,
+      "examples": []
+    },
+    {
+      "kind": "weapon",
+      "key": "gridShape",
+      "label": "รูปพื้นที่โจมตี",
+      "status": "partial",
+      "relation": "indirect",
+      "consumer": "dist/weapon-patterns.js#fromRecord",
+      "note": "ระยะขั้นต่ำ/สูงสุดและรูปพื้นที่โจมตีปกติของอาวุธ เชื่อมมือหลัก มือรอง และ NPC ใน grid; legacy ใช้ระยะประเภทเดิม",
+      "next": "",
+      "evidence": {
+        "file": "dist/weapon-patterns.js",
+        "line": 6,
+        "symbol": "fromRecord"
+      },
+      "records": 31,
+      "populated": 0,
+      "examples": []
+    },
+    {
+      "kind": "weapon",
+      "key": "gridWidth",
+      "label": "ความกว้าง (ช่อง)",
+      "status": "partial",
+      "relation": "indirect",
+      "consumer": "dist/weapon-patterns.js#fromRecord",
+      "note": "ระยะขั้นต่ำ/สูงสุดและรูปพื้นที่โจมตีปกติของอาวุธ เชื่อมมือหลัก มือรอง และ NPC ใน grid; legacy ใช้ระยะประเภทเดิม",
+      "next": "",
+      "evidence": {
+        "file": "dist/weapon-patterns.js",
+        "line": 6,
+        "symbol": "fromRecord"
+      },
+      "records": 31,
+      "populated": 0,
+      "examples": []
+    },
+    {
+      "kind": "weapon",
+      "key": "gridLength",
+      "label": "ความยาว / รัศมี (ช่อง)",
+      "status": "partial",
+      "relation": "indirect",
+      "consumer": "dist/weapon-patterns.js#fromRecord",
+      "note": "ระยะขั้นต่ำ/สูงสุดและรูปพื้นที่โจมตีปกติของอาวุธ เชื่อมมือหลัก มือรอง และ NPC ใน grid; legacy ใช้ระยะประเภทเดิม",
+      "next": "",
+      "evidence": {
+        "file": "dist/weapon-patterns.js",
+        "line": 6,
+        "symbol": "fromRecord"
+      },
+      "records": 31,
+      "populated": 0,
+      "examples": []
+    },
+    {
+      "kind": "weapon",
+      "key": "gridRangeSource",
+      "label": "ระยะอ้างอิง",
+      "status": "partial",
+      "relation": "indirect",
+      "consumer": "dist/weapon-patterns.js#fromRecord",
+      "note": "ระยะขั้นต่ำ/สูงสุดและรูปพื้นที่โจมตีปกติของอาวุธ เชื่อมมือหลัก มือรอง และ NPC ใน grid; legacy ใช้ระยะประเภทเดิม",
+      "next": "",
+      "evidence": {
+        "file": "dist/weapon-patterns.js",
+        "line": 6,
+        "symbol": "fromRecord"
+      },
+      "records": 31,
+      "populated": 0,
+      "examples": []
+    },
+    {
+      "kind": "weapon",
+      "key": "gridRange",
+      "label": "ระยะเล็งจุดกลาง (ช่อง)",
+      "status": "partial",
+      "relation": "indirect",
+      "consumer": "dist/weapon-patterns.js#fromRecord",
+      "note": "ระยะขั้นต่ำ/สูงสุดและรูปพื้นที่โจมตีปกติของอาวุธ เชื่อมมือหลัก มือรอง และ NPC ใน grid; legacy ใช้ระยะประเภทเดิม",
+      "next": "",
+      "evidence": {
+        "file": "dist/weapon-patterns.js",
+        "line": 6,
+        "symbol": "fromRecord"
+      },
+      "records": 31,
+      "populated": 0,
+      "examples": []
+    },
+    {
+      "kind": "weapon",
+      "key": "gridSelection",
+      "label": "จำนวนเป้าที่ให้เลือกในพื้นที่",
+      "status": "partial",
+      "relation": "indirect",
+      "consumer": "dist/weapon-patterns.js#fromRecord",
+      "note": "ระยะขั้นต่ำ/สูงสุดและรูปพื้นที่โจมตีปกติของอาวุธ เชื่อมมือหลัก มือรอง และ NPC ใน grid; legacy ใช้ระยะประเภทเดิม",
+      "next": "",
+      "evidence": {
+        "file": "dist/weapon-patterns.js",
+        "line": 6,
+        "symbol": "fromRecord"
+      },
+      "records": 31,
+      "populated": 0,
+      "examples": []
+    },
+    {
+      "kind": "weapon",
+      "key": "gridCount",
+      "label": "จำนวนเป้าสูงสุด (สำหรับเลือกหลายเป้า)",
+      "status": "partial",
+      "relation": "indirect",
+      "consumer": "dist/weapon-patterns.js#fromRecord",
+      "note": "ระยะขั้นต่ำ/สูงสุดและรูปพื้นที่โจมตีปกติของอาวุธ เชื่อมมือหลัก มือรอง และ NPC ใน grid; legacy ใช้ระยะประเภทเดิม",
+      "next": "",
+      "evidence": {
+        "file": "dist/weapon-patterns.js",
+        "line": 6,
+        "symbol": "fromRecord"
+      },
+      "records": 31,
+      "populated": 0,
+      "examples": []
     },
     {
       "kind": "armor",
@@ -2206,7 +2368,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 27,
@@ -2260,7 +2422,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 27,
@@ -2287,7 +2449,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 27,
@@ -2341,7 +2503,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-equipment.js",
-        "line": 11,
+        "line": 12,
         "symbol": "compatible"
       },
       "records": 27,
@@ -2422,7 +2584,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 25,
@@ -2476,7 +2638,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 25,
@@ -2503,7 +2665,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 25,
@@ -2611,7 +2773,7 @@
       "next": "",
       "evidence": {
         "file": "dist/catalog-party.js",
-        "line": 8,
+        "line": 9,
         "symbol": "profile"
       },
       "records": 25,
@@ -2665,7 +2827,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 25,
@@ -2692,7 +2854,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 25,
@@ -2827,7 +2989,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 50,
@@ -2854,7 +3016,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 50,
@@ -5976,7 +6138,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 27,
@@ -6003,7 +6165,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 27,
@@ -6123,13 +6285,13 @@
       "key": "ingredients",
       "label": "วัตถุดิบที่ต้องใช้ (ชื่อไอเทม : จำนวน)",
       "status": "runtime",
-      "relation": "unlinked",
+      "relation": "direct",
       "consumer": "dist/catalog-economy.js#craft",
-      "note": "ระบบปรุงเดิมใช้ครบ แต่ VN ยังไม่มี outcome เปิดบริการปรุง/เรียนสูตร และไม่เชื่อมสกิล craftRecipeIds",
-      "next": "ผูกเปิดบริการ NPC/สูตร และระบบ unlockedRecipeIds หากต้องการให้เรียนก่อน",
+      "note": "ระบบปรุงใช้ครบและเปิดจาก VN ด้วย npcAction craft ได้ craftRecipeIds ยังไม่ปลดสูตรอัตโนมัติ",
+      "next": "ใช้ condition skill ในตัวเลือกเปิดบริการได้; การปลดแต่ละสูตรจาก craftRecipeIds ยังเป็นคนละกลไก",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 14,
+        "line": 15,
         "symbol": "craft"
       },
       "records": 5,
@@ -6168,13 +6330,13 @@
       "key": "goldCost",
       "label": "ค่าบริการ (ทอง)",
       "status": "runtime",
-      "relation": "unlinked",
+      "relation": "direct",
       "consumer": "dist/catalog-economy.js#craft",
-      "note": "ระบบปรุงเดิมใช้ครบ แต่ VN ยังไม่มี outcome เปิดบริการปรุง/เรียนสูตร และไม่เชื่อมสกิล craftRecipeIds",
-      "next": "ผูกเปิดบริการ NPC/สูตร และระบบ unlockedRecipeIds หากต้องการให้เรียนก่อน",
+      "note": "ระบบปรุงใช้ครบและเปิดจาก VN ด้วย npcAction craft ได้ craftRecipeIds ยังไม่ปลดสูตรอัตโนมัติ",
+      "next": "ใช้ condition skill ในตัวเลือกเปิดบริการได้; การปลดแต่ละสูตรจาก craftRecipeIds ยังเป็นคนละกลไก",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 14,
+        "line": 15,
         "symbol": "craft"
       },
       "records": 5,
@@ -6195,13 +6357,13 @@
       "key": "resultItemName",
       "label": "ไอเทมผลลัพธ์ (ต้องตรงกับชื่อจริงใน Item Database)",
       "status": "runtime",
-      "relation": "unlinked",
+      "relation": "direct",
       "consumer": "dist/catalog-economy.js#craft",
-      "note": "ระบบปรุงเดิมใช้ครบ แต่ VN ยังไม่มี outcome เปิดบริการปรุง/เรียนสูตร และไม่เชื่อมสกิล craftRecipeIds",
-      "next": "ผูกเปิดบริการ NPC/สูตร และระบบ unlockedRecipeIds หากต้องการให้เรียนก่อน",
+      "note": "ระบบปรุงใช้ครบและเปิดจาก VN ด้วย npcAction craft ได้ craftRecipeIds ยังไม่ปลดสูตรอัตโนมัติ",
+      "next": "ใช้ condition skill ในตัวเลือกเปิดบริการได้; การปลดแต่ละสูตรจาก craftRecipeIds ยังเป็นคนละกลไก",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 14,
+        "line": 15,
         "symbol": "craft"
       },
       "records": 5,
@@ -6222,13 +6384,13 @@
       "key": "resultQuantity",
       "label": "จำนวนที่ได้รับ",
       "status": "runtime",
-      "relation": "unlinked",
+      "relation": "direct",
       "consumer": "dist/catalog-economy.js#craft",
-      "note": "ระบบปรุงเดิมใช้ครบ แต่ VN ยังไม่มี outcome เปิดบริการปรุง/เรียนสูตร และไม่เชื่อมสกิล craftRecipeIds",
-      "next": "ผูกเปิดบริการ NPC/สูตร และระบบ unlockedRecipeIds หากต้องการให้เรียนก่อน",
+      "note": "ระบบปรุงใช้ครบและเปิดจาก VN ด้วย npcAction craft ได้ craftRecipeIds ยังไม่ปลดสูตรอัตโนมัติ",
+      "next": "ใช้ condition skill ในตัวเลือกเปิดบริการได้; การปลดแต่ละสูตรจาก craftRecipeIds ยังเป็นคนละกลไก",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 14,
+        "line": 15,
         "symbol": "craft"
       },
       "records": 5,
@@ -6249,13 +6411,13 @@
       "key": "providerNpcIds",
       "label": "NPC ที่ให้บริการสูตรนี้ (ว่าง = ทุก NPC เสนอได้)",
       "status": "runtime",
-      "relation": "unlinked",
+      "relation": "direct",
       "consumer": "dist/catalog-economy.js#craft",
-      "note": "ระบบปรุงเดิมใช้ครบ แต่ VN ยังไม่มี outcome เปิดบริการปรุง/เรียนสูตร และไม่เชื่อมสกิล craftRecipeIds",
-      "next": "ผูกเปิดบริการ NPC/สูตร และระบบ unlockedRecipeIds หากต้องการให้เรียนก่อน",
+      "note": "ระบบปรุงใช้ครบและเปิดจาก VN ด้วย npcAction craft ได้ craftRecipeIds ยังไม่ปลดสูตรอัตโนมัติ",
+      "next": "ใช้ condition skill ในตัวเลือกเปิดบริการได้; การปลดแต่ละสูตรจาก craftRecipeIds ยังเป็นคนละกลไก",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 14,
+        "line": 15,
         "symbol": "craft"
       },
       "records": 5,
@@ -6528,7 +6690,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 34,
@@ -6555,7 +6717,7 @@
       "next": "ผูกเปิดร้าน; ถ้าเป็นการซื้อผ่านตัวเลือกต้องตั้ง goldDelta และรางวัลอย่างชัดเจน",
       "evidence": {
         "file": "dist/catalog-economy.js",
-        "line": 12,
+        "line": 13,
         "symbol": "buy"
       },
       "records": 34,
@@ -6607,7 +6769,7 @@
       "note": "stable ID สำหรับเชื่อมโลก อีเวนต์ และเซฟ; ID สถานที่ต้องคู่ mapId",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 12,
+        "line": 13,
         "symbol": "validateConfig"
       }
     },
@@ -6618,7 +6780,7 @@
       "note": "stable ID สำหรับเชื่อมโลก อีเวนต์ และเซฟ; ID สถานที่ต้องคู่ mapId",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 12,
+        "line": 13,
         "symbol": "validateConfig"
       }
     },
@@ -6629,7 +6791,7 @@
       "note": "stable ID สำหรับเชื่อมโลก อีเวนต์ และเซฟ; ID สถานที่ต้องคู่ mapId",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 12,
+        "line": 13,
         "symbol": "validateConfig"
       }
     },
@@ -6640,7 +6802,7 @@
       "note": "stable ID สำหรับเชื่อมโลก อีเวนต์ และเซฟ; ID สถานที่ต้องคู่ mapId",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 12,
+        "line": 13,
         "symbol": "validateConfig"
       }
     },
@@ -6651,7 +6813,7 @@
       "note": "stable ID สำหรับเชื่อมโลก อีเวนต์ และเซฟ; ID สถานที่ต้องคู่ mapId",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 12,
+        "line": 13,
         "symbol": "validateConfig"
       }
     },
@@ -6662,7 +6824,7 @@
       "note": "stable ID สำหรับเชื่อมโลก อีเวนต์ และเซฟ; ID สถานที่ต้องคู่ mapId",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 12,
+        "line": 13,
         "symbol": "validateConfig"
       }
     },
@@ -6780,7 +6942,7 @@
       "key": "maps[].locations[].enabled",
       "status": "runtime",
       "consumer": "dist/maps.js#renderGame",
-      "note": "เปิด/ซ่อน แผนที่ย่อย และปุ่มกิจกรรม; network ใช้ตำแหน่งจริงกำกับปุ่ม แต่บริการร้าน/roster และระบบ chapter ยังแยกจาก network",
+      "note": "เปิด/ซ่อน แผนที่ย่อย และปุ่มกิจกรรม; เมื่อเปิด enforceLocations ตรวจบริการ/รับเพื่อน/กิจกรรมตามตำแหน่ง และ chapterPlaces เชื่อมบทตัวอย่างกับเส้นทางจริง",
       "evidence": {
         "file": "dist/maps.js",
         "line": 49,
@@ -6791,7 +6953,7 @@
       "key": "maps[].locations[].targetMapId",
       "status": "runtime",
       "consumer": "dist/maps.js#renderGame",
-      "note": "เปิด/ซ่อน แผนที่ย่อย และปุ่มกิจกรรม; network ใช้ตำแหน่งจริงกำกับปุ่ม แต่บริการร้าน/roster และระบบ chapter ยังแยกจาก network",
+      "note": "เปิด/ซ่อน แผนที่ย่อย และปุ่มกิจกรรม; เมื่อเปิด enforceLocations ตรวจบริการ/รับเพื่อน/กิจกรรมตามตำแหน่ง และ chapterPlaces เชื่อมบทตัวอย่างกับเส้นทางจริง",
       "evidence": {
         "file": "dist/maps.js",
         "line": 49,
@@ -6802,7 +6964,7 @@
       "key": "maps[].locations[].activities",
       "status": "runtime",
       "consumer": "dist/maps.js#renderGame",
-      "note": "เปิด/ซ่อน แผนที่ย่อย และปุ่มกิจกรรม; network ใช้ตำแหน่งจริงกำกับปุ่ม แต่บริการร้าน/roster และระบบ chapter ยังแยกจาก network",
+      "note": "เปิด/ซ่อน แผนที่ย่อย และปุ่มกิจกรรม; เมื่อเปิด enforceLocations ตรวจบริการ/รับเพื่อน/กิจกรรมตามตำแหน่ง และ chapterPlaces เชื่อมบทตัวอย่างกับเส้นทางจริง",
       "evidence": {
         "file": "dist/maps.js",
         "line": 49,
@@ -6816,7 +6978,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6827,7 +6989,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6838,7 +7000,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6849,7 +7011,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6860,7 +7022,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6871,7 +7033,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6882,7 +7044,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6893,7 +7055,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6904,7 +7066,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6915,7 +7077,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6926,7 +7088,7 @@
       "note": "ใช้เส้นทาง/เวลา/ภูมิประเทศจริง รถม้าเป็นโหมดเลือก ไม่ต้องมีไอเท็มรถม้าหรือม้าในคลัง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 23,
+        "line": 26,
         "symbol": "begin"
       }
     },
@@ -6937,7 +7099,7 @@
       "note": "ใช้เป็น fallback เมื่อ event ไม่ระบุ chance/routeChances แล้วเท่านั้น ไม่คูณซ้ำกับ % ของ event",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 26,
+        "line": 29,
         "symbol": "advance"
       }
     },
@@ -6945,10 +7107,10 @@
       "key": "events[].routeIds",
       "status": "runtime",
       "consumer": "dist/world-travel-data.js#advance",
-      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; ไม่มีเงื่อนไขเควส ช่วงเวลา สกิล ชื่อเสียง หรือสถิติใน event ปัจจุบัน",
+      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; มี conditions เควส/ของ/วิชา/ค่าสถานะ/ความชำนาญแล้ว; ช่วงเวลาและชื่อเสียงยังไม่มี condition type",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 26,
+        "line": 29,
         "symbol": "advance"
       }
     },
@@ -6956,10 +7118,10 @@
       "key": "events[].routeChances[].routeId",
       "status": "runtime",
       "consumer": "dist/world-travel-data.js#advance",
-      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; ไม่มีเงื่อนไขเควส ช่วงเวลา สกิล ชื่อเสียง หรือสถิติใน event ปัจจุบัน",
+      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; มี conditions เควส/ของ/วิชา/ค่าสถานะ/ความชำนาญแล้ว; ช่วงเวลาและชื่อเสียงยังไม่มี condition type",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 26,
+        "line": 29,
         "symbol": "advance"
       }
     },
@@ -6967,10 +7129,10 @@
       "key": "events[].routeChances[].chance",
       "status": "runtime",
       "consumer": "dist/world-travel-data.js#advance",
-      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; ไม่มีเงื่อนไขเควส ช่วงเวลา สกิล ชื่อเสียง หรือสถิติใน event ปัจจุบัน",
+      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; มี conditions เควส/ของ/วิชา/ค่าสถานะ/ความชำนาญแล้ว; ช่วงเวลาและชื่อเสียงยังไม่มี condition type",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 26,
+        "line": 29,
         "symbol": "advance"
       }
     },
@@ -6978,10 +7140,10 @@
       "key": "events[].allRoutes",
       "status": "runtime",
       "consumer": "dist/world-travel-data.js#advance",
-      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; ไม่มีเงื่อนไขเควส ช่วงเวลา สกิล ชื่อเสียง หรือสถิติใน event ปัจจุบัน",
+      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; มี conditions เควส/ของ/วิชา/ค่าสถานะ/ความชำนาญแล้ว; ช่วงเวลาและชื่อเสียงยังไม่มี condition type",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 26,
+        "line": 29,
         "symbol": "advance"
       }
     },
@@ -6989,10 +7151,10 @@
       "key": "events[].chance",
       "status": "runtime",
       "consumer": "dist/world-travel-data.js#advance",
-      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; ไม่มีเงื่อนไขเควส ช่วงเวลา สกิล ชื่อเสียง หรือสถิติใน event ปัจจุบัน",
+      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; มี conditions เควส/ของ/วิชา/ค่าสถานะ/ความชำนาญแล้ว; ช่วงเวลาและชื่อเสียงยังไม่มี condition type",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 26,
+        "line": 29,
         "symbol": "advance"
       }
     },
@@ -7000,10 +7162,10 @@
       "key": "events[].linkedOnly",
       "status": "runtime",
       "consumer": "dist/world-travel-data.js#advance",
-      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; ไม่มีเงื่อนไขเควส ช่วงเวลา สกิล ชื่อเสียง หรือสถิติใน event ปัจจุบัน",
+      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; มี conditions เควส/ของ/วิชา/ค่าสถานะ/ความชำนาญแล้ว; ช่วงเวลาและชื่อเสียงยังไม่มี condition type",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 26,
+        "line": 29,
         "symbol": "advance"
       }
     },
@@ -7011,10 +7173,10 @@
       "key": "events[].once",
       "status": "runtime",
       "consumer": "dist/world-travel-data.js#advance",
-      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; ไม่มีเงื่อนไขเควส ช่วงเวลา สกิล ชื่อเสียง หรือสถิติใน event ปัจจุบัน",
+      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; มี conditions เควส/ของ/วิชา/ค่าสถานะ/ความชำนาญแล้ว; ช่วงเวลาและชื่อเสียงยังไม่มี condition type",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 26,
+        "line": 29,
         "symbol": "advance"
       }
     },
@@ -7022,10 +7184,10 @@
       "key": "events[].enabled",
       "status": "runtime",
       "consumer": "dist/world-travel-data.js#advance",
-      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; ไม่มีเงื่อนไขเควส ช่วงเวลา สกิล ชื่อเสียง หรือสถิติใน event ปัจจุบัน",
+      "note": "กำหนดขอบเขต/สุ่มอิสระ/คิว/ครั้งเดียว; มี conditions เควส/ของ/วิชา/ค่าสถานะ/ความชำนาญแล้ว; ช่วงเวลาและชื่อเสียงยังไม่มี condition type",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 26,
+        "line": 29,
         "symbol": "advance"
       }
     },
@@ -7036,7 +7198,7 @@
       "note": "เก็บ/validate เพื่ออ่านไฟล์เดิม ไม่มีการนำค่านี้ไปสุ่มแล้ว",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 11,
+        "line": 12,
         "symbol": "event"
       }
     },
@@ -7124,7 +7286,7 @@
       "note": "ชนิด/จุดเริ่ม/เหรียญ/พลังงาน/เวลาเกิดผลจริง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 30,
+        "line": 33,
         "symbol": "resolve"
       }
     },
@@ -7135,7 +7297,7 @@
       "note": "ชนิด/จุดเริ่ม/เหรียญ/พลังงาน/เวลาเกิดผลจริง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 30,
+        "line": 33,
         "symbol": "resolve"
       }
     },
@@ -7146,7 +7308,7 @@
       "note": "ชนิด/จุดเริ่ม/เหรียญ/พลังงาน/เวลาเกิดผลจริง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 30,
+        "line": 33,
         "symbol": "resolve"
       }
     },
@@ -7157,7 +7319,7 @@
       "note": "ชนิด/จุดเริ่ม/เหรียญ/พลังงาน/เวลาเกิดผลจริง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 30,
+        "line": 33,
         "symbol": "resolve"
       }
     },
@@ -7168,7 +7330,7 @@
       "note": "ชนิด/จุดเริ่ม/เหรียญ/พลังงาน/เวลาเกิดผลจริง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 30,
+        "line": 33,
         "symbol": "resolve"
       }
     },
@@ -7179,7 +7341,7 @@
       "note": "ชนิด/จุดเริ่ม/เหรียญ/พลังงาน/เวลาเกิดผลจริง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 30,
+        "line": 33,
         "symbol": "resolve"
       }
     },
@@ -7190,7 +7352,7 @@
       "note": "ชนิด/จุดเริ่ม/เหรียญ/พลังงาน/เวลาเกิดผลจริง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 30,
+        "line": 33,
         "symbol": "resolve"
       }
     },
@@ -7201,7 +7363,7 @@
       "note": "ชนิด/จุดเริ่ม/เหรียญ/พลังงาน/เวลาเกิดผลจริง",
       "evidence": {
         "file": "dist/world-travel-data.js",
-        "line": 30,
+        "line": 33,
         "symbol": "resolve"
       }
     },
@@ -7209,10 +7371,10 @@
       "key": "events[].novel.nodes[].choices[].items[].kind",
       "status": "runtime",
       "consumer": "dist/event-story.js#apply",
-      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสเป็นผลลัพธ์ชัดเจน ไม่ใช่เงื่อนไขหรือ objective tracker",
+      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสมี conditions และ objectives kill/item; ชนะไฟต์นับ kill ครั้งเดียว ของใช้จำนวนจริงก่อนส่ง",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7220,10 +7382,10 @@
       "key": "events[].novel.nodes[].choices[].items[].id",
       "status": "runtime",
       "consumer": "dist/event-story.js#apply",
-      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสเป็นผลลัพธ์ชัดเจน ไม่ใช่เงื่อนไขหรือ objective tracker",
+      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสมี conditions และ objectives kill/item; ชนะไฟต์นับ kill ครั้งเดียว ของใช้จำนวนจริงก่อนส่ง",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7231,10 +7393,10 @@
       "key": "events[].novel.nodes[].choices[].items[].quantity",
       "status": "runtime",
       "consumer": "dist/event-story.js#apply",
-      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสเป็นผลลัพธ์ชัดเจน ไม่ใช่เงื่อนไขหรือ objective tracker",
+      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสมี conditions และ objectives kill/item; ชนะไฟต์นับ kill ครั้งเดียว ของใช้จำนวนจริงก่อนส่ง",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7242,10 +7404,10 @@
       "key": "events[].novel.nodes[].choices[].quest.id",
       "status": "runtime",
       "consumer": "dist/event-story.js#apply",
-      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสเป็นผลลัพธ์ชัดเจน ไม่ใช่เงื่อนไขหรือ objective tracker",
+      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสมี conditions และ objectives kill/item; ชนะไฟต์นับ kill ครั้งเดียว ของใช้จำนวนจริงก่อนส่ง",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7253,10 +7415,10 @@
       "key": "events[].novel.nodes[].choices[].quest.title",
       "status": "runtime",
       "consumer": "dist/event-story.js#apply",
-      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสเป็นผลลัพธ์ชัดเจน ไม่ใช่เงื่อนไขหรือ objective tracker",
+      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสมี conditions และ objectives kill/item; ชนะไฟต์นับ kill ครั้งเดียว ของใช้จำนวนจริงก่อนส่ง",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7264,10 +7426,10 @@
       "key": "events[].novel.nodes[].choices[].quest.description",
       "status": "runtime",
       "consumer": "dist/event-story.js#apply",
-      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสเป็นผลลัพธ์ชัดเจน ไม่ใช่เงื่อนไขหรือ objective tracker",
+      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสมี conditions และ objectives kill/item; ชนะไฟต์นับ kill ครั้งเดียว ของใช้จำนวนจริงก่อนส่ง",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7275,10 +7437,10 @@
       "key": "events[].novel.nodes[].choices[].quest.status",
       "status": "runtime",
       "consumer": "dist/event-story.js#apply",
-      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสเป็นผลลัพธ์ชัดเจน ไม่ใช่เงื่อนไขหรือ objective tracker",
+      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสมี conditions และ objectives kill/item; ชนะไฟต์นับ kill ครั้งเดียว ของใช้จำนวนจริงก่อนส่ง",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7286,10 +7448,10 @@
       "key": "events[].novel.nodes[].choices[].nextNode",
       "status": "runtime",
       "consumer": "dist/event-story.js#apply",
-      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสเป็นผลลัพธ์ชัดเจน ไม่ใช่เงื่อนไขหรือ objective tracker",
+      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสมี conditions และ objectives kill/item; ชนะไฟต์นับ kill ครั้งเดียว ของใช้จำนวนจริงก่อนส่ง",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7297,10 +7459,10 @@
       "key": "events[].novel.nodes[].choices[].nextEventId",
       "status": "runtime",
       "consumer": "dist/event-story.js#apply",
-      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสเป็นผลลัพธ์ชัดเจน ไม่ใช่เงื่อนไขหรือ objective tracker",
+      "note": "เข้าคลัง/เปลี่ยนสมุดเควส/เปลี่ยนบท/เรียกเรื่องเสริม; เควสมี conditions และ objectives kill/item; ชนะไฟต์นับ kill ครั้งเดียว ของใช้จำนวนจริงก่อนส่ง",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7311,7 +7473,7 @@
       "note": "ข้อความปุ่ม/ผล/สมุดเรื่องราว ไม่แปลเป็นกลไกอื่น",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7322,7 +7484,7 @@
       "note": "ข้อความปุ่ม/ผล/สมุดเรื่องราว ไม่แปลเป็นกลไกอื่น",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7333,7 +7495,7 @@
       "note": "ข้อความปุ่ม/ผล/สมุดเรื่องราว ไม่แปลเป็นกลไกอื่น",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7344,7 +7506,7 @@
       "note": "ข้อความปุ่ม/ผล/สมุดเรื่องราว ไม่แปลเป็นกลไกอื่น",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 9,
+        "line": 10,
         "symbol": "apply"
       }
     },
@@ -7498,8 +7660,393 @@
       "note": "เก็บรหัสเท่านั้น ไม่มี audio player ตามขอบเขตที่ตกลงไว้",
       "evidence": {
         "file": "dist/event-story.js",
-        "line": 7,
+        "line": 8,
         "symbol": "validate"
+      }
+    },
+    {
+      "key": "worldRules.enforceLocations",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#extend",
+      "note": "เลือกเปิดตำแหน่งจริง/วาง NPC/บทสนทนา/บริการและเชื่อมบทเก่ากับเส้นทาง; ปิดโหมดรักษาเซฟเดิม",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 5,
+        "symbol": "extend"
+      }
+    },
+    {
+      "key": "worldRules.chapterPlaces.village",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#extend",
+      "note": "เลือกเปิดตำแหน่งจริง/วาง NPC/บทสนทนา/บริการและเชื่อมบทเก่ากับเส้นทาง; ปิดโหมดรักษาเซฟเดิม",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 5,
+        "symbol": "extend"
+      }
+    },
+    {
+      "key": "worldRules.chapterPlaces.forest",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#extend",
+      "note": "เลือกเปิดตำแหน่งจริง/วาง NPC/บทสนทนา/บริการและเชื่อมบทเก่ากับเส้นทาง; ปิดโหมดรักษาเซฟเดิม",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 5,
+        "symbol": "extend"
+      }
+    },
+    {
+      "key": "worldRules.chapterPlaces.cave",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#extend",
+      "note": "เลือกเปิดตำแหน่งจริง/วาง NPC/บทสนทนา/บริการและเชื่อมบทเก่ากับเส้นทาง; ปิดโหมดรักษาเซฟเดิม",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 5,
+        "symbol": "extend"
+      }
+    },
+    {
+      "key": "npcPlacements[].npcId",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#extend",
+      "note": "เลือกเปิดตำแหน่งจริง/วาง NPC/บทสนทนา/บริการและเชื่อมบทเก่ากับเส้นทาง; ปิดโหมดรักษาเซฟเดิม",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 5,
+        "symbol": "extend"
+      }
+    },
+    {
+      "key": "npcPlacements[].mapId",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#extend",
+      "note": "เลือกเปิดตำแหน่งจริง/วาง NPC/บทสนทนา/บริการและเชื่อมบทเก่ากับเส้นทาง; ปิดโหมดรักษาเซฟเดิม",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 5,
+        "symbol": "extend"
+      }
+    },
+    {
+      "key": "npcPlacements[].placeId",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#extend",
+      "note": "เลือกเปิดตำแหน่งจริง/วาง NPC/บทสนทนา/บริการและเชื่อมบทเก่ากับเส้นทาง; ปิดโหมดรักษาเซฟเดิม",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 5,
+        "symbol": "extend"
+      }
+    },
+    {
+      "key": "npcPlacements[].eventId",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#extend",
+      "note": "เลือกเปิดตำแหน่งจริง/วาง NPC/บทสนทนา/บริการและเชื่อมบทเก่ากับเส้นทาง; ปิดโหมดรักษาเซฟเดิม",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 5,
+        "symbol": "extend"
+      }
+    },
+    {
+      "key": "npcPlacements[].dialogueOnly",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#extend",
+      "note": "เลือกเปิดตำแหน่งจริง/วาง NPC/บทสนทนา/บริการและเชื่อมบทเก่ากับเส้นทาง; ปิดโหมดรักษาเซฟเดิม",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 5,
+        "symbol": "extend"
+      }
+    },
+    {
+      "key": "npcPlacements[].enabled",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#extend",
+      "note": "เลือกเปิดตำแหน่งจริง/วาง NPC/บทสนทนา/บริการและเชื่อมบทเก่ากับเส้นทาง; ปิดโหมดรักษาเซฟเดิม",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 5,
+        "symbol": "extend"
+      }
+    },
+    {
+      "key": "events[].conditions[].type",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#check",
+      "note": "ทุกเงื่อนไขต้องผ่าน: quest absent/active/ready/completed/failed, มีของ, รู้วิชา, stat, proficiency",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 23,
+        "symbol": "check"
+      }
+    },
+    {
+      "key": "events[].conditions[].id",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#check",
+      "note": "ทุกเงื่อนไขต้องผ่าน: quest absent/active/ready/completed/failed, มีของ, รู้วิชา, stat, proficiency",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 23,
+        "symbol": "check"
+      }
+    },
+    {
+      "key": "events[].conditions[].status",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#check",
+      "note": "ทุกเงื่อนไขต้องผ่าน: quest absent/active/ready/completed/failed, มีของ, รู้วิชา, stat, proficiency",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 23,
+        "symbol": "check"
+      }
+    },
+    {
+      "key": "events[].conditions[].kind",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#check",
+      "note": "ทุกเงื่อนไขต้องผ่าน: quest absent/active/ready/completed/failed, มีของ, รู้วิชา, stat, proficiency",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 23,
+        "symbol": "check"
+      }
+    },
+    {
+      "key": "events[].conditions[].quantity",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#check",
+      "note": "ทุกเงื่อนไขต้องผ่าน: quest absent/active/ready/completed/failed, มีของ, รู้วิชา, stat, proficiency",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 23,
+        "symbol": "check"
+      }
+    },
+    {
+      "key": "events[].conditions[].stat",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#check",
+      "note": "ทุกเงื่อนไขต้องผ่าน: quest absent/active/ready/completed/failed, มีของ, รู้วิชา, stat, proficiency",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 23,
+        "symbol": "check"
+      }
+    },
+    {
+      "key": "events[].conditions[].minimum",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#check",
+      "note": "ทุกเงื่อนไขต้องผ่าน: quest absent/active/ready/completed/failed, มีของ, รู้วิชา, stat, proficiency",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 23,
+        "symbol": "check"
+      }
+    },
+    {
+      "key": "events[].conditions[].key",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#check",
+      "note": "ทุกเงื่อนไขต้องผ่าน: quest absent/active/ready/completed/failed, มีของ, รู้วิชา, stat, proficiency",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 23,
+        "symbol": "check"
+      }
+    },
+    {
+      "key": "events[].conditions[].grade",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#check",
+      "note": "ทุกเงื่อนไขต้องผ่าน: quest absent/active/ready/completed/failed, มีของ, รู้วิชา, stat, proficiency",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 23,
+        "symbol": "check"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].conditions",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#check",
+      "note": "ทุกเงื่อนไขต้องผ่าน: quest absent/active/ready/completed/failed, มีของ, รู้วิชา, stat, proficiency",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 23,
+        "symbol": "check"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].consumeItems[].kind",
+      "status": "runtime",
+      "consumer": "dist/event-story.js#apply",
+      "note": "ส่งของพร้อมผลรางวัลแบบ atomic; reward ledger กันซ้ำ; shop/craft/recruit/dismiss ใช้ adapter เดิมและผู้พูด/ตำแหน่ง",
+      "evidence": {
+        "file": "dist/event-story.js",
+        "line": 10,
+        "symbol": "apply"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].consumeItems[].id",
+      "status": "runtime",
+      "consumer": "dist/event-story.js#apply",
+      "note": "ส่งของพร้อมผลรางวัลแบบ atomic; reward ledger กันซ้ำ; shop/craft/recruit/dismiss ใช้ adapter เดิมและผู้พูด/ตำแหน่ง",
+      "evidence": {
+        "file": "dist/event-story.js",
+        "line": 10,
+        "symbol": "apply"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].consumeItems[].quantity",
+      "status": "runtime",
+      "consumer": "dist/event-story.js#apply",
+      "note": "ส่งของพร้อมผลรางวัลแบบ atomic; reward ledger กันซ้ำ; shop/craft/recruit/dismiss ใช้ adapter เดิมและผู้พูด/ตำแหน่ง",
+      "evidence": {
+        "file": "dist/event-story.js",
+        "line": 10,
+        "symbol": "apply"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].onceKey",
+      "status": "runtime",
+      "consumer": "dist/event-story.js#apply",
+      "note": "ส่งของพร้อมผลรางวัลแบบ atomic; reward ledger กันซ้ำ; shop/craft/recruit/dismiss ใช้ adapter เดิมและผู้พูด/ตำแหน่ง",
+      "evidence": {
+        "file": "dist/event-story.js",
+        "line": 10,
+        "symbol": "apply"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].npcAction.type",
+      "status": "runtime",
+      "consumer": "dist/event-story.js#apply",
+      "note": "ส่งของพร้อมผลรางวัลแบบ atomic; reward ledger กันซ้ำ; shop/craft/recruit/dismiss ใช้ adapter เดิมและผู้พูด/ตำแหน่ง",
+      "evidence": {
+        "file": "dist/event-story.js",
+        "line": 10,
+        "symbol": "apply"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].npcAction.npcId",
+      "status": "runtime",
+      "consumer": "dist/event-story.js#apply",
+      "note": "ส่งของพร้อมผลรางวัลแบบ atomic; reward ledger กันซ้ำ; shop/craft/recruit/dismiss ใช้ adapter เดิมและผู้พูด/ตำแหน่ง",
+      "evidence": {
+        "file": "dist/event-story.js",
+        "line": 10,
+        "symbol": "apply"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].quest.objectives[].type",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#recordVictory",
+      "note": "เป้าหมาย kill เมื่อชนะ/settle ครั้งเดียว และ item ตรวจจำนวนในคลัง บริการ/บทในสถานที่เก็บเซฟได้",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 29,
+        "symbol": "recordVictory"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].quest.objectives[].monsterId",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#recordVictory",
+      "note": "เป้าหมาย kill เมื่อชนะ/settle ครั้งเดียว และ item ตรวจจำนวนในคลัง บริการ/บทในสถานที่เก็บเซฟได้",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 29,
+        "symbol": "recordVictory"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].quest.objectives[].kind",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#recordVictory",
+      "note": "เป้าหมาย kill เมื่อชนะ/settle ครั้งเดียว และ item ตรวจจำนวนในคลัง บริการ/บทในสถานที่เก็บเซฟได้",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 29,
+        "symbol": "recordVictory"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].quest.objectives[].id",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#recordVictory",
+      "note": "เป้าหมาย kill เมื่อชนะ/settle ครั้งเดียว และ item ตรวจจำนวนในคลัง บริการ/บทในสถานที่เก็บเซฟได้",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 29,
+        "symbol": "recordVictory"
+      }
+    },
+    {
+      "key": "events[].novel.nodes[].choices[].quest.objectives[].required",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#recordVictory",
+      "note": "เป้าหมาย kill เมื่อชนะ/settle ครั้งเดียว และ item ตรวจจำนวนในคลัง บริการ/บทในสถานที่เก็บเซฟได้",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 29,
+        "symbol": "recordVictory"
+      }
+    },
+    {
+      "key": "eventJournal.quests[].objectives[].progress",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#recordVictory",
+      "note": "เป้าหมาย kill เมื่อชนะ/settle ครั้งเดียว และ item ตรวจจำนวนในคลัง บริการ/บทในสถานที่เก็บเซฟได้",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 29,
+        "symbol": "recordVictory"
+      }
+    },
+    {
+      "key": "eventJournal.countedBattles",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#recordVictory",
+      "note": "เป้าหมาย kill เมื่อชนะ/settle ครั้งเดียว และ item ตรวจจำนวนในคลัง บริการ/บทในสถานที่เก็บเซฟได้",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 29,
+        "symbol": "recordVictory"
+      }
+    },
+    {
+      "key": "eventJournal.claimedChoices",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#recordVictory",
+      "note": "เป้าหมาย kill เมื่อชนะ/settle ครั้งเดียว และ item ตรวจจำนวนในคลัง บริการ/บทในสถานที่เก็บเซฟได้",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 29,
+        "symbol": "recordVictory"
+      }
+    },
+    {
+      "key": "overworld.interaction",
+      "status": "runtime",
+      "consumer": "dist/world-links-data.js#recordVictory",
+      "note": "เป้าหมาย kill เมื่อชนะ/settle ครั้งเดียว และ item ตรวจจำนวนในคลัง บริการ/บทในสถานที่เก็บเซฟได้",
+      "evidence": {
+        "file": "dist/world-links-data.js",
+        "line": 29,
+        "symbol": "recordVictory"
       }
     }
   ],
@@ -7514,7 +8061,11 @@
     },
     {
       "id": "quest-gate",
-      "result": "แม้มีเควส completed อีเวนต์ยังเกิด: event ไม่มี quest condition"
+      "result": "event.conditions ที่กำหนด active ไม่เกิดเมื่อเควส completed; รองรับ gate ที่กรอกชัดเจนแล้ว"
+    },
+    {
+      "id": "npc-placement",
+      "result": "enforceLocations+placement รับ NPC ได้เฉพาะสถานที่ที่วาง และบันทึกตำแหน่งจริงครั้งแรก"
     },
     {
       "id": "monster-metadata",

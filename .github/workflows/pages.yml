@@ -64,6 +64,7 @@ jobs:
           node world-links.test.cjs
           node closeout-resume.test.cjs
           node closeout-custom-services.test.cjs
+          node closeout-authoring.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

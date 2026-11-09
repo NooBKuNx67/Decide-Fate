@@ -56,3 +56,7 @@ Real catalog Skeleton Warrior/Zombie/Stone Golem poison immunity prevents poison
 `Fire`/`Ice` damage immunity is not an alias for `Burn`/`Slow`. `Bleed` remains catalog data: no bleed action or arbitrary free-text special-effect interpreter was added. No new stun/silence abilities were granted. Existing grid/2 AP rules remain unchanged.
 
 Validation: `status-immunity.test.cjs` exercises real catalog poison immunity, direct hit versus damage-over-time, AP/MP/cooldown, duration expiry, Antidote, save validation, explicit status tags and live Frost/Armor Break/Battle Cry/form follow-ups. `status-immunity-ui.test.cjs` uses mock cloud, presses Poison Blade against a catalog skeleton, reloads the save and compares a susceptible target. Screenshot: `artifacts/qa/status-immunity.png`.
+
+## Explicit player-side elemental metadata — 2026-11-07
+
+Encounter units on either side now use the same original elemental interaction helper when explicit weakness/immunity tags exist. Player units without tags remain neutral. This does not derive new defenses from equipment descriptions or grant new equipment effects. The isolated AI/party scenarios demonstrate the behavior; see MONSTER-TACTICS.md.

@@ -39,7 +39,7 @@ Monster skills orient toward a detected target automatically. They select one/up
 
 Absent/legacy shapes keep existing behavior. Catalog/monster action snapshots optionally carry `grid`; new authored-class patterns are snapshotted in `encounter.gridSkills` for the party's owned skills. Existing saved fights keep their existing snapshots/legacy patterns; edit source data then start a new encounter or restart the lab to use the changes. Shape settings are validated on save/load, while referenced senses stay dynamic.
 
-Configured patterns work with currently supported catalog actions (except self-only Iron Wall), the nine supported monster active actions, and authored damage, heal, aid, cure, barrier, antidote and taunt commands. Movement, traps, fields, self-only buffs, mark/protect/steal and unimplemented legacy abilities retain their existing mechanics and do not gain invented effects from a footprint. The source schema is broader than implemented mechanics, as before. The lab is solo on the player side; multi-recipient monster execution is also verified by the pure party test.
+Configured patterns work with currently supported catalog actions (except self-only Iron Wall), the nine supported monster active actions, and authored damage, heal, aid, cure, barrier, antidote and taunt commands. Movement, traps, fields, self-only buffs, mark/protect/steal and unimplemented legacy abilities retain their existing mechanics and do not gain invented effects from a footprint. The source schema is broader than implemented mechanics, as before. The lab now supports 1–4 player-side members, with direct multi-recipient monster scenarios; see MONSTER-TACTICS.md.
 
 ## Update Test Field and verification
 
@@ -47,6 +47,6 @@ Added direct scenarios for line 2×7/select-three, around/hearing, cone/sight an
 
 - `grid-patterns.test.cjs`: exact masks/directions, boundaries/count rejection, dynamic senses, walls, resource rollback, authored Fire without duplicate AoE, area healing/cleanse, saved validation and monster multi-target dispatch.
 - `grid-patterns-ui.test.cjs`: real database edit/save/reload, invalid width rejection, a custom lab layout reading the edited Fire record, select-three/extra-target rejection, facing/sense controls, normal-game direction/target controls and landscape. Mock auth/storage only.
-- `full-schema.test.cjs`: all 241 runtime fields remain editable/savable, with the original raw record/schema parity checked separately.
+- `full-schema.test.cjs`: all 255 runtime fields remain editable/savable, with the original raw record/schema parity checked separately.
 
 Screenshots: `artifacts/qa/grid-pattern-line.png`, `grid-pattern-cone-landscape.png`.

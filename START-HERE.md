@@ -1,3 +1,5 @@
+> Current handoff (8 Nov 2026): read [HANDOFF.md](HANDOFF.md) for running the current project and adding data with free ChatGPT/Claude. See [RELEASE-CLOSEOUT.md](RELEASE-CLOSEOUT.md) for remaining acceptance checks. Historical Prototype 13 instructions below are retained for provenance; use the current repository workflow for publication.
+
 > Current owner clarification: this project was files tested in Codex, not a deployed website. Continue from /workspace/Decide-Fate. Sites and URL references below are historical handoff metadata and must not block development or local testing. See README.md and VISUAL-UPDATE.md for the implemented Decide Fate update.
 
 # EverTale — เริ่มทำงานต่อบนคอมเครื่องใหม่

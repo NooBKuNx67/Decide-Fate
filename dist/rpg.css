@@ -16,3 +16,6 @@
 #pointBuy .proficiency-choice strong{display:block;font-size:15px;color:#f0ead7}
 #pointBuy .proficiency-choice small{display:block;font-size:13px;line-height:1.9;color:#bdcdbb;overflow-wrap:anywhere}
 #pointBuy .proficiency-choice select{margin-top:auto;width:100%;min-width:0}
+
+/* Data authoring controls, scoped to the database tool. */
+#dataAuthoring input:not([type=checkbox]),#dataAuthoring textarea,#dataAuthoring select{display:block;width:100%;min-width:0;box-sizing:border-box;font:inherit;padding:10px;border:1px solid #ffffff35;border-radius:7px;background:#10231f;color:#eef2e8;margin:8px 0 12px}#dataAuthoring textarea{resize:vertical}#dataAuthoring button{margin:6px 8px 6px 0}#dataAuthoring details{margin:16px 0}#authorChanges{max-height:360px;overflow:auto;overflow-wrap:anywhere}#authorStatus{overflow-wrap:anywhere}

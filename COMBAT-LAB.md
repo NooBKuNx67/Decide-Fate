@@ -5,7 +5,7 @@ The main menu now has **สนามทดสอบอัปเดต**. It open
 ## Player flow
 
 1. Choose a starting scenario and press “จัดตามสถานการณ์นี้”. Available presets: 3×3 footprint, single target, wall obstruction, Holy/Poison interactions, and monster AI/passives.
-2. Choose a monster from enabled database records. In setup, click a tile to place/change it, or use X/Y coordinates. Tools also move the simulated hero, erase monsters/walls, place walls and change tile height. Current combat limits allow five monsters. Different monster types can share one test field.
+2. Choose a monster from enabled database records. In setup, click a tile to place/change it, or use X/Y coordinates. Tools also move the simulated hero/companions, erase monsters/walls, place walls and change tile height. Add 0–3 companions with selectable classes and switch commander after starting. Current combat limits allow five monsters. Different monster types can share one test field.
 3. Press “เริ่มทดสอบ”. Choose the action and aim tile, then use it. Normal movement and enemy turns use the real combat engine. The full-board observer view is for inspection; normal combat commands still check their own range, detection/LOS, equipment, casting and resource requirements.
 4. Inspect HP before/after per unit, with coordinates, and open the combat log if needed. Reset the scenario, return to setup, refill test AP/MP/cooldowns, or cancel a held cast using the normal cancellation rule.
 5. Return to the main menu. The real saved character/encounter is unchanged. Setup/session memory is discarded on reload/sign-out; there is no permanent test-layout storage in this phase.
@@ -50,3 +50,23 @@ Eight additional labeled presets exercise poison, burn, frozen, stun, a successf
 ## Forced movement scenarios — 2026-11-06
 
 Seven additional presets cover push/pull, walls, bodies, elevation, the board edge and an enemy pushing the player. They use shared real command resolution with labeled encounter-only metadata. Conditional origin/destination coordinates and orange endpoint markers are shown before casting; result reports include movement as well as HP/status changes. Custom fields read actual `pushDistance`/`pullDistance` database values. See DISPLACEMENT.md.
+
+## Ground hazards — 2026-11-07
+
+Eight additional presets cover Fire, Poison, empty-cell placement/entry, push/pull through Fire, expiry, friendly fire and enemy placement. They use real commands with labeled encounter-only metadata; custom arenas use edited DB settings. Colored cells, remaining-round lists and HP/status movement reports make outcomes visible. See GRID-HAZARDS.md.
+
+## Hazard AI scenarios — 2026-11-07
+
+Six prepared scenarios demonstrate detouring, escaping and attacking, waiting at a hazardous corridor, Fire immunity, avoiding a status-only field and escaping without discovering the player. A visible AI decision report accompanies the existing HP/position reports. All run the actual bounded planner and hazard engine; production records/saves are untouched. See HAZARD-AI.md.
+
+## Tactical party scenarios — 2026-11-07
+
+The arena now supports four simulated party members, class/position editing, per-member commands/senses/resources and selected-ally healing. Nine additional AI scenarios cover aim/direction, collateral, useful statuses, explicit defenses, finishers/taunt, overlap and pushing into a field. The same source snapshot/ownership rules apply, and no real saves or rewards are touched. See MONSTER-TACTICS.md.
+
+## Grid closeout / weapon controls
+
+The simulator now equips any weapon permitted by its class through the real equipment validator, rather than rejecting non-starter choices during character creation. Select a left-hand weapon or shield when permitted; dual mastery D is granted only to the simulated character. Two-handed weapons clear the left-hand choices. Direct presets: `weapon-dual`, `weapon-twohand`, `weapon-bow`. See GRID-CLOSEOUT.md for acceptance evidence. The current board is 12×10 cells.
+
+## Database integration scenarios — 9 Nov 2026
+
+Direct presets now include data-class, data-heal, data-multihit, data-items, party-npc, weapon-firearm, weapon-whip and weapon-mixed. Item tests consume the sandbox inventory using the real inventory adapter. NPC tests use real recruitable source stats/equipment/owned catalog commands and isolated vitals. See DATABASE-LIVE-LINKS.md.

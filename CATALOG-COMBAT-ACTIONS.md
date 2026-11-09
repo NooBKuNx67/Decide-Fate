@@ -1,3 +1,5 @@
+> Updated 9 Nov 2026: current coverage is 95 catalog actions plus database-backed class snapshots. See DATABASE-LIVE-LINKS.md. The earlier 29-action notes below describe the initial adapter only.
+
 # Catalog combat actions — phase 1
 
 The old catalog has 112 skill and 59 spell records. This phase enables **29 records** for design-1 characters in the existing grid/2 AP combat. Original content, schema fields and canonical IDs remain unchanged. `dist/catalog-actions.js` is an explicit adapter, not an interpreter for arbitrary descriptions or a replacement d20 combat engine.
@@ -65,3 +67,7 @@ Ice Bind, Poison Blade and Shield Bash now resolve structured source statuses. S
 ## Forced movement
 
 Supported damage actions now honor `pushDistance`/`pullDistance` through the same grid resolver used by authored class and monster actions. See DISPLACEMENT.md for collision, snapshots, conditional preview and sandbox coverage.
+
+## Persistent zones
+
+Supported damage actions can replace their immediate hit with configured Fire/Poison ground placement, including on empty cells. The source cost/cooldown and equipment gates remain. See GRID-HAZARDS.md for timing, statuses and snapshots.

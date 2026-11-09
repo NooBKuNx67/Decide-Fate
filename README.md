@@ -89,3 +89,39 @@ Skills/spells can configure after-hit statuses, chance, duration, DOT and saving
 ## Skill/spell push and pull — 2026-11-06
 
 Configure push/pull distances in the database for supported damage actions. Players and monsters use shared safe grid movement with conditional endpoint previews. Seven direct Update Test Field scenarios cover clear paths, obstacles and enemy actions. See [DISPLACEMENT.md](DISPLACEMENT.md).
+
+## Persistent ground hazards — 2026-11-07
+
+Configure Fire/Poison zones in skill/spell records, with shape, lifetime, damage, side and shared status checks. Empty-cell placement, voluntary/forced entry and phase pulses share one saved engine for players/monsters. Eight Update Test Field scenarios and field timers demonstrate the behavior. See [GRID-HAZARDS.md](GRID-HAZARDS.md).
+
+## Hazard-aware monster AI — 2026-11-07
+
+Monsters evaluate visible field damage/status risk when choosing a route or escaping. Safe waiting, immunity and expiry are accounted for within the existing movement budget. Six Update Test Field scenarios make the choices observable. See [HAZARD-AI.md](HAZARD-AI.md).
+
+## Tactical decisions and party testing — 2026-11-07
+
+Monster AI now scores linked actions/targets and searches bounded area aim/directions, including useful statuses, explicit elemental defenses, taunt, collateral, duplicate fields and pushing into hazards. The lab supports four simulated party members and nine direct tactical scenarios. See [MONSTER-TACTICS.md](MONSTER-TACTICS.md).
+
+## Data authoring and handoff — 2026-11-08
+
+Create working skills/spells/monsters/items/gear/shops/recipes from supported templates in the database. Manual ChatGPT/Claude JSON packs use reviewed merges, account-scoped backup and identity-preserving rollback. See [HANDOFF.md](HANDOFF.md), [the Thai in-game guide](dist/maintenance-guide.html), and [release closeout criteria](RELEASE-CLOSEOUT.md). Engine/data checks: `node tools/check.cjs`. These changes are not a claim that final release acceptance is complete.
+
+## Grid closeout
+
+Current grid acceptance is recorded in [GRID-CLOSEOUT.md](GRID-CLOSEOUT.md). Recheck with `node tools/check.cjs` and `node tools/check-grid.cjs` (Playwright/Chromium required for browser tests). The Update Test Field now includes validated left-hand equipment and direct dual-wield/two-hand/bow presets.
+
+## Database integration audit — 8 Nov 2026
+
+Grid engine acceptance does not mean all imported records/fields are wired. See [CONTENT-INTEGRATION-AUDIT.md](CONTENT-INTEGRATION-AUDIT.md) for a 550-record baseline audit and [machine-readable details](reports/content-integration.json). Regenerate with `node tools/audit-content.cjs`; optionally use `--export /path/to/content.json` to include an account database export without contacting Supabase. No records are deleted by this audit.
+
+## Working database links — 9 Nov 2026
+
+See [DATABASE-LIVE-LINKS.md](DATABASE-LIVE-LINKS.md) for the current implementation: 95 catalog commands, editable class snapshots, recruitable NPC parties, item cures/smoke and firearm/whip support. Special records are separated for owner review. The historical initial audit is preserved; the current report is CONTENT-INTEGRATION-AUDIT.md.
+
+## แผนที่และการเดินทาง — 9 พ.ย. 2026
+
+ดู [WORLD-TRAVEL.md](WORLD-TRAVEL.md) สำหรับอัปโหลดรูป/ไอคอน เส้นทาง ID/กม. คำนวณเวลา อีเวนต์ตัวเลือกและสู้ grid พร้อมสนามทดสอบแยกเซฟ
+
+ฐานข้อมูลมีหมวดอีเวนต์/บทสนทนาแล้ว: [EVENT-AUTHORING.md](EVENT-AUTHORING.md) อธิบาย % แยกต่อเส้นทาง คิวหลายเหตุการณ์ NPC ครึ่งตัว และผลไอเท็ม/เควส/บทหลังสู้จริง ช่อง BGM เตรียมไว้ ยังไม่เล่นเสียง
+
+ตรวจฟิลด์หลังเพิ่มระบบโลก/อีเวนต์: [WORLD-DATABASE-AUDIT.md](WORLD-DATABASE-AUDIT.md) และตารางครบ 262 ช่อง [WORLD-DATABASE-FIELDS.md](WORLD-DATABASE-FIELDS.md); รัน `node tools/audit-world-links.cjs` เพื่อตรวจซ้ำจากข้อมูลในโปรเจค (ไม่ใช่บัญชี Supabase จริง)

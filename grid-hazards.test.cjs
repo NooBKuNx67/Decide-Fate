@@ -1,0 +1,35 @@
+const assert=require('assert/strict'),fs=require('fs'),vm=require('vm'),C=require('./dist/tactical-systems'),R=require('./dist/rules'),D=require('./dist/battle-data'),H=require('./dist/grid-hazards'),F=require('./dist/displacement'),Z=require('./dist/status-effects'),L=require('./dist/combat-lab-data'),A=require('./dist/catalog-actions'),M=require('./dist/monster-ai');const ctx={window:{}};vm.runInNewContext(fs.readFileSync('dist/content.js','utf8'),ctx);const rows=R.records(ctx.window.EvervaleContent),copy=x=>JSON.parse(JSON.stringify(x));
+function fixture(k='fire'){const lab=L.build(L.preset('hazard-'+k),rows);return {lab,e:lab.e,p:lab.e.units[0],t:lab.e.units[1]};}
+// Empty-cell placement is real, exact-cost and separate from immediate direct damage.
+let {lab,e,p,t}=fixture('empty');const seed=e.seed;L.act(lab,lab.plan.action,53);assert.equal(p.action,1);assert.equal(p.mana,4992);assert.equal(e.seed,seed);assert.equal(H.active(e).length,1);assert.equal(H.active(e)[0].cells.length,9);assert.equal(p.hp,200);assert.equal(t.hp,200);const before=copy(e);H.cells(e,p,e.catalogActions.find(a=>a.hazard),53);H.visible(e,new Set([52]));assert.deepEqual(e,before,'Preview must not mutate the encounter');C.move(e,D.node(54));assert.equal(p.hp,195,'Crossed cells damage even when walking several cells');assert.equal(e.hazards[0].hits.filter(x=>x.id===p.id).length,1);H.enter(e,p);assert.equal(p.hp,195,'Repeated entry in one round does not farm damage');C.validate(e);
+// Enemy phase damages once; staying inside repeats next round, then expires on schedule.
+({lab,e,p,t}=fixture());L.act(lab,lab.plan.action,51);assert.equal(t.hp,200);L.endTurn(lab);assert.equal(t.hp,195);assert.equal(e.round,2);assert.equal(H.active(e).length,1);L.endTurn(lab);assert.equal(t.hp,190);L.endTurn(lab);assert.equal(t.hp,185);assert.equal(H.active(e).length,0);assert(e.log.some(x=>x.includes('หมดเวลา')));C.validate(e);
+({lab,e,p,t}=fixture('expiry'));L.act(lab,lab.plan.action,51);L.endTurn(lab);assert.equal(t.hp,195);assert.equal(H.active(e).length,0);
+// Status poison uses the existing immunity and status lifecycle; the field itself persists after Cure.
+({lab,e,p,t}=fixture('poison'));L.act(lab,lab.plan.action,51);L.endTurn(lab);assert.equal(t.hp,195);assert.equal(t.effects.poison,1);Z.clear(t,'poison');assert.equal(H.active(e).length,1);t.immunities=['Poison'];const hp=t.hp;L.endTurn(lab);assert.equal(t.hp,hp);assert.equal(t.effects.poison,0);
+// Both-side damage includes the owner, while enemy-only fields leave the owner untouched.
+({lab,e,p,t}=fixture('friendly'));L.act(lab,lab.plan.action,50);const ownerHp=p.hp;H.enter(e,p);assert.equal(p.hp,ownerHp-5);H.enter(e,p);assert.equal(p.hp,ownerHp-5);
+// Forced movement checks every traversed cell, including pulling through and out of a one-cell field.
+for(const [kind,skill,aim,end]of [['push','bash',51,53],['pull','catalog-spell-preset-spell-ice',54,52]]){({lab,e,p,t}=fixture(kind));L.act(lab,lab.plan.action,53);const before=t.hp;L.act(lab,skill,aim);assert(t.hp<before-5);assert.equal(D.index(t.n),end);assert(e.hazards[0].hits.some(x=>x.id===t.id));assert.equal(p.action,0);C.validate(e);}
+// Forced movement stops on a lethal entry and does not consume a trap beyond that cell.
+({lab,e,p,t}=fixture('push'));L.act(lab,lab.plan.action,53);t.hp=1;e.traps=[{owner:p.id,index:54}];F.apply(e,p,t,{push:4,pull:0});assert.equal(t.n,D.node(53));assert.equal(t.hp,0);assert.equal(e.status,'won');assert.equal(e.traps.length,1);const loot=e.loot;H.enter(e,t);assert.equal(e.loot,loot);C.validate(e);
+// Start-of-phase lethal damage ends combat before any enemy attack.
+({lab,e,p,t}=fixture());L.act(lab,lab.plan.action,51);t.hp=1;const heroHp=p.hp;L.endTurn(lab);assert.equal(e.status,'won');assert.equal(p.hp,heroHp);
+// Flight/perch avoidance, shields and elemental defenses use ground/element semantics.
+({lab,e,p,t}=fixture());L.act(lab,lab.plan.action,51);t.altitude=1;H.enter(e,t);assert.equal(t.hp,200);t.altitude=0;t.effects.barrier=5;H.enter(e,t);assert.equal(t.hp,200);assert.equal(t.effects.barrier,0);
+({lab,e,p,t}=fixture());t.immunities=['Fire'];L.act(lab,lab.plan.action,51);H.enter(e,t);assert.equal(t.hp,200);
+// Field snapshots/replay are stable across reload and source edits.
+({lab,e,p,t}=fixture());L.act(lab,lab.plan.action,51);const replay=copy(lab),snapshot=copy(e.hazards);H.prepare(e,rows);assert.deepEqual(e.hazards,snapshot);L.endTurn(lab);L.endTurn(replay);assert.deepEqual(lab,replay);C.validate(copy(e));const bad=copy(e);bad.hazards[0].cells.push(99999);assert.throws(()=>C.validate(bad));
+// Invalid casts and capacity rejection are atomic.
+({lab,e,p,t}=fixture());e.scene.cells[53].object='wall';let prior=copy(e);assert.throws(()=>L.act(lab,lab.plan.action,53));assert.deepEqual(lab.e,prior);({lab,e,p,t}=fixture());for(let i=0;i<10;i++)H.spawn(e,p,e.catalogActions.find(a=>a.hazard),51);prior=copy(e);assert.throws(()=>L.act(lab,lab.plan.action,51),/10/);assert.deepEqual(lab.e,prior);
+// Authored multi-AP spells place only on release, with no unit required on the selected cell.
+const authored=rows.map(r=>r.id==='decide-lightning'?{...r,hazardType:'fire',hazardWidth:1,hazardLength:1}:r);lab=L.build(L.preset('hazard-empty'),authored);lab.e.units[0].unique=null;L.act(lab,'lightning',53);assert.equal(H.active(lab.e).length,0);assert(lab.e.units[0].casting);L.act(lab,'lightning',53);assert.equal(H.active(lab.e).length,1);assert.equal(lab.e.units[0].action,0);C.validate(lab.e);
+// Monster-created one-round fields get a player phase, never disappearing before that player can react.
+({lab,e,p,t}=fixture('enemy'));t.monsterCombat.actions[0].hazard.turns=1;L.endTurn(lab);assert.equal(p.hp,195);assert.equal(H.active(e).length,1);assert.equal(e.round,2);const saved=copy(lab);L.endTurn(lab);L.endTurn(saved);assert.deepEqual(lab,saved);C.validate(e);
+for(const patch of [{hazardTurns:0},{hazardWidth:0},{hazardAffects:'invalid'},{hazardDamage:-1},{hazardStatus:'Bleeding'},{pushDistance:1}])assert.throws(()=>H.fromRecord({hazardType:'fire',...patch}));
+console.log('PASS persistent ground placement/phase lifetime, per-unit dedup, movement and forced traversal, statuses/immunity/barriers, death/loot, safe expiry, held casts, snapshots/replay, capacity rollback and enemy-created field timing');
+// A finished encounter cannot be revived by lingering terrain or by ending a turn.
+({lab,e,p,t}=fixture());L.act(lab,lab.plan.action,51);e.status='retreated';const finished=copy(e);assert.throws(()=>C.endTurn(e));assert.deepEqual(e,finished);H.enter(e,e.units[1]);H.pulse(e,'enemy');assert.deepEqual(e,finished);
+// Distinct overlapping fields resolve independently, while each field deduplicates a large body.
+({lab,e,p,t}=fixture());const command=e.catalogActions.find(a=>a.hazard);H.spawn(e,p,command,51);H.spawn(e,p,command,51);t.form={type:'dragon',left:4};H.enter(e,t);assert.equal(t.hp,190);H.enter(e,t);assert.equal(t.hp,190);assert.equal(e.hazards[0].hits.length,1);
+console.log('PASS no post-combat terrain revival and independent overlapping fields with per-body deduplication');

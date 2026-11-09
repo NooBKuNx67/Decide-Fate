@@ -217,3 +217,31 @@ Added typed source status resolution, five status fields per skill/spell (237 ru
 ## Push/pull fields and grid resolution — 2026-11-06
 
 Added push/pull numeric fields to skill/spell schemas (241 runtime fields), validated mutual exclusivity, frozen encounter metadata and shared after-hit displacement for class/catalog/monster damage actions. Stops before bodies, solid objects, elevation changes and edges; no falling/collision damage. Conditional coordinates and orange endpoints appear in normal combat and the lab, with seven direct presets and movement result reports. Camera picking and desktop/landscape rendering verified with mock saves; see DISPLACEMENT.md.
+
+## Persistent grid hazards — 2026-11-07
+
+Added seven skill/spell fields (255 runtime fields total) and shared bounded ground-zone snapshots, phase-aware expiry, once-per-unit/zone/round exposure, environmental damage and status resolution. Integrated empty-cell placement into catalog/class/AI commands, including held casts; entry hooks cover normal and forced movement. Added colored/glyph overlays, field timers and terrain-aware lab movement results. Eight isolated presets and focused pure/browser tests verify source editing, save reload, deaths, expiry, camera picking and desktop/landscape with mock saves. Existing smoke/quagmire and original raw records remain unchanged. See GRID-HAZARDS.md.
+
+## Hazard-aware movement — 2026-11-07
+
+Added bounded deterministic risk planning for catalog monster movement and the targeted tactical fallback. It accounts for visible hazards, per-field dedup, one future exposure, elemental/status defenses, control, barriers and expiry; no planner RNG or save mutations. Added six isolated scenarios and a visible decision report. Existing no-hazard routing is retained. Pure and mocked browser coverage includes escape/attacks, detours/waiting/immunity, unknown-target preservation and landscape. See HAZARD-AI.md.
+
+## Tactical AI and party lab — 2026-11-07
+
+Added pure bounded action/aim scoring with validated execution, useful status/defense/taunt/finishing choices, collateral/overlap penalties and displacement-to-hazard benefit. Directional execution updates facing. Explicit player elemental tags now use the shared real damage helper. Added four-member isolated party setup, companion classes/positions/commander/senses/ownership and real ally targeting. Nine tactical presets and pure/browser coverage verify decisions, state purity, replay, AP/MP, source ownership, party controls and desktop/landscape without real-save changes. See MONSTER-TACTICS.md.
+
+## 2026-11-08 — Content authoring and owner handoff
+
+Database supports creating new data from working templates, guided fields, reviewed manual AI JSON merges, baseline checks, account-scoped IndexedDB backup and identity-preserving restore. New spells appear in the Update Test Field action selector; shops/gear/crafting remain tested through their real services rather than field combat. See HANDOFF.md and dist/maintenance-guide.html. No new animation or general UI redesign. Engine checks pass 37 files; browser checks cover authoring, complete schemas and tactical lab. Final release acceptance remains tracked separately in RELEASE-CLOSEOUT.md.
+
+## Grid closeout — current scope accepted
+
+Fixed non-starter simulation weapon selection through real equipment rules; added left-hand controls and dual/two-hand/bow presets. Current grid browser acceptance: 15/15 suites, including actual touch input in the lab and normal combat, pan/zoom picking, keyboard and landscape screenshots. Engine/data: 38 files, including 10 weapon commands, lethal dual-wield stopping, 160 boundary masks and deterministic round-trip saves through 12 status/field/AI scenarios. See GRID-CLOSEOUT.md for scope, evidence and commands.
+
+## Database links and NPC party — 9 Nov 2026
+
+Source-backed catalog coverage is now 95 working commands, plus 30 class snapshots with editable cost/cooldown/dice/healing/range/power/cast setup and enabled state. Added recruitable NPC roster/vitals, per-member owned actions/AP, chapter/free-field participation, avatar/race/proficiency/equipment data, persistence and anti-recruit healing safeguards. Added four usable item modes and firearm/whip, including independent offhand reach. Owner explicitly requested review separation for unusual legacy data; 77 records remain visible under the database review-only checkbox and cannot masquerade as usable paid skills. Original records remain intact. See DATABASE-LIVE-LINKS.md for supported fields, snapshots, lab presets and verification; 40 pure suites, existing 15 grid browser suites, new database browser suite, full-schema 261 fields, authoring and chapter UI checks pass with mock accounts.
+
+## Database event authoring and Visual Novel — 2026-11-09
+
+Added database event category/editor, independent per-event/per-route percentages and saved sequential checkpoint queues. NPC half-body art is a separate optional schema image field. Dialogue graphs provide real inventory and quest-journal effects, linked side stories and actual grid combat with win/loss/retreat continuations. BGM is reserved metadata only. Added an isolated VN/queue/quest/grid test-field preset. See EVENT-AUTHORING.md. Verified 42 engine/data suites, event-story-ui, world-travel-ui and full-schema (262 catalog fields); reviewed desktop and landscape screenshots with mocked accounts. Save import cap is 12 MB for frozen journey/event images. No publication in this turn.

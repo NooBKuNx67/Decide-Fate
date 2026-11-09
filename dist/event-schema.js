@@ -1,0 +1,2 @@
+/* Optional NPC half-body art is separate from the existing avatar. */
+(function(){const fields=window.EvervaleContentSchema.schemas.npc.fields;if(!fields.some(f=>f.key==='portrait'))fields.splice(2,0,{key:'portrait',label:'รูปครึ่งตัวสำหรับบทสนทนา',type:'image',group:'basic',default:'',hint:'PNG/JPG/WebP/GIF ภาพนิ่ง ไม่เกิน 600 KB; แนะนำ PNG/WebP โปร่งใสแนวตั้ง 640×960 พิกเซล รูปนี้ใช้ในอีเวนต์แบบ Visual Novel หากว่างใช้รูปโปรไฟล์แทน'});})();

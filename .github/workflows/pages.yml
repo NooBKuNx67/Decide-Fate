@@ -43,6 +43,17 @@ jobs:
           node grid-patterns.test.cjs
           node status-effects.test.cjs
           node displacement.test.cjs
+          node grid-hazards.test.cjs
+          node hazard-navigation.test.cjs
+          node monster-tactics.test.cjs
+          node combat-lab-party.test.cjs
+          node content-authoring.test.cjs
+          node cloud.test.cjs
+          node grid-closeout.test.cjs
+          node database-live-links.test.cjs
+          node content-integration-audit.test.cjs
+          node world-travel.test.cjs
+          node event-story.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

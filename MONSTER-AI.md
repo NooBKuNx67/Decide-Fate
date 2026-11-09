@@ -70,3 +70,15 @@ All nine active attacks can apply explicit supported structured statuses with pe
 ## Push/pull
 
 Structured push/pull distances on the nine supported active attacks execute through shared displacement after a damaging hit. No displacement is inferred from names/descriptions. The Update Test Field includes an enemy-push scenario; see DISPLACEMENT.md.
+
+## Ground hazards
+
+Supported active damage records can instead create configured persistent zones. AI respects source ownership, detection/placement geometry, costs and capacity; movement receives environmental entry effects and stops on death/control. It now compares bounded routes against visible hazard risk; see HAZARD-AI.md. See GRID-HAZARDS.md.
+
+## Hazard-aware movement
+
+Visible ground hazards now influence route selection, escape and waiting while keeping normal movement/attack costs and detection rules. Element/status defenses, exposure history and expiry inform a deterministic conservative estimate. Six isolated scenarios show the decisions. See HAZARD-AI.md.
+
+## Tactical selection
+
+Available linked actions now receive target-aware scores and bounded aim/direction search. The AI can choose empty area centers, use control/element differences, preserve valid taunt priority, value push/pull into hazards and penalize allied/duplicate ground effects. Source ownership, legal targeting and resource checks remain in the executor. See MONSTER-TACTICS.md for bounds, estimates and nine direct scenarios.

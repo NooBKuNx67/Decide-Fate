@@ -84,7 +84,7 @@ See DATABASE-LIVE-LINKS.md: 95 actual catalog commands, 30 class definition snap
 
 ข้อ A ปิดในขอบเขต mock แล้ว: closeout-resume.test.cjs (pure, เข้า check.cjs อัตโนมัติและ Pages Validate), closeout-resume-ui.test.cjs, adventure-ui.test.cjs, world-links-ui.test.cjs ผ่าน; pure 45/45 และ browser 3/3 ครอบคลุม frozen encounter, AP/MP/held cast/cooldown/hazard, เซฟก่อน–หลังรับเงิน/EXP/ของ/เควสและจบบท ไม่จ่ายซ้ำ ข้อมูลทดสอบสร้างผ่าน production adapters ไม่แก้ระบบเกม เซฟก่อนรับรางวัลที่โหลดซ้ำเป็นการย้อนเวลา: ได้ยอดปลายทางเท่าเดิม ไม่ใช่เพิ่มสะสมจากเซฟหลังรับรางวัล คลาวด์จริงยังรอเจ้าของตรวจ
 
-สถานะถัดไป: E, F ยังไม่ปิดในรอบนี้จนกว่าจะมีหลักฐานแยก
+สถานะถัดไป: E วินิจฉัยแล้วแต่ legacy 3 ไฟล์ยังไม่ผ่าน; F ยังรอตรวจเอกสารส่งต่อ
 
 ข้อ B ปิดในขอบเขต mock: closeout-custom-services.test.cjs + closeout-custom-services-ui.test.cjs ตรวจร้าน/ยา/วัตถุดิบ/สูตร/อาวุธ custom-* ที่สร้างด้วย ContentAuthoring.create/validateRegistry จริง แล้วซื้อ/ขาย/ใช้/ปรุง/สวมมือหลัก–รอง/สองมือ/โหลดครบทุกขั้น รวม atomic rejection; catalog-services-ui.test.cjs และ equipment-ui.test.cjs ผ่านเดิม Pure 46/46, browser 3/3 ไม่มีการแก้เกมหรือ assertion เดิม ข้อสังเกตตามพฤติกรรมเดิม: เปลี่ยนไปสวมอาวุธมือรองหนึ่งมือขณะถือสองมือจะถอดอาวุธสองมือกลับคลังอัตโนมัติ ไม่ถือว่าเป็นการสวมที่ผิดเงื่อนไข; อาวุธสองมือใส่ในมือรองไม่ได้
 
@@ -95,3 +95,5 @@ See DATABASE-LIVE-LINKS.md: 95 actual catalog commands, 30 class definition snap
 ข้อ D ปิดในขอบเขต mock ด้วย pure 48/48 และ browser 3/3: closeout-sync.test.cjs, closeout-accounts-ui.test.cjs, image-cloud.test.cjs, save-recovery-ui.test.cjs การ login สลับ A/B ใน browser เดียวไม่ปนเซฟ/คลัง Failed writes แสดง “ยังไม่ซิงก์” เก็บสำเนาล่าสุดในเครื่อง ส่งออกเซฟ/ฐานข้อมูลได้ โหลด remote เก่ามีการยืนยันและยกเลิกได้ แล้ว retry สำเร็จ CAS ยังกันทับ remote ใหม่ ไม่มี config/schema/identifier เปลี่ยน; cloud.test.cjs เพิ่มเพียง export/พารามิเตอร์ของ harness เพื่อ reuse ไม่เปลี่ยน assertion เดิม Cache 71 ยังระงับเผยแพร่
 
 ข้อ D เป็น account/recovery flow นอกสนามต่อสู้ จึงใช้หน้า login/load/database กับ backend จำลองแยกแทนการทำปุ่มสนามที่แตะบัญชีผู้เล่น ไม่เพิ่มกลไกเกม ตัวอย่างการแสดงสถานะ/กู้ข้อมูลทำซ้ำได้ด้วย closeout-accounts-ui และ save-recovery-ui ยังไม่ได้ทดสอบ Supabase หรืออุปกรณ์จริง
+
+ข้อ E: pure 48/48 และ browser ปัจจุบัน creation-ui/tactical-v2-ui/combat-polish 3/3 ผ่าน เทสต์เก่า browser/combat/tactical-ui ยังไม่ผ่านตามสาเหตุ/วิธีทำซ้ำใน MAINTENANCE-PHASES.md ไม่แก้ assertion หรือถอยเกมไปกติกาเก่า owner ต้องตัดสินใจแยกว่าจะเก็บเป็นประวัติหรืออนุมัติปรับสเปกเทสต์ใหม่ รายงาน reports/closeout-E.json รวม watchdog/diagnostic ตามจริง ไม่ถือว่าได้แก้สามไฟล์ให้เขียวแล้ว

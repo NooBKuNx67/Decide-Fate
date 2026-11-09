@@ -1,0 +1,237 @@
+{
+  "pure": [
+    {
+      "file": "adventure.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-presets.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-view.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-actions.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-combat-items.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-economy.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-equipment.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-loot.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "character-art-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-authoring.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-custom-services.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-resume.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-sync.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "cloud.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-lab-party.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-lab.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "content-authoring.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "content-integration-audit.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "creation-system.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "database-live-links.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "displacement.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "elements.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "event-story.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-closeout.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-hazards.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-patterns.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "hazard-navigation.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "large-map.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "legacy-content-parity.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "library-merge.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "look-around.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "map-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-ai.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-grid.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-passives.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-stats.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-tactics.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "rules.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "status-effects.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "status-immunity.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "tactical-v2.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "tactical.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "weapon-motion.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "weapon-patterns.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "world-links.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "world-travel.test.cjs",
+      "pass": true
+    }
+  ],
+  "currentBrowser": [
+    {
+      "file": "tactical-v2-ui.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-polish.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "creation-ui.test.cjs",
+      "pass": true
+    }
+  ],
+  "legacy": [
+    {
+      "file": "browser.test.cjs",
+      "pass": false,
+      "timeout": true,
+      "code": null,
+      "evidence": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n5 !== 4\n\n    at /workspace/Decide-Fate/browser.test.cjs:2:1356 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 5,\n  expected: 4,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n"
+    },
+    {
+      "file": "combat.test.cjs",
+      "pass": false,
+      "timeout": true,
+      "code": null,
+      "evidence": ""
+    },
+    {
+      "file": "tactical-ui.test.cjs",
+      "pass": false,
+      "timeout": true,
+      "code": null,
+      "evidence": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 0\n\n    at /workspace/Decide-Fate/tactical-ui.test.cjs:4:654 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 1,\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n"
+    }
+  ],
+  "combatDiagnostic": "DIAGNOSTIC {\n  systems: 2,\n  tactical: false,\n  detected: [ 'enemy-0' ],\n  enemyButtons: 1\n}\nlocator.waitFor: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#combatResult') to be visible\u001b[22m\n\u001b[2m    27 × locator resolved to hidden <article hidden=\"\" id=\"combatResult\">…</article>\u001b[22m\n\n    at /workspace/Decide-Fate/combat.test.cjs:14:34 {\n  log: [\n    \"  - waiting for locator('#combatResult') to be visible\",\n    '    27 × locator resolved to hidden <article hidden=\"\" id=\"combatResult\">…</article>'\n  ],\n  name: 'TimeoutError'\n}\n",
+  "limits": [
+    "Legacy assertions unchanged; E does not claim these three suites pass."
+  ]
+}

@@ -22,7 +22,7 @@
 - [x] แยกบัญชี ข้อมูลไม่ปน และแสดงสถานะซิงก์ล้มเหลวชัดเจน — ข้อ D: `closeout-sync.test.cjs` PASS (scoped query/dirty/offline/retry/CAS), `closeout-accounts-ui.test.cjs` PASS (login A/B ใน browser เดียว/state+library แยก/ยังไม่ซิงก์/local ล่าสุด/export save+library/ยกเลิกโหลดเก่า/retry), `image-cloud.test.cjs`, `save-recovery-ui.test.cjs` PASS; pure 48/48, browser 3/3 ใช้ mock เท่านั้น; Supabase/สองเครื่องจริงยังไม่ปิด OWNER-ACCEPTANCE.md
 - [ ] ตัวอย่างระบบใหม่อยู่ในสนามทดสอบอัปเดต ไม่แตะเซฟ/รางวัลจริง
 - [ ] ผู้ใช้ทำตามคู่มือกรอกข้อมูลด้วย ChatGPT/Claude ฟรีได้เอง
-- [ ] ชุดทดสอบ engine ผ่าน และ browser เส้นทางสำคัญผ่าน ระบุปัญหาเก่าที่ยังเหลือ
+- [x] ชุดทดสอบ engine ผ่าน และ browser เส้นทางสำคัญผ่าน ระบุปัญหาเก่าที่ยังเหลือ — ข้อ E: pure 48/48 PASS; `creation-ui.test.cjs`, `tactical-v2-ui.test.cjs`, `combat-polish.test.cjs` PASS 3/3 และ E2E ข้อ A–D ด้านบน; legacy `browser.test.cjs`, `combat.test.cjs`, `tactical-ui.test.cjs` ยัง FAIL 3/3 ตามเดิม ไม่อ้างว่าทุก browser ผ่าน สาเหตุ/ผลกระทบ/วิธีทำซ้ำอยู่ MAINTENANCE-PHASES.md; การทำสามเทสต์นี้ให้ผ่านยังไม่ปิด
 - [ ] เมื่อสั่งอัป GitHub: main ถูก push, workflow สำเร็จ, เว็บจริงเป็น revision ที่ส่ง
 
 ยังไม่ติ๊กปิดข้อใดด้วยการทดสอบบางส่วน การตรวจ unit ของระบบมีแล้ว แต่ต้องบันทึกหลักฐาน end-to-end ก่อนปิดทั้งข้อ ขอบเขตเนื้อหาปัจจุบันจบบทที่หนึ่ง ไม่ถือว่าเป็นแคมเปญยาวที่ยังไม่ได้สร้าง

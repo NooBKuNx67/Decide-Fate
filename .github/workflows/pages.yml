@@ -49,6 +49,12 @@ jobs:
           node combat-lab-party.test.cjs
           node content-authoring.test.cjs
           node cloud.test.cjs
+          node character-art-data.test.cjs
+          node library-merge.test.cjs
+          node look-around.test.cjs
+          node map-data.test.cjs
+          node tactical-v2.test.cjs
+          node weapon-motion.test.cjs
           node grid-closeout.test.cjs
           node database-live-links.test.cjs
           node content-integration-audit.test.cjs

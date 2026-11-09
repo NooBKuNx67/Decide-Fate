@@ -84,4 +84,6 @@ See DATABASE-LIVE-LINKS.md: 95 actual catalog commands, 30 class definition snap
 
 ข้อ A ปิดในขอบเขต mock แล้ว: closeout-resume.test.cjs (pure, เข้า check.cjs อัตโนมัติและ Pages Validate), closeout-resume-ui.test.cjs, adventure-ui.test.cjs, world-links-ui.test.cjs ผ่าน; pure 45/45 และ browser 3/3 ครอบคลุม frozen encounter, AP/MP/held cast/cooldown/hazard, เซฟก่อน–หลังรับเงิน/EXP/ของ/เควสและจบบท ไม่จ่ายซ้ำ ข้อมูลทดสอบสร้างผ่าน production adapters ไม่แก้ระบบเกม เซฟก่อนรับรางวัลที่โหลดซ้ำเป็นการย้อนเวลา: ได้ยอดปลายทางเท่าเดิม ไม่ใช่เพิ่มสะสมจากเซฟหลังรับรางวัล คลาวด์จริงยังรอเจ้าของตรวจ
 
-สถานะถัดไป: B, C, D, E, F ยังไม่ปิดในรอบนี้จนกว่าจะมีหลักฐานแยก
+สถานะถัดไป: C, D, E, F ยังไม่ปิดในรอบนี้จนกว่าจะมีหลักฐานแยก
+
+ข้อ B ปิดในขอบเขต mock: closeout-custom-services.test.cjs + closeout-custom-services-ui.test.cjs ตรวจร้าน/ยา/วัตถุดิบ/สูตร/อาวุธ custom-* ที่สร้างด้วย ContentAuthoring.create/validateRegistry จริง แล้วซื้อ/ขาย/ใช้/ปรุง/สวมมือหลัก–รอง/สองมือ/โหลดครบทุกขั้น รวม atomic rejection; catalog-services-ui.test.cjs และ equipment-ui.test.cjs ผ่านเดิม Pure 46/46, browser 3/3 ไม่มีการแก้เกมหรือ assertion เดิม ข้อสังเกตตามพฤติกรรมเดิม: เปลี่ยนไปสวมอาวุธมือรองหนึ่งมือขณะถือสองมือจะถอดอาวุธสองมือกลับคลังอัตโนมัติ ไม่ถือว่าเป็นการสวมที่ผิดเงื่อนไข; อาวุธสองมือใส่ในมือรองไม่ได้

@@ -14,7 +14,7 @@ From this directory, run `node preview.cjs`. The server uses port 4173. The app 
 
 ## Validation
 Pure checks: `node battle-view.test.cjs` and `node battle-data.test.cjs`.
-Browser checks use Playwright and installed Chromium with mocked Supabase; no player saves are touched. The adapter handles the Windows-specific imports in the original handoff tests and supports the original handoff tests.
+Browser checks use Playwright and installed Chromium with mocked Supabase; no player saves are touched. Tests resolve Playwright through normal Node module resolution. Use tools/qa-runtime.cjs for the shared browser configuration and legacy entry-screen compatibility; test assertions are unchanged.
 
 In this cloud machine:
 ```sh
@@ -25,7 +25,7 @@ node tools/qa-runtime.cjs battle-isometric.test.cjs
 node tools/capture-visuals.cjs
 ```
 
-On another machine, make Playwright available to Node and set PLAYWRIGHT_CHROMIUM_EXECUTABLE to its Chromium binary. Screenshots from the visual capture script are written to artifacts/qa/. The original handoff tests also write screenshots one directory above the working directory.
+On another machine, install Playwright locally (`npm install --no-save playwright`) or expose an existing installation through NODE_PATH. Start `node preview.cjs` in a separate terminal. Run each browser suite with `node tools/qa-runtime.cjs <name>.test.cjs`. The runner uses PLAYWRIGHT_CHROMIUM_EXECUTABLE when set, otherwise system /usr/bin/chromium on Linux if present; on other platforms it preserves the test’s browser/channel options. PLAYWRIGHT_CHANNEL can override the channel when no explicit executable is selected (for example, msedge for installed Edge). With neither override, Playwright must have the requested channel or its managed Chromium installed. Browser QA uses isolated contexts and mocked Supabase only; do not sign in with a real account. Browser tests are not part of the Pages workflow. Screenshots from the visual capture script are written to artifacts/qa/. The original handoff tests also write screenshots one directory above the working directory.
 
 The owner subsequently authorized GitHub Pages publishing through pushes to main. Historical Sites metadata is not required.
 

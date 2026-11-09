@@ -1,0 +1,296 @@
+[
+  {
+    "file": "adventure-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "battle-biome-props.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "battle-editor.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "battle-isometric.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "battle-presets-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "battle-props.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "browser.test.cjs",
+    "pass": false,
+    "code": null,
+    "timeout": true
+  },
+  {
+    "file": "catalog-actions-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "catalog-combat-items-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "catalog-loot-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "catalog-services-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "catalog.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "character-art.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "combat-lab-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "combat-polish.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "combat.test.cjs",
+    "pass": false,
+    "code": null,
+    "timeout": true
+  },
+  {
+    "file": "content-authoring-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "creation-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "database-live-links-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "displacement-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "elements-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "equipment-icon-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "equipment-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "event-story-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "full-schema.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "grid-closeout-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "grid-hazards-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "grid-icon.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "grid-patterns-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "hazard-navigation-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "image-cloud.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "large-map-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "maps.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "monster-ai-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "monster-grid-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "monster-passives-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "monster-stats-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "monster-tactics-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "orientation.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "save-recovery-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "scenery-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "status-effects-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "status-immunity-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "tactical-ui.test.cjs",
+    "pass": false,
+    "code": null,
+    "timeout": true
+  },
+  {
+    "file": "tactical-v2-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "weapon-patterns-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "weapon-preview.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "world-links-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  },
+  {
+    "file": "world-travel-ui.test.cjs",
+    "pass": true,
+    "code": 0,
+    "timeout": false
+  }
+]

@@ -1,0 +1,649 @@
+{
+  "v": 3,
+  "character": {
+    "name": "Synthetic one-ap",
+    "gender": "unspecified",
+    "appearance": {
+      "body": "male",
+      "face": "gentle",
+      "hair": "tousled",
+      "hairColor": "brown",
+      "skin": "warm"
+    },
+    "race": "human",
+    "job": "mage",
+    "level": 4,
+    "xp": 17,
+    "stats": {
+      "STR": 14,
+      "DEX": 11,
+      "CON": 16,
+      "INT": 15,
+      "WIS": 10,
+      "CHA": 8
+    },
+    "design": 1,
+    "creation": {
+      "v": 3,
+      "gender": "unspecified",
+      "mode": "manual",
+      "race": "human",
+      "job": "mage",
+      "rolled": false,
+      "offers": [],
+      "unique": null,
+      "human": [
+        "STR",
+        "DEX",
+        "CON"
+      ],
+      "profs": {
+        "arcane": "C",
+        "fire": "C",
+        "survival": "C",
+        "perception": "D"
+      },
+      "weapon": "staff",
+      "name": "",
+      "base": {
+        "STR": 13,
+        "DEX": 10,
+        "CON": 15,
+        "INT": 15,
+        "WIS": 10,
+        "CHA": 8
+      }
+    },
+    "unique": null,
+    "skills": [
+      "bolt",
+      "fire",
+      "frost",
+      "quagmire"
+    ],
+    "proficiencyGrades": {
+      "arcane": "C",
+      "fire": "C",
+      "survival": "C",
+      "perception": "D"
+    },
+    "practice": {},
+    "equipment": {
+      "main": "staff",
+      "off": null,
+      "armor": "ผ้า"
+    },
+    "inventory": {
+      "potions": 3,
+      "reagents": 3,
+      "weapons": [
+        "staff"
+      ]
+    },
+    "duelTrials": 0
+  },
+  "minute": 735,
+  "days": 42,
+  "ageStart": 18,
+  "lifespan": 100,
+  "gold": 3217,
+  "hp": 71,
+  "energy": 80,
+  "mp": 15,
+  "maxMp": 45,
+  "sword": 73,
+  "magic": 51,
+  "trips": 0,
+  "earned": 900,
+  "plan": "work",
+  "reserve": 50,
+  "threshold": 30,
+  "safe": true,
+  "dead": false,
+  "logs": [
+    {
+      "day": 42,
+      "minute": 615,
+      "text": "Synthetic legacy fixture; no player data"
+    }
+  ],
+  "ach": [],
+  "event": null,
+  "turn": 21,
+  "lastEyeTurn": null,
+  "known": {
+    "skill:decide-bolt": 2,
+    "skill:decide-fire": 2,
+    "skill:decide-frost": 2,
+    "skill:decide-quagmire": 2,
+    "spell:ember-light": 2
+  },
+  "learned": [
+    "skill:decide-bolt",
+    "skill:decide-fire",
+    "skill:decide-frost",
+    "skill:decide-quagmire",
+    "spell:ember-light"
+  ],
+  "proficiency": {
+    "Survival": 8,
+    "Ember Light": 2
+  },
+  "buff": null,
+  "adventure": {
+    "v": 1,
+    "location": "cave",
+    "accepted": true,
+    "forest": true,
+    "learned": true,
+    "seal": true,
+    "cave": false,
+    "ending": "",
+    "claimed": false,
+    "companion": {
+      "id": "lin",
+      "name": "ลิน",
+      "job": "ranger",
+      "hp": 100,
+      "mana": 50
+    },
+    "seed": 347831,
+    "dialog": "",
+    "route": "scout",
+    "proficiency": 2
+  },
+  "mapView": {
+    "mapId": "world",
+    "placeId": "study",
+    "history": []
+  },
+  "contentEdits": {
+    "worldMap:main": {
+      "version": 1,
+      "rootId": "world",
+      "maps": [
+        {
+          "id": "world",
+          "name": "Decide Fate",
+          "image": "",
+          "width": 800,
+          "height": 440,
+          "locations": [
+            {
+              "id": "work",
+              "name": "ย่านช่างฝีมือ",
+              "icon": "⚒",
+              "iconImage": "",
+              "x": 20,
+              "y": 29,
+              "description": "ทำงานในโรงช่างและหาเงิน",
+              "targetMapId": null,
+              "activities": [
+                "work"
+              ],
+              "enabled": true
+            },
+            {
+              "id": "train",
+              "name": "ลานฝึก",
+              "icon": "⚔",
+              "iconImage": "",
+              "x": 50,
+              "y": 43,
+              "description": "ฝึกดาบและความชำนาญอาวุธ",
+              "targetMapId": null,
+              "activities": [
+                "train"
+              ],
+              "enabled": true
+            },
+            {
+              "id": "explore",
+              "name": "ป่ากระซิบ",
+              "icon": "🌲",
+              "iconImage": "",
+              "x": 79,
+              "y": 23,
+              "description": "ออกสำรวจป่าและค้นพบสิ่งใหม่",
+              "targetMapId": null,
+              "activities": [
+                "explore"
+              ],
+              "enabled": true
+            },
+            {
+              "id": "rest",
+              "name": "โรงเตี๊ยม",
+              "icon": "☾",
+              "iconImage": "",
+              "x": 22,
+              "y": 77,
+              "description": "พักฟื้นสุขภาพ พลังงาน และมานา",
+              "targetMapId": null,
+              "activities": [
+                "rest"
+              ],
+              "enabled": true
+            },
+            {
+              "id": "study",
+              "name": "หอเวท",
+              "icon": "✧",
+              "iconImage": "",
+              "x": 70,
+              "y": 78,
+              "description": "เรียนเวทและค้นคว้าความรู้",
+              "targetMapId": null,
+              "activities": [
+                "study"
+              ],
+              "enabled": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "expedition": {
+    "v": 1,
+    "id": "synthetic-v3-before-two-ap",
+    "scene": {
+      "id": "historical-mock",
+      "name": "ทุ่งหญ้า ใหม่",
+      "biome": "meadow",
+      "w": 6,
+      "h": 6,
+      "seed": "",
+      "layout": "wild",
+      "cells": [
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "player",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "enemy",
+          "monster": "preset-monster-goblin"
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        },
+        {
+          "terrain": "grass",
+          "object": "none",
+          "height": 0,
+          "climb": false,
+          "spawn": "",
+          "monster": ""
+        }
+      ]
+    },
+    "units": [
+      {
+        "id": "hero",
+        "side": "player",
+        "name": "Synthetic one-ap",
+        "n": 0,
+        "hp": 71,
+        "maxHp": 124,
+        "mana": 15,
+        "maxMana": 45,
+        "attack": 15.5,
+        "armor": 1,
+        "range": 2,
+        "move": 6,
+        "action": 0,
+        "guard": true,
+        "weakened": false,
+        "job": "mage",
+        "effects": {},
+        "cooldowns": {},
+        "moved": false,
+        "appearance": {
+          "body": "male",
+          "face": "gentle",
+          "hair": "tousled",
+          "hairColor": "brown",
+          "skin": "warm"
+        },
+        "stats": {
+          "STR": 14,
+          "DEX": 11,
+          "CON": 16,
+          "INT": 15,
+          "WIS": 10,
+          "CHA": 8
+        },
+        "skills": [
+          "bolt",
+          "fire",
+          "frost",
+          "quagmire"
+        ],
+        "unique": null,
+        "race": "human",
+        "main": "staff",
+        "off": null,
+        "grades": {
+          "arcane": "C",
+          "fire": "C",
+          "survival": "C",
+          "perception": "D"
+        },
+        "reagents": 3,
+        "level": 4,
+        "night": false,
+        "baseMove": 6,
+        "baseMaxHp": 124
+      },
+      {
+        "id": "enemy-0",
+        "side": "enemy",
+        "name": "Goblin",
+        "n": 8,
+        "hp": 18,
+        "maxHp": 18,
+        "mana": 0,
+        "maxMana": 0,
+        "attack": 7,
+        "armor": 1,
+        "range": 1,
+        "move": 4,
+        "action": 1,
+        "guard": false,
+        "weakened": false,
+        "job": "monster",
+        "aware": [],
+        "effects": {},
+        "cooldowns": {},
+        "moved": false,
+        "stolen": false,
+        "lootGold": 5
+      }
+    ],
+    "status": "active",
+    "round": 1,
+    "potions": 3,
+    "used": [],
+    "loot": 0,
+    "log": [
+      "ตั้งรับ • ลดความเสียหายจนถึงเทิร์นถัดไป",
+      "เข้าสู่ ทุ่งหญ้า ใหม่ • เคลื่อนที่ 6 แต้ม และทำ 1 แอ็กชันต่อเทิร์น"
+    ],
+    "tactical": true,
+    "active": "hero",
+    "design": 1,
+    "seed": 2475985551,
+    "fields": [],
+    "traps": [],
+    "practice": {}
+  }
+}

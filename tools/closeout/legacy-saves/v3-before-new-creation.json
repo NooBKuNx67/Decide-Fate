@@ -1,0 +1,178 @@
+{
+  "v": 3,
+  "character": {
+    "name": "Synthetic legacy",
+    "race": "human",
+    "job": "mage",
+    "level": 4,
+    "xp": 17,
+    "stats": {
+      "STR": 10,
+      "DEX": 10,
+      "CON": 12,
+      "INT": 14,
+      "WIS": 10,
+      "CHA": 10
+    }
+  },
+  "minute": 765,
+  "days": 42,
+  "ageStart": 18,
+  "lifespan": 85,
+  "gold": 3277,
+  "hp": 71,
+  "energy": 75,
+  "mp": 15,
+  "maxMp": 50,
+  "sword": 73,
+  "magic": 51,
+  "trips": 0,
+  "earned": 960,
+  "plan": "work",
+  "reserve": 50,
+  "threshold": 30,
+  "safe": true,
+  "dead": false,
+  "logs": [
+    {
+      "day": 42,
+      "minute": 615,
+      "text": "Synthetic legacy fixture; no player data"
+    }
+  ],
+  "ach": [],
+  "event": null,
+  "turn": 22,
+  "lastEyeTurn": null,
+  "known": {
+    "skill:preset-skill-arcane-bolt": 2,
+    "skill:preset-skill-fire-burst": 2,
+    "proficiency:preset-proficiency-arcana": 2,
+    "spell:ember-light": 2
+  },
+  "learned": [
+    "skill:preset-skill-arcane-bolt",
+    "skill:preset-skill-fire-burst",
+    "spell:ember-light"
+  ],
+  "proficiency": {
+    "Arcana": 0,
+    "Survival": 8,
+    "Ember Light": 2
+  },
+  "buff": null,
+  "adventure": {
+    "v": 1,
+    "location": "village",
+    "accepted": true,
+    "forest": true,
+    "learned": true,
+    "seal": true,
+    "cave": true,
+    "ending": "restore",
+    "claimed": true,
+    "companion": {
+      "id": "lin",
+      "name": "ลิน",
+      "job": "ranger",
+      "hp": 100,
+      "mana": 50
+    },
+    "seed": 347831,
+    "dialog": "",
+    "route": "scout",
+    "proficiency": 2
+  },
+  "mapView": {
+    "mapId": "world",
+    "placeId": "study",
+    "history": []
+  },
+  "contentEdits": {
+    "worldMap:main": {
+      "version": 1,
+      "rootId": "world",
+      "maps": [
+        {
+          "id": "world",
+          "name": "Decide Fate",
+          "image": "",
+          "width": 800,
+          "height": 440,
+          "locations": [
+            {
+              "id": "work",
+              "name": "ย่านช่างฝีมือ",
+              "icon": "⚒",
+              "iconImage": "",
+              "x": 20,
+              "y": 29,
+              "description": "ทำงานในโรงช่างและหาเงิน",
+              "targetMapId": null,
+              "activities": [
+                "work"
+              ],
+              "enabled": true
+            },
+            {
+              "id": "train",
+              "name": "ลานฝึก",
+              "icon": "⚔",
+              "iconImage": "",
+              "x": 50,
+              "y": 43,
+              "description": "ฝึกดาบและความชำนาญอาวุธ",
+              "targetMapId": null,
+              "activities": [
+                "train"
+              ],
+              "enabled": true
+            },
+            {
+              "id": "explore",
+              "name": "ป่ากระซิบ",
+              "icon": "🌲",
+              "iconImage": "",
+              "x": 79,
+              "y": 23,
+              "description": "ออกสำรวจป่าและค้นพบสิ่งใหม่",
+              "targetMapId": null,
+              "activities": [
+                "explore"
+              ],
+              "enabled": true
+            },
+            {
+              "id": "rest",
+              "name": "โรงเตี๊ยม",
+              "icon": "☾",
+              "iconImage": "",
+              "x": 22,
+              "y": 77,
+              "description": "พักฟื้นสุขภาพ พลังงาน และมานา",
+              "targetMapId": null,
+              "activities": [
+                "rest"
+              ],
+              "enabled": true
+            },
+            {
+              "id": "study",
+              "name": "หอเวท",
+              "icon": "✧",
+              "iconImage": "",
+              "x": 70,
+              "y": 78,
+              "description": "เรียนเวทและค้นคว้าความรู้",
+              "targetMapId": null,
+              "activities": [
+                "study"
+              ],
+              "enabled": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "v": 2,
+  "minute": 615,
+  "days": 42,
+  "ageStart": 18,
+  "lifespan": 90,
+  "gold": 3217,
+  "hp": 100,
+  "energy": 100,
+  "sword": 73,
+  "magic": 51,
+  "trips": 0,
+  "earned": 900,
+  "plan": "work",
+  "reserve": 50,
+  "threshold": 30,
+  "safe": true,
+  "dead": false,
+  "logs": [
+    {
+      "day": 42,
+      "minute": 615,
+      "text": "Synthetic legacy fixture; no player data"
+    }
+  ],
+  "ach": [],
+  "event": null
+}

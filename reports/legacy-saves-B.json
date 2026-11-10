@@ -1,0 +1,287 @@
+{
+  "pure": [
+    {
+      "file": "adventure.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-presets.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-view.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-actions.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-combat-items.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-economy.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-equipment.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-loot.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "character-art-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-authoring.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-custom-services.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-handoff.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-legacy-saves.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-resume.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-sync.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "cloud.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-lab-party.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-lab.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "content-authoring.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "content-integration-audit.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "creation-system.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "database-live-links.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "displacement.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "elements.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "event-story.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-closeout.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-hazards.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-patterns.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "hazard-navigation.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "large-map.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "legacy-content-parity.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "library-merge.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "look-around.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "map-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-ai.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-grid.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-passives.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-stats.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-tactics.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "rules.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "status-effects.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "status-immunity.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "tactical-v2.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "tactical.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "weapon-motion.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "weapon-patterns.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "world-links.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "world-travel.test.cjs",
+      "pass": true
+    }
+  ],
+  "browser": [
+    {
+      "file": "closeout-resume-ui.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "adventure-ui.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-legacy-saves-ui.test.cjs",
+      "pass": true
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "v2-before-identity",
+      "rev": "9b09309",
+      "mode": "v2",
+      "commit": "9b0930990e03b0fdee3516822eae5b274c530d8f",
+      "file": "v2-before-identity.json",
+      "historicalValidatorPassed": true,
+      "sha256": "c76d8fbf1487414c25833e9a18fc60465979834c786125ca620842d50c90d07e",
+      "currentLoaderPassed": true
+    },
+    {
+      "id": "v3-before-new-creation",
+      "rev": "d687963",
+      "mode": "legacy",
+      "commit": "d6879630e1a70c7e09437f33a6aa90dd967a2a14",
+      "file": "v3-before-new-creation.json",
+      "historicalValidatorPassed": true,
+      "sha256": "c06d6509607e9bcf081ed066fe841ff2fd0e74b1a026e534a9f041fba76a72df",
+      "currentLoaderPassed": true
+    },
+    {
+      "id": "v3-creation-v1",
+      "rev": "d745307",
+      "mode": "design1",
+      "commit": "d745307594f31a228ad2557f13e1c520daaf11dd",
+      "file": "v3-creation-v1.json",
+      "historicalValidatorPassed": true,
+      "sha256": "4777a651e10f4941c3b2d03e4350b7ab6aac3a92ea01d2fd2605651262965114",
+      "currentLoaderPassed": true
+    },
+    {
+      "id": "v3-before-two-ap",
+      "rev": "1b1615d",
+      "mode": "one-ap",
+      "commit": "1b1615d9f5fbf182a76ff0141c6838242bd14299",
+      "file": "v3-before-two-ap.json",
+      "historicalValidatorPassed": true,
+      "sha256": "18762096b2e3696e13be855428273851f4bfa8189c5bffea41cef9aea1fef9fe",
+      "currentLoaderPassed": true
+    },
+    {
+      "id": "v3-checkpoint-before-world-placement",
+      "rev": "0187c88",
+      "mode": "checkpoint",
+      "commit": "0187c8811e5262bdc8e52c1a9585cbd727b2fdfb",
+      "file": "v3-checkpoint-before-world-placement.json",
+      "historicalValidatorPassed": true,
+      "sha256": "1d5a65060f0a60b010612b508598183ce360f4da36140878313f150c269517a3",
+      "currentLoaderPassed": true
+    },
+    {
+      "id": "v3-travel-before-placement",
+      "rev": "eaa776d",
+      "mode": "pre-placement",
+      "commit": "eaa776dffce9062035fb5f9bf6cbc2176fd3613f",
+      "file": "v3-travel-before-placement.json",
+      "historicalValidatorPassed": true,
+      "sha256": "0b7be0748be1d06c6327ef62ab05b6516c19d3edfaf11a4fb059e65502c64ac7",
+      "currentLoaderPassed": true
+    }
+  ],
+  "legacyLoadFailures": [],
+  "engineLoaderOrSchemaChanged": false,
+  "limits": [
+    "Synthetic representative data only; no player saves copied",
+    "v2 producer predates available Git; earliest archived validator v2 path used",
+    "Not real Supabase or exhaustive historical combinations"
+  ]
+}

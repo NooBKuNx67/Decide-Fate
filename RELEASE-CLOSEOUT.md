@@ -66,3 +66,9 @@ placement/บริการ NPC ใน VN, conditions, เป้าหมาย
 รายงานอ่านง่าย: CLOSEOUT-RESULTS.md; รายไฟล์ machine-readable: reports/closeout-A.json ถึง closeout-F.json ทุก pure closeout test เข้า tools/check.cjs โดยการค้นหาอัตโนมัติและระบุใน Pages Validate แล้ว ผลสุดท้าย pure 49/49, browser F 6/6; ข้อ E ยังมี legacy 3 ไฟล์ที่ไม่ผ่านตามรายละเอียด ไม่เปลี่ยน assertion/กติกาเพื่อให้ผ่าน
 
 รอบแรกของ F หลังสภาพแวดล้อมกลับมา preview ไม่ได้รัน: grid-closeout-ui/world-links-ui/handoff-guide-ui เข้า localhost:4173 ไม่ได้ (ERR_CONNECTION_REFUSED) ไม่ได้ทดสอบตัวเกม จึงบันทึกเป็น environment blocked เปิด preview ตาม README แล้วรันเดิมใหม่ครบโดยไม่แก้เกมหรือ assertion ผลผ่านทั้งหมด ข้อจำกัดที่ยังเปิดคือเจ้าของใช้ AI ฟรีเอง, Supabase/สองอุปกรณ์จริง และการเผยแพร่ที่ถูกระงับ ไม่ทำ Prettier หรือ CSP
+
+## Representative legacy-save acceptance — 10 Nov 2026
+
+- [x] เซฟเก่าจำลอง 6 รุ่นโหลด/บันทึกกลับ/โหลดซ้ำ ไม่เสียความก้าวหน้าหรือเพิ่มรางวัลซ้ำ ไม่เปิด world enforcement เอง — closeout-legacy-saves.test.cjs PASS (Node ล้วน), closeout-legacy-saves-ui.test.cjs PASS (นำเข้า/ตรวจ library/render/local reload ครบ 6 รุ่น), closeout-resume-ui.test.cjs และ adventure-ui.test.cjs PASS; pure ทั้งชุด 50/50, browser 3/3 ไม่มี engine/schema/config migration ใหม่
+
+ไม่พบ fixture ที่โหลดไม่ผ่าน หลักฐานย้อนหลัง/ข้อจำกัด v2 และ checkpoint อยู่ tools/closeout/legacy-saves/README.md ไม่ถือว่าครอบคลุมเซฟจริงทุกชุดหรือการทดสอบ Supabase จริง; ใช้ข้อมูลจำลองเท่านั้น รายงานรายไฟล์ reports/legacy-saves-B.json

@@ -159,3 +159,11 @@ Source cache 72, ให้ push main เท่านั้น ยังห้า
 เจ้าของเลือกเก็บประวัติด้วย git mv: legacy-browser.test.cjs → ใช้ creation-ui.test.cjs, legacy-tactical-ui.test.cjs → tactical-v2-ui.test.cjs, legacy-combat.test.cjs → combat-polish.test.cjs ตรวจ bytes/SHA-256 ตรงต้นฉบับทุกไฟล์ ไม่เพิ่มคอมเมนต์ ไม่แก้ assertion ตัวอ่าน SDK mock ใน orientation/visual tools ใช้ชื่อ legacy ใหม่เป็นข้อมูล ไม่รัน suite นั้น ภาพรวม engine ไม่มีการเปลี่ยน schema/config/ID และยังระงับเผยแพร่
 
 ข้อ A ย้าย legacy ผ่าน: pure 49/49, browser creation-ui/tactical-v2-ui/combat-polish/orientation 4/4, visual tools 2/2 ไม่ได้รัน legacy specs เป็น acceptance ไม่พบชื่อไฟล์เก่าใน references ที่ใช้จริง (รายงาน stack ย้อนหลังเก็บเส้นทางเดิมตามจริง) ขั้นถัดไปคือ fixture โหลดเซฟรุ่นเก่าและ closeout-legacy-saves.test.cjs; ยังไม่อ้างว่าตรวจ compatibility รุ่นเก่าเสร็จแล้ว
+
+## เซฟเก่า — ข้อ B รอบถัดมา
+
+closeout-legacy-saves.test.cjs เข้า CI และ check.cjs แล้ว ผล pure 50/50, browser closeout-legacy-saves-ui.test.cjs / closeout-resume-ui.test.cjs / adventure-ui.test.cjs 3/3 ผ่าน Fixture จำลอง 6 รุ่นอยู่ tools/closeout/legacy-saves/ พร้อม provenance/full commit/hash และตัวสร้างจาก source ประวัติ ตรวจ branch checkpoint/legacy-systems-2026-11-05 จริงแล้ว ไม่มีข้อมูลผู้เล่นจริง
+
+ไม่พบรุ่นที่โหลดไม่ผ่านในชุดนี้: v2 ก่อน identity, v3 ตัวละครเดิม, creation v1, ก่อน 2 AP, checkpoint พร้อมของ/อุปกรณ์/ไฟต์ชนะค้างรับรางวัล และก่อน world placements พร้อมเควส/ตำแหน่งโลก ตรวจโหลดซ้ำ/serialize/ยอดรางวัล/EXP/ไอเท็ม/เควส/ตำแหน่ง/จบบทคงเดิมและไม่เปิด enforceLocations เอง โดยไม่แก้ engine/loader/schema/config/identifiers รุ่น v2 ไม่มีตัวละครอยู่แต่เดิม UI ให้เลือก identity ตาม migration เดิม ไม่ได้กู้ชื่อหรือเลเวลที่ไม่เคยมี; producer v2 เก่ากว่า Git ที่มี ใช้ branch validate v2 ที่เก่าสุดเป็นหลักฐาน
+
+รัน pure ได้ด้วย Node ล้วน ไม่ต้องมีประวัติ Git หรือ browser ใน CI ตัวสร้าง fixture ต้องมี historical Git objects เฉพาะตอนต้องการสร้าง fixture ใหม่ ดู README ในโฟลเดอร์และ reports/legacy-saves-B.json ยังระงับ Publish workflow/เว็บจริง

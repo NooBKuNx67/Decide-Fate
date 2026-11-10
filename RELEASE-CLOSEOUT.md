@@ -20,10 +20,10 @@
 - [x] ร้านค้า ซื้อ/ขาย กระเป๋า สวมใส่/สองมือ และปรุงยา ใช้ข้อมูลใหม่จริงและคงอยู่หลังโหลด — ข้อ B: `closeout-custom-services.test.cjs` PASS (custom-* จากแม่แบบจริง/ทุกธุรกรรม/โหลดทุกขั้น/เงินไม่พอ ของไม่ครบ คลาสผิด อาวุธสองมือในมือรองไม่เสียของ), `closeout-custom-services-ui.test.cjs` PASS (UI ซื้อ/ขาย/ใช้/ปรุง/สวมมือหลัก–รองและสองมือ/โหลด), `catalog-services-ui.test.cjs`, `equipment-ui.test.cjs` PASS; pure 46/46, browser 3/3, mock เท่านั้น
 - [x] สร้างข้อมูลผ่านฟอร์ม/AI pack → ทดสอบ → ส่งออก → โหลดกลับ → ย้อนคืนได้ — ข้อ C: `closeout-authoring.test.cjs` PASS (JSON ผิด/ID ซ้ำ/template ผิด/201 รายการ/baseline เก่า/ฟิลด์ script ปฏิเสธโดยไม่เปลี่ยนเดิม), `closeout-authoring-ui.test.cjs` PASS (TXT จริง/HTML warning/diff/ยืนยัน/ร่าย custom spell ใน lab/ส่งออก/นำเข้าบัญชีใหม่/ย้อนคืน ID disabled/ยังเริ่ม lab ได้), `content-authoring-ui.test.cjs`, `full-schema.test.cjs`, `frontend-security-ui.test.cjs` PASS; pure 47/47, browser 4/4, mock เท่านั้น
 - [x] แยกบัญชี ข้อมูลไม่ปน และแสดงสถานะซิงก์ล้มเหลวชัดเจน — ข้อ D: `closeout-sync.test.cjs` PASS (scoped query/dirty/offline/retry/CAS), `closeout-accounts-ui.test.cjs` PASS (login A/B ใน browser เดียว/state+library แยก/ยังไม่ซิงก์/local ล่าสุด/export save+library/ยกเลิกโหลดเก่า/retry), `image-cloud.test.cjs`, `save-recovery-ui.test.cjs` PASS; pure 48/48, browser 3/3 ใช้ mock เท่านั้น; Supabase/สองเครื่องจริงยังไม่ปิด OWNER-ACCEPTANCE.md
-- [ ] ตัวอย่างระบบใหม่อยู่ในสนามทดสอบอัปเดต ไม่แตะเซฟ/รางวัลจริง
-- [ ] ผู้ใช้ทำตามคู่มือกรอกข้อมูลด้วย ChatGPT/Claude ฟรีได้เอง
+- [x] ตัวอย่างระบบใหม่อยู่ในสนามทดสอบอัปเดต ไม่แตะเซฟ/รางวัลจริง — ขอบเขต A–F ไม่เพิ่มกลไกเกม: `closeout-authoring-ui.test.cjs` PASS ใช้ custom spell จริงใน lab, `grid-closeout-ui.test.cjs` และ `world-links-ui.test.cjs` PASS ตรวจ field/isolation/วงจรเควสจริง; authoring/account recovery นอก combat ใช้ mock E2E ในข้อ B–D แทนปุ่มที่แตะบัญชีจริง
+- [ ] ผู้ใช้ทำตามคู่มือกรอกข้อมูลด้วย ChatGPT/Claude ฟรีได้เอง — บางส่วน/ข้อ F: technical flow ผ่าน `closeout-handoff.test.cjs`, `closeout-authoring-ui.test.cjs`, `handoff-guide-ui.test.cjs` (TXT จริง/จำนวนคงเหลือ/compile action/คู่มือ/ดาวน์โหลด/สำรองผิดพลาดแล้วไม่เปลี่ยนข้อมูล); pure 49/49, browser F 6/6; HANDOFF.md + dist/free-ai-code-help.txt พร้อม แต่ยังไม่ได้ให้เจ้าของใช้ AI ฟรีและทำเองจริง จึงไม่ติ๊กปิดการตรวจรับผู้ใช้
 - [x] ชุดทดสอบ engine ผ่าน และ browser เส้นทางสำคัญผ่าน ระบุปัญหาเก่าที่ยังเหลือ — ข้อ E: pure 48/48 PASS; `creation-ui.test.cjs`, `tactical-v2-ui.test.cjs`, `combat-polish.test.cjs` PASS 3/3 และ E2E ข้อ A–D ด้านบน; legacy `browser.test.cjs`, `combat.test.cjs`, `tactical-ui.test.cjs` ยัง FAIL 3/3 ตามเดิม ไม่อ้างว่าทุก browser ผ่าน สาเหตุ/ผลกระทบ/วิธีทำซ้ำอยู่ MAINTENANCE-PHASES.md; การทำสามเทสต์นี้ให้ผ่านยังไม่ปิด
-- [ ] เมื่อสั่งอัป GitHub: main ถูก push, workflow สำเร็จ, เว็บจริงเป็น revision ที่ส่ง
+- [ ] เมื่อสั่งอัป GitHub: main ถูก push, workflow สำเร็จ, เว็บจริงเป็น revision ที่ส่ง — รอบ A–F เจ้าของสั่ง **push main เท่านั้น/ระงับ Publish Decide Fate และเว็บจริง** จึงไม่ปิดข้อเผยแพร่ ต้องรอคำสั่งหลังเจ้าของตรวจรับ
 
 ยังไม่ติ๊กปิดข้อใดด้วยการทดสอบบางส่วน การตรวจ unit ของระบบมีแล้ว แต่ต้องบันทึกหลักฐาน end-to-end ก่อนปิดทั้งข้อ ขอบเขตเนื้อหาปัจจุบันจบบทที่หนึ่ง ไม่ถือว่าเป็นแคมเปญยาวที่ยังไม่ได้สร้าง
 
@@ -60,3 +60,9 @@ Engine grid acceptance remains a mechanical test result, not proof of full impor
 ## วงจรโลกเชื่อมแล้ว
 
 placement/บริการ NPC ใน VN, conditions, เป้าหมาย kill/item, การส่งของ/กันรับรางวัลซ้ำ และ chapter bridge ดำเนินการแล้ว: WORLD-QUEST-LOOP.md ผล engine 44 และ browser grid 20/20 ผ่าน พร้อม authoring/recovery/services/adventure และ cloud mock เหลือ owner acceptance/ข้อมูลจริง/คลาวด์สองเครื่องตาม OWNER-ACCEPTANCE.md งานรอบนี้ยังไม่ได้เผยแพร่
+
+## ส่งต่อรอบ A–F — 10 พ.ย. 2026
+
+รายงานอ่านง่าย: CLOSEOUT-RESULTS.md; รายไฟล์ machine-readable: reports/closeout-A.json ถึง closeout-F.json ทุก pure closeout test เข้า tools/check.cjs โดยการค้นหาอัตโนมัติและระบุใน Pages Validate แล้ว ผลสุดท้าย pure 49/49, browser F 6/6; ข้อ E ยังมี legacy 3 ไฟล์ที่ไม่ผ่านตามรายละเอียด ไม่เปลี่ยน assertion/กติกาเพื่อให้ผ่าน
+
+รอบแรกของ F หลังสภาพแวดล้อมกลับมา preview ไม่ได้รัน: grid-closeout-ui/world-links-ui/handoff-guide-ui เข้า localhost:4173 ไม่ได้ (ERR_CONNECTION_REFUSED) ไม่ได้ทดสอบตัวเกม จึงบันทึกเป็น environment blocked เปิด preview ตาม README แล้วรันเดิมใหม่ครบโดยไม่แก้เกมหรือ assertion ผลผ่านทั้งหมด ข้อจำกัดที่ยังเปิดคือเจ้าของใช้ AI ฟรีเอง, Supabase/สองอุปกรณ์จริง และการเผยแพร่ที่ถูกระงับ ไม่ทำ Prettier หรือ CSP

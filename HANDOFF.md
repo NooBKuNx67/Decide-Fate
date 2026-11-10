@@ -9,7 +9,7 @@
 - เอกลักษณ์รายการใหม่ `custom-*`, ชื่ออ้างอิงและ templateKey คงที่; displayName แก้ได้
 - สืบทอดกลไกของแม่แบบจริง ไม่ใช่รันโค้ดจากคำตอบ AI รองรับสูงสุด 200 รายการใหม่
 - ชุดคำตอบ AI รวมข้อมูล ไม่แทนที่ทั้งหมด ตรวจ baseline ป้องกันทับงานที่เปลี่ยนระหว่างรอ
-- สำรองอัตโนมัติก่อนสร้าง/ใช้ชุดข้อมูล/ย้อนคืน เก็บล่าสุดหนึ่งชุดต่อบัญชีใน IndexedDB; การแก้ฟอร์มทั่วไปยังต้องส่งออกเอง
+- สำรองอัตโนมัติก่อนสร้าง/ใช้ชุดข้อมูล/นำเข้าไฟล์ฐานข้อมูลเต็มชุด/ย้อนคืน เก็บล่าสุดหนึ่งชุดต่อบัญชีใน IndexedDB; การแก้ฟอร์มทั่วไปยังต้องส่งออกเอง
 - ส่งออกฐานข้อมูลเต็มชุดและเซฟแยกกันก่อนงานใหญ่ ย้อนคืนรักษา ID ใหม่เป็น disabled เพื่อไม่ทำลายการอ้างอิง
 - ข้อมูลทดสอบใช้บัญชีจำลอง ไม่ต้องส่งข้อมูลเข้าสู่ Supabase จริง
 
@@ -74,7 +74,7 @@ See DATABASE-LIVE-LINKS.md: 95 actual catalog commands, 30 class definition snap
 
 ระยะ/พื้นที่อาวุธกรอกในฐานข้อมูลได้แล้ว: [WEAPON-GRID.md](WEAPON-GRID.md) มีขั้นต่ำ–สูงสุด รูปพื้นที่/ระยะอ้างอิง/จำนวนเป้า ใช้กับมือหลัก มือรอง และ NPC พร้อม preset ทดสอบและเลือกอาวุธ catalog จริงในสนาม
 
-ผลประเมินความพร้อมปัจจุบัน: [GAME-READINESS.md](GAME-READINESS.md) — กลไกเล่นทดสอบได้ งานค้างหลักคือโลก/NPC/บริการ เงื่อนไขเควส และตรวจรับเซฟ/คลาวด์จริง; แยกโค้ด workspace ออกจากเวอร์ชันที่เผยแพร่แล้ว
+ผลประเมินความพร้อมปัจจุบัน: [GAME-READINESS.md](GAME-READINESS.md) — กลไกเล่นทดสอบได้ วงจรโลก/NPC/เควสเชื่อมแล้ว งานค้างหลักคือเจ้าของลองกรอกข้อมูลและตรวจรับคลาวด์/อุปกรณ์จริง; แยกโค้ด workspace ออกจากเวอร์ชันที่เผยแพร่แล้ว
 
 วงจรโลก/NPC/เควสเชื่อมแล้ว: [WORLD-QUEST-LOOP.md](WORLD-QUEST-LOOP.md) มี placement, บริการใน VN, conditions, เป้าหมาย kill/item, ส่งของ/กันรางวัลซ้ำ และ chapter bridge; ตรวจรับบัญชีจริงตาม [OWNER-ACCEPTANCE.md](OWNER-ACCEPTANCE.md)
 
@@ -84,7 +84,7 @@ See DATABASE-LIVE-LINKS.md: 95 actual catalog commands, 30 class definition snap
 
 ข้อ A ปิดในขอบเขต mock แล้ว: closeout-resume.test.cjs (pure, เข้า check.cjs อัตโนมัติและ Pages Validate), closeout-resume-ui.test.cjs, adventure-ui.test.cjs, world-links-ui.test.cjs ผ่าน; pure 45/45 และ browser 3/3 ครอบคลุม frozen encounter, AP/MP/held cast/cooldown/hazard, เซฟก่อน–หลังรับเงิน/EXP/ของ/เควสและจบบท ไม่จ่ายซ้ำ ข้อมูลทดสอบสร้างผ่าน production adapters ไม่แก้ระบบเกม เซฟก่อนรับรางวัลที่โหลดซ้ำเป็นการย้อนเวลา: ได้ยอดปลายทางเท่าเดิม ไม่ใช่เพิ่มสะสมจากเซฟหลังรับรางวัล คลาวด์จริงยังรอเจ้าของตรวจ
 
-สถานะถัดไป: E วินิจฉัยแล้วแต่ legacy 3 ไฟล์ยังไม่ผ่าน; F ยังรอตรวจเอกสารส่งต่อ
+สถานะล่าสุด: A–D ผ่าน mock E2E; E วินิจฉัยแล้วแต่ legacy 3 ไฟล์ยังไม่ผ่าน; F เอกสาร/เครื่องมือส่งต่อผ่าน technical QA แล้ว รอเจ้าของทำตามคู่มือด้วย AI ฟรีเอง
 
 ข้อ B ปิดในขอบเขต mock: closeout-custom-services.test.cjs + closeout-custom-services-ui.test.cjs ตรวจร้าน/ยา/วัตถุดิบ/สูตร/อาวุธ custom-* ที่สร้างด้วย ContentAuthoring.create/validateRegistry จริง แล้วซื้อ/ขาย/ใช้/ปรุง/สวมมือหลัก–รอง/สองมือ/โหลดครบทุกขั้น รวม atomic rejection; catalog-services-ui.test.cjs และ equipment-ui.test.cjs ผ่านเดิม Pure 46/46, browser 3/3 ไม่มีการแก้เกมหรือ assertion เดิม ข้อสังเกตตามพฤติกรรมเดิม: เปลี่ยนไปสวมอาวุธมือรองหนึ่งมือขณะถือสองมือจะถอดอาวุธสองมือกลับคลังอัตโนมัติ ไม่ถือว่าเป็นการสวมที่ผิดเงื่อนไข; อาวุธสองมือใส่ในมือรองไม่ได้
 
@@ -97,3 +97,59 @@ See DATABASE-LIVE-LINKS.md: 95 actual catalog commands, 30 class definition snap
 ข้อ D เป็น account/recovery flow นอกสนามต่อสู้ จึงใช้หน้า login/load/database กับ backend จำลองแยกแทนการทำปุ่มสนามที่แตะบัญชีผู้เล่น ไม่เพิ่มกลไกเกม ตัวอย่างการแสดงสถานะ/กู้ข้อมูลทำซ้ำได้ด้วย closeout-accounts-ui และ save-recovery-ui ยังไม่ได้ทดสอบ Supabase หรืออุปกรณ์จริง
 
 ข้อ E: pure 48/48 และ browser ปัจจุบัน creation-ui/tactical-v2-ui/combat-polish 3/3 ผ่าน เทสต์เก่า browser/combat/tactical-ui ยังไม่ผ่านตามสาเหตุ/วิธีทำซ้ำใน MAINTENANCE-PHASES.md ไม่แก้ assertion หรือถอยเกมไปกติกาเก่า owner ต้องตัดสินใจแยกว่าจะเก็บเป็นประวัติหรืออนุมัติปรับสเปกเทสต์ใหม่ รายงาน reports/closeout-E.json รวม watchdog/diagnostic ตามจริง ไม่ถือว่าได้แก้สามไฟล์ให้เขียวแล้ว
+
+## เมื่อมีอะไรพัง
+
+1. **นำเข้า JSON ไม่ผ่าน:** หยุดก่อนกดยืนยัน อ่าน authorStatus/dbEditStatus/loadStatus เก็บไฟล์เดิมไว้ คำตอบ AI เป็น decide-fate-data-pack-v1; ไฟล์ฐานข้อมูลเต็มเป็น evervale-content-v1 คนละช่องนำเข้า หาก baseline เปลี่ยน ดาวน์โหลด TXT ใหม่และให้ AI ตอบจากชุดใหม่ ห้ามแก้ fingerprint เพื่อฝืนผ่าน รายการซ้ำ/แม่แบบผิด/เกิน 200/ฟิลด์แต่งเองไม่ผ่าน จำนวน 200 รวม disabled ที่รักษา ID ไว้ด้วย
+2. **ซิงก์ล้ม/ยังไม่ซิงก์:** อย่าโหลด remote เก่าทับหรือเคลียร์ข้อมูล browser ก่อนส่งออกล่าสุด เปิดเมนูหลัก → โหลดเกม → ส่งออกเซฟ และฐานข้อมูล → ส่งออกฐานข้อมูล เก็บไฟล์ทั้งคู่ไว้นอก browser กดซิงก์ฐานข้อมูลใหม่และอัปโหลดเซฟเมื่อเน็ตกลับ อ่านและยืนยันว่าจะใช้ชุดใดก่อนแทนที่ อย่าสรุปว่าเก็บในเครื่องคือขึ้นคลาวด์แล้ว
+3. **ย้อนคืน/กู้:** ฐานข้อมูล → สำรอง/ย้อนคืน → ดู diff → ยืนยัน ย้อนคืนเก็บ ID ที่เพิ่มใหม่เป็น disabled หากต้องกู้จากไฟล์ ให้ใช้ปุ่มนำเข้าฐานข้อมูลสำหรับไฟล์ library JSON (≤2 MB) หรือนำเข้าเซฟในเมนูโหลดสำหรับ save JSON (≤12 MB) ระบบตรวจไฟล์ก่อนแทนที่และขอยืนยัน การกู้ player backup ในเครื่องเก็บเซฟปัจจุบันไว้ให้ undo หากไม่มี IndexedDB/localStorage หรือ backup เสีย ให้เก็บไฟล์ที่ดาวน์โหลดได้ไว้ตรวจ ห้ามสัญญาว่ากู้ได้โดยไม่มี backup
+4. **บัญชีผิด:** ออกจากระบบเฉพาะเมื่อเก็บไฟล์ค้างส่งแล้ว เข้าบัญชีเดิม ตรวจชื่อ/ความก้าวหน้า อย่านำไฟล์ของอีกบัญชีมาทับโดยไม่ตั้งใจ ข้อมูลในเครื่องและ backup แยกตามบัญชี
+
+### คำสั่งตรวจทั้งหมด
+
+ตัวเกมไม่ต้อง build เริ่ม `node preview.cjs` แล้วเปิด localhost:4173 ใช้ Node รุ่นปัจจุบันและ Playwright/Chromium ตาม VISUAL-UPDATE.md การทดสอบทั้งหมดต้องใช้ mock auth/storage เท่านั้น
+
+```sh
+node tools/check.cjs
+node closeout-resume.test.cjs
+node closeout-custom-services.test.cjs
+node closeout-authoring.test.cjs
+node closeout-sync.test.cjs
+node closeout-handoff.test.cjs
+node tools/check-grid.cjs
+node tools/qa-runtime.cjs closeout-resume-ui.test.cjs
+node tools/qa-runtime.cjs closeout-custom-services-ui.test.cjs
+node tools/qa-runtime.cjs closeout-authoring-ui.test.cjs
+node tools/qa-runtime.cjs closeout-accounts-ui.test.cjs
+node tools/qa-runtime.cjs adventure-ui.test.cjs
+node tools/qa-runtime.cjs content-authoring-ui.test.cjs
+node tools/qa-runtime.cjs full-schema.test.cjs
+node tools/qa-runtime.cjs catalog-services-ui.test.cjs
+node tools/qa-runtime.cjs equipment-ui.test.cjs
+node tools/qa-runtime.cjs image-cloud.test.cjs
+node tools/qa-runtime.cjs save-recovery-ui.test.cjs
+node tools/qa-runtime.cjs frontend-security-ui.test.cjs
+node tools/qa-runtime.cjs creation-ui.test.cjs
+node tools/qa-runtime.cjs tactical-v2-ui.test.cjs
+node tools/qa-runtime.cjs combat-polish.test.cjs
+```
+
+check.cjs ค้นหา pure test ใหม่อัตโนมัติและรันแต่ละไฟล์ด้วย Node; ทุก closeout pure test อยู่ใน Pages Validate ด้วย คำสั่ง direct ทั้งห้าใช้ซ้ำเฉพาะเวลาต้องแยกสาเหตุ เพราะ check.cjs รวมไว้แล้ว check-grid.cjs เป็นชุดกลไก grid แบบกว้างที่มีอยู่ ไม่ใช่หลักฐานว่ารันใหม่ทั้งชุดในรอบนี้ รายงานรายไฟล์รอบ A–F อยู่ reports/closeout-*.json และผล E/ข้อจำกัดอยู่ MAINTENANCE-PHASES.md
+
+เทสต์ legacy browser.test.cjs, combat.test.cjs, tactical-ui.test.cjs ยังไม่ผ่านด้วยสเปกเก่า ตามข้อ E อย่านับว่าเขียวหรือแก้ assertion เพื่อให้ผ่าน ถ้าเทสต์อื่นที่เคยผ่านพังให้หยุดและเก็บ stderr/ขั้นตอน/commit
+
+### ขอ AI ฟรีช่วยแก้โค้ด
+
+ใช้ dist/free-ai-code-help.txt เป็นข้อความตั้งต้น แนบ AGENTS.md, HANDOFF.md, RELEASE-CLOSEOUT.md, MAINTENANCE-PHASES.md และเฉพาะ JS/CSS/HTML/เทสต์ที่เกี่ยวข้อง พร้อมขั้นตอนและข้อความผิดพลาด ถ้าเป็นปัญหาข้อมูลให้แนบแม่แบบ TXT ล่าสุดกับ JSON จำลอง ไม่ส่ง token/password/เซฟจริง ขอไฟล์ฉบับเต็มหรือ patch และคำสั่งทดสอบ ให้ AI ระบุชัดหากรันไม่ได้
+
+**อย่าเชื่อว่า AI ฟรีแก้ GitHub ให้อัตโนมัติ:** เจ้าของต้องตรวจคำตอบ สำรองไฟล์ นำ patch/ไฟล์เข้าเครื่องหรือ GitHub เอง และรันเทสต์ ก่อน commit/push main อย่ากด Publish Decide Fate ในรอบนี้จนกว่าจะตรวจรับและสั่งเผยแพร่เอง แชตฟรีมีข้อจำกัดโควตา/ความสามารถต่างกัน ไม่ได้รับรองว่าจะตรวจหรือแก้เกมได้ครบเอง
+
+ข้อ F ส่งมอบเอกสาร/ไฟล์คำขอแล้ว หลักฐาน technical flow ใช้ closeout-handoff.test.cjs และ closeout-authoring-ui.test.cjs; **ยังไม่ได้ให้เจ้าของใช้ ChatGPT/Claude ฟรีทำเองจริง** จึงยังไม่ติ๊กช่องตรวจรับผู้ใช้ และไม่ได้ทดสอบ Supabase/อุปกรณ์จริง
+
+### ผลสุดท้ายของ F — 10 พ.ย. 2026
+
+`node tools/check.cjs` ผ่าน 49 ไฟล์; browser ผ่าน 6/6: closeout-authoring-ui.test.cjs, closeout-accounts-ui.test.cjs, content-authoring-ui.test.cjs, handoff-guide-ui.test.cjs, grid-closeout-ui.test.cjs, world-links-ui.test.cjs ไฟล์ TXT กรอกข้อมูลแสดงโควตาที่เหลือจริง รวม disabled และเพดานไฟล์/ตัวอักษร ส่วนคำขอแก้โค้ดดาวน์โหลดได้จาก dist/free-ai-code-help.txt ผ่านคู่มือ กรณี IndexedDB ปฏิเสธ backup ทดสอบแล้วว่า full import ไม่เปลี่ยนข้อมูลเดิม
+
+เมื่อ preview ไม่ได้รัน การเข้า localhost:4173 จะถูกปฏิเสธ ไม่ใช่ผลว่าเกมผ่าน เปิด preview ตามขั้นตอนก่อนรันใหม่ รอบแรกของ F มี 3 environment-blocked attempts และเก็บไว้ใน reports/closeout-F.json; รอบสุดท้ายรันเดิมผ่านโดยไม่แก้ assertion ดูผลแยกข้อ/สิ่งยังเปิดที่ CLOSEOUT-RESULTS.md
+
+Source cache 72, ให้ push main เท่านั้น ยังห้าม Publish workflow/เว็บจริงจนกว่าเจ้าของสั่ง ผู้ใช้ยังต้องตรวจ OWNER-ACCEPTANCE.md และลองกรอกข้อมูลหนึ่งชุดด้วย ChatGPT/Claude ฟรีเอง ไม่ถือว่าผ่านแทนด้วย mock

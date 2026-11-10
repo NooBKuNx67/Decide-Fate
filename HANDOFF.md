@@ -181,3 +181,9 @@ closeout-legacy-saves.test.cjs เข้า CI และ check.cjs แล้ว 
 ผล A: pure 51/51; content-authoring-ui.test.cjs, handoff-guide-ui.test.cjs, closeout-authoring-ui.test.cjs 3/3 ผ่าน ยังคงปุ่มเดิม ณ ส่วน A ส่วน B–D จะทำแยกทีละ commit; ไม่เพิ่มตัวอย่าง lab เพราะเป็นเครื่องมือข้อมูลตามคำสั่งเจ้าของ Source cache 75 แต่ยังระงับ Publish/เว็บจริง
 
 คำยืนยันส่วน C: HTML ภายในข้อความ JSON คงอนุญาตพร้อมเตือน/แสดงเป็นข้อความ ไม่รันโค้ด; ปฏิเสธ HTML/สคริปต์ที่ไม่ใช่ JSON ไม่แก้ assertion เดิม
+
+## Data Template — ส่วน B
+
+เพิ่ม Import / Export / Template ในหน้าฐานข้อมูล มี dialog เลือกหัวข้อ เลือกทั้งหมด/ล้าง จำนวนตัวอักษรและคำเตือนเกิน 40,000 ดาวน์โหลดโดยสร้าง fingerprint จาก snapshot ล่าสุด ปุ่มดาวน์โหลดคำสั่งต่อแม่แบบเดิมยังใช้ได้ proficiency แสดงจางและเลือกไม่ได้ มือถือปุ่มสูงอย่างน้อย 44px
+
+ผล B: pure 51/51; data-template-ui.test.cjs, content-authoring-ui.test.cjs, handoff-guide-ui.test.cjs ผ่าน 3/3 ไม่แก้ assertion/ขั้นตอนเดิม Source cache 76 ยังไม่เผยแพร่ ส่วน C จะเชื่อม Import ทั้งสอง format กับ diff/backup ใน commit ถัดไป

@@ -1,0 +1,31 @@
+.data-transfer-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0;
+}
+.data-transfer-tools > button {
+  min-height: 44px;
+  flex: 1 1 180px;
+}
+.data-template-dialog {
+  width: min(46rem, calc(100vw - 32px));
+  max-height: calc(100svh - 32px);
+  overflow: auto;
+}
+.data-topic-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+.data-topic {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+}
+.data-topic-unavailable { opacity: .55; }
+.data-topic small { width: 100%; }
+#dataTemplateWarning { white-space: pre-wrap; }

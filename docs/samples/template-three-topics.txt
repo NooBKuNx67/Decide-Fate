@@ -1,0 +1,151 @@
+คำสั่งกรอกข้อมูล Decide Fate สำหรับ ChatGPT / Claude ฟรี
+ทำหน้าที่กรอกข้อมูลเกมเท่านั้น ไม่แก้โค้ด ไม่ต้องใช้ GitHub ไม่ใช้ API และไม่เห็น repository
+รวมรายการใหม่ได้สูงสุด 200 รายการต่อบัญชี รวมรายการปิดใช้งาน ไฟล์ JSON ไม่เกิน 2 MB ห้ามแก้ baseFingerprint เพื่อฝืนผ่าน ถ้าข้อมูลเปลี่ยนให้ขอไฟล์คำสั่งใหม่ HTML เป็นข้อความไม่รันโค้ด ไม่มีการแก้ GitHub อัตโนมัติ คุณช่วยกรอกข้อมูลเกมเท่านั้น ไม่แก้โค้ด ไม่ใช้ API ส่งคืน JSON format decide-fate-data-pack-v1 ตาม exampleResponse ห้ามเปลี่ยน baseFingerprint/templateKey ใช้ชนิดตัวเลข/ข้อความ/รายการตาม schema สร้างได้เฉพาะกลไกของแม่แบบนี้ คำบรรยายไม่เพิ่มกลไกใหม่ ช่องที่ไม่ระบุจะใช้ค่าจากแม่แบบ ถ้าไม่รองรับให้บอกผู้ใช้ อย่าแต่งช่องขึ้นเอง create แต่ละรายการต้องมี ID custom- ที่ไม่ซ้ำและชื่ออ้างอิงไม่ซ้ำ การแก้รายการเดิมใช้ changes และชื่อที่แสดงใช้ displayName
+ขอครั้งละ 5–10 รายการ ไม่เกินโควตาที่เหลือ 200/200 (รวมรายการ disabled); ไฟล์ไม่เกิน 2 MB
+ห้ามคัดลอก ID ตัวอย่างไปใช้ซ้ำ: เปลี่ยนเป็น custom- ที่ไม่ซ้ำและชื่อใหม่ก่อนตอบ; ห้ามเปลี่ยน baseFingerprint/templateKey
+ใช้ displayName สำหรับแก้ชื่อที่แสดง; ห้ามเพิ่มช่องที่ไม่ได้ระบุ แต่ละหัวข้อใช้แม่แบบที่ระบุเท่านั้น ไม่ครอบคลุมทุกกลไกในหมวด
+ช่องที่ไม่มีผลต่อกลไกเป็นข้อความ/ข้อมูลเท่านั้น ไม่สร้างกลไกจากคำบรรยาย; ต้อง Import ดู diff และยืนยันเอง
+baseFingerprint ปัจจุบัน: 5465b825
+
+หัวข้อ: อาวุธ (weapon)
+templateKey คงที่: weapon:preset-weapon-iron-sword
+กลไกที่รองรับจาก compile เดิม: {"id":"preset-weapon-iron-sword","name":"Iron Sword","type":"sword","hands":1,"stat":"STR","damageDice":"1d8","dice":{"n":1,"sides":8,"bonus":0},"power":4.5,"range":1,"attackBonus":1,"element":"","elementDamage":0,"weaponPattern":{"v":1,"min":1,"max":1,"grid":null},"targeting":{"min":1,"max":1,"mode":"single","count":1,"heights":[-1,0,1],"side":"enemy"}}
+ช่อง | ความหมาย | ชนิด | ค่าที่ใส่ได้/ช่วง | สถานะผลต่อกลไก
+name | ชื่อ — ชื่อสำหรับแสดงผล; หลายระบบยังใช้ชื่อต้นฉบับอ้างอิงสินค้า/… | text | string ตามตัวอย่างแม่แบบ | อ่านผ่านตัวแปลงที่รองรับ
+rarity | ความหายาก — rarity ของของดรอปใช้เป็นน้ำหนักเมื่ออยู่ใน loot pool… | select | "Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic", "Unique" | มีกลไกอ่านจริง
+damageDice | เต๋าดาเมจ (เช่น 1d8) — ใช้เมื่ออุปกรณ์รางวัลถูกสวมแล้ว การให้ราง… | text | string ตามตัวอย่างแม่แบบ | มีกลไกอ่านจริง
+attackBonus | Attack Bonus — ใช้เมื่ออุปกรณ์รางวัลถูกสวมแล้ว การให้รางวัลเฉย ๆ… | number | จำนวนเต็ม -20–20 | มีกลไกอ่านจริง
+ability | Ability สำหรับ Attack Roll/Damage (ยังไม่ระบุ = STR) — ใช้เมื่ออ… | select | "", "STR", "DEX" | มีกลไกอ่านจริง
+elementDamage | ดาเมจธาตุ — ใช้เมื่ออุปกรณ์รางวัลถูกสวมแล้ว การให้รางวัลเฉย ๆ ไม… | number | ตัวเลข 0–999 | มีกลไกอ่านจริง
+element | ธาตุ — ใช้เมื่ออุปกรณ์รางวัลถูกสวมแล้ว การให้รางวัลเฉย ๆ ไม่ใส่ใ… | text | string ตามตัวอย่างแม่แบบ | มีกลไกอ่านจริง
+handedness | การใช้งาน — ใช้เมื่ออุปกรณ์รางวัลถูกสวมแล้ว การให้รางวัลเฉย ๆ ไม… | select | "มือเดียว", "สองมือ" | มีกลไกอ่านจริง
+buyPrice | ราคาซื้อ (ทอง) — ราคาใช้กับซื้อขายเดิม ไม่ใช้ตีราคาหรือหักเหรียญ… | number | 0–1000000 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | มีกลไกอ่านจริง
+sellPrice | ราคาขาย (ทอง) — ราคาใช้กับซื้อขายเดิม ไม่ใช้ตีราคาหรือหักเหรียญใ… | number | 0–1000000 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | มีกลไกอ่านจริง
+icon | ไอคอนของชิ้นนี้ — แสดงในอุปกรณ์/รายการที่รองรับ; VN ไม่แสดงการ์ด… | image | ว่าง หรือ URL http/https หรือ data:image/png,jpeg,webp,gif ตามตัวตรวจ; ห้ามใส่ token ใน URL | แสดงผลเท่านั้น ⚠ ไม่มีผลกลไกตามคำบรรยาย
+weaponRangeMin | ระยะใกล้สุดของอาวุธ (ช่อง) — 0–20 ช่อง ใช้กับทุกพื้นที่ เช่น ธนู… | number | จำนวนเต็ม 0–20 | อ่านผ่านตัวแปลงที่รองรับ
+weaponRangeMax | ระยะไกลสุดของอาวุธแบบเดิม (ช่อง) — -1 ใช้ระยะตามประเภทเดิม หรือ … | number | -1 หรือจำนวนเต็ม 1–20 | อ่านผ่านตัวแปลงที่รองรับ
+gridShape | รูปพื้นที่โจมตี — เส้นและกรวยเริ่มจากผู้ใช้ เลือกหันทิศได้ 4 ทิศ… | select | "legacy", "single", "line", "around", "cone", "square" | อ่านผ่านตัวแปลงที่รองรับ
+gridWidth | ความกว้าง (ช่อง) — เส้น 2×7 = กว้าง 2 ยาว 7 • กรวยใช้ความกว้างปล… | number | 1–15 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | อ่านผ่านตัวแปลงที่รองรับ
+gridLength | ความยาว / รัศมี (ช่อง) — เส้น/กรวยใช้เป็นความยาว รอบตัวใช้เป็นรั… | number | 1–20 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | อ่านผ่านตัวแปลงที่รองรับ
+gridRangeSource | ระยะอ้างอิง — เส้น/กรวย/รอบตัวใช้แทนความยาวหรือรัศมี • เป้าเดี่ย… | select | "fixed", "hearing", "sight" | อ่านผ่านตัวแปลงที่รองรับ
+gridRange | ระยะเล็งจุดกลาง (ช่อง) — ใช้กับเป้าหมายเดี่ยวและสี่เหลี่ยม เมื่อ… | number | 0–20 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | อ่านผ่านตัวแปลงที่รองรับ
+gridSelection | จำนวนเป้าที่ให้เลือกในพื้นที่ — ระยะขั้นต่ำ/สูงสุดและรูปพื้นที่โ… | select | "one", "select", "all" | อ่านผ่านตัวแปลงที่รองรับ
+gridCount | จำนวนเป้าสูงสุด (สำหรับเลือกหลายเป้า) — ระยะขั้นต่ำ/สูงสุดและรูป… | number | 1–13 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | อ่านผ่านตัวแปลงที่รองรับ
+ช่องโครงสร้าง: id=custom- ไม่ซ้ำ; kind=weapon; templateKey ห้ามแก้; enabled=true/false; displayName=string ≤150 ถ้าต้องการชื่อแสดงผล
+ช่องอื่นที่ไม่มีในตัวอย่างสืบทอดจากแม่แบบ อย่าแต่งช่องใหม่เอง
+ตัวอย่างเต็มที่ผ่าน validateRegistry จริง:
+{"id":"custom-example-weapon-001","name":"ตัวอย่าง weapon 1","rarity":"Common","damageDice":"1d8","attackBonus":1,"ability":"STR","elementDamage":0,"element":"","handedness":"มือเดียว","buyPrice":65,"sellPrice":25,"enabled":true,"icon":"","kind":"weapon","templateKey":"weapon:preset-weapon-iron-sword"}
+รายการอ้างอิงที่ใช้ได้ (0/0):
+
+หัวข้อ: ไอเทม (item)
+templateKey คงที่: item:item-preset-potion
+กลไกที่รองรับจาก compile เดิม: {"kind":"item"}
+ช่อง | ความหมาย | ชนิด | ค่าที่ใส่ได้/ช่วง | สถานะผลต่อกลไก
+name | ชื่อ — ชื่อสำหรับแสดงผล; หลายระบบยังใช้ชื่อต้นฉบับอ้างอิงสินค้า/… | text | string ตามตัวอย่างแม่แบบ | อ่านผ่านตัวแปลงที่รองรับ
+description | คำอธิบาย — คำอธิบายสำหรับอ่านในฐานข้อมูล/หน้ารายการ ไม่แปลงเป็นผ… | textarea | string ตามตัวอย่างแม่แบบ | แสดงผลเท่านั้น ⚠ ไม่มีผลกลไกตามคำบรรยาย
+rarity | ความหายาก — rarity ของของดรอปใช้เป็นน้ำหนักเมื่ออยู่ใน loot pool… | select | "Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic", "Unique" | มีกลไกอ่านจริง
+effectType | ประเภทเอฟเฟกต์ — รางวัลเข้ากระเป๋าจริงและกดใช้ภายหลังเมื่อมี mod… | select | "heal_hp", "restore_mp", "cure_status" | อ่านผ่านตัวแปลงที่รองรับ
+value | ค่าเอฟเฟกต์ (เช่น จำนวน HP/MP) — รางวัลเข้ากระเป๋าจริงและกดใช้ภา… | number | finite; ช่วงขึ้นกับแม่แบบ คงค่าตัวอย่าง 30 แล้วตรวจในเกม | อ่านผ่านตัวแปลงที่รองรับ
+targetType | เป้าหมาย — ปัจจุบันเป้าหมายของไอเท็มมาจากคำสั่ง/adapter ไม่ได้เป… | select | "party", "self", "single_ally", "downed_ally", "single_enemy", "all_allies", "all_enemies", "random_ally", "random_enemy" | เก็บเฉย ๆ ไม่มีผลต่อกลไก ⚠ ไม่มีผลกลไกตามคำบรรยาย
+buyPrice | ราคาซื้อไอเทมนี้ (ทอง) — 0/ว่าง = ยังไม่เปิดขายผ่านระบบร้านค้า —… | number | 0–1000000 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | มีกลไกอ่านจริง
+sellPrice | ราคาขาย (ทอง) — 0/ว่าง = ใช้ 50%-75% ของราคาซื้อแทน — ราคาใช้กับ… | number | 0–1000000 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | มีกลไกอ่านจริง
+icon | ไอคอนของชิ้นนี้ — แสดงในอุปกรณ์/รายการที่รองรับ; VN ไม่แสดงการ์ด… | image | ว่าง หรือ URL http/https หรือ data:image/png,jpeg,webp,gif ตามตัวตรวจ; ห้ามใส่ token ใน URL | แสดงผลเท่านั้น ⚠ ไม่มีผลกลไกตามคำบรรยาย
+itemAction | ผลใช้งานจริงของไอเท็ม — legacy ใช้ชนิดเดิม/แม่แบบที่เชื่อมแล้ว; … | select | "legacy", "heal_hp", "restore_mp", "cure_poison", "cure_all", "smoke", "material", "review" | อ่านผ่านตัวแปลงที่รองรับ
+ช่องโครงสร้าง: id=custom- ไม่ซ้ำ; kind=item; templateKey ห้ามแก้; enabled=true/false; displayName=string ≤150 ถ้าต้องการชื่อแสดงผล
+ช่องอื่นที่ไม่มีในตัวอย่างสืบทอดจากแม่แบบ อย่าแต่งช่องใหม่เอง
+ตัวอย่างเต็มที่ผ่าน validateRegistry จริง:
+{"id":"custom-example-item-001","name":"ตัวอย่าง item 1","description":"ยาฟื้นฟู HP เล็กน้อย","rarity":"Common","effectType":"heal_hp","value":30,"targetType":"party","buyPrice":15,"sellPrice":6,"enabled":true,"icon":"","kind":"item","templateKey":"item:item-preset-potion","itemAction":"heal_hp"}
+รายการอ้างอิงที่ใช้ได้ (0/0):
+
+หัวข้อ: สูตรปรุง (Recipe) (recipe)
+templateKey คงที่: recipe:recipe-preset-concentrated-healing-draught
+กลไกที่รองรับจาก compile เดิม: {"kind":"recipe"}
+ช่อง | ความหมาย | ชนิด | ค่าที่ใส่ได้/ช่วง | สถานะผลต่อกลไก
+name | ชื่อสูตร — ชื่อสำหรับแสดงผล; หลายระบบยังใช้ชื่อต้นฉบับอ้างอิงสิน… | text | string ตามตัวอย่างแม่แบบ | อ่านผ่านตัวแปลงที่รองรับ
+description | คำอธิบาย — คำอธิบายสำหรับอ่านในฐานข้อมูล/หน้ารายการ ไม่แปลงเป็นผ… | textarea | string ตามตัวอย่างแม่แบบ | แสดงผลเท่านั้น ⚠ ไม่มีผลกลไกตามคำบรรยาย
+ingredients | วัตถุดิบที่ต้องใช้ (ชื่อไอเทม : จำนวน) — ระบบปรุงใช้ครบและเปิดจา… | keyvalue | array ของ {key,value} โดย value เป็น string | มีกลไกอ่านจริง
+goldCost | ค่าบริการ (ทอง) — ระบบปรุงใช้ครบและเปิดจาก VN ด้วย npcAction cra… | number | 0–1000000 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | มีกลไกอ่านจริง
+resultItemName | ไอเทมผลลัพธ์ (ต้องตรงกับชื่อจริงใน Item Database) — ระบบปรุงใช้ค… | text | string ตามตัวอย่างแม่แบบ | มีกลไกอ่านจริง
+resultQuantity | จำนวนที่ได้รับ — ระบบปรุงใช้ครบและเปิดจาก VN ด้วย npcAction craf… | number | จำนวนเต็ม 1–99 | มีกลไกอ่านจริง
+providerNpcIds | NPC ที่ให้บริการสูตรนี้ (ว่าง = ทุก NPC เสนอได้) — ระบบปรุงใช้คร… | reference | array ของ string; อ้าง npc ด้วย ID | มีกลไกอ่านจริง
+ช่องโครงสร้าง: id=custom- ไม่ซ้ำ; kind=recipe; templateKey ห้ามแก้; enabled=true/false; displayName=string ≤150 ถ้าต้องการชื่อแสดงผล
+ช่องอื่นที่ไม่มีในตัวอย่างสืบทอดจากแม่แบบ อย่าแต่งช่องใหม่เอง
+ตัวอย่างเต็มที่ผ่าน validateRegistry จริง:
+{"id":"custom-example-recipe-001","name":"ตัวอย่าง recipe 1","description":"สูตรปรุงยาฟื้นฟู HP สูตรเข้มข้นของเมาเมา ต้องใช้สมุนไพรคัดพิเศษและรากไม้สีเงิน","ingredients":[{"key":"Moon-Kissed Herb","value":"2"},{"key":"Silver Root","value":"1"}],"goldCost":30,"resultItemName":"Concentrated Healing Draught","resultQuantity":1,"providerNpcIds":["preset-npc-maomao"],"enabled":true,"kind":"recipe","templateKey":"recipe:recipe-preset-concentrated-healing-draught"}
+รายการอ้างอิงที่ใช้ได้ (8/260): ตัดรายการแล้ว ขอหัวข้อน้อยลง/ใช้รายการที่แสดงเท่านั้น
+item | id=item-preset-concentrated-healing-draught | name=Concentrated Healing Draught
+item | id=item-preset-moon-kissed-herb | name=Moon-Kissed Herb
+item | id=item-preset-silver-root | name=Silver Root
+npc | id=preset-npc-maomao | name=Maomao
+accessory | id=preset-accessory-adventurers-belt-ornament | name=เครื่องประดับเข็มขัดนักผจญภัย (Adventurer's Belt Ornament)
+accessory | id=preset-accessory-adventurers-cloak-brooch | name=เข็มกลัดผ้าคลุมนักผจญภัย (Adventurer's Cloak Brooch)
+accessory | id=preset-accessory-amber-traveler-pendant | name=จี้อำพันนักเดินทาง (Amber Traveler Pendant)
+accessory | id=preset-accessory-amulet-of-fortitude | name=Amulet of Fortitude
+
+ตัวอย่างคำตอบรวม — ตอบ JSON อย่างเดียว ห้ามใส่คำอธิบาย/Markdown
+---BEGIN EXAMPLE RESPONSE---
+{
+  "format": "decide-fate-data-pack-v1",
+  "baseFingerprint": "5465b825",
+  "changes": {},
+  "create": [
+    {
+      "id": "custom-example-weapon-001",
+      "name": "ตัวอย่าง weapon 1",
+      "rarity": "Common",
+      "damageDice": "1d8",
+      "attackBonus": 1,
+      "ability": "STR",
+      "elementDamage": 0,
+      "element": "",
+      "handedness": "มือเดียว",
+      "buyPrice": 65,
+      "sellPrice": 25,
+      "enabled": true,
+      "icon": "",
+      "kind": "weapon",
+      "templateKey": "weapon:preset-weapon-iron-sword"
+    },
+    {
+      "id": "custom-example-item-001",
+      "name": "ตัวอย่าง item 1",
+      "description": "ยาฟื้นฟู HP เล็กน้อย",
+      "rarity": "Common",
+      "effectType": "heal_hp",
+      "value": 30,
+      "targetType": "party",
+      "buyPrice": 15,
+      "sellPrice": 6,
+      "enabled": true,
+      "icon": "",
+      "kind": "item",
+      "templateKey": "item:item-preset-potion",
+      "itemAction": "heal_hp"
+    },
+    {
+      "id": "custom-example-recipe-001",
+      "name": "ตัวอย่าง recipe 1",
+      "description": "สูตรปรุงยาฟื้นฟู HP สูตรเข้มข้นของเมาเมา ต้องใช้สมุนไพรคัดพิเศษและรากไม้สีเงิน",
+      "ingredients": [
+        {
+          "key": "Moon-Kissed Herb",
+          "value": "2"
+        },
+        {
+          "key": "Silver Root",
+          "value": "1"
+        }
+      ],
+      "goldCost": 30,
+      "resultItemName": "Concentrated Healing Draught",
+      "resultQuantity": 1,
+      "providerNpcIds": [
+        "preset-npc-maomao"
+      ],
+      "enabled": true,
+      "kind": "recipe",
+      "templateKey": "recipe:recipe-preset-concentrated-healing-draught"
+    }
+  ]
+}
+---END EXAMPLE RESPONSE---

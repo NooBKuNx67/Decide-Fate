@@ -171,3 +171,13 @@ closeout-legacy-saves.test.cjs เข้า CI และ check.cjs แล้ว 
 ## ภาพที่ไม่ถูกใช้ — ข้อ C รอบถัดมา
 
 ตรวจ literal/dynamic references และประวัติก่อน/หลัง phase 4 แล้ว title-screen.webp ไม่ถูกใช้ จึงย้ายด้วย git mv ไป source-assets/webp/title-screen.webp เก็บ bytes/hash เดิม ลด dist 2,081,894 ไบต์: 18,460,881 → 16,378,987 ไบต์ Pure 50/50; battle-isometric.test.cjs, orientation.test.cjs 2/2 และ asset-visual-check ผ่าน ไม่ย้าย forest/cave extras ที่ประกอบชื่อแบบ dynamic เพราะใช้งานจริง Source cache 74 ยังระงับ Publish workflow/เว็บจริง ผลข้อ A–C รอบนี้อยู่ reports/legacy-archive-A.json, reports/legacy-saves-B.json, reports/unused-title-C.json ข้อ B ไม่พบ fixture เก่าที่โหลดไม่ผ่านทั้ง 6 รุ่น และไม่ได้แก้ loader/schema/engine
+
+## Data Template — ส่วน A
+
+ตัวสร้างใหม่ dist/data-template.js ใช้ได้ทั้ง classic browser และ require ใน Node รับ {db,schema,selected} คืนข้อความไทย/characterCount/คำเตือน/ตัวอย่าง pack เดิม สร้าง fingerprint ใหม่ทุกครั้ง ไม่แก้ validators หรือรูปแบบ decide-fate-data-pack-v1 รองรับ 12 หัวข้อจาก templates()/kinds; proficiency ยังไม่รองรับ ตัวอย่าง custom-example-* ผ่าน decode/stage/validateRegistry จริง รวมหลายชนิดใน create เดียว
+
+คำอธิบาย/สถานะ 271 ช่องสร้างอัตโนมัติจาก audit เดิมใน dist/field-guide.js (พร้อมฟิลด์ adapter accessory.passive); ตรวจด้วย node tools/check-field-guide.cjs เมื่อ schema เพิ่มช่องแต่ไม่มีคำอธิบายจะล้ม ตัวอย่างใน docs/samples/template-one-topic.txt (6,004 ตัวอักษร) และ template-three-topics.txt (12,292) สร้างซ้ำด้วย tools/generate-template-sample.cjs ห้ามใช้ fingerprint ในไฟล์ตัวอย่างกับบัญชีจริง ต้องสร้างใหม่จาก library ปัจจุบัน รายการอ้างอิงถูกจำกัดพร้อมแจ้งว่าตัดแล้ว บางหัวข้อยังเกินเป้าหมายอ่อน 8,000; เตือนเมื่อรวมเกิน 40,000
+
+ผล A: pure 51/51; content-authoring-ui.test.cjs, handoff-guide-ui.test.cjs, closeout-authoring-ui.test.cjs 3/3 ผ่าน ยังคงปุ่มเดิม ณ ส่วน A ส่วน B–D จะทำแยกทีละ commit; ไม่เพิ่มตัวอย่าง lab เพราะเป็นเครื่องมือข้อมูลตามคำสั่งเจ้าของ Source cache 75 แต่ยังระงับ Publish/เว็บจริง
+
+คำยืนยันส่วน C: HTML ภายในข้อความ JSON คงอนุญาตพร้อมเตือน/แสดงเป็นข้อความ ไม่รันโค้ด; ปฏิเสธ HTML/สคริปต์ที่ไม่ใช่ JSON ไม่แก้ assertion เดิม

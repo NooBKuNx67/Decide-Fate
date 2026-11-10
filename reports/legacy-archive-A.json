@@ -1,0 +1,250 @@
+{
+  "legacy": [
+    {
+      "original": "browser.test.cjs",
+      "file": "legacy-browser.test.cjs",
+      "bytesIdentical": true,
+      "sha256": "b8a3f10384314ac695ce9f0a1649bd4a000784947ba0d5f236dcf3f51ac2f98d"
+    },
+    {
+      "original": "tactical-ui.test.cjs",
+      "file": "legacy-tactical-ui.test.cjs",
+      "bytesIdentical": true,
+      "sha256": "a77c8ff7d59562cf222e23173b3c2cc0c10858563e132a7322881f71b4a0b921"
+    },
+    {
+      "original": "combat.test.cjs",
+      "file": "legacy-combat.test.cjs",
+      "bytesIdentical": true,
+      "sha256": "5d8bc7b72e27518f88e53ca79066e7265a3dffc39df33943f7d61f99fb4daf1d"
+    }
+  ],
+  "pure": [
+    {
+      "file": "adventure.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-presets.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-view.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-actions.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-combat-items.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-economy.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-equipment.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-loot.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "character-art-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-authoring.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-custom-services.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-handoff.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-resume.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-sync.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "cloud.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-lab-party.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-lab.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "content-authoring.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "content-integration-audit.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "creation-system.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "database-live-links.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "displacement.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "elements.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "event-story.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-closeout.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-hazards.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-patterns.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "hazard-navigation.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "large-map.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "legacy-content-parity.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "library-merge.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "look-around.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "map-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-ai.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-grid.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-passives.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-stats.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-tactics.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "rules.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "status-effects.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "status-immunity.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "tactical-v2.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "tactical.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "weapon-motion.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "weapon-patterns.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "world-links.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "world-travel.test.cjs",
+      "pass": true
+    }
+  ],
+  "browser": [
+    {
+      "file": "tactical-v2-ui.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-polish.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "orientation.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "creation-ui.test.cjs",
+      "pass": true
+    }
+  ],
+  "visualTools": [
+    {
+      "file": "tools/capture-visuals.cjs",
+      "pass": true
+    },
+    {
+      "file": "tools/asset-visual-check.cjs",
+      "pass": true
+    }
+  ],
+  "activeOldReferences": 0,
+  "workflowHasRetiredSuites": false
+}

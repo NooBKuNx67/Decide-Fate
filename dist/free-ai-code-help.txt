@@ -22,3 +22,5 @@ commit หรือ revision: [เลขจาก GitHub]
 - ตอนนี้อนุญาต push main แต่ระงับ Publish Decide Fate workflow/เว็บจริง จนเจ้าของสั่งเผยแพร่ใหม่
 
 โปรดเริ่มจากอธิบายสาเหตุที่ยืนยันได้ แยกข้อสันนิษฐาน แล้วเสนอการแก้เล็กที่สุดภายใต้กฎข้างต้น อย่าสร้างตาราง Supabase ใหม่หรือขอรหัสผ่าน
+
+เลิกใช้/สเปกเก่า: legacy-browser.test.cjs, legacy-tactical-ui.test.cjs, legacy-combat.test.cjs เก็บประวัติและไม่ใช่ acceptance suite ใช้ creation-ui.test.cjs, tactical-v2-ui.test.cjs, combat-polish.test.cjs ตามลำดับ ห้ามแก้เนื้อหา/assertion ของไฟล์ legacy หรือย้อน engine เป็น 1 AP

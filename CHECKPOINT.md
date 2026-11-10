@@ -15,7 +15,7 @@ Details and limitations: `LEGACY-MIGRATION.md`, `EQUIPMENT-SYSTEM.md`, `CATALOG-
 
 ## Verification
 
-24 pure test files pass. Focused browser tests have passed for icon tokens, economy, loot, combat items, equipment, elements, status immunity and catalog actions with mocked auth/storage. Latest browser checks include creation/combat/reload, status immunity and catalog journal learning/Fire/Heal/Meteor/Cure, desktop and landscape. The pre-existing legacy `combat.test.cjs` enemy-visibility failure remains documented in VISUAL-UPDATE.md and is not counted as passing. No real player saves were modified during QA.
+24 pure test files pass. Focused browser tests have passed for icon tokens, economy, loot, combat items, equipment, elements, status immunity and catalog actions with mocked auth/storage. Latest browser checks include creation/combat/reload, status immunity and catalog journal learning/Fire/Heal/Meteor/Cure, desktop and landscape. The pre-existing legacy `legacy-combat.test.cjs` enemy-visibility failure remains documented in VISUAL-UPDATE.md and is not counted as passing. No real player saves were modified during QA.
 
 Run `node preview.cjs` for local preview. Browser compatibility runner: `NODE_PATH=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules node tools/qa-runtime.cjs <test-file>` when this runtime is available.
 

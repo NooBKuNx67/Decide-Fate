@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs');
 (async()=>{
  const browser=await chromium.launch({executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
  try{
-  const sdk=fs.readFileSync('browser.test.cjs','utf8').match(/body:`([^`]+)`/)[1];
+  const sdk=fs.readFileSync('legacy-browser.test.cjs','utf8').match(/body:`([^`]+)`/)[1];
   const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true});
   await context.route('https://esm.sh/**',r=>r.fulfill({contentType:'application/javascript',body:sdk}));
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));

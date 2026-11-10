@@ -46,7 +46,7 @@ Chests supply pending gold and a potion, herbs supply potions, ore supplies pend
 
 The workshop remains an independent movement sandbox. Combat uses existing pawn visuals, not final animated character art. Equipment, persistent item inventory, all imported spell effects, passive/race bonuses and prepared activity buffs are not implemented in this combat ruleset. Existing activity buffs remain available for the next ordinary activity. Balancing is provisional.
 
-Verification: combat-data.test.cjs covers rules, class actions, AI, loot, result settlement and malformed saves. combat.test.cjs covers actual UI movement, retaliation, refresh/resume, single reward, defeat recovery, retreat and landscape layout. Run with the documented tools/qa-runtime.cjs runner.
+Verification: combat-data.test.cjs covers rules, class actions, AI, loot, result settlement and malformed saves. legacy-combat.test.cjs covers actual UI movement, retaliation, refresh/resume, single reward, defeat recovery, retreat and landscape layout. Run with the documented tools/qa-runtime.cjs runner.
 
 ## Large maps, terrain routes and spawn candidates — 2026-10-29
 
@@ -80,7 +80,7 @@ Added 30 local SVG scenery objects, accessible via the workshop's New Objects fi
 
 The 51 atlas maps now use coherent rounded hill fields, smoothed slopes into paths/water, habitat clusters, open clearings, visible rock formations, varying landmark positions and winding approaches. Automatic ladders on every hillside path were removed. Existing edited scenes and saved encounters are not rewritten.
 
-Validation: tactical.test.cjs covers 8/5 limits, individual actions/vision, limited alerts, stealth chains, spell costs, save validation and prop collision. tactical-ui.test.cjs checks party selection, turns, reload, mobile and retreat. scenery-ui.test.cjs checks all 30 brushes and a rendered gallery. Legacy encounter, editor, atlas, rules and mocked cloud regressions pass. No real player saves used.
+Validation: tactical.test.cjs covers 8/5 limits, individual actions/vision, limited alerts, stealth chains, spell costs, save validation and prop collision. legacy-tactical-ui.test.cjs checks party selection, turns, reload, mobile and retreat. scenery-ui.test.cjs checks all 30 brushes and a rendered gallery. Legacy encounter, editor, atlas, rules and mocked cloud regressions pass. No real player saves used.
 
 ## Chapter one: Heart of the Stream — 2026-10-29
 
@@ -150,7 +150,7 @@ Fixed the Continue Cast button so a successfully completed held spell invokes th
 
 Validation: `node tools/qa-runtime.cjs combat-polish.test.cjs` covers displayed versus charged MP, friendly-fire disclosure, profile overrides, held-cast/AP state, non-mutating selection, disclosure access, 1440×1000 / 844×390 / 390×844 layouts, cancellation, reload and completion effects. Existing creation-ui, tactical-v2-ui and battle-isometric browser suites passed, as did all 16 pure rule/data test files. Browser tests mock Supabase; real player data was not touched. Visual records: `artifacts/qa/polish-desktop.png`, `polish-landscape.png`, `polish-narrow.png`, `polish-cast-effect.png`.
 
-Known regression-suite limitation: `combat.test.cjs` times out selecting `#combatEnemies button` at line 13. Reproduced the same missing-enemy failure with unchanged HEAD combat.js/combat.css served through browser routes. This legacy suite is not passing and is not counted as validated; the focused modern combat, reload/AP and camera suites above pass. No assertion or combat visibility rule was bypassed.
+Known regression-suite limitation: `legacy-combat.test.cjs` times out selecting `#combatEnemies button` at line 13. Reproduced the same missing-enemy failure with unchanged HEAD combat.js/combat.css served through browser routes. This legacy suite is not passing and is not counted as validated; the focused modern combat, reload/AP and camera suites above pass. No assertion or combat visibility rule was bypassed.
 
 ## Player icons on the grid — 2026-11-05
 

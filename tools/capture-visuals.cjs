@@ -6,7 +6,7 @@ const browser=await chromium.launch({headless:true,executablePath:process.env.PL
 try{
 const page=await browser.newPage({viewport:{width:1440,height:1000}});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
-const src=fs.readFileSync(require('path').join(__dirname,'../browser.test.cjs'),'utf8');
+const src=fs.readFileSync(require('path').join(__dirname,'../legacy-browser.test.cjs'),'utf8');
 const sdk=src.match(/body:`([^`]+)`/)[1];
 await page.route('https://esm.sh/**',r=>r.fulfill({contentType:'application/javascript',body:sdk}));
 await page.exposeFunction('__qaBackend',()=>({data:null}));

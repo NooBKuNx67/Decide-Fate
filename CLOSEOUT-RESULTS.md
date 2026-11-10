@@ -52,11 +52,11 @@ Pure 48 ผ่าน / 0 ไม่ผ่าน; [รายไฟล์ทั้�
 | `tactical-v2-ui.test.cjs` | PASS |
 | `combat-polish.test.cjs` | PASS |
 | `creation-ui.test.cjs` | PASS |
-| `browser.test.cjs` | FAIL (legacy เดิม; ไม่แก้ assertion) |
-| `combat.test.cjs` | FAIL (legacy เดิม; ไม่แก้ assertion) |
-| `tactical-ui.test.cjs` | FAIL (legacy เดิม; ไม่แก้ assertion) |
+| `legacy-browser.test.cjs` | FAIL (legacy เดิม; ไม่แก้ assertion) |
+| `legacy-combat.test.cjs` | FAIL (legacy เดิม; ไม่แก้ assertion) |
+| `legacy-tactical-ui.test.cjs` | FAIL (legacy เดิม; ไม่แก้ assertion) |
 
-ยังไม่ปิดการทำ legacy สามไฟล์ให้ผ่าน ดูสาเหตุ/วิธีทำซ้ำ/ผลกระทบใน MAINTENANCE-PHASES.md เจ้าของต้องอนุมัติการเปลี่ยนสเปกเทสต์ก่อน ไม่ถอยเกมไป 1 AP/เมนูเดิม
+ยังไม่ปิดการทำ legacy สามไฟล์ให้ผ่าน ดูสาเหตุ/วิธีทำซ้ำ/ผลกระทบใน MAINTENANCE-PHASES.md เจ้าของตัดสินใจแล้วให้เก็บไฟล์ legacy เป็นประวัติ ไม่นับใน acceptance ใช้ชุดปัจจุบันแทน ไม่ถอยเกมไป 1 AP/เมนูเดิม
 
 ## ข้อ F — commit ของเอกสารนี้
 
@@ -77,5 +77,5 @@ Pure 49 ผ่าน / 0 ไม่ผ่าน; [รายไฟล์ทั้�
 
 - ทดลอง TXT/คู่มือกับ ChatGPT หรือ Claude ฟรีหนึ่งชุดด้วยตนเอง ไม่ใช้ Codex
 - ตรวจ Supabase/สองอุปกรณ์จริงด้วยบัญชีทดสอบ ตาม OWNER-ACCEPTANCE.md หลังอนุมัติเวอร์ชันและสั่งเผยแพร่เอง
-- ตัดสินใจว่าจะเก็บ legacy tests เป็นประวัติหรืออนุมัติปรับสเปกที่ขัดกับ 2 AP/เมนูปัจจุบัน
+- legacy tests เก็บเป็นประวัติตามคำสั่งแล้ว ใช้ creation-ui/tactical-v2-ui/combat-polish เป็น acceptance
 - การเผยแพร่ยังระงับตามคำสั่ง จึงไม่ติ๊กข้อ workflow/เว็บล่าสุด

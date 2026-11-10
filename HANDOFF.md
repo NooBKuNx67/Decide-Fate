@@ -84,7 +84,7 @@ See DATABASE-LIVE-LINKS.md: 95 actual catalog commands, 30 class definition snap
 
 ข้อ A ปิดในขอบเขต mock แล้ว: closeout-resume.test.cjs (pure, เข้า check.cjs อัตโนมัติและ Pages Validate), closeout-resume-ui.test.cjs, adventure-ui.test.cjs, world-links-ui.test.cjs ผ่าน; pure 45/45 และ browser 3/3 ครอบคลุม frozen encounter, AP/MP/held cast/cooldown/hazard, เซฟก่อน–หลังรับเงิน/EXP/ของ/เควสและจบบท ไม่จ่ายซ้ำ ข้อมูลทดสอบสร้างผ่าน production adapters ไม่แก้ระบบเกม เซฟก่อนรับรางวัลที่โหลดซ้ำเป็นการย้อนเวลา: ได้ยอดปลายทางเท่าเดิม ไม่ใช่เพิ่มสะสมจากเซฟหลังรับรางวัล คลาวด์จริงยังรอเจ้าของตรวจ
 
-สถานะล่าสุด: A–D ผ่าน mock E2E; E วินิจฉัยแล้วแต่ legacy 3 ไฟล์ยังไม่ผ่าน; F เอกสาร/เครื่องมือส่งต่อผ่าน technical QA แล้ว รอเจ้าของทำตามคู่มือด้วย AI ฟรีเอง
+สถานะล่าสุด: A–D ผ่าน mock E2E; E เจ้าของตัดสินใจเลิกใช้ legacy 3 ไฟล์แล้ว (ไม่ใช่ acceptance); F เอกสาร/เครื่องมือส่งต่อผ่าน technical QA แล้ว รอเจ้าของทำตามคู่มือด้วย AI ฟรีเอง
 
 ข้อ B ปิดในขอบเขต mock: closeout-custom-services.test.cjs + closeout-custom-services-ui.test.cjs ตรวจร้าน/ยา/วัตถุดิบ/สูตร/อาวุธ custom-* ที่สร้างด้วย ContentAuthoring.create/validateRegistry จริง แล้วซื้อ/ขาย/ใช้/ปรุง/สวมมือหลัก–รอง/สองมือ/โหลดครบทุกขั้น รวม atomic rejection; catalog-services-ui.test.cjs และ equipment-ui.test.cjs ผ่านเดิม Pure 46/46, browser 3/3 ไม่มีการแก้เกมหรือ assertion เดิม ข้อสังเกตตามพฤติกรรมเดิม: เปลี่ยนไปสวมอาวุธมือรองหนึ่งมือขณะถือสองมือจะถอดอาวุธสองมือกลับคลังอัตโนมัติ ไม่ถือว่าเป็นการสวมที่ผิดเงื่อนไข; อาวุธสองมือใส่ในมือรองไม่ได้
 
@@ -96,7 +96,7 @@ See DATABASE-LIVE-LINKS.md: 95 actual catalog commands, 30 class definition snap
 
 ข้อ D เป็น account/recovery flow นอกสนามต่อสู้ จึงใช้หน้า login/load/database กับ backend จำลองแยกแทนการทำปุ่มสนามที่แตะบัญชีผู้เล่น ไม่เพิ่มกลไกเกม ตัวอย่างการแสดงสถานะ/กู้ข้อมูลทำซ้ำได้ด้วย closeout-accounts-ui และ save-recovery-ui ยังไม่ได้ทดสอบ Supabase หรืออุปกรณ์จริง
 
-ข้อ E: pure 48/48 และ browser ปัจจุบัน creation-ui/tactical-v2-ui/combat-polish 3/3 ผ่าน เทสต์เก่า browser/combat/tactical-ui ยังไม่ผ่านตามสาเหตุ/วิธีทำซ้ำใน MAINTENANCE-PHASES.md ไม่แก้ assertion หรือถอยเกมไปกติกาเก่า owner ต้องตัดสินใจแยกว่าจะเก็บเป็นประวัติหรืออนุมัติปรับสเปกเทสต์ใหม่ รายงาน reports/closeout-E.json รวม watchdog/diagnostic ตามจริง ไม่ถือว่าได้แก้สามไฟล์ให้เขียวแล้ว
+ข้อ E: pure 48/48 และ browser ปัจจุบัน creation-ui/tactical-v2-ui/combat-polish 3/3 ผ่าน เทสต์เก่า browser/combat/tactical-ui ยังไม่ผ่านตามสาเหตุ/วิธีทำซ้ำใน MAINTENANCE-PHASES.md ไม่แก้ assertion หรือถอยเกมไปกติกาเก่า เจ้าของตัดสินใจแล้วให้เก็บเป็นประวัติ โดยไม่แก้ assertion รายงาน reports/closeout-E.json รวม watchdog/diagnostic ตามจริง ไม่ถือว่าได้แก้สามไฟล์ให้เขียวแล้ว
 
 ## เมื่อมีอะไรพัง
 
@@ -136,7 +136,7 @@ node tools/qa-runtime.cjs combat-polish.test.cjs
 
 check.cjs ค้นหา pure test ใหม่อัตโนมัติและรันแต่ละไฟล์ด้วย Node; ทุก closeout pure test อยู่ใน Pages Validate ด้วย คำสั่ง direct ทั้งห้าใช้ซ้ำเฉพาะเวลาต้องแยกสาเหตุ เพราะ check.cjs รวมไว้แล้ว check-grid.cjs เป็นชุดกลไก grid แบบกว้างที่มีอยู่ ไม่ใช่หลักฐานว่ารันใหม่ทั้งชุดในรอบนี้ รายงานรายไฟล์รอบ A–F อยู่ reports/closeout-*.json และผล E/ข้อจำกัดอยู่ MAINTENANCE-PHASES.md
 
-เทสต์ legacy browser.test.cjs, combat.test.cjs, tactical-ui.test.cjs ยังไม่ผ่านด้วยสเปกเก่า ตามข้อ E อย่านับว่าเขียวหรือแก้ assertion เพื่อให้ผ่าน ถ้าเทสต์อื่นที่เคยผ่านพังให้หยุดและเก็บ stderr/ขั้นตอน/commit
+เทสต์ legacy-browser.test.cjs, legacy-combat.test.cjs, legacy-tactical-ui.test.cjs เลิกใช้/สเปกเก่า เก็บไว้เป็นประวัติ ไม่นับใน acceptance และไม่แก้ assertion ถ้าเทสต์อื่นที่เคยผ่านพังให้หยุดและเก็บ stderr/ขั้นตอน/commit
 
 ### ขอ AI ฟรีช่วยแก้โค้ด
 
@@ -153,3 +153,9 @@ check.cjs ค้นหา pure test ใหม่อัตโนมัติแ�
 เมื่อ preview ไม่ได้รัน การเข้า localhost:4173 จะถูกปฏิเสธ ไม่ใช่ผลว่าเกมผ่าน เปิด preview ตามขั้นตอนก่อนรันใหม่ รอบแรกของ F มี 3 environment-blocked attempts และเก็บไว้ใน reports/closeout-F.json; รอบสุดท้ายรันเดิมผ่านโดยไม่แก้ assertion ดูผลแยกข้อ/สิ่งยังเปิดที่ CLOSEOUT-RESULTS.md
 
 Source cache 72, ให้ push main เท่านั้น ยังห้าม Publish workflow/เว็บจริงจนกว่าเจ้าของสั่ง ผู้ใช้ยังต้องตรวจ OWNER-ACCEPTANCE.md และลองกรอกข้อมูลหนึ่งชุดด้วย ChatGPT/Claude ฟรีเอง ไม่ถือว่าผ่านแทนด้วย mock
+
+## ย้าย legacy specs — ข้อ A รอบถัดมา
+
+เจ้าของเลือกเก็บประวัติด้วย git mv: legacy-browser.test.cjs → ใช้ creation-ui.test.cjs, legacy-tactical-ui.test.cjs → tactical-v2-ui.test.cjs, legacy-combat.test.cjs → combat-polish.test.cjs ตรวจ bytes/SHA-256 ตรงต้นฉบับทุกไฟล์ ไม่เพิ่มคอมเมนต์ ไม่แก้ assertion ตัวอ่าน SDK mock ใน orientation/visual tools ใช้ชื่อ legacy ใหม่เป็นข้อมูล ไม่รัน suite นั้น ภาพรวม engine ไม่มีการเปลี่ยน schema/config/ID และยังระงับเผยแพร่
+
+ข้อ A ย้าย legacy ผ่าน: pure 49/49, browser creation-ui/tactical-v2-ui/combat-polish/orientation 4/4, visual tools 2/2 ไม่ได้รัน legacy specs เป็น acceptance ไม่พบชื่อไฟล์เก่าใน references ที่ใช้จริง (รายงาน stack ย้อนหลังเก็บเส้นทางเดิมตามจริง) ขั้นถัดไปคือ fixture โหลดเซฟรุ่นเก่าและ closeout-legacy-saves.test.cjs; ยังไม่อ้างว่าตรวจ compatibility รุ่นเก่าเสร็จแล้ว

@@ -2,7 +2,7 @@
 const {chromium}=require('playwright'),fs=require('node:fs'),assert=require('node:assert/strict');
 const phase=process.argv[3]||'before';
 (async()=>{const b=await chromium.launch({headless:true});try{
- fs.mkdirSync('artifacts/qa/asset-'+phase,{recursive:true});const sdk=fs.readFileSync('browser.test.cjs','utf8').match(/body:`([^`]+)`/)[1];
+ fs.mkdirSync('artifacts/qa/asset-'+phase,{recursive:true});const sdk=fs.readFileSync('legacy-browser.test.cjs','utf8').match(/body:`([^`]+)`/)[1];
  for(const [name,viewport,mobile]of [['desktop',{width:1440,height:1000},false],['mobile',{width:844,height:390},true]]){
   const c=await b.newContext({viewport,hasTouch:mobile,isMobile:mobile}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
   await c.route('https://esm.sh/**',r=>r.fulfill({contentType:'application/javascript',body:sdk}));await p.goto('http://127.0.0.1:4173');

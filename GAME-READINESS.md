@@ -52,4 +52,4 @@ world-links.test.cjs และ browser world-links-ui ผ่าน placement/เ
 
 ## Closeout A–F
 
-A–D ผ่าน E2E แบบ mock ตาม RELEASE-CLOSEOUT.md และรายงาน reports/closeout-*.json E วินิจฉัยแล้วแต่ legacy 3 suites ยังไม่ผ่าน F ส่งคู่มือ/TXT/วิธีกู้แล้ว การให้เจ้าของลองกรอกกับ AI ฟรีจริงและ Supabase/สองอุปกรณ์จริงยังเป็น acceptance ที่ไม่ปิด ห้ามอ้างว่า source ที่ push ในรอบนี้เผยแพร่แล้ว
+A–D ผ่าน E2E แบบ mock ตาม RELEASE-CLOSEOUT.md และรายงาน reports/closeout-*.json E เจ้าของเลือกเก็บ legacy 3 suites เป็นประวัติ ไม่นับใน acceptance F ส่งคู่มือ/TXT/วิธีกู้แล้ว การให้เจ้าของลองกรอกกับ AI ฟรีจริงและ Supabase/สองอุปกรณ์จริงยังเป็น acceptance ที่ไม่ปิด ห้ามอ้างว่า source ที่ push ในรอบนี้เผยแพร่แล้ว

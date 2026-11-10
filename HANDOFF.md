@@ -195,3 +195,15 @@ closeout-legacy-saves.test.cjs เข้า CI และ check.cjs แล้ว 
 JSON เสีย/format แปลก/ช่องระดับบนเกิน/ไฟล์เกิน 2 MB/HTML ที่ไม่ใช่ JSON ถูกปฏิเสธพร้อมข้อความไทย ไม่เปลี่ยนข้อมูลเดิม HTML ภายในข้อความ JSON คงอนุญาตพร้อมคำเตือนและแสดงเป็นข้อความตามที่เจ้าของยืนยัน ไม่มีการเปลี่ยน pack/fingerprint/200 รายการ/validators/schema/config/identifiers
 
 ผล C: pure 52/52; data-transfer-ui.test.cjs, closeout-authoring-ui.test.cjs, handoff-guide-ui.test.cjs, content-authoring-ui.test.cjs, data-template-ui.test.cjs, frontend-security-ui.test.cjs, full-schema.test.cjs ผ่าน 7/7 รายไฟล์อยู่ reports/data-template-C.json ปรับขั้นตอน 2 suite เดิมเฉพาะรอ diff/กดยืนยัน; กรณี backup ถูกบล็อกอ่านสถานะ authorStatus ของการยืนยันแทน globalStatus ยังคง assertion เดิมว่าข้อมูลต้องไม่เปลี่ยน ไม่แตะ legacy tests Source cache 77 ยังไม่เผยแพร่
+
+## ขั้นตอนปัจจุบัน: Import / Export / Template (ส่วน D)
+
+ฐานข้อมูลจากเมนูหลัก → ไฟล์ตัวอย่างให้ AI (Template) → ติ๊กหัวข้อ → ดาวน์โหลด TXT → แนบ/วางทั้งหมดให้ ChatGPT หรือ Claude ฟรี → เก็บคำตอบเป็น .json UTF-8 → นำเข้า (Import) → ตรวจ diff → ยืนยัน → ทดสอบข้อมูลจริง → ถ้าผิด ดูและเตรียมย้อนคืน → ตรวจ → ยืนยัน รายการใหม่ที่ย้อนคืนจะ disabled ไม่ลบ ID ปุ่มคำสั่งต่อแม่แบบเดิมและช่องวาง JSON ยังใช้ได้
+
+ตัวอย่างข้อความให้ AI: “สร้าง NPC ชาวบ้าน 5 คนในหมู่บ้านแรก ตามแม่แบบในไฟล์ TXT ใช้ custom- ID ใหม่ไม่ซ้ำ ห้ามใช้ ID example ไม่เปลี่ยน baseFingerprint/templateKey ตอบ JSON อย่างเดียว ไม่แก้โค้ด” การเขียนหมู่บ้านในคำบรรยายไม่วาง NPC ให้อัตโนมัติ ต้องผูก placement ด้วยเครื่องมือแผนที่เดิม หากคำตอบไม่ผ่านให้ส่งข้อผิดพลาดกับ TXT เดิมกลับไปแก้ หาก baseline เปลี่ยนให้ดาวน์โหลด Template ใหม่ ห้ามแก้ fingerprint เอง
+
+Export ส่งออกทั้งหมดเท่านั้น ไม่กรองหัวข้อเพื่อรักษาอ้างอิง/แผนที่/ฉาก นำเข้ากลับบัญชีจำลองใหม่ได้ครบ เป็นฐานข้อมูล overrides ไม่ใช่เซฟตัวละคร ข้อมูลพื้นฐานมากับเกมเดิม ส่วน Template ให้ AI เห็นเฉพาะหัวข้อที่เลือกและรายการอ้างอิงแบบจำกัดพร้อมแจ้งว่าตัด ไม่เห็นบัญชี/เซฟ/โทเคน ไฟล์ Export ที่ Import จะ “แทน” overrides ทั้งชุด (ต่างจาก AI pack ที่ “รวม”) ยังไม่เปรียบเทียบรายการที่หายไป จึงต้องส่งออกชุดปัจจุบันเก็บก่อน
+
+คู่มือในเกม dist/maintenance-guide.html อัปเดตแล้ว ลิงก์และ source cache 78 เปลี่ยน selector ลิงก์คู่มือใน handoff-guide-ui.test.cjs เฉพาะเลขแคช ไม่แก้ assertion คู่มือยืนยัน HTML ใน JSON เป็นข้อความพร้อมเตือน ปฏิเสธ non-JSON HTML และอธิบายสำรอง/ย้อนคืน/ข้อจำกัด 200 รายการและ 2 MB ยังไม่ใช้เซฟจริงหรือทดสอบ Supabase จริง เจ้าของยังต้องลอง TXT หนึ่งชุดกับ AI ฟรีของตนเอง และตรวจมือถือจริง/การรับข้อมูลข้ามอุปกรณ์ ไม่อ้างว่าชุด mock แทนการตรวจนี้ได้
+
+ผล D: pure 52/52 ไม่ผ่าน 0; handoff-guide-ui.test.cjs, data-template-ui.test.cjs, data-transfer-ui.test.cjs, battle-isometric.test.cjs, orientation.test.cjs ผ่าน 5/5 ไม่ผ่าน 0 ตรวจ camera picking หลัง zoom/pan และ mobile fitting ผ่านด้วย mock รายไฟล์ Node/browser ของแต่ละส่วนอยู่ reports/data-template-A.json ถึง data-template-D.json ส่วน A–D เสร็จตามขอบเขตนี้ ไม่มีการติ๊ก release acceptance เพิ่ม ไม่มี engine/schema/config/legacy-test เปลี่ยน ไม่มี CSP/Prettier Source cache 78 ส่งเข้า main เท่านั้น ห้ามรัน Publish workflow/เว็บจริงจนกว่าเจ้าของสั่งใหม่

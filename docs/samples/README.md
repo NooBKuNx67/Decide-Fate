@@ -18,4 +18,4 @@ node closeout-data-template.test.cjs
 
 Field meanings/statuses come from reports/world-database-links.json, the same audit used to generate WORLD-DATABASE-FIELDS.md. Do not hand-edit generated field-guide.js entries. A schema addition without an audited explanation fails generation/coverage tests. Existing authoring-only accessory.passive has one explicit documented guide entry. Unknown per-template numeric ranges are marked as unspecified rather than invented; examples still pass the real validators.
 
-Part A is the pure generator. UI topic selection/download and unified Import/Export are separate later parts. No gameplay or importer protocol was changed. AI packs retain only format, baseFingerprint, changes and create at the top level.
+In the game: Database → Template → select topics → download TXT → manual chat AI → save JSON → Import → review → confirm. Export is all-library only to preserve cross-topic/world/battle references. Both file formats share Import, backup and rollback. No gameplay or importer protocol was changed. AI packs retain only format, baseFingerprint, changes and create at the top level.

@@ -187,3 +187,11 @@ closeout-legacy-saves.test.cjs เข้า CI และ check.cjs แล้ว 
 เพิ่ม Import / Export / Template ในหน้าฐานข้อมูล มี dialog เลือกหัวข้อ เลือกทั้งหมด/ล้าง จำนวนตัวอักษรและคำเตือนเกิน 40,000 ดาวน์โหลดโดยสร้าง fingerprint จาก snapshot ล่าสุด ปุ่มดาวน์โหลดคำสั่งต่อแม่แบบเดิมยังใช้ได้ proficiency แสดงจางและเลือกไม่ได้ มือถือปุ่มสูงอย่างน้อย 44px
 
 ผล B: pure 51/51; data-template-ui.test.cjs, content-authoring-ui.test.cjs, handoff-guide-ui.test.cjs ผ่าน 3/3 ไม่แก้ assertion/ขั้นตอนเดิม Source cache 76 ยังไม่เผยแพร่ ส่วน C จะเชื่อม Import ทั้งสอง format กับ diff/backup ใน commit ถัดไป
+
+## Data Template — ส่วน C
+
+ปุ่ม Import เดียวอ่าน format อัตโนมัติ: AI pack ใช้ decode/stage/validator เดิม; evervale-content-v1 ใช้ validator เดิมแล้วเข้าสู่ diff และยืนยัน/สำรองก่อนบันทึกเหมือนกัน ไม่มีการเขียนข้อมูลเมื่อเพียงเลือกไฟล์ ไฟล์ Export แทน overrides ทั้งชุด จึงมีคำเตือนชัดเจน รวมรายการที่หายไปซึ่งยังไม่แสดง diff ตามขอบเขตงาน Export ส่งออกทั้งหมดเท่านั้นเพื่อไม่ให้ reference/แผนที่/ฉากขาด ไม่รวมเซฟตัวละครหรือบัญชี
+
+JSON เสีย/format แปลก/ช่องระดับบนเกิน/ไฟล์เกิน 2 MB/HTML ที่ไม่ใช่ JSON ถูกปฏิเสธพร้อมข้อความไทย ไม่เปลี่ยนข้อมูลเดิม HTML ภายในข้อความ JSON คงอนุญาตพร้อมคำเตือนและแสดงเป็นข้อความตามที่เจ้าของยืนยัน ไม่มีการเปลี่ยน pack/fingerprint/200 รายการ/validators/schema/config/identifiers
+
+ผล C: pure 52/52; data-transfer-ui.test.cjs, closeout-authoring-ui.test.cjs, handoff-guide-ui.test.cjs, content-authoring-ui.test.cjs, data-template-ui.test.cjs, frontend-security-ui.test.cjs, full-schema.test.cjs ผ่าน 7/7 รายไฟล์อยู่ reports/data-template-C.json ปรับขั้นตอน 2 suite เดิมเฉพาะรอ diff/กดยืนยัน; กรณี backup ถูกบล็อกอ่านสถานะ authorStatus ของการยืนยันแทน globalStatus ยังคง assertion เดิมว่าข้อมูลต้องไม่เปลี่ยน ไม่แตะ legacy tests Source cache 77 ยังไม่เผยแพร่

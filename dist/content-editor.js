@@ -26,7 +26,20 @@ $('dbEditForm').onsubmit=e=>{e.preventDefault();try{const next={...editorDraft};
 $('dbApplyJson').onclick=()=>{try{const parsed=JSON.parse($('dbEditJson').value);if(!parsed||typeof parsed!=='object'||Array.isArray(parsed))throw Error('ต้องเป็น JSON object');const patch={...parsed};delete patch.id;delete patch.kind;delete patch.key;delete patch.name;validateContentEdits({...DB.overrides,[editingContentKey]:{...(DB.overrides?.[editingContentKey]||{}),...patch}});editorDraft={...editorDraft,...patch};renderEditorFields();$('dbEditStatus').textContent='นำ JSON เข้าฟอร์มแล้ว • กดบันทึกการแก้ไขเพื่อยืนยัน';}catch(err){$('dbEditStatus').textContent='นำ JSON ไม่ได้: '+err.message;}};
 $('dbEditReset').onclick=()=>{if(!confirm('คืนค่ารายการนี้เป็นข้อมูลเดิมทุกช่อง?'))return;try{const next={...DB.overrides};delete next[editingContentKey];persistContentEdits(next);$('dbDialog').close();renderFullDatabase();status('คืนค่ารายการเดิมแล้ว');}catch(err){$('dbEditStatus').textContent=err.message;}};
 $('dbExport').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify({format:'evervale-content-v1',overrides:DB.overrides||{}},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='evertale-content-edits.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
-$('dbImport').onchange=async e=>{try{const file=e.target.files[0];if(!file)return;if(file.size>2000000)throw Error('ไฟล์ใหญ่เกิน 2 MB');const data=JSON.parse(await file.text());if(data.format!=='evervale-content-v1')throw Error('รูปแบบไฟล์ไม่รองรับ');const clean=validateContentEdits(data.overrides);if(!confirm('นำเข้าข้อมูลแก้ไข '+Object.keys(clean).length+' รายการแทนข้อมูลแก้ไขปัจจุบัน?'))return;if(window.DecideContentTools?.importLibrary)await DecideContentTools.importLibrary(clean);else persistContentEdits(clean);renderFullDatabase();status('นำเข้าข้อมูลแก้ไขแล้ว');}catch(err){status('นำเข้าไม่ได้: '+err.message);}finally{e.target.value='';}};
+$('dbImport').onchange=async e=>{
+  try{
+    const file=e.target.files[0];
+    if(!file)return;
+    $('authorCancel').click();
+    if(file.size>2000000)throw Error('ไฟล์ใหญ่เกิน 2 MB');
+    const data=DecideDataTransfer.parse(await file.text(),file.size);
+    DecideContentTools.previewImport(data);
+  }catch(err){
+    const message='นำเข้าไม่ได้: '+err.message;
+    status(message);
+    $('authorStatus').textContent=message;
+  }finally{e.target.value='';}
+};
 $('dbKind').innerHTML='<option value="all">ทั้งหมด</option>'+ContentSchema.types.map(t=>`<option value="${t.key}">${escapeHTML(t.label)}</option>`).join('');
 const pagination=document.createElement('div');pagination.id='dbPagination';pagination.className='db-pagination';$('dbList').after(pagination);
 const names=document.createElement('datalist');names.id='proficiencyNames';for(const row of R.records(DB).filter(x=>x.kind==='proficiency'))names.append(new Option(row.name,row.name));document.body.append(names);

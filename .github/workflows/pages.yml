@@ -69,6 +69,7 @@ jobs:
           node closeout-handoff.test.cjs
           node closeout-legacy-saves.test.cjs
           node closeout-data-template.test.cjs
+          node closeout-data-transfer.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

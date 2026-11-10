@@ -31,6 +31,10 @@
     importButton.onclick = () => el('dbImport').click();
     toolbar.append(importButton, exportButton, templateButton);
     host.prepend(toolbar);
+    const exportNote = document.createElement('p');
+    exportNote.id = 'dataExportNote';
+    exportNote.textContent = 'Export ส่งออกทั้งหมด รวมข้อมูลแผนที่/ฉากและรายการอ้างอิง เพื่อให้นำเข้ากลับได้ครบ ไม่รวมเซฟตัวละครหรือข้อมูลบัญชี';
+    toolbar.after(exportNote);
 
     const dialog = document.createElement('dialog');
     dialog.id = 'dataTemplateDialog';

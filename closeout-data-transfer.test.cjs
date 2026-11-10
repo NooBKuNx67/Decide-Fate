@@ -1,0 +1,40 @@
+const assert = require('node:assert/strict');
+const { fixture } = require('./tools/closeout/custom-fixture.cjs');
+const A = require('./dist/content-authoring');
+const R = require('./dist/rules');
+const T = require('./dist/data-transfer');
+const { db, schema, base } = fixture();
+const records = overrides => R.records({ ...db, overrides });
+const validate = next => {
+  const copy = JSON.parse(JSON.stringify(next));
+  if (copy[A.KEY]) copy[A.KEY] = A.validateRegistry(copy[A.KEY], base, schema);
+  return copy;
+};
+const template = base.find(row => row.id === 'preset-spell-fire');
+const pack = A.request(template, {}, schema, base, 'custom-transfer-example').exampleResponse;
+pack.create[0].displayName = '<img src=x onerror=__transfer=1>';
+const current = {};
+const first = T.stage(T.parse(JSON.stringify(pack)), current, base, validate, records);
+assert(A.reviewWarnings(first).some(message => message.includes('ไม่รันโค้ด')));
+const exported = T.exportLibrary(first.next);
+const second = T.stage(T.parse(JSON.stringify(exported)), {}, base, validate, records);
+assert.deepEqual(second.next, first.next);
+assert.equal(second.replacesLibrary, true);
+assert.equal(second.created.length, 1);
+assert.equal(globalThis.__transfer, undefined);
+assert.deepEqual(current, {});
+const restored = A.restore(second.next, {});
+assert(restored[A.KEY].records.every(row => row.enabled === false));
+for (const text of ['{', '<html><script>alert(1)</script></html>', '[]', 'null', '{"format":"unknown"}', JSON.stringify({ ...pack, extra: 1 }), JSON.stringify({ ...exported, password: 'mock-unwanted' }), '{"format":"evervale-content-v1","overrides":[]}', '{"format":"evervale-content-v1","overrides":{"__proto__":{}}}']) {
+  assert.throws(() => T.parse(text));
+  assert.deepEqual(current, {});
+}
+assert.throws(() => T.parse(JSON.stringify(pack), 2000001), /2 MB/);
+assert.throws(() => T.parse(' '.repeat(2000001)), /2 MB/);
+assert.throws(() => T.stage(pack, { 'spell:preset-spell-fire': { mpCost: 8 } }, base, validate, records), /ฐานข้อมูลเปลี่ยน/);
+assert.throws(() => T.stage({ ...pack, create: [pack.create[0], pack.create[0]] }, {}, base, validate, records));
+assert.throws(() => T.stage({ ...pack, create: Array.from({ length: 201 }, (_, i) => ({ ...pack.create[0], id: 'custom-transfer-' + i, name: 'Transfer ' + i })) }, {}, base, validate, records));
+assert.deepEqual(Object.keys(exported).sort(), ['format', 'overrides']);
+exported.overrides.mutated = true;
+assert.equal(first.next.mutated, undefined);
+console.log('PASS unified content transfer: format detection, unchanged AI validation, exact library roundtrip, HTML text warning, disabled rollback, malformed/unknown/extra/oversize/prototype rejection, atomic baseline and quota checks');

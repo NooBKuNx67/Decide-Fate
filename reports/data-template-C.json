@@ -1,0 +1,247 @@
+{
+  "pure": [
+    {
+      "file": "adventure.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-presets.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "battle-view.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-actions.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-combat-items.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-economy.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-equipment.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "catalog-loot.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "character-art-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-authoring.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-custom-services.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-data-template.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-handoff.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-legacy-saves.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-resume.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-sync.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "cloud.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-lab-party.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "combat-lab.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "content-authoring.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "content-integration-audit.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "creation-system.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "database-live-links.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "displacement.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "elements.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "event-story.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-closeout.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-hazards.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "grid-patterns.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "hazard-navigation.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "large-map.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "legacy-content-parity.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "library-merge.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "look-around.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "map-data.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-ai.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-grid.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-passives.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-stats.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "monster-tactics.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "rules.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "status-effects.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "status-immunity.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "tactical-v2.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "tactical.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "weapon-motion.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "weapon-patterns.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "world-links.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "world-travel.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-data-transfer.test.cjs",
+      "pass": true
+    }
+  ],
+  "browser": [
+    {
+      "file": "handoff-guide-ui.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "data-transfer-ui.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "closeout-authoring-ui.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "data-template-ui.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "content-authoring-ui.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "frontend-security-ui.test.cjs",
+      "pass": true
+    },
+    {
+      "file": "full-schema.test.cjs",
+      "pass": true
+    }
+  ],
+  "failed": 0,
+  "mockOnly": true,
+  "export": "All library overrides; no category filtering, to retain cross-topic/map/battle references",
+  "htmlPolicy": "HTML strings in JSON allowed with warning; non-JSON HTML rejected",
+  "publication": "held"
+}

@@ -167,3 +167,7 @@ closeout-legacy-saves.test.cjs เข้า CI และ check.cjs แล้ว 
 ไม่พบรุ่นที่โหลดไม่ผ่านในชุดนี้: v2 ก่อน identity, v3 ตัวละครเดิม, creation v1, ก่อน 2 AP, checkpoint พร้อมของ/อุปกรณ์/ไฟต์ชนะค้างรับรางวัล และก่อน world placements พร้อมเควส/ตำแหน่งโลก ตรวจโหลดซ้ำ/serialize/ยอดรางวัล/EXP/ไอเท็ม/เควส/ตำแหน่ง/จบบทคงเดิมและไม่เปิด enforceLocations เอง โดยไม่แก้ engine/loader/schema/config/identifiers รุ่น v2 ไม่มีตัวละครอยู่แต่เดิม UI ให้เลือก identity ตาม migration เดิม ไม่ได้กู้ชื่อหรือเลเวลที่ไม่เคยมี; producer v2 เก่ากว่า Git ที่มี ใช้ branch validate v2 ที่เก่าสุดเป็นหลักฐาน
 
 รัน pure ได้ด้วย Node ล้วน ไม่ต้องมีประวัติ Git หรือ browser ใน CI ตัวสร้าง fixture ต้องมี historical Git objects เฉพาะตอนต้องการสร้าง fixture ใหม่ ดู README ในโฟลเดอร์และ reports/legacy-saves-B.json ยังระงับ Publish workflow/เว็บจริง
+
+## ภาพที่ไม่ถูกใช้ — ข้อ C รอบถัดมา
+
+ตรวจ literal/dynamic references และประวัติก่อน/หลัง phase 4 แล้ว title-screen.webp ไม่ถูกใช้ จึงย้ายด้วย git mv ไป source-assets/webp/title-screen.webp เก็บ bytes/hash เดิม ลด dist 2,081,894 ไบต์: 18,460,881 → 16,378,987 ไบต์ Pure 50/50; battle-isometric.test.cjs, orientation.test.cjs 2/2 และ asset-visual-check ผ่าน ไม่ย้าย forest/cave extras ที่ประกอบชื่อแบบ dynamic เพราะใช้งานจริง Source cache 74 ยังระงับ Publish workflow/เว็บจริง ผลข้อ A–C รอบนี้อยู่ reports/legacy-archive-A.json, reports/legacy-saves-B.json, reports/unused-title-C.json ข้อ B ไม่พบ fixture เก่าที่โหลดไม่ผ่านทั้ง 6 รุ่น และไม่ได้แก้ loader/schema/engine

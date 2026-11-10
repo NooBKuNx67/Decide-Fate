@@ -35,3 +35,15 @@ node tools/capture-visuals.cjs
 ```
 
 The phase argument labels capture directories; it does not switch the currently served asset format. PNG originals must be restored in a separate comparison checkout if repeating the original phase baseline later.
+
+## Unused title artwork archived — 10 Nov 2026
+
+The phase-4 measurements above remain historical. Follow-up C found no runtime/test reference to title-screen.webp in dist or active tests/tools. The title-screen table row is conversion provenance, not a use site. `git grep` also found no title-screen PNG/WebP code reference in dist at 2ce1862 (before phase 4) or e62a43e (phase 4). Dynamic image construction was reviewed: forest/cave extras explicitly choose those two stems; PixelFX uses its named PNG sheets; equipment uses typed SVG paths; the opening screen uses login-background.webp. None constructs title-screen.webp.
+
+Moved `dist/assets/title-screen.webp` with git mv to `source-assets/webp/title-screen.webp`, preserving every byte/SHA-256. The original PNG remains under source-assets/png/. No render/geometry/engine behavior changed. Cache revision is 74; publishing is still on hold.
+
+- Before this cleanup: **18,460,881 bytes** in dist.
+- After: **16,378,987 bytes**.
+- Saved: **2,081,894 bytes** (the whole unused WebP).
+
+Checks: tools/check.cjs 50/50 PASS; battle-isometric.test.cjs PASS (pan/zoom/camera picking and mobile), orientation.test.cjs PASS, tools/asset-visual-check.cjs PASS (desktop/touch-mobile login and three biomes, all active atlases loaded). No physical devices or player overrides were accessed. Full measurement/hash/reference notes: reports/unused-title-C.json.

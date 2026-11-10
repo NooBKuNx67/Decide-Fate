@@ -6,4 +6,4 @@ The shipped counterparts under `dist/assets/` use **lossless WebP**, identical d
 
 Conversion used Pillow's WebP encoder with `lossless=True, quality=100, method=6, exact=True`. Verify both decoded size and `convert('RGBA').tobytes()` equality before replacing a source. Pillow is an offline maintenance tool, not an application dependency.
 
-See `reports/asset-webp-phase4.json` and `ASSET-OPTIMIZATION.md` for measurements and visual/camera checks. Title artwork and legacy anime parts are retained in WebP even where current icon-based gameplay does not display them.
+See `reports/asset-webp-phase4.json` and `ASSET-OPTIMIZATION.md` for measurements and visual/camera checks. Unused title artwork is now archived at `webp/title-screen.webp` outside dist; its original PNG remains at `png/title-screen.png`. The legacy anime parts counterpart remains in dist for renderer compatibility.

@@ -48,7 +48,7 @@ function validate(list){need(Array.isArray(list)&&list.length<=512,'ข้อม
 function prepare(e,s,rows){const Class=g.DecideClassActionData||(typeof require==='function'?require('./class-action-data'):null);Class.prepare(e,rows);if(e.design!==1||e.catalogActions!==undefined)return;e.catalogActions=rows.filter(r=>s.learned.includes(key(r))).map(compile).filter(Boolean);validate(e.catalogActions);}
 function list(e,p=C.hero(e)){return p.id==='hero'?e.catalogActions||[]:e.memberCatalogActions?.[p.id]||[];}
 function definition(e,id){const Class=g.DecideClassActionData||(typeof require==='function'?require('./class-action-data'):null);return list(e).find(a=>a.id===id)||Class.definition(e,id);}
-function random(e){let x=e.seed>>>0;x^=x<<13;x^=x>>>17;x^=x<<5;e.seed=x>>>0;return e.seed/4294967296;}
+function random(e){let x=e.seed>>>0;x^=x<<13;x^=x>>>17;x^=x<<5;e.seed=x>>>0;const value=e.seed/4294967296,trace=g.DecideCombatContext||(typeof require==='function'?require('./combat-context'):null);trace?.add(e,{type:'random',label:'catalog-actions',value,seedAfter:e.seed});return value;}
 function roll(e,d){let n=d.bonus;for(let i=0;i<d.n;i++)n+=1+Math.floor(random(e)*d.sides);return n;}
 function note(e,text){e.log.unshift(text);e.log=e.log.slice(0,30);}
 const oldCast=C.cast;

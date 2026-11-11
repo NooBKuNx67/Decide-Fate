@@ -71,6 +71,7 @@ jobs:
           node closeout-data-template.test.cjs
           node closeout-data-transfer.test.cjs
           node story-context.test.cjs
+          node narrative-combat.test.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

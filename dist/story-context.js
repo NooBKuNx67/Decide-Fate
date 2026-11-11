@@ -21,7 +21,7 @@
     }
     return out;
   }
-  function candidates(s, db) {
+  function candidates(s, db, roll=Math.random) {
     if (!s.character || s.dead || s.expedition || s.event) return [];
     const rows = R.records(db), c = config(db), pending = L.pending(s), items = [];
     const add = (id,label,run) => items.push({id,label,run});
@@ -48,23 +48,28 @@
     for (const placed of c.npcPlacements || []) {
       if (!placed.enabled || !placed.eventId || !W.same(location,placed)) continue;
       const npc = rows.find(r => r.kind === 'npc' && r.id === placed.npcId && r.enabled !== false);
-      if (npc) add('npc:'+placed.npcId+':'+placed.eventId,'คุยกับ '+(npc.displayName || npc.name),() => W.startInteraction(s,c,placed.eventId,placed.npcId,rows,() => .5));
+      if (npc) add('npc:'+placed.npcId+':'+placed.eventId,'คุยกับ '+(npc.displayName || npc.name),() => W.startInteraction(s,c,placed.eventId,placed.npcId,rows,roll));
     }
     for (const route of c.routes || []) if (route.enabled !== false) {
-      for (const mode of ['walk','cart']) add('route:'+route.id+':'+mode,(mode==='walk'?'เดินเท้า: ':'รถม้า: ')+route.name,() => W.begin(s,c,route.id,mode,() => .5,rows));
+      for (const mode of ['walk','cart']) add('route:'+route.id+':'+mode,(mode==='walk'?'เดินเท้า: ':'รถม้า: ')+route.name,() => W.begin(s,c,route.id,mode,roll,rows));
     }
     return items;
   }
   function commands(s,db) {
-    return candidates(s,db).filter(item => {
+    const combat=get(['DecideNarrativeCombat','narrative-combat']);
+    if(combat?.is(s.expedition))return combat.commands(s,R.records(db));
+    return candidates(s,db,()=>.5).filter(item => {
       try { item.run(); return true; } catch { return false; }
     }).map(({id,label}) => ({id,label}));
   }
   function apply(s,db,id,expected) {
     if (revision(s,db) !== expected) throw Error('สถานการณ์เปลี่ยนแล้ว โปรดเลือกการกระทำใหม่');
+    const combat=get(['DecideNarrativeCombat','narrative-combat']);
+    if(combat?.is(s.expedition))return combat.apply(s,R.records(db),id).snapshot;
     const candidate = candidates(s,db).find(item => item.id === id);
     if (!candidate) throw Error('การกระทำนี้ไม่มีในฉากปัจจุบัน');
-    return candidate.run();
+    const next=candidate.run();
+    return next.expedition&&!s.expedition&&next.character?.design===1?combat.adopt(next,R.records(db)):next;
   }
   function facts(s,db,query='') {
     const rows = R.records(db).filter(row => row.enabled !== false), c = config(db);
@@ -87,6 +92,7 @@
     const inventory = [...names].slice(0,40).map(name => ({name:text(name,150),quantity:(s.catalogInventory?.items || []).filter(n=>n===name).length,reference:rows.find(r=>r.name===name)?.key || null}));
     return {
       version:1,
+      combat:s.expedition?{id:s.expedition.id,round:s.expedition.round,status:s.expedition.status,units:s.expedition.units.map(u=>({id:u.id,name:u.name,side:u.side,hp:u.hp,maxHp:u.maxHp,mp:u.mana,ap:u.action,effects:copy(u.effects||{})}))}:null,
       player:s.character ? {name:text(s.character.name,100),level:s.character.level,race:s.character.race,job:s.character.job,hp:s.hp,mp:s.mp,gold:s.gold,stats:copy(s.character.stats)} : null,
       scene:{location:place?{id:place.id,name:text(place.name),description:text(place.description)}:{id:chapter.location,name:({village:'หมู่บ้านลานสน',forest:'ป่ากระซิบ',cave:'ถ้ำหัวใจธาร'})[chapter.location]},chapter,
         chapterActors:chapter.location==='village'?['นารา','ลิน','อีรา']:chapter.companion?['ลิน']:[],
@@ -102,6 +108,7 @@
   }
   function fallback(bundle) {
     if (!bundle.player) return 'สร้างตัวละครก่อนเริ่มเรื่อง';
+    if (bundle.combat) return 'รอบ '+bundle.combat.round+' • '+({active:'เลือกสมาชิกและการกระทำ',won:'ชนะแล้ว รับผลการต่อสู้เพื่อกลับเข้าเรื่อง',lost:'พ่ายแพ้ รับผลการต่อสู้เพื่อกลับพักฟื้น',retreated:'ถอนตัวแล้ว กลับเข้าเรื่องได้'})[bundle.combat.status];
     if (bundle.scene.event?.text) return bundle.scene.event.text;
     const w = bundle.scene.chapter;
     if (w.ending) return w.ending==='restore'?'น้ำกลับมาไหลผ่านหมู่บ้าน คุณคืนหัวใจธารให้ชุมชนแล้ว':'คุณขายหัวใจธารแล้ว ลำธารยังเหือดแห้ง';

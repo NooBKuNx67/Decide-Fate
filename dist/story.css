@@ -7,3 +7,5 @@
 @media(max-width:700px){.story-layout{grid-template-columns:1fr;gap:16px}.story-party{border-right:0;border-bottom:1px solid #56617a;padding:0 0 14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}.story-party img{width:64px}.story-party h2,.story-party p{margin:0}.story-screen{padding:14px}.story-actions>button{flex:1 1 160px}.story-toolbar>button{flex:1 1 auto}}
 
 #storyMenu{display:flex;gap:16px;align-items:center;width:100%;padding:20px;margin-bottom:18px;background:#192a43;border:1px solid #bfa66f;color:#f0ebdf;flex-wrap:wrap}#storyMenu small{color:#c3cbd6}
+
+#storyReceiptData{white-space:pre-wrap;overflow-wrap:anywhere;max-height:400px;overflow:auto;background:#101c2d;color:#e0d9bd;padding:14px;font-size:12px}.story-party p{font-size:13px}

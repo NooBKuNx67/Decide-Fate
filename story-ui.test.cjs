@@ -1,0 +1,20 @@
+const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
+(async()=>{const browser=await chromium.launch({headless:true});try{
+ const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ const sdk=fs.readFileSync('creation-ui.test.cjs','utf8').match(/body:`([^`]+)`/)[1];await page.route('https://esm.sh/**',r=>r.fulfill({contentType:'application/javascript',body:sdk}));
+ let mode='valid',request;
+ await page.route('http://127.0.0.1:1234/**',async route=>{request=route.request().postDataJSON();if(mode==='offline')return route.abort();const content=mode==='invalid'?JSON.stringify({text:'ฟรี',actionIds:['grant:gold'],sourceIds:[]}):JSON.stringify({text:'<img src=x onerror=window.pwned=1> นารารอคำตอบ',actionIds:['chapter:accept'],sourceIds:[]});return route.fulfill({contentType:'application/json',body:JSON.stringify({choices:[{message:{content}}]})});});
+ await page.goto('http://127.0.0.1:4173');await page.locator('#menuScreen').waitFor({state:'visible'});
+ await page.evaluate(()=>{const state=EvervaleRules.fresh();EvervaleRules.createCharacter(state,'Story QA','human','warrior',EvervaleContent,DecideCreation.recommend(DecideCreation.draft()));EvervaleSave.load(state);});
+ await page.click('#menuButton');await page.click('#storyMenu');await page.locator('#storyScreen').waitFor({state:'visible'});
+ await page.locator('#storySettings>summary').click();await page.fill('#storyModel','mock');await page.click('#storySaveSettings');
+ const initial=await page.evaluate(()=>EvervaleSave.snapshot());await page.fill('#storyInput','ถามนารา');await page.click('#storySend');await page.waitForFunction(()=>document.getElementById('storyStatus').textContent.includes('ยังไม่มีผล'));
+ assert.equal(await page.locator('#storyTranscript img').count(),0);assert.equal(await page.evaluate(()=>window.pwned||0),0);assert.deepEqual(await page.evaluate(()=>EvervaleSave.snapshot()),initial);assert.equal(request.model,'mock');
+ await page.locator('[data-dm-suggested="chapter:accept"]').click();assert.deepEqual(await page.evaluate(()=>EvervaleSave.snapshot()),initial);await page.click('#storyApply');assert.equal(await page.evaluate(()=>EvervaleSave.snapshot().adventure.accepted),true);
+ const intact=await page.evaluate(()=>EvervaleSave.snapshot());mode='invalid';await page.click('#storySend');await page.waitForFunction(()=>document.getElementById('storyStatus').textContent.includes('ใช้ข้อความจากเกม'));assert.deepEqual(await page.evaluate(()=>EvervaleSave.snapshot()),intact);
+ mode='offline';await page.click('#storySend');await page.waitForFunction(()=>document.getElementById('storyStatus').textContent.includes('ใช้ข้อความจากเกม'));assert.deepEqual(await page.evaluate(()=>EvervaleSave.snapshot()),intact);
+ await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.body.scrollWidth<=innerWidth));
+ await page.click('#storyBack');await page.click('#combatLabMenu');await page.click('#storyLab');await page.locator('[data-story-action="chapter:accept"]').click();await page.click('#storyApply');assert.deepEqual(await page.evaluate(()=>EvervaleSave.snapshot()),intact);
+ await page.evaluate(()=>EvervaleSave.setAccount({id:'other-mock',user_metadata:{player_id:'other'}}));assert.equal(await page.locator('#storyScreen').isVisible(),false);assert(!await page.evaluate(()=>EvervaleSave.hasCharacter()));assert.deepEqual(errors,[]);
+ console.log('PASS story UI: local-model mock, untrusted text inert, explicit engine confirmation, invalid/offline fallback, mobile, isolated Update Test Field and account reset');
+}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

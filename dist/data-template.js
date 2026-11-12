@@ -33,7 +33,7 @@
     }
     const expected = new Set(Object.entries(schema.schemas).flatMap(([kind, definition]) => definition.fields.map(field => kind + '.' + field.key)));
     for (const key of Object.keys(entries)) {
-      if (!expected.has(key) && key !== 'accessory.passive') throw Error('field guide ไม่ตรง schema: ' + key);
+      if (!expected.has(key) && key !== 'accessory.passive' && !(schema.retiredFields?.[key.split('.')[0]] || []).includes(key.split('.')[1])) throw Error('field guide ไม่ตรง schema: ' + key);
     }
     return true;
   }

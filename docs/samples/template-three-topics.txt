@@ -46,7 +46,6 @@ description | คำอธิบาย — คำอธิบายสำหร�
 rarity | ความหายาก — rarity ของของดรอปใช้เป็นน้ำหนักเมื่ออยู่ใน loot pool… | select | "Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythic", "Unique" | มีกลไกอ่านจริง
 effectType | ประเภทเอฟเฟกต์ — รางวัลเข้ากระเป๋าจริงและกดใช้ภายหลังเมื่อมี mod… | select | "heal_hp", "restore_mp", "cure_status" | อ่านผ่านตัวแปลงที่รองรับ
 value | ค่าเอฟเฟกต์ (เช่น จำนวน HP/MP) — รางวัลเข้ากระเป๋าจริงและกดใช้ภา… | number | finite; ช่วงขึ้นกับแม่แบบ คงค่าตัวอย่าง 30 แล้วตรวจในเกม | อ่านผ่านตัวแปลงที่รองรับ
-targetType | เป้าหมาย — ปัจจุบันเป้าหมายของไอเท็มมาจากคำสั่ง/adapter ไม่ได้เป… | select | "party", "self", "single_ally", "downed_ally", "single_enemy", "all_allies", "all_enemies", "random_ally", "random_enemy" | เก็บเฉย ๆ ไม่มีผลต่อกลไก ⚠ ไม่มีผลกลไกตามคำบรรยาย
 buyPrice | ราคาซื้อไอเทมนี้ (ทอง) — 0/ว่าง = ยังไม่เปิดขายผ่านระบบร้านค้า —… | number | 0–1000000 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | มีกลไกอ่านจริง
 sellPrice | ราคาขาย (ทอง) — 0/ว่าง = ใช้ 50%-75% ของราคาซื้อแทน — ราคาใช้กับ… | number | 0–1000000 (ต้องผ่านเงื่อนไขร่วมของแม่แบบด้วย) | มีกลไกอ่านจริง
 icon | ไอคอนของชิ้นนี้ — แสดงในอุปกรณ์/รายการที่รองรับ; VN ไม่แสดงการ์ด… | image | ว่าง หรือ URL http/https หรือ data:image/png,jpeg,webp,gif ตามตัวตรวจ; ห้ามใส่ token ใน URL | แสดงผลเท่านั้น ⚠ ไม่มีผลกลไกตามคำบรรยาย
@@ -54,7 +53,7 @@ itemAction | ผลใช้งานจริงของไอเท็ม —
 ช่องโครงสร้าง: id=custom- ไม่ซ้ำ; kind=item; templateKey ห้ามแก้; enabled=true/false; displayName=string ≤150 ถ้าต้องการชื่อแสดงผล
 ช่องอื่นที่ไม่มีในตัวอย่างสืบทอดจากแม่แบบ อย่าแต่งช่องใหม่เอง
 ตัวอย่างเต็มที่ผ่าน validateRegistry จริง:
-{"id":"custom-example-item-001","name":"ตัวอย่าง item 1","description":"ยาฟื้นฟู HP เล็กน้อย","rarity":"Common","effectType":"heal_hp","value":30,"targetType":"party","buyPrice":15,"sellPrice":6,"enabled":true,"icon":"","kind":"item","templateKey":"item:item-preset-potion","itemAction":"heal_hp"}
+{"id":"custom-example-item-001","name":"ตัวอย่าง item 1","description":"ยาฟื้นฟู HP เล็กน้อย","rarity":"Common","effectType":"heal_hp","value":30,"buyPrice":15,"sellPrice":6,"enabled":true,"icon":"","kind":"item","templateKey":"item:item-preset-potion","itemAction":"heal_hp"}
 รายการอ้างอิงที่ใช้ได้ (0/0):
 
 หัวข้อ: สูตรปรุง (Recipe) (recipe)
@@ -113,7 +112,6 @@ accessory | id=preset-accessory-amulet-of-fortitude | name=Amulet of Fortitude
       "rarity": "Common",
       "effectType": "heal_hp",
       "value": 30,
-      "targetType": "party",
       "buyPrice": 15,
       "sellPrice": 6,
       "enabled": true,

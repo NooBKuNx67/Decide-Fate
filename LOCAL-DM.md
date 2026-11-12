@@ -1,14 +1,79 @@
-# Local DM setup
+# เชื่อม Local AI กับ Decide Fate บน Windows
 
-Recommended starting point for Windows / RAM 16 GB / RTX 4060: LM Studio with a 7–8B instruct GGUF Q4 model. Model quality, Thai comprehension and actual memory use must be checked on the owner's machine. Start with a modest context window (4096 tokens), close other GPU-heavy applications and reduce model/context size if memory is insufficient.
+## 1. โปรแกรมและโมเดลที่แนะนำ
 
-1. Install LM Studio from its official website and download a suitable instruct model.
-2. Load the model and start its OpenAI-compatible local server, normally port 1234.
-3. Open Decide Fate on the same computer. Open the story screen and Local AI settings.
-4. Enter http://127.0.0.1:1234/v1 and the exact model identifier exposed by the server. Save settings.
-5. Allow the game's origin in the server's CORS configuration if required. Keep the server on loopback; the game currently accepts only localhost endpoints.
-6. Test through Update Test Field first. Ask for one available action, inspect the proposed command, confirm and compare the engine result. The game must retain its state if the model returns invalid JSON or stops responding.
+สำหรับ RAM 16 GB / RTX 4060 ให้เริ่มด้วย LM Studio และ Qwen2.5-7B-Instruct แบบ GGUF Q4_K_M เป็นตัวเลือกทดลองภาษาไทยและการตอบ JSON ไม่รับประกันคุณภาพทุกคำตอบ ตรวจ VRAM ของเครื่องจริงก่อน เพราะ RTX 4060 แต่ละเครื่องอาจจัดสรรหน่วยความจำต่างกัน หลีกเลี่ยงรุ่น Base, โมเดลภาพ และโมเดล 14B ขึ้นไปในรอบแรก
 
-The local model supplies narration and supported action proposals; it cannot directly create inventory, award money or replace engine results. Unsupported intentions need clarification. No model is bundled. Authentication/cloud saves still use the existing online service; local inference does not make account login fully offline. A phone's localhost points to the phone, not the PC.
+ถ้ารุ่น 7B ช้าหรือหน่วยความจำไม่พอ ให้ลอง Qwen2.5-3B-Instruct Q4_K_M โดยคุณภาพการตีความอาจลดลง โมเดลคนละขนาดไม่ทำให้กติกาเกมเปลี่ยน
 
-Current transport tests use mocks. Real server connectivity, browser local-network permissions, Thai response quality and performance are not yet accepted. Check HANDOFF.md for implementation status before treating the game as release-ready.
+## 2. ดาวน์โหลด LM Studio
+
+เปิด https://lmstudio.ai/ แล้วเลือก Download สำหรับ Windows ติดตั้งและเปิดโปรแกรม ชื่อเมนูอาจต่างกันตามเวอร์ชัน ขั้นตอนนี้อ้างอิงการทำงานของ OpenAI-compatible server ไม่ได้ตรวจหน้าจอโปรแกรมรุ่นที่ติดตั้งบนเครื่องคุณจริง
+
+ครั้งแรกต้องใช้อินเทอร์เน็ตดาวน์โหลดโปรแกรม โมเดล และ runtime ที่โปรแกรมร้องขอ หลังดาวน์โหลดครบ การประมวลผล AI ทำในเครื่อง แต่ล็อกอินและเซฟคลาวด์ของเกมยังใช้อินเทอร์เน็ต
+
+## 3. ค้นหาและดาวน์โหลดโมเดล
+
+เปิดหน้าค้นหาโมเดลของ LM Studio (มักชื่อ Discover หรือไอคอนแว่นขยาย) ค้นหา Qwen2.5-7B-Instruct-GGUF ตรวจชื่อ repository ผู้เผยแพร่ การ์ดโมเดล และเงื่อนไขการใช้ก่อนดาวน์โหลด เลือกไฟล์ที่ลงท้าย Q4_K_M.gguf ไม่ใช่ F16 หรือ Q8_0
+
+เผื่อพื้นที่ว่างอย่างน้อย 10 GB สำหรับไฟล์โมเดลและ runtime ปริมาณดาวน์โหลดจริงขึ้นกับไฟล์ที่เลือก รอจนดาวน์โหลดเสร็จแล้วเลือกโหลดโมเดลในหน้า Chat หรือ Developer
+
+## 4. ตั้งค่าการโหลด
+
+เริ่ม Context Length ที่ 4096 tokens ตั้ง GPU Offload เป็น Auto หากมีตัวเลือกนี้ ใช้ GPU เท่าที่โปรแกรมประเมินว่าพอ และลดเมื่อพบข้อผิดพลาดหน่วยความจำ ปิดเกมหรือโปรแกรมที่ใช้ GPU หนักระหว่างทดลอง ไม่จำเป็นต้องเปิด thinking mode หรือ tool calling เกมใช้ข้อความ JSON แบบไม่ stream
+
+ลองพิมพ์ใน LM Studio ว่า “ตอบภาษาไทยสั้น ๆ ว่าพร้อมใช้งาน” ให้ผ่านก่อน หากยังตอบไม่ได้ ให้แก้การโหลดโมเดลก่อนเปิดเกม
+
+## 5. เปิด Local Server
+
+เปิดหน้า Developer / Local Server เลือกโมเดลที่โหลดไว้ แล้วกด Start Server ใช้ port 1234 และ bind ที่ localhost / 127.0.0.1 ไม่จำเป็นต้องเปิดให้เข้าจากเครือข่ายภายนอก
+
+เปิด CORS ใน Server Settings หากเบราว์เซอร์ถูกบล็อก หากตั้ง allowed origins ได้ ให้เพิ่ม origin ของเกม เช่น http://127.0.0.1:4173 สำหรับ preview ใน repo ไม่ใช่ path ของหน้าเว็บ หากเวอร์ชันที่ใช้มีเพียงสวิตช์ CORS ให้เปิดขณะใช้งานและรักษา server ไว้บน loopback
+
+เกมปัจจุบันไม่ได้ส่ง API key จึงต้องใช้ local server ที่ไม่บังคับ authentication จดชื่อ Model Identifier ตามที่หน้า server แสดง อย่าเดาชื่อจากชื่อไฟล์
+
+## 6. ตรวจว่า server พร้อม
+
+บนเครื่องเดียวกัน เปิด http://127.0.0.1:1234/v1/models ในเบราว์เซอร์ ควรได้ JSON รายการโมเดล คัดลอกค่า id ของโมเดลที่พร้อมใช้งาน หากเปิดไม่ได้ ให้ตรวจว่า server เริ่มแล้ว port ถูก และโมเดลโหลดสำเร็จ
+
+การเปิด URL นี้ได้ยืนยันเพียง server ตอบ ไม่ได้ยืนยัน CORS จากเกมหรือคุณภาพคำตอบ
+
+## 7. ตั้งค่าในเกม
+
+เปิดเกมในเบราว์เซอร์บน Windows เครื่องเดียวกับ LM Studio → เล่นแบบเล่าเรื่อง → ตั้งค่า Local AI / วิธีเริ่มใช้
+
+โปรแกรม: LM Studio
+
+Endpoint: http://127.0.0.1:1234/v1
+
+ชื่อโมเดล: วาง Model Identifier ที่ได้จากขั้นก่อน แล้วกด “บันทึกการตั้งค่าบนเครื่องนี้” การตั้งค่าแยกตามบัญชี/เบราว์เซอร์ ไม่ได้ติดตั้งโมเดลให้อัตโนมัติ
+
+หากรันเกมจาก repo ให้ติดตั้ง Node.js รุ่น LTS ก่อน เปิด terminal ในโฟลเดอร์ repo รัน node preview.cjs แล้วเปิด http://127.0.0.1:4173 ไม่ควรเปิด index.html ด้วย file://
+
+## 8. ทดสอบก่อนใช้เล่น
+
+เมนูหลัก → สนามทดสอบอัปเดต → ทดสอบ DM / ฐานข้อมูล / ข้อความสำรอง พิมพ์ “เสนอการกระทำที่ทำได้ตอนนี้หนึ่งอย่าง” แล้วกดคุยกับ DM
+
+ตรวจว่าคำบรรยายขึ้น ไม่เกิดผลเกมก่อนยืนยัน เลือก/ตรวจคำสั่งที่ตีความ แล้วกดยืนยัน ผลจริงต้องปรากฏจากเอนจิน หากเปิดโมเดลไว้ เกมจะขอคำบรรยายผลหลังบันทึกแล้ว ทดสอบหยุด server แล้วลองอีกครั้งด้วย เกมควรแจ้งปัญหาและยังใช้คำสั่ง/ข้อความสำรองได้
+
+สนามทดสอบแยกจากเซฟเล่นจริง อย่าถือว่า AI ตอบคล่องแปลว่ารู้กติกาถูกทุกข้อ
+
+## 9. แก้ปัญหา
+
+Failed to fetch / ติดต่อไม่ได้: ตรวจ LM Studio ยังเปิด server อยู่ ตรวจ endpoint และ port แล้วตรวจ Console ของเบราว์เซอร์ว่าเป็น CORS หรือ local-network permission หากเบราว์เซอร์ถามสิทธิ์เข้าถึงเครือข่ายในเครื่อง ให้อนุญาตเฉพาะ origin เกมที่คุณใช้งาน
+
+HTTP 404: endpoint ต้องลงท้าย /v1 ไม่ใช่ /chat/completions เกมเติมส่วนนี้เอง
+
+HTTP 401: local server บังคับ authentication ซึ่ง client ปัจจุบันยังไม่รองรับ อย่าใส่ token ลงใน URL
+
+Model not found: คัดลอก id ใหม่จาก /v1/models ให้ตรงตัว
+
+AI ตอบไม่ตรงรูปแบบ: เกมต้องการ JSON ตาม protocol ที่ส่งให้ เปลี่ยนมาใช้รุ่น Instruct ที่แนะนำ เริ่มข้อความใหม่ และตรวจว่าบน server ไม่มี system prompt/template ส่วนตัวมาทับ ห้ามกดยืนยันคำสั่งที่ตีความผิด
+
+ตอบช้าหรือหยุดรอ: เกมรอประมาณ 25 วินาทีต่อคำขอ ลองลด context/ขนาดโมเดลและตรวจ GPU offload แทนการกดส่งซ้ำหลายครั้ง
+
+ใช้มือถือไม่ได้: localhost ในมือถือหมายถึงมือถือ ไม่ใช่ PC ตัวเชื่อมปัจจุบันรองรับ loopback บนเครื่องเดียวเท่านั้น
+
+## ขอบเขตที่ต้องทราบ
+
+ยังไม่ได้ทดสอบ LM Studio และโมเดลจริงบนเครื่องเจ้าของ ผลเทสต์ใน repo ใช้ server จำลอง ส่วน D20 หลายขั้นและสมาชิกปาร์ตี้ลงมืออัตโนมัติยังไม่เสร็จ การต่อโมเดลไม่ได้สร้างกลไกเหล่านั้นขึ้นมาเอง ปัจจุบัน AI เสนอได้เฉพาะคำสั่งที่เอนจินรองรับ ตรวจสถานะล่าสุดใน HANDOFF.md

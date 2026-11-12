@@ -34,3 +34,9 @@ Show current HP/MP, statuses, equipment by slot, owned inventory and quantities,
 ## Current implementation evidence
 
 At commit 9bc12bd the narrative prototype still has 2 AP, explicit end-round and held-cast rules. Existing 54 pure and 6 focused browser successes apply to that prototype, not this new contract. Do not mark the new flow complete on that evidence.
+
+## Confirmed sequential plans and party roleplay — 12 Nov 2026
+
+Owner confirms: preview the complete plan, then resolve each step in order. On the first failed step, retain completed effects, stop immediately, do not roll or spend resources for unstarted steps, narrate only through the failed step, and return control to the player. Never automatically resume the remainder. D20 outcomes must come from the engine, never model text.
+
+Owner requests independent party personalities: supply database biography/personality/relationships to DM for roleplay and proposed decisions. Mechanical execution still requires validated actors, owned resources and supported actions. Missing biography is unknown, not permission to assert invented history. Automated party action scheduling and full D20 multi-step execution are pending, not implemented by adding a prompt. The context explicitly reports executionAvailable:false until a real plan executor is tested. Current isolated story lab uses the same policy/context.

@@ -2,7 +2,7 @@ window.EvervaleContentSchema = {"schemas":{"npc":{"fields":[{"key":"name","label
 
 // Retired authoring fields: no runtime consumer for these meanings.
 (function(schema){
- const retired={npc:['gold','location','category'],monster:['initiative','stealthDC','attackType','aiBehavior','combatTactics','habitat','locations','element','rarity'],item:['targetType'],proficiency:['category','maxLevel','milestones']};
+ const retired={npc:['gold','location','category'],monster:['initiative','stealthDC','attackType','habitat','locations','element','rarity'],item:['targetType'],proficiency:['category','maxLevel','milestones']};
  schema.retiredFields=retired;
  for(const [kind,keys] of Object.entries(retired))schema.schemas[kind].fields=schema.schemas[kind].fields.filter(f=>!keys.includes(f.key));
 })(window.EvervaleContentSchema);

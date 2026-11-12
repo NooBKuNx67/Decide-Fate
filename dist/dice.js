@@ -1,0 +1,7 @@
+/* Dice validation and results. No game-state mutation and no model-supplied totals. */
+(function(g){'use strict';
+function spec(count,sides,bonus=0){if(!Number.isInteger(count)||count<1||count>20||![4,6,8,10,12,20,100].includes(sides)||!Number.isInteger(bonus)||Math.abs(bonus)>1000)throw Error('ชนิดเต๋าหรือโบนัสไม่ถูกต้อง');return {count,sides,bonus};}
+function resolve(rule,values,mode='normal'){const r=spec(rule.count,rule.sides,rule.bonus);if(!['normal','advantage','disadvantage'].includes(mode)||mode!=='normal'&&(r.count!==2||r.sides!==20))throw Error('ได้เปรียบ/เสียเปรียบใช้ 2D20');if(!Array.isArray(values)||values.length!==r.count||values.some(v=>!Number.isInteger(v)||v<1||v>r.sides))throw Error('กรอกแต้มทุกลูกตั้งแต่ 1 ถึง '+r.sides);const subtotal=mode==='advantage'?Math.max(...values):mode==='disadvantage'?Math.min(...values):values.reduce((a,b)=>a+b,0);return {...r,values:[...values],mode,subtotal,total:subtotal+r.bonus};}
+function roll(rule,mode='normal'){const r=spec(rule.count,rule.sides,rule.bonus),values=[];for(let i=0;i<r.count;i++){const limit=Math.floor(4294967296/r.sides)*r.sides;let n;do{n=globalThis.crypto.getRandomValues(new Uint32Array(1))[0];}while(n>=limit);values.push(1+n%r.sides);}return resolve(r,values,mode);}
+const api={spec,resolve,roll};g.DecideDice=api;if(typeof module!=='undefined')module.exports=api;
+})(typeof window==='undefined'?globalThis:window);

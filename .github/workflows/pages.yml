@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate game
         run: |
+          node dice.test.cjs
           node battle-view.test.cjs
           node battle-data.test.cjs
           node combat-data.test.cjs

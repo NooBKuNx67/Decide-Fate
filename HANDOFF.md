@@ -258,3 +258,8 @@ Final validation: pure 54/54 PASS; full-schema.test.cjs and content-authoring-ui
 ## Local AI owner setup guide
 
 LOCAL-DM.md and dist/local-ai-guide.html now give Thai Windows installation, Qwen2.5-7B-Instruct GGUF Q4_K_M starting recommendation (3B fallback), context/GPU setup, loopback server, CORS, model ID discovery, in-game configuration, isolated test and troubleshooting. Linked from story settings; cache84. Program UI names may differ by release; actual LM Studio/model/hardware remains untested. Guide explicitly distinguishes remaining D20/party implementation from model connection. Validation: tools/check.cjs PASS 54/54; story-ui.test.cjs PASS 1/1 mocked. Publication hold remains; GitHub push only.
+
+## Dice table — partial implementation
+
+Added independent dice table on story screen (also reachable through isolated story lab): cryptographic unbiased rolls, per-die manual entry, count/range validation, bonuses, 2D20 advantage/disadvantage, locked animation while rolling and mobile layout. dice.test.cjs added to CI; tools/check discovers it automatically. Cache85. This is a visual animated 2D token, NOT realistic physical 3D dice. It does not override attack results and is not the complete requested action-bound D20 workflow. Do not mark that request complete. Future integration must bind each roll to a pending validated action and prevent rerolls/stale submissions, then request actual weapon damage dice. Pure 55/55 PASS. Initial browser attempt failed because preview was stopped; rerun after starting preview. No real auth/storage used; publication held.
+Browser dice-ui.test.cjs PASS: valid manual result, rejected out-of-range result, animated roll and mobile width.

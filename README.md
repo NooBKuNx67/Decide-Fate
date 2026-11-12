@@ -131,3 +131,7 @@ See [DATABASE-LIVE-LINKS.md](DATABASE-LIVE-LINKS.md) for the current implementat
 ผลประเมินความพร้อมปัจจุบัน: [GAME-READINESS.md](GAME-READINESS.md) — กลไกเล่นทดสอบได้ งานค้างหลักคือโลก/NPC/บริการ เงื่อนไขเควส และตรวจรับเซฟ/คลาวด์จริง; แยกโค้ด workspace ออกจากเวอร์ชันที่เผยแพร่แล้ว
 
 วงจรโลก/NPC/เควสเชื่อมแล้ว: [WORLD-QUEST-LOOP.md](WORLD-QUEST-LOOP.md) มี placement, บริการใน VN, conditions, เป้าหมาย kill/item, ส่งของ/กันรางวัลซ้ำ และ chapter bridge; ตรวจรับบัญชีจริงตาม [OWNER-ACCEPTANCE.md](OWNER-ACCEPTANCE.md)
+
+### Narrative play (12 Nov 2026)
+
+Use **เล่นแบบเล่าเรื่อง** from the main menu. Type to Local DM, review the interpreted action, then confirm. Without a model, the engine's available actions and deterministic result text remain usable. Narrative combat has no player AP budget or held casting; each confirmed action receives an enemy response. Equipment and inventory remain engine-owned facts. For Windows local model setup and current limits, see [LOCAL-DM.md](LOCAL-DM.md) and [HANDOFF.md](HANDOFF.md). The Update Test Field includes direct narrative story and combat entries.

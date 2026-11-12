@@ -30,7 +30,7 @@
     el('h2',c.name,party);el('p','Lv. '+c.level+' · '+c.job,party);const hero=state.expedition?.units.find(u=>u.id==='hero');el('p','HP '+(hero?.hp??state.hp)+' · MP '+(hero?.mana??state.mp),party);el('p',state.gold+' เหรียญ',party);
     if(state.adventure?.companion)el('p','ลิน · HP '+state.adventure.companion.hp,party);
     for(const member of latest.party)el('p',member.name,party);
-    if(state.expedition){el('h2','ในสนาม',party);for(const u of state.expedition.units)el('p',(state.expedition.active===u.id?'▶ ':'')+u.name+' · HP '+u.hp+'/'+u.maxHp+' · AP '+u.action,party);}
+    if(state.expedition){el('h2','ในสนาม',party);for(const u of state.expedition.units)el('p',(state.expedition.active===u.id?'▶ ':'')+u.name+' · HP '+u.hp+'/'+u.maxHp,party);}
     $('storyReceipt').hidden=!receipt;$('storyReceiptData').textContent=receipt?JSON.stringify(receipt,null,2):'';
     $('storyLocation').textContent=(demo?'สนามทดสอบแยกเซฟ · ':'')+(latest.scene.location?.name || 'ระหว่างเดินทาง');
     $('storyTruth').textContent=Story.fallback(latest);
@@ -39,6 +39,13 @@
     if(state.expedition&&!Combat.is(state.expedition)){const b=el('button','เล่นการต่อสู้ที่บันทึกไว้ต่อ',actions);b.id='storyResume';b.onclick=()=>{if(demo){$('storyStatus').textContent='สถานการณ์นี้ทดสอบการเล่าเรื่องเท่านั้น';return;}EverTaleCombat.launch();};}
     if(DecideWorldLinks.pending(state)?.service){const b=el('button','เปิดบริการของ NPC',actions);b.onclick=()=>{if(!demo){const service=DecideWorldLinks.pending(s).service;DecideCatalogServices.openFor(service.npcId,service.type);}};}
     $('storyGear').disabled=!!demo;$('storyClassic').disabled=!!demo;
+    el('h2','สกิลที่เรียน',party);for(const key of latest.learned){const row=R.records(db).find(r=>r.key===key);el('p',row?.displayName||row?.name||key,party);}
+    el('h2','สัมภาระ',party);
+    for(const item of latest.inventory)el('p',item.name+(item.quantity?' ×'+item.quantity:''),party);
+    el('p','ยาพกพา '+latest.supplies.potions+' · วัตถุดิบ '+latest.supplies.reagents,party);
+    const equipped=DecideCatalogEquipment.read(state);
+    el('h2','อุปกรณ์ที่ใส่',party);
+    for(const [slot,ref] of Object.entries(equipped.slots)){const row=DecideCatalogEquipment.row(ref,R.records(db));el('p',DecideCatalogEquipment.slots[slot]+': '+(row?.displayName||ref?.name||'ว่าง'),party);}
     sources(latest);drawTranscript();
   }
   function open(){demo=null;receipt=null;if(!s.character){startAfterCreation=true;openCreate(false);return;}show('storyScreen');}
@@ -49,7 +56,7 @@
   $('storyProvider').onchange=()=>{$('storyEndpoint').value=$('storyProvider').value==='ollama'?'http://127.0.0.1:11434/v1':'http://127.0.0.1:1234/v1';};
   $('storySaveSettings').onclick=()=>{try{localStorage.setItem(key(),JSON.stringify(settings()));$('storyStatus').textContent='บันทึกการตั้งค่าแล้ว';}catch(e){$('storyStatus').textContent=e.message;}};
   $('storyReject').onclick=()=>{pending=null;$('storyConfirm').hidden=true;};
-  $('storyApply').onclick=()=>{try{
+  $('storyApply').onclick=async()=>{try{
     if(!pending || pending.demo!==!!demo)throw Error('เลือกการกระทำใหม่ก่อน');
     const chosen=pending;pending=null;$('storyConfirm').hidden=true;cancel();
     if(Story.revision(snapshot(),database())!==chosen.revision)throw Error('สถานการณ์เปลี่ยนแล้ว โปรดเลือกการกระทำใหม่');
@@ -61,6 +68,17 @@
     line('ผลจากเอนจิน',chosen.label+' • สำเร็จ'+(receipt?'\n'+Combat.summary(receipt):''));draw();
     $('storyStatus').textContent=demo?'ผลจำลอง ไม่บันทึกลงเซฟผู้เล่น':'บันทึกผลการกระทำแล้ว';
     if(!demo&&s.expedition&&!Combat.is(s.expedition))EverTaleCombat.launch();
+    if(settings().model){
+      const ticket=epoch,owner=uid,isDemo=!!demo,fingerprint=Story.revision(snapshot(),database());
+      const facts=Story.facts(snapshot(),database());facts.actions=[];facts.lastAction=receipt;facts.confirmedAction=chosen.label;
+      controller=new AbortController();
+      try{
+        const answer=Story.decode(await DM.completion(settings(),facts,'บรรยายเฉพาะผลที่เอนจินยืนยันแล้ว ห้ามเสนอหรือดำเนินการเพิ่ม',{signal:controller.signal}),facts);
+        if(ticket===epoch&&uid===owner&&isDemo===!!demo&&screen==='storyScreen'&&fingerprint===Story.revision(snapshot(),database()))line('DM · ผลที่เกิดขึ้น',answer.text);
+      }catch(error){if(ticket===epoch)$('storyStatus').textContent='บันทึกผลแล้ว • ใช้ผลจากเอนจินแทนคำบรรยาย AI';}
+      finally{if(ticket===epoch)controller=null;}
+    }
+
   }catch(e){$('storyStatus').textContent=e.message;draw();}};
   $('storyCancel').onclick=()=>{cancel();$('storyStatus').textContent='หยุดรอแล้ว เลือกการกระทำของเกมต่อได้';};
   $('storyForm').onsubmit=async event=>{
@@ -74,6 +92,7 @@
       const answer=Story.decode(await DM.completion(settings(),bundle,utterance,{signal:controller.signal}),bundle);
       if(ticket!==epoch||uid!==owner||isDemo!==!!demo||screen!=='storyScreen'||Story.revision(snapshot(),database())!==fingerprint)return;
       line('Local DM · คำบรรยาย',answer.text);
+      if(answer.actionIds.length===1){const proposed=bundle.actions.find(a=>a.id===answer.actionIds[0]);choose(proposed.id,proposed.label);}
       const actions=$('storyActions');for(const id of answer.actionIds){const action=bundle.actions.find(a=>a.id===id),b=el('button','DM แนะนำ: '+action.label,actions);b.dataset.dmSuggested=id;b.onclick=()=>choose(id,action.label);}
       $('storyStatus').textContent='DM อ้างอิง '+answer.sourceIds.length+' รายการ • ยังไม่มีผลต่อเกมจนกดยืนยัน';
     }catch(error){
@@ -89,7 +108,7 @@
     cancel();const state=R.fresh();R.createCharacter(state,'ผู้ทดสอบเรื่องราว','human','warrior',DB,DecideCreation.recommend(DecideCreation.draft()));
     demo={state,db:{...DB,overrides:JSON.parse(JSON.stringify(DB.overrides || {}))}};transcript=[];pending=null;show('storyScreen');
   };
-  const combatTest=el('button','ทดสอบต่อสู้แบบบรรยาย / 2 AP / ผลคำนวณ');combatTest.id='storyCombatLab';test.after(combatTest);
+  const combatTest=el('button','ทดสอบต่อสู้แบบบรรยาย / ผลคำนวณ');combatTest.id='storyCombatLab';test.after(combatTest);
   combatTest.onclick=()=>{
     test.onclick();
     for(const id of ['chapter:accept','chapter:recruit','chapter:travel:forest','chapter:battle:forest']){

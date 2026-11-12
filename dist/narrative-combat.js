@@ -19,7 +19,7 @@
     if(s.catalogEquipment&&!e.catalogEquipmentApplied){Gear.applyEncounter(e,s,rows);e.catalogEquipmentApplied=true;}
     for(const pair of [['DecideMonsterAI','monster-ai'],['DecideMonsterPassives','monster-passives'],['DecideGridPatterns','grid-patterns'],['DecideStatusEffects','status-effects'],['DecideDisplacement','displacement'],['DecideGridHazards','grid-hazards']])get(pair).prepare(e,rows);
     Actions.prepare(e,s,rows);get(['DecideCatalogLoot','catalog-loot']).prepare(e,rows);
-    e.log.unshift('โหมดบรรยาย • ไม่มีตำแหน่ง • ผู้เล่น 2 AP • ท่าที่พึ่งพื้นที่พักไว้');e.log=e.log.slice(0,30);
+    e.log.unshift('โหมดบรรยาย • ไม่มีตำแหน่ง • ไม่มีแต้ม AP • ท่าที่พึ่งพื้นที่พักไว้');e.log=e.log.slice(0,30);
     C.validate(e);return s;
   }
   function random(e,label){let x=e.seed>>>0;x^=x<<13;x^=x>>>17;x^=x<<5;e.seed=x>>>0;const value=e.seed/4294967296;K.add(e,{type:'random',label,value,seedAfter:e.seed});return value;}
@@ -47,24 +47,26 @@
   }
   function candidates(s,rows){
     const e=s.expedition;if(!is(e))return [];
+    // Legacy resolver action counters are execution adapters, not a narrative budget.
+    for(const u of e.units){u.action=2;delete u.casting;}
     if(e.status!=='active')return [{id:'battle:settle',label:'รับผลการต่อสู้ / กลับเข้าเรื่อง',settle:true}];
     const p=C.hero(e),list=[];
     const add=(id,label,run)=>list.push({id:'battle:'+id,label,run});
     for(const u of e.units.filter(u=>u.side==='player'&&u.hp>0&&u.id!==p.id))add('select:'+u.id,'สั่งการ '+u.name,e=>C.selectUnit(e,u.id));
-    add('end','จบรอบ / ให้ศัตรูทำการกระทำ',endRound);
-    if(e.travelEvent?.allowRetreat!==false)add('retreat','ถอนตัว • ไม่รับรางวัล',e=>{need(C.hero(e).action>=1&&!Z.blocked(C.hero(e)),'ต้องมี 1 AP และไม่ติดสตัน');C.hero(e).action--;C.retreat(e);});
+    add('end','รอดูท่าที / ให้ศัตรูตอบโต้',endRound);
+    if(e.travelEvent?.allowRetreat!==false)add('retreat','ถอนตัว • ไม่รับรางวัล',e=>{need(C.hero(e).action>=1&&!Z.blocked(C.hero(e)),'ไม่สามารถถอนตัวขณะติดสตัน');C.hero(e).action--;C.retreat(e);});
     if(p.action<1||Z.blocked(p))return list;
     if(p.casting)add('cancel','ยกเลิกการร่าย',e=>C.cancelCast(e));
     if(!p.casting){
-      add('guard','ป้องกัน · 1 AP',e=>C.guard(e));
-      if(e.potions&&p.hp<p.maxHp)add('potion','ใช้ยาพกพา · 1 AP',e=>C.potion(e));
+      add('guard','ป้องกัน',e=>C.guard(e));
+      if(e.potions&&p.hp<p.maxHp)add('potion','ใช้ยาพกพา',e=>C.potion(e));
       for(const t of e.units.filter(u=>u.side==='enemy'&&u.hp>0))for(const hand of ['main','off']){
         if(hand==='off'&&(!p.off||p.off==='shield'))continue;
-        add('attack:'+hand+':'+t.id,(hand==='main'?'มือหลัก':'มือรอง')+' → '+t.name+' · 1 AP',e=>{const p=C.hero(e),ap=p.action;X.attack(e,t.id,{hand,stealth:0});p.action=ap-1;});
+        add('attack:'+hand+':'+t.id,(hand==='main'?'มือหลัก':'มือรอง')+' → '+t.name+'',e=>{const p=C.hero(e),ap=p.action;X.attack(e,t.id,{hand,stealth:0});p.action=ap-1;});
       }
       const Effects=get(['DecideCatalogItemEffects','catalog-item-effects']);
       for(const item of rows.filter(r=>r.kind==='item'&&r.enabled!==false&&(s.catalogInventory?.items||[]).includes(r.name)&&Effects.supported(r)&&Effects.mode(r)!=='smoke')){
-        list.push({id:'battle:item:'+item.id,label:'ใช้ '+(item.displayName||item.name)+' · 1 AP',item:item.id});
+        list.push({id:'battle:item:'+item.id,label:'ใช้ '+(item.displayName||item.name)+'',item:item.id});
       }
     }
     for(const id of [...(p.skills||[]),...Actions.list(e,p).map(a=>a.id)]){
@@ -79,20 +81,21 @@
   }
   function execute(s,rows,command,capture=false){
     if(command.settle){const result=C.settle(s);return {snapshot:result.snapshot,receipt:{type:'settlement',status:result.status,reward:result.reward}};}
-    if(command.item){const result=get(['DecideCatalogEconomy','catalog-economy']).useInCombat(s,rows,command.item);return {snapshot:result.snapshot,receipt:{type:'item',result:result.result}};}
+    if(command.item){const result=get(['DecideCatalogEconomy','catalog-economy']).useInCombat(s,rows,command.item);K.withoutPositions(result.snapshot.expedition,()=>endRound(result.snapshot.expedition));result.result.message=result.result.message.replace(' • 1 AP','');return {snapshot:result.snapshot,receipt:{type:'item',result:result.result}};}
     const next=copy(s),e=next.expedition;
+    for(const u of e.units){u.action=2;delete u.casting;}
     let receipt;
-    K.withoutPositions(e,()=>{if(capture)receipt=K.capture(e,()=>command.run(e));else command.run(e);});
+    K.withoutPositions(e,()=>{const resolve=()=>{command.run(e);if(e.status==='active'&&!command.id.startsWith('battle:select:')&&command.id!=='battle:end')endRound(e);};if(capture)receipt=K.capture(e,resolve);else resolve();});
     C.validate(e);if(receipt)receipt.command={id:command.id,label:command.label};return {snapshot:next,receipt};
   }
-  function commands(s,rows){return candidates(s,rows).filter(command=>{try{execute(s,rows,command);return true;}catch{return false;}}).map(({id,label})=>({id,label}));}
-  function apply(s,rows,id){const command=candidates(s,rows).find(a=>a.id===id);need(command,'ท่านี้ไม่พร้อมหรือยังไม่รองรับในโหมดบรรยาย');return execute(s,rows,command,true);}
+  function commands(s,rows){s=copy(s);return candidates(s,rows).filter(command=>{try{execute(s,rows,command);return true;}catch{return false;}}).map(({id,label})=>({id,label}));}
+  function apply(s,rows,id){s=copy(s);const command=candidates(s,rows).find(a=>a.id===id);need(command,'ท่านี้ไม่พร้อมหรือยังไม่รองรับในโหมดบรรยาย');return execute(s,rows,command,true);}
   function summary(receipt){
     if(!receipt)return '';
     if(receipt.type==='settlement')return 'ผลการต่อสู้: '+receipt.status+' • รับ '+receipt.reward.gold+' เหรียญ / '+receipt.reward.xp+' EXP';
     if(receipt.type==='item')return receipt.result.message;
     const lines=[];
-    for(const after of receipt.after){const before=receipt.before.find(u=>u.id===after.id);if(!before)continue;const hp=after.hp-before.hp,mp=after.mp-before.mp,ap=after.ap-before.ap;if(hp||mp||ap)lines.push(after.name+': HP '+before.hp+' → '+after.hp+', MP '+before.mp+' → '+after.mp+', AP '+before.ap+' → '+after.ap);}
+    for(const after of receipt.after){const before=receipt.before.find(u=>u.id===after.id);if(!before)continue;const hp=after.hp-before.hp,mp=after.mp-before.mp,ap=after.ap-before.ap;if(hp||mp||ap)lines.push(after.name+': HP '+before.hp+' → '+after.hp+', MP '+before.mp+' → '+after.mp);}
     if(receipt.events.some(e=>e.type==='miss'))lines.push('มีการโจมตีที่เป้าหมายหลบได้');
     return lines.join('\n')||'เอนจินบันทึกการกระทำแล้ว';
   }

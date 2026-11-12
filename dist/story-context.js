@@ -92,13 +92,15 @@
     const inventory = [...names].slice(0,40).map(name => ({name:text(name,150),quantity:(s.catalogInventory?.items || []).filter(n=>n===name).length,reference:rows.find(r=>r.name===name)?.key || null}));
     return {
       version:1,
-      combat:s.expedition?{id:s.expedition.id,round:s.expedition.round,status:s.expedition.status,units:s.expedition.units.map(u=>({id:u.id,name:u.name,side:u.side,hp:u.hp,maxHp:u.maxHp,mp:u.mana,ap:u.action,effects:copy(u.effects||{})}))}:null,
+      combat:s.expedition?{id:s.expedition.id,round:s.expedition.round,status:s.expedition.status,units:s.expedition.units.map(u=>({id:u.id,name:u.name,side:u.side,hp:u.hp,maxHp:u.maxHp,mp:u.mana,effects:copy(u.effects||{})}))}:null,
       player:s.character ? {name:text(s.character.name,100),level:s.character.level,race:s.character.race,job:s.character.job,hp:s.hp,mp:s.mp,gold:s.gold,stats:copy(s.character.stats)} : null,
       scene:{location:place?{id:place.id,name:text(place.name),description:text(place.description)}:{id:chapter.location,name:({village:'หมู่บ้านลานสน',forest:'ป่ากระซิบ',cave:'ถ้ำหัวใจธาร'})[chapter.location]},chapter,
         chapterActors:chapter.location==='village'?['นารา','ลิน','อีรา']:chapter.companion?['ลิน']:[],
         event:pending?{id:pending.event.id,name:text(pending.event.name),text:text(node?.text || pending.event.text,1600),speaker}:null},
       party:(s.catalogParty || []).map(p=>({id:p.id,name:rows.find(r=>r.kind==='npc'&&r.id===p.id)?.name || p.id})),
       quests:(s.eventJournal?.quests || []).slice(0,15).map(q=>({id:q.id,title:text(q.title),status:q.status,description:text(q.description)})),
+      equipment:copy(s.catalogEquipment || {}),
+      learned:copy(s.learned || []),
       inventory,supplies:{potions:s.character?.inventory?.potions || 0,reagents:s.character?.inventory?.reagents || 0,weapons:(s.character?.inventory?.weapons || []).slice(0,30)},
       recent:(s.logs || []).slice(0,8).map(l=>({day:l.day,text:text(l.text)})),
       references,retrieval:{matches:scored.length,included:references.length,truncated:scored.length>references.length},

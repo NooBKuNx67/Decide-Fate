@@ -11,7 +11,7 @@ const near=NC.apply(s,f.rows,a.id),far=copy(s);far.expedition.units[0].n=0;far.e
 for(const u of far.expedition.units){far.expedition.scene.cells[Math.floor(u.n/2)].terrain='path';far.expedition.scene.cells[Math.floor(u.n/2)].object='none';}
 const distant=NC.apply(far,f.rows,a.id);
 assert.deepEqual(distant.snapshot.expedition.units.map(u=>[u.hp,u.action]),near.snapshot.expedition.units.map(u=>[u.hp,u.action]));assert.equal(distant.snapshot.expedition.seed,near.snapshot.expedition.seed);
-assert.equal(near.snapshot.expedition.units[0].action,1);assert(near.receipt.events.some(e=>e.type==='hitChance'));assert(!JSON.stringify(near.snapshot).includes('seedBefore'));
+assert.equal(near.snapshot.expedition.round,s.expedition.round+1,'Confirmed attack includes one enemy response');assert(near.receipt.events.some(e=>e.type==='hitChance'));assert(!JSON.stringify(near.snapshot).includes('seedBefore'));
 const base=copy(legacy.expedition),traced=copy(base);X.damage(base,base.units[0],base.units[1]);K.capture(traced,()=>X.damage(traced,traced.units[0],traced.units[1]));assert.deepEqual(traced,base,'Trace cannot alter legacy state or RNG');
 assert.throws(()=>K.withoutPositions(base,()=>{throw Error('stop');}));assert.equal(K.active(base),false);
 const injected=copy(s);injected.expedition.units[0].skills.push('fire','backstab','step');assert(!NC.commands(injected,f.rows).some(a=>/cast:(fire|backstab|step):/.test(a.id)));
@@ -28,4 +28,16 @@ function finish(state){
 }
 s=finish(s);assert(s.adventure.forest);assert.equal(s.expedition,null);assert.throws(()=>NC.apply(s,f.rows,'battle:settle'));
 s=A.change(s,'learn',f.rows);s=A.change(s,'travel:village',f.rows);s=A.change(s,'rest',f.rows);s=A.change(s,'travel:cave',f.rows);s=A.change(s,'seal',f.rows);s=NC.adopt(A.battle(s,'cave',f.rows),f.rows);s=finish(s);assert(s.adventure.cave);s=A.change(s,'travel:village',f.rows);s=A.change(s,'restore',f.rows);const gold=s.gold;assert.throws(()=>A.change(s,'restore',f.rows));assert.equal(R.validate(copy(s),f.db).gold,gold);
-console.log('PASS narrative: real chapter forest/cave/end, engine shared damage/trace parity, no-position targeting invariance, 2 AP, party/enemy turns, hidden spatial skills, atomic rejection, save roundtrips and once-only settlement');
+console.log('PASS narrative: real chapter forest/cave/end, engine shared damage/trace parity, no-position targeting invariance, no AP budget, automatic enemy response, hidden spatial skills, atomic rejection, save roundtrips and once-only settlement');
+// Narrative actions do not require remaining tactical AP; probing stays immutable.
+const exhausted=copy(NC.adopt(legacy,f.rows));
+for(const u of exhausted.expedition.units)u.action=0;
+const exhaustedBefore=copy(exhausted);
+const available=NC.commands(exhausted,f.rows);
+assert(available.some(c=>c.id.startsWith('battle:attack:main:')));
+assert.deepEqual(exhausted,exhaustedBefore);
+NC.apply(exhausted,f.rows,available.find(c=>c.id.startsWith('battle:attack:main:')).id);
+assert.deepEqual(exhausted,exhaustedBefore);
+const selection=NC.commands(exhausted,f.rows).find(c=>c.id.startsWith('battle:select:'));
+if(selection){const chosen=NC.apply(exhausted,f.rows,selection.id).snapshot;assert.equal(chosen.expedition.round,exhausted.expedition.round);assert.deepEqual(chosen.expedition.units.map(u=>u.hp),exhausted.expedition.units.map(u=>u.hp));}
+assert.equal(NC.apply(exhausted,f.rows,available.find(c=>c.id.startsWith('battle:attack:main:')).id).snapshot.expedition.round,exhausted.expedition.round+1);

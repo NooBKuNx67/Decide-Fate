@@ -225,3 +225,21 @@ In-memory receipts show random draws and damage/HP/MP/AP changes without storing
 Validation before the direct lab entry: pure 54/54; narrative-combat-ui.test.cjs, story-ui.test.cjs, tactical-v2-ui.test.cjs, combat-polish.test.cjs, closeout-resume-ui.test.cjs, world-links-ui.test.cjs all PASS (6/6). The new narrative browser suite covers forest/cave/ending, mid-combat reload, no repeat reward, mobile layout and legacy frozen encounter routing. Source cache80. Publication remains held.
 
 Final direct-lab verification: tools/check.cjs PASS 54/54; narrative-combat-ui.test.cjs PASS including attack receipt and unchanged player snapshot in the isolated battle lab. Initial rerun could not connect because preview server had stopped (ERR_CONNECTION_REFUSED); starting node preview.cjs and rerunning resolved it without test/engine changes.
+
+## Superseding owner decision — 12 Nov 2026
+
+See NARRATIVE-PLAY-CONTRACT.md. Owner removed AP, cast duration and spatial/sensory range rules from the target narrative mode and confirmed interpretation preview before execution. The shipped narrative-v1 prototype does not yet implement this decision. Preserve prior tests as historical evidence; new exchange-flow validation is required before claiming that only local AI setup remains. Publication hold continues.
+
+### Narrative exchange work paused at test-policy conflict
+
+Working tree adds automatic enemy response after confirmed narrative actions (selection does not trigger a response), authoritative inventory/equipment sidebar, and single-action DM interpretation preview. Not committed or release-ready. `node tools/check.cjs` stops at narrative-combat.test.cjs:14: the old expected remaining AP is 1, while the automatic response starts the next exchange with resolver counter 2. Owner removed AP from the design, but earlier instructions prohibit modifying assertions and require stopping on previously passing failures. No assertion changed. Remaining tests were not fully run; no new pass count claimed. LOCAL-DM.md documents setup with actual hardware/model verification still outstanding.
+
+## Narrative exchange implementation — 12 Nov 2026
+
+Owner authorized updating obsolete AP assertions and no longer requires old-save compatibility. The earlier test-policy pause is resolved. Narrative commands now normalize resolver counters internally rather than gate player actions on AP; class spells resolve without held casting under narrative execution context. A confirmed combat action triggers enemy response and status/cooldown progression once; selecting a party member does not. Waiting is an explicit supported action. Inventory item use also triggers response. Position-dependent effects remain unavailable rather than being converted into invented damage.
+
+Single-action model proposals open the confirmation panel. After a committed action, configured Local DM receives updated facts and a read-only result narration request; invalid/offline narration leaves the committed state intact. Inventory, equipment slots and learned catalog keys accompany model facts. Story sidebar shows these values; equipment layout now uses portrait plus ordered slots and item selection. Cache81.
+
+Validation: tools/check.cjs PASS 54/54. story-ui.test.cjs, narrative-combat-ui.test.cjs, equipment-ui.test.cjs, equipment-icon-ui.test.cjs, battle-isometric.test.cjs, orientation.test.cjs PASS 6/6. closeout-resume-ui.test.cjs also PASS in preceding focused run. Added pure assertions for zero-AP command availability, immutable proposals, one enemy response and no response on party selection. Prior AP=1 assertion replaced with exchange-round advancement under owner authorization. Browser log labels mentioning 2 AP describe old names, not a remaining narrative requirement. Equipment browser rerun after contrast correction. All QA uses mock auth/storage.
+
+Scope: chapter-one command-backed narrative play is tested, not arbitrary freeform world simulation or all catalog skill effects. Local model integration is mocked: LM Studio setup, actual model output, CORS/local network permissions and performance still require the owner's machine. See LOCAL-DM.md. No new publication acceptance claimed; no deployment or workflow run.
